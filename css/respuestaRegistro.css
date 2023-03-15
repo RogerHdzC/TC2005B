@@ -1,5 +1,7 @@
-.alert-success{
+body{
     color: white;
-    background-color: #1793ff;
-    border-color: #1793ff;
+}
+
+card-body{
+    color: white;
 }
