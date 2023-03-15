@@ -10,48 +10,53 @@
 
    <!-- CSS -->
    <link href="css/general.css" rel="stylesheet">
+   <link href="css/editarProyectoEstudiante.css" rel="stylesheet">
 
    <!-- JS-->
-
+   <title>Editar Proyecto</title>
 </head>
 <body>
-   <nav class="navbar navbar-dark bg-dark">
+   <nav class="navbar navbar-dark bg-primary">
       <div class="container-fluid">
         <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             <span class="navbar-toggler-icon"></span>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="pagina_inicio_estudiantes.html">Inicio</a></li>
             <li><a class="dropdown-item" href="registrar_proyecto_estudiante.html">Registrar Proyectos</a></li>
             <li><a class="dropdown-item" href="mis_proyectos_Estudiante.html">Mis proyectos</a></li>
-            <li><a class="dropdown-item" href="explorar_proyectos.html">Explorar Proyectos</a></li>
-            <li><a class="dropdown-item" href="ver_layout.html">Ver Layour</a></li>
+            <li><a class="dropdown-item" href="explorar_proyectos_estudiante.html">Explorar Proyectos</a></li>
+            <li><a class="dropdown-item" href="ver_layout_estudiante.html">Ver Layout</a></li>
             <li><a class="dropdown-item" href="resultados_estudiante.html">Resultados</a></li>
-            <li><a class="dropdown-item" href="preguntas_frecuentes.html">Preguntas Frecuentes</a></li>
-            <li><a class="dropdown-item" href="sobre_nosotros.html">Sobre Nosotros</a></li>
-            <li><a class="dropdown-item" href="ajustes_allUsers.html">Ajustes</a></li>
+            <li><a class="dropdown-item" href="sobre_nosotros_estudiante.html">Sobre Nosotros</a></li>
+            <li><a class="dropdown-item" href="preguntas_frecuentes_estudiante.html">Preguntas Frecuentes</a></li>
+            <li><a class="dropdown-item" href="ajustes_estudiante.html">Ajustes</a></li>
           </ul>
         </div>
-        <h1>Registro Proyecto</h1>
+        <a class="navbar-brand" href="pagina_inicio_estudiantes.html">
+          <img src="img/homeicon.png" alt="" width="40" height="40">
+        </a>
       </div>
     </nav>
 <form>
-
-
+   <br>
+   <h1>Editar Proyecto</h1>
+   <br></br>
       <div class="container">
          <div class="row">
             <div class="col-3">
                Nombre del Proyecto: 
             </div>
             <div class="col-3">
-               <input type="text" class="form-control" required>
+               <input type="text" class="form-control" value="Programming AI" required>
             </div>
             <div class="col-3">
                Profesor: 
             </div>
             <div class="col-3">
                <div class="mb-3">
-                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder" required>
+                  <input type="text" class="form-control" id="formGroupExampleInput" value="Daniel Pérez Rojas" required>
                 </div>
             </div>
          </div>
@@ -61,7 +66,7 @@
             </div>
             <div class="col-3">
                <div class="mb-3">
-                  <input type="text" class="form-control" id="validationServer02" required>
+                  <input type="text" class="form-control" id="validationServer02" value="Computación" required>
                 </div>
             </div>
             <div class="col-3">
@@ -69,9 +74,9 @@
             </div>
             <div class="col-3">
                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" required>
+                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" value="danperez" required>
                   <span class="input-group-text">@</span>
-                  <input type="text" class="form-control" placeholder="Server" aria-label="Server" required>
+                  <input type="text" class="form-control" placeholder="Server" aria-label="Server" value="tec.mx" required>
                 </div>
             </div>
          </div>
@@ -82,11 +87,10 @@
             <div class="col-3">
                <div class="mb-3">
                   <select class="form-select" aria-label="Default select example" required>
-                     <option selected>Opciones</option>
                      <option value="1">Nano</option>
                      <option value="2">Bio</option>
                      <option value="3">Nexus</option>
-                     <option value="4">Cyber</option>
+                     <option selected="4">Cyber</option>
                    </select>
                 </div>
             </div>
@@ -95,8 +99,8 @@
             </div>
             <div class="col-3">
                <div class="input-group">
-                  <span class="input-group-text">With textarea</span>
-                  <textarea class="form-control" aria-label="With textarea"></textarea>
+                  <span class="input-group-text"></span>
+                  <textarea class="form-control" aria-label="With textarea">Este proyecto consiste en la programación de una IA... </textarea>
                 </div>
             </div>
          </div>
@@ -106,15 +110,14 @@
                Nombre de la UF:
             </div>
             <div class="col-3">
-               <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder" required>
+               <input type="text" class="form-control" id="formGroupExampleInput" value="Construcción de Software (TC2005B)" required>
             </div>
             <div class="col-3">
                Nivel de Desarrollo:
             </div>
             <div class="col-3">
                <select class="form-select" aria-label="Default select example">
-                  <option selected>Opciones</option>
-                  <option value="1">Concepto</option>
+                  <option selected="1">Concepto</option>
                   <option value="2">Prototipo</option>
                   <option value="3">Producto Terminado</option>
                 </select>
@@ -127,9 +130,9 @@
             </div>
             <div class="col-3">
                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+                  <input type="text" class="form-control" aria-label="Username" value="A0XXXXXXX">
                   <span class="input-group-text">@</span>
-                  <input type="text" class="form-control" placeholder="Server" aria-label="Server">
+                  <input type="text" class="form-control" aria-label="Server" value="tec.mx">
                 </div>
             </div>
             <div class="col-3">
@@ -147,9 +150,9 @@
             </div>
             <div class="col-3">
                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+                  <input type="text" class="form-control" aria-label="Username" value="A0XXXXXXX">
                   <span class="input-group-text">@</span>
-                  <input type="text" class="form-control" placeholder="Server" aria-label="Server">
+                  <input type="text" class="form-control" aria-label="Server" value="tec.mx">
                 </div>
             </div>
             <div class="col-3">
@@ -167,10 +170,18 @@
             </div>
             <div class="col-3">
                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+                  <input type="text" class="form-control" aria-label="Username" value="A0XXXXXXX">
                   <span class="input-group-text">@</span>
-                  <input type="text" class="form-control" placeholder="Server" aria-label="Server">
+                  <input type="text" class="form-control" aria-label="Server" value="tec.mx">
                 </div>
+            </div>
+            <div class="col-3">
+               Espacio Para Subir Imagen del Proyecto (.png): 
+            </div>
+            <div class="col-3">
+               <div class="mb-3">
+                  <input class="form-control" type="file" id="formFile">
+               </div>
             </div>
          </div>
          <div class="row">
@@ -179,9 +190,9 @@
             </div>
             <div class="col-3">
                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+                  <input type="text" class="form-control" aria-label="Username" value="A0XXXXXXX">
                   <span class="input-group-text">@</span>
-                  <input type="text" class="form-control" placeholder="Server" aria-label="Server">
+                  <input type="text" class="form-control" aria-label="Server" value="tec.mx">
                 </div>
             </div>
          </div>
@@ -193,26 +204,20 @@
          <div class="row">
             <div class="col-9">
                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                  <label class="form-check-label" for="inlineCheckbox1">1</label>
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                  <label class="form-check-label" for="inlineRadio1">Sí</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                  <label class="form-check-label" for="inlineCheckbox2">2</label>
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <label class="form-check-label" for="inlineRadio2">No</label>
                 </div>
+                <br></br>
             </div>
          </div>
       </div>
-      <div class="row">
-        <div class="col-6">
-            <button class="btn btn-primary btn-danger" type="submit">Eliminar Proyecto</button>
-          </div>
-          <div class="col-6">
-           <button class="btn btn-primary btn-success" type="submit">Guardar Cambios</button>
-         </div>
-      </div>
-      
+      <button type="button" class="btn btn-success btn-custom" onclick="document.location='mis_proyectos_Estudiante.html'">Guardar Cambios</button>
+      <button type="button" class="btn btn-danger btn-custom" onclick="document.location='mis_proyectos_Estudiante.html'">Eliminar Proyecto</button>
+      <br></br>
       </form>
-       
 </body>
 </html>

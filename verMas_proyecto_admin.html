@@ -10,16 +10,10 @@
 
    <!-- CSS -->
    <link href="css/general.css" rel="stylesheet">
+   <link href="css/verMasProyecto.css" rel="stylesheet">
 
    <!-- JS-->
-   <title>Editar Proyecto</title>
-   <style>
-    .btn-custom {
-      width: 200px;
-      padding: 15px;
-      font-size: 15px;
-    }
-  </style>
+   <title>Ver más - Proyecto</title>
 </head>
 <body>
    <nav class="navbar navbar-dark bg-primary">
@@ -38,23 +32,26 @@
             <li><a class="dropdown-item" href="ajustes_admin.html">Ajustes</a></li>
           </ul>
         </div>
+        <a class="navbar-brand" href="pagina_inicio_admin.html">
+          <img src="img/homeicon.png" alt="" width="40" height="40">
+        </a>
       </div>
     </nav>
 <form>
    <br>
-   <h1>Editar Proyecto</h1>
+   <h1>Ver más - Proyecto</h1>
    <br></br>
       <div class="container">
          <div class="row">
-            <div class="col-3"><font size = 4px>
+            <div class="col-3">
                Nombre del Proyecto: 
-            </font></div>
+            </div>
             <div class="col-3">
                <input type="text" class="form-control" value="Programming AI" required>
             </div>
-            <div class="col-3"><font size = 4px>
+            <div class="col-3">
                Profesor: 
-            </font></div>
+            </div>
             <div class="col-3">
                <div class="mb-3">
                   <input type="text" class="form-control" id="formGroupExampleInput" value="Daniel Pérez Rojas" required>
@@ -62,17 +59,17 @@
             </div>
          </div>
          <div class="row">
-            <div class="col-3"><font size = 4px>
+            <div class="col-3">
                Categoría
-            </font></div>
+            </div>
             <div class="col-3">
                <div class="mb-3">
                   <input type="text" class="form-control" id="validationServer02" value="Computación" required>
                 </div>
             </div>
-            <div class="col-3"><font size = 4px>
+            <div class="col-3">
                Correo del Profesor:
-            </font></div>
+            </div>
             <div class="col-3">
                <div class="input-group mb-3">
                   <input type="text" class="form-control" placeholder="Username" aria-label="Username" value="danperez" required>
@@ -82,9 +79,9 @@
             </div>
          </div>
          <div class="row">
-            <div class="col-3"><font size = 4px>
+            <div class="col-3">
                Área Estratégica
-            </font></div>
+            </div>
             <div class="col-3">
                <div class="mb-3">
                   <select class="form-select" aria-label="Default select example" required>
@@ -95,9 +92,9 @@
                    </select>
                 </div>
             </div>
-            <div class="col-3"><font size = 4px>
+            <div class="col-3">
                Descripción del Proyecto
-            </font></div>
+            </div>
             <div class="col-3">
                <div class="input-group">
                   <span class="input-group-text"></span>
@@ -107,15 +104,15 @@
          </div>
          <br>
          <div class="row">
-            <div class="col-3"><font size = 4px>
+            <div class="col-3">
                Nombre de la UF:
-            </font></div>
+            </div>
             <div class="col-3">
                <input type="text" class="form-control" id="formGroupExampleInput" value="Construcción de Software (TC2005B)" required>
             </div>
-            <div class="col-3"><font size = 4px>
+            <div class="col-3">
                Nivel de Desarrollo:
-            </font></div>
+            </div>
             <div class="col-3">
                <select class="form-select" aria-label="Default select example">
                   <option selected="1">Concepto</option>
@@ -126,9 +123,9 @@
          </div>
          <br>
          <div class="row">
-            <div class="col-3"><font size = 4px>
+            <div class="col-3">
                Correo de Compañero
-            </font></div>
+            </div>
             <div class="col-3">
                <div class="input-group mb-3">
                   <input type="text" class="form-control" aria-label="Username" value="A0XXXXXXX">
@@ -136,9 +133,9 @@
                   <input type="text" class="form-control" aria-label="Server" value="tec.mx">
                 </div>
             </div>
-            <div class="col-3"><font size = 4px>
+            <div class="col-3">
                Espacio Para Subir Video (.mp4): 
-            </font></div>
+            </div>
             <div class="col-3">
                <div class="mb-3">
                   <input class="form-control" type="file" id="formFile">
@@ -146,9 +143,9 @@
             </div>
          </div>
          <div class="row">
-            <div class="col-3"><font size = 4px>
+            <div class="col-3">
                Correo de Compañero
-            </font></div>
+            </div>
             <div class="col-3">
                <div class="input-group mb-3">
                   <input type="text" class="form-control" aria-label="Username" value="A0XXXXXXX">
@@ -156,9 +153,9 @@
                   <input type="text" class="form-control" aria-label="Server" value="tec.mx">
                 </div>
             </div>
-            <div class="col-3"><font size = 4px>
+            <div class="col-3">
                Espacio Para Subir Poster (.pdf): 
-            </font></div>
+            </div>
             <div class="col-3">
                <div class="mb-3">
                   <input class="form-control" type="file" id="formFile">
@@ -166,9 +163,29 @@
             </div>
          </div>
          <div class="row">
-            <div class="col-3"><font size = 4px>
+            <div class="col-3">
                Correo de Compañero
-            </font></div>
+            </div>
+            <div class="col-3">
+               <div class="input-group mb-3">
+                  <input type="text" class="form-control" aria-label="Username" value="A0XXXXXXX">
+                  <span class="input-group-text">@</span>
+                  <input type="text" class="form-control" aria-label="Server" value="tec.mx">
+                </div>
+            </div>
+            <div class="col-3">
+               Espacio Para Subir Imagen del Proyecto (.png): 
+            </div>
+            <div class="col-3">
+               <div class="mb-3">
+                  <input class="form-control" type="file" id="formFile">
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-3">
+               Correo de Compañero
+            </div>
             <div class="col-3">
                <div class="input-group mb-3">
                   <input type="text" class="form-control" aria-label="Username" value="A0XXXXXXX">
@@ -177,40 +194,25 @@
                 </div>
             </div>
          </div>
-         <div class="row">
-            <div class="col-3"><font size = 4px>
-               Correo de Compañero
-            </font></div>
-            <div class="col-3">
-               <div class="input-group mb-3">
-                  <input type="text" class="form-control" aria-label="Username" value="A0XXXXXXX">
-                  <span class="input-group-text">@</span>
-                  <input type="text" class="form-control" aria-label="Server" value="tec.mx">
-                </div>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-9"><font size = 4px>
-               Tiene Componente de Emprendimiento
-            </div>
-         </font></div>
          <div class="row">
             <div class="col-9">
-               <div class="form-check form-check-inline"><font size = 4px>
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                  <label class="form-check-label" for="inlineCheckbox1">Sí</label>
-               </font></div>
-                <div class="form-check form-check-inline"><font size = 4px>
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                  <label class="form-check-label" for="inlineCheckbox2">No</label>
-               </font></div>
+               Tiene Componente de Emprendimiento
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-9">
+               <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                  <label class="form-check-label" for="inlineRadio1">Sí</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
                 <br></br>
             </div>
          </div>
       </div>
-      <button type="button" class="btn btn-success btn-custom"><font size = 4px>Guardar Cambios</font></button>
-      <button type="button" class="btn btn-danger btn-custom"><font size = 4px>Eliminar Proyecto</font></button>
-      <br></br>
       </form>
 </body>
 </html>

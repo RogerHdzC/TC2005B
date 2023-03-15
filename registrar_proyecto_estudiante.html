@@ -10,34 +10,39 @@
 
    <!-- CSS -->
    <link href="css/general.css" rel="stylesheet">
+   <link href="css/registrarProyectoEstudiante.css" rel="stylesheet">
 
    <!-- JS-->
-
+   <title>Registrar Proyecto</title>
 </head>
 <body>
-   <nav class="navbar navbar-dark bg-dark">
+   <nav class="navbar navbar-dark bg-primary">
       <div class="container-fluid">
         <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             <span class="navbar-toggler-icon"></span>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="pagina_inicio_estudiantes.html">Inicio</a></li>
             <li><a class="dropdown-item" href="registrar_proyecto_estudiante.html">Registrar Proyectos</a></li>
             <li><a class="dropdown-item" href="mis_proyectos_Estudiante.html">Mis proyectos</a></li>
-            <li><a class="dropdown-item" href="explorar_proyectos.html">Explorar Proyectos</a></li>
-            <li><a class="dropdown-item" href="ver_layout.html">Ver Layour</a></li>
+            <li><a class="dropdown-item" href="explorar_proyectos_estudiante.html">Explorar Proyectos</a></li>
+            <li><a class="dropdown-item" href="ver_layout_estudiante.html">Ver Layout</a></li>
             <li><a class="dropdown-item" href="resultados_estudiante.html">Resultados</a></li>
-            <li><a class="dropdown-item" href="preguntas_frecuentes.html">Preguntas Frecuentes</a></li>
-            <li><a class="dropdown-item" href="sobre_nosotros.html">Sobre Nosotros</a></li>
-            <li><a class="dropdown-item" href="ajustes_allUsers.html">Ajustes</a></li>
+            <li><a class="dropdown-item" href="sobre_nosotros_estudiante.html">Sobre Nosotros</a></li>
+            <li><a class="dropdown-item" href="preguntas_frecuentes_estudiante.html">Preguntas Frecuentes</a></li>
+            <li><a class="dropdown-item" href="ajustes_estudiante.html">Ajustes</a></li>
           </ul>
         </div>
-        <h1>Registro Proyecto</h1>
+        <a class="navbar-brand" href="pagina_inicio_estudiantes.html">
+          <img src="img/homeicon.png" alt="" width="40" height="40">
+        </a>
       </div>
     </nav>
 <form>
-
-
+   <br>
+   <h1>Registrar Proyecto</h1>
+   <br></br>
       <div class="container">
          <div class="row">
             <div class="col-3">
@@ -51,7 +56,7 @@
             </div>
             <div class="col-3">
                <div class="mb-3">
-                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder" required>
+                  <input type="text" class="form-control" id="formGroupExampleInput" required>
                 </div>
             </div>
          </div>
@@ -95,6 +100,7 @@
             </div>
             <div class="col-3">
                <div class="input-group">
+                  <span class="input-group-text"></span>
                   <textarea class="form-control" aria-label="With textarea"></textarea>
                 </div>
             </div>
@@ -105,7 +111,7 @@
                Nombre de la UF:
             </div>
             <div class="col-3">
-               <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder" required>
+               <input type="text" class="form-control" id="formGroupExampleInput" required>
             </div>
             <div class="col-3">
                Nivel de Desarrollo:
@@ -171,6 +177,14 @@
                   <input type="text" class="form-control" placeholder="Server" aria-label="Server">
                 </div>
             </div>
+            <div class="col-3">
+               Espacio Para Subir Imagen del Proyecto (.png): 
+            </div>
+            <div class="col-3">
+               <div class="mb-3">
+                  <input class="form-control" type="file" id="formFile">
+               </div>
+            </div>
          </div>
          <div class="row">
             <div class="col-3">
@@ -184,7 +198,7 @@
                 </div>
             </div>
          </div>
-         <div class="row">3
+         <div class="row">
             <div class="col-9">
                Tiene Componente de Emprendimiento
             </div>
@@ -192,21 +206,19 @@
          <div class="row">
             <div class="col-9">
                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                  <label class="form-check-label" for="inlineCheckbox1">1</label>
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                  <label class="form-check-label" for="inlineRadio1">Sí</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                  <label class="form-check-label" for="inlineCheckbox2">2</label>
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <label class="form-check-label" for="inlineRadio2">No</label>
                 </div>
+                <br></br>
             </div>
          </div>
       </div>
-      <div class="col-12">
-         <button class="btn btn-primary" type="submit">Submit form</button>
-       </div>
-
+      <button type="button" class="btn btn-primary btn-custom" onclick="document.location='respuesta_registro_proyecto.html'">Registrar</button>
+      <br></br>
       </form>
-       
 </body>
 </html>

@@ -10,82 +10,89 @@
 
     <!-- CSS -->
     <link href="css/general.css" rel="stylesheet">
-    <link href="css/sobreNosotros.css" rel="stylesheet">
+    <link href="css/sobreNosotrosAdmin.css" rel="stylesheet">
 
-    <title>Document</title>
+    <title>Sobre Nosotros</title>
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-dark bg-primary">
         <div class="container-fluid">
           <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               <span class="navbar-toggler-icon"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="pagina_inicio_admin.html">Inicio</a></li>
               <li><a class="dropdown-item" href="ver_usuarios_admin.html">Ver Usuarios</a></li>
               <li><a class="dropdown-item" href="ver_proyectos_Admin.html">Ver Proyectos</a></li>
-              <li><a class="dropdown-item" href="asignar_jueces.html">Asignar Jueces</a></li>
-              <li><a class="dropdown-item" href="preguntas_frecuentes.html">Preguntas Frecuentes</a></li>
               <li><a class="dropdown-item" href="sobre_nosotros_admin.html">Sobre Nosotros</a></li>
-              <li><a class="dropdown-item" href="ajustes_allUsers.html">Ajustes</a></li>
+              <li><a class="dropdown-item" href="preguntas_frecuentes_admin.html">Preguntas Frecuentes</a></li>
+              <li><a class="dropdown-item" href="historicodatos.html">Historico de Datos</a></li>
+              <li><a class="dropdown-item" href="ajustes_admin.html">Ajustes</a></li>
             </ul>
           </div>
-          <h1>Sobre Nosotros</h1>
+          <a class="navbar-brand" href="pagina_inicio_admin.html">
+            <img src="img/homeicon.png" alt="" width="40" height="40">
+          </a>
         </div>
       </nav>
-      
 
-
-
-    <div class="row preguntas">
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-header">
-                    ¿Quiénes Somos?
-                    </div>
-                <div class="card-body">
+      <div class="container-fluid">
+        <br>
+        <h1>Sobre Nosotros</h1>
+        <br>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6">
+                <div class="card text-white bg-primary">
+                    <div class="card-header">
+                        ¿Quiénes Somos?
+                        </div>
+                <div class="card-body bg-light">
                     <p class="card-text">Somos la Escuela de Ingeniería y Ciencias del Tec de Monterrey Campus Puebla y organizadores de la Expo Ingenierías..</p>
                 </div>
+                </div>
             </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-header">
-                    ¿Qué es la Expo Ingenierías?
-                  </div>
-                <div class="card-body">
-                    <p class="card-text">Un evento organizado por la Escuela de Ingeniería y Ciencias en donde los alumnos de las distintas carreras del área tienen la oportunidad de presentar sus proyectos al público.</p>
+            <div class="col-sm-6">
+                <div class="card text-white bg-primary">
+                    <div class="card-header">
+                        ¿Qué es la Expo Ingenierías?
+                      </div>
+                    <div class="card-body bg-light">
+                        <p class="card-text">Un evento organizado por la Escuela de Ingeniería y Ciencias en donde los alumnos de las distintas carreras del área tienen la oportunidad de presentar sus proyectos al público.</p>
+                    </div>
                 </div>
             </div>
         </div>
+        <br>
+        <div class="row preguntas">
+            <div class="col-sm-6">
+                <div class="card text-white bg-primary">
+                    <div class="card-header">
+                        Misión
+                        </div>
+                    <div class="card-body bg-light">
+                        <p class="card-text">Fomentar la participación e interés de la comunidad TEC por el área de la Ingeniería y la Ciencia.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card text-white bg-primary">
+                    <div class="card-header">
+                        Visión
+                      </div>
+                    <div class="card-body bg-light">
+                        <p class="card-text">Con la realización de proyectos innovadores y de valor en la Escuela de Ingeniería y Ciencias podremos contribuir positivamente a la sociedad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+  </div>
+    <br>
+    <div>
+        <button type="button" class="btn btn-primary btn-custom" onclick="document.location=''">Editar Datos</button>
     </div>
     <br>
-    <div class="row preguntas">
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-header">
-                    Misión
-                    </div>
-                <div class="card-body">
-                    <p class="card-text">Fomentar la participación e interés de la comunidad TEC por el área de la Ingeniería y la Ciencia.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-header">
-                    Visión
-                  </div>
-                <div class="card-body">
-                    <p class="card-text">Con la realización de proyectos innovadores y de valor en la Escuela de Ingeniería y Ciencias podremos contribuir positivamente a la sociedad.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div>
-        <button type="button" class="btn btn-primary btn-lg" onclick="document.location=''">Editar Datos</button>
-    </div>
-
 </body>
 </html>

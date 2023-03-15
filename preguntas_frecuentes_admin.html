@@ -10,49 +10,56 @@
 
     <!-- CSS -->
     <link href="css/general.css" rel="stylesheet">
-    <link href="css/preguntasFrecuentes.css" rel="stylesheet">
+    <link href="css/preguntasFrecuentesAdmin.css" rel="stylesheet">
 
-    <title>Document</title>
+    <title>Preguntas Frecuentes</title>
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-dark bg-primary">
         <div class="container-fluid">
           <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               <span class="navbar-toggler-icon"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="pagina_inicio_admin.html">Inicio</a></li>
               <li><a class="dropdown-item" href="ver_usuarios_admin.html">Ver Usuarios</a></li>
               <li><a class="dropdown-item" href="ver_proyectos_Admin.html">Ver Proyectos</a></li>
-              <li><a class="dropdown-item" href="asignar_jueces.html">Asignar Jueces</a></li>
-              <li><a class="dropdown-item" href="preguntas_frecuentes.html">Preguntas Frecuentes</a></li>
               <li><a class="dropdown-item" href="sobre_nosotros_admin.html">Sobre Nosotros</a></li>
-              <li><a class="dropdown-item" href="ajustes_allUsers.html">Ajustes</a></li>
+              <li><a class="dropdown-item" href="preguntas_frecuentes_admin.html">Preguntas Frecuentes</a></li>
+              <li><a class="dropdown-item" href="historicodatos.html">Historico de Datos</a></li>
+              <li><a class="dropdown-item" href="ajustes_admin.html">Ajustes</a></li>
             </ul>
           </div>
-          <h1>Preguntas Frecuentes</h1>
+          <a class="navbar-brand" href="pagina_inicio_admin.html">
+            <img src="img/homeicon.png" alt="" width="40" height="40">
+          </a>
         </div>
       </nav>
-
-
-    <div class="row preguntas">
+    
+<div class="container-fluid">
+    <br>
+    <h1>Preguntas Frecuentes</h1>
+    <br>
+    <div class="container">
+    <div class="row">
         <div class="col-sm-6">
-            <div class="card">
-                <div class="card-header">
+            <div class="card text-white bg-primary">
+                <div class="card-title">
                     Fechas Importantes
-                    </div>
+                </div>
             </div>
             <br>
             <div class="card">
                 <div class="card-header">
-                    <p>Postulaciones</p>
+                    <p><b>Postulaciones</b></p>
                     <p>1 Noviembre - 25 Noviembre</p>
                 </div>
             </div>
             <br>
             <div class="card">
                 <div class="card-header">
-                    <p>Asignación de Jurado y Espacios</p>
+                    <p><b>Asignación de Jurado y Espacios</b></p>
                     <p> 2 Diciembre</p>
                 </div>
                 
@@ -60,23 +67,23 @@
             <br>
             <div class="card">
                 <div class="card-header">
-                    <p>Expo-Ingenierias</p>
+                    <p><b>Expo-Ingenierias</b></p>
                     <p> 6 Diciembre</p>
                 </div>
             </div>
             <br>
         </div>
         <div class="col-sm-6">
-            <div class="card">
-                <div class="card-header">
+            <div class="card text-white bg-primary">
+                <div class="card-title">
                     Tutoriales
-                  </div>
+                </div>
             </div>
             <br>
             
                 <p>
-                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        ¿Qué es la Expo-Ingenierías?
+                    <a class="btn btn-light btn-custom" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <b>¿Qué es la Expo-Ingenierías?</b>
                     </a>
                 </p>
                 <div class="collapse" id="collapseExample">
@@ -86,8 +93,8 @@
                 </div>
             <br>
                 <p>
-                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1">
-                        ¿Cómo registrar un proyecto?
+                    <a class="btn btn-light btn-custom" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1">
+                    <b>¿Cómo registrar un proyecto?</b>
                     </a>
                 </p>
                 <div class="collapse" id="collapseExample1">
@@ -97,8 +104,8 @@
                 </div>
             <br>
                 <p>
-                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
-                        ¿Cómo ver los resultados de mi proyecto?
+                    <a class="btn btn-light btn-custom" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
+                    <b>¿Cómo ver los resultados de mi proyecto?</b>
                     </a>
                 </p>
                 <div class="collapse" id="collapseExample2">
@@ -108,8 +115,8 @@
                 </div>
             <br>
                 <p>
-                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample3">
-                        ¿Cómo ver los otros proyectos participantes?
+                    <a class="btn btn-light btn-custom" data-bs-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample3">
+                    <b>¿Cómo ver los otros proyectos participantes?</b>
                     </a>
                 </p>
                 <div class="collapse" id="collapseExample3">
@@ -119,8 +126,8 @@
                 </div>
             <br>
                 <p>
-                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample4" role="button" aria-expanded="false" aria-controls="collapseExample4">
-                        ¿Cómo descargar mi reconocimiento?
+                    <a class="btn btn-light btn-custom" data-bs-toggle="collapse" href="#collapseExample4" role="button" aria-expanded="false" aria-controls="collapseExample4">
+                    <b>¿Cómo descargar mi reconocimiento?</b>
                     </a>
                 </p>
                 <div class="collapse" id="collapseExample4">
@@ -131,8 +138,11 @@
             <br>
         </div>
     </div>
+</div>
+</div>
     <div>
-        <button type="button" class="btn btn-primary btn-lg" onclick="document.location=''">Editar Datos</button>
+        <button type="button" class="btn btn-primary btn-customm" onclick="document.location=''">Editar Datos</button>
     </div>
+    <br>
 </body>
 </html>

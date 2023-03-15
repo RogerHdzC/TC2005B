@@ -10,33 +10,39 @@
 
    <!-- CSS -->
    <link href="css/general.css" rel="stylesheet">
-    <title>Document</title>
+   <link href="css/calificarDocenteJuez.css" rel="stylesheet">
+    <title>Calificar Proyecto</title>
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-dark bg-primary">
         <div class="container-fluid">
-            <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                <span class="navbar-toggler-icon"></span>
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="navbar-toggler-icon"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="registrar_proyecto_estudiante.html">Registrar Proyectos</a></li>
-                <li><a class="dropdown-item" href="mis_proyectos_Estudiante.html">Mis proyectos</a></li>
-                <li><a class="dropdown-item" href="explorar_proyectos.html">Explorar Proyectos</a></li>
-                <li><a class="dropdown-item" href="ver_layout.html">Ver Layout</a></li>
-                <li><a class="dropdown-item" href="resultados_estudiante.html">Resultados</a></li>
-                <li><a class="dropdown-item" href="preguntas_frecuentes.html">Preguntas Frecuentes</a></li>
-                <li><a class="dropdown-item" href="sobre_nosotros.html">Sobre Nosotros</a></li>
-                <li><a class="dropdown-item" href="ajustes_allUsers.html">Ajustes</a></li>
+              <li><a class="dropdown-item" href="pagina_inicio_docenteJuez.html">Inicio</a></li>
+              <li><a class="dropdown-item" href="mis_proyectos_docenteJuez.html">Mis proyectos</a></li>
+              <li><a class="dropdown-item" href="explorar_proyectos_docentejuez.html">Explorar Proyectos</a></li>
+              <li><a class="dropdown-item" href="proyectosa_calificar.html">Proyectos a Calificar</a></li>
+              <li><a class="dropdown-item" href="ver_layout_docenteJuez.html">Ver Layout</a></li>
+              <li><a class="dropdown-item" href="sobre_nosotros_docenteJuez.html">Sobre Nosotros</a></li>
+              <li><a class="dropdown-item" href="preguntas_frecuentes_docenteJuez.html">Preguntas Frecuentes</a></li>
+              <li><a class="dropdown-item" href="ajustes_docenteJuez.html">Ajustes</a></li>
             </ul>
-            </div>
-            <h1>Pagina Inicio</h1>
+          </div>
+          <a class="navbar-brand" href="pagina_inicio_docenteJuez.html">
+            <img src="img/homeicon.png" alt="" width="40" height="40">
+          </a>
         </div>
-    </nav>  
+      </nav>
+      <br>
+      <h1>Calificar Proyecto</h1>
+      <br></br>
     <div class="container">
        <div class="row">
             <div class="col-12">
-                <h1> Utilidad</h1>
+                <h2> Utilidad</h2>
             </div>
             <div class="col-12">
                 El proyecto resuelve un problema actual en el área de interés y/o el proyecto da alta prioridad al cliente quien queda ampliamente satisfecho.
@@ -59,16 +65,13 @@
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
                     <label class="form-check-label" for="inlineRadio2">4</label>
                 </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                    <label class="form-check-label" for="inlineRadio2">5</label>
-                </div>
                 Excelente
             </div>
         </div>
+        <br></br>
         <div class="row">
             <div class="col-12">
-                <h1> Impacto e Innovación</h1>
+                <h2> Impacto e Innovación</h2>
             </div>
             <div class="col-12">
                 El proyecto presenta una idea nueva e impacta positivamente en el área de interés y/o el producto presenta una idea nueva e incrementa la productividad.
@@ -91,22 +94,19 @@
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
                     <label class="form-check-label" for="inlineRadio2">4</label>
                 </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                    <label class="form-check-label" for="inlineRadio2">5</label>
-                </div>
                 Excelente
             </div>
         </div>
+        <br></br>
         <div class="row">
             <div class="col-12">
-                <h1> Resultados del Producto Final</h1>
+                <h2> Resultados del Producto Final</h2>
             </div>
             <div class="col-12">
                 Ausencia de errores técnicos los resultados y/o producto resuelven el problema propuesto.
             </div>
             <div class="col-12">
-                Deficiente 
+                Deficiente  
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                     <label class="form-check-label" for="inlineRadio1">1</label>
@@ -123,13 +123,12 @@
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
                     <label class="form-check-label" for="inlineRadio2">4</label>
                 </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                    <label class="form-check-label" for="inlineRadio2">5</label>
-                </div>
                 Excelente
             </div>
         </div>
     </div>
+    <br></br>
+    <button type="button" class="btn btn-primary btn-custom" onclick="document.location='respuestacalificacionDocenteJuez.html'">Enviar Calificación</button>
+    <br></br>
 </body>
 </html>

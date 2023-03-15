@@ -1,145 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-           <!-- BOOTSTRAP-->
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- BOOTSTRAP-->
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
    <!-- CSS -->
    <link href="css/general.css" rel="stylesheet">
-    <title>Document</title>
+   <link href="css/resultadosEstudiante.css" rel="stylesheet">
+   <title>Resultados</title>
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-dark bg-primary">
         <div class="container-fluid">
-            <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                <span class="navbar-toggler-icon"></span>
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="navbar-toggler-icon"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="registrar_proyecto_estudiante.html">Registrar Proyectos</a></li>
-                <li><a class="dropdown-item" href="mis_proyectos_Estudiante.html">Mis proyectos</a></li>
-                <li><a class="dropdown-item" href="explorar_proyectos.html">Explorar Proyectos</a></li>
-                <li><a class="dropdown-item" href="ver_layout.html">Ver Layout</a></li>
-                <li><a class="dropdown-item" href="resultados_estudiante.html">Resultados</a></li>
-                <li><a class="dropdown-item" href="preguntas_frecuentes.html">Preguntas Frecuentes</a></li>
-                <li><a class="dropdown-item" href="sobre_nosotros.html">Sobre Nosotros</a></li>
-                <li><a class="dropdown-item" href="ajustes_allUsers.html">Ajustes</a></li>
+              <li><a class="dropdown-item" href="pagina_inicio_estudiantes.html">Inicio</a></li>
+              <li><a class="dropdown-item" href="registrar_proyecto_estudiante.html">Registrar Proyectos</a></li>
+              <li><a class="dropdown-item" href="mis_proyectos_Estudiante.html">Mis proyectos</a></li>
+              <li><a class="dropdown-item" href="explorar_proyectos_estudiante.html">Explorar Proyectos</a></li>
+              <li><a class="dropdown-item" href="ver_layout_estudiante.html">Ver Layout</a></li>
+              <li><a class="dropdown-item" href="resultados_estudiante.html">Resultados</a></li>
+              <li><a class="dropdown-item" href="sobre_nosotros_estudiante.html">Sobre Nosotros</a></li>
+              <li><a class="dropdown-item" href="preguntas_frecuentes_estudiante.html">Preguntas Frecuentes</a></li>
+              <li><a class="dropdown-item" href="ajustes_estudiante.html">Ajustes</a></li>
             </ul>
-            </div>
-            <h1>Pagina Inicio</h1>
+          </div>
+          <a class="navbar-brand" href="pagina_inicio_estudiantes.html">
+            <img src="img/homeicon.png" alt="" width="40" height="40">
+          </a>
         </div>
-    </nav>  
+      </nav>
+  <div class="container-fluid">
+    <br>
+    <h1>Resultados</h1>
+    <br>
     <div class="container">
         <div class="row">
-            <div class="col-3">
-                Proyecto 1
-            </div>
-            <div class="col-3">
-                
-            </div>
-            <div class="col-3">
-                Calificacion Final:
-            </div>
-            <div class="col-3">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                  Ver más
-                                </button>
-                                <ul class="dropdown-menu">
-                                  <li><a class="dropdown-item" href="#">Action</a></li>
-                                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                  <li><hr class="dropdown-divider"></li>
-                                  <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                </ul>
-                              </div>
-                        </div>
-                        <div class="col-6">
-                            <a class="btn btn-primary" href="#" role="button">Descargar Reconocimiento</a>
-                        </div>
-                    </div>
-                </div> 
-            </div>
+          <div class="col-sm-6">
+        <div class="card h-100">
+          <div class="card-header bg-warning">Proyecto Ganador</div>
+          <img src="img/app.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Proyecto 1</h5>
+            <p class="card-text">Calificación Final: 9.85</p>
+            <a href="verMas_proyecto_estudiante.html" class="btn btn-primary">Ver más</a>
+            <a href="reconocimiento.html" class="btn btn-primary">Descargar Reconocimiento</a>
+          </div>
         </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-3">
-                Proyecto 1
-            </div>
-            <div class="col-3">
-                
-            </div>
-            <div class="col-3">
-                Calificacion Final:
-            </div>
-            <div class="col-3">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                  Ver más
-                                </button>
-                                <ul class="dropdown-menu">
-                                  <li><a class="dropdown-item" href="#">Action</a></li>
-                                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                  <li><hr class="dropdown-divider"></li>
-                                  <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                </ul>
-                              </div>
-                        </div>
-                        <div class="col-6">
-                            <a class="btn btn-primary" href="#" role="button">Descargar Reconocimiento</a>
-                        </div>
-                    </div>
-                </div> 
-            </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-header bg-light">Calificado</div>
+          <img src="img/brazo.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Proyecto 2</h5>
+            <p class="card-text">Calificación Final: 9.69</p>
+            <a href="verMas_proyecto_estudiante.html" class="btn btn-primary">Ver más</a>
+            <a href="reconocimiento.html" class="btn btn-primary">Descargar Reconocimiento</a>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-3">
-                Proyecto 1
-            </div>
-            <div class="col-3">
-                Ganador
-            </div>
-            <div class="col-3">
-                Calificacion Final:
-            </div>
-            <div class="col-3">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                  Ver más
-                                </button>
-                                <ul class="dropdown-menu">
-                                  <li><a class="dropdown-item" href="#">Action</a></li>
-                                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                  <li><hr class="dropdown-divider"></li>
-                                  <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                </ul>
-                              </div>
-                        </div>
-                        <div class="col-6">
-                            <a class="btn btn-primary" href="#" role="button">Descargar Reconocimiento</a>
-                        </div>
-                    </div>
-                </div> 
-            </div>
-        </div>
-    </div>
-</body>
+</div>
+</div>
+    <br>
+  </body>
 </html>
