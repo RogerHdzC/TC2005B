@@ -1,0 +1,12 @@
+h1{
+    color: white
+}
+
+body {
+    color:black;
+    text-align: center;
+}
+
+.card-header {
+    font-size: 18px;
+}

@@ -1,8 +1,8 @@
 body{
     text-align: center;
-    font-size: xx-large;
+    font-size: 25px;
 }
 
-.preguntas {
-    color:black;
+.card-text{
+    color: black
 }

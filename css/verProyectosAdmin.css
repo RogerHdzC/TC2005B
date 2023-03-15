@@ -1,0 +1,18 @@
+h1{
+    color: white
+}
+
+.card-body {
+    color:black;
+    text-align: center;
+}
+
+.form-check-label {
+    font-size: 20px;
+}
+
+.btn-custom {
+    width: 200px;
+    padding: 15px;
+    font-size: 20px;
+}
