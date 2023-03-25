@@ -2,4 +2,244 @@ body {
     background-color: #040227;
     color:white;
     text-align: center;
+    font-size: 25px;
 }
+
+/* FONT SIZE */
+
+.font-20{
+    font-size: 20px;
+}
+    /**
+        * Preguntas frecuentes Admin
+        * Proyectos a calificar
+        * Preguntas frecuentes Estudiante
+        * Preguntas frecuentes Docente Juez
+    */
+.p1-color{
+    color:black;
+}
+
+.carousel{
+    width: 100%;
+    height: 100%;
+}
+
+/* HEADER */
+    /**
+        * Mis proyectos Docente Juez
+        * Preguntas Frecuentes Admin
+        * Proyectos a Calificar
+    */
+.h1-p1{
+    color:white;
+}
+
+/* BUTTONS */
+
+    /**
+        * Ajustes 
+        * Editar proyectos estudiantes
+        * Registrar proyecto estudiantes
+        * Respuesta registro proyecto
+        * Respuesta calificacion admin
+        * Respuesta calificacion Docente
+        * Ver proyectos admin
+        * Ver usuarios admin
+    */
+.btn-p1 {
+    width: 200px;
+    padding: 15px;
+    font-size: 20px;
+ }
+
+.btn-de-estado{
+    width: 200px;
+    margin-top: 5%;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+} 
+    /**
+        * Asignar jueces
+        * Calificar Admin
+        * Calificar Docente Juez
+    */
+.btn-p2 {
+    width: 250px;
+    padding: 15px;
+    font-size: 20px;
+}
+
+    /**
+        * Historico Datos
+        * Inicio admin
+        * Inicio estudiante
+        * Inicio Profesor
+        * Inicio sesion
+    */
+.btn-p3 {
+    width: 400px;
+    height: 80px;
+    font-size: 25px;
+}
+
+    /**
+        * Pagina bienvenida 
+    */
+.btn-p4 {
+    width: 500px;
+    padding: 20px;
+    font-size: 30px;
+}
+
+    /**
+        * Preguntas frecuentes
+        * Preguntas frecuentes admin
+    */
+.btn-p5 {
+    width: 630px;
+    height: 45px;
+    font-size: 20px;
+}
+
+    /**
+        * Preguntas frecuentes admin ulimo btn
+        * Registro
+    */
+.btn-p6 {
+    width: 400px;
+    padding: 15px;
+    font-size: 25px;
+    margin: 50px;
+}
+
+/* CARDS */
+    /**
+        * Ver Proyectos Admin
+    */
+.card-p1 {
+    color:black;
+    text-align: center;
+}
+
+    /**
+        * Proyectos a calificar
+        * Resultados Estudiante
+    */
+.card-p1-header{
+    font-size: 18px;
+}
+
+    /**
+        * Preguntas Frecuentes Admin
+    */
+.card-p2-header{
+    font-size: 20px;
+}
+
+    /**
+        * Preguntas Frecuentes Admin
+    */
+.card-p1-title{
+    font-size: 30px;
+    padding: 10px;
+}
+
+.preguntas{
+    background-color: blue;
+}
+/**
+*Sobre nosotros admin
+*/
+
+.card-info{
+    width: 100%;
+    height: 70%;
+}
+
+.card-info2{
+    width: 100%;
+    height: 100%;
+}
+
+/* FORMS */
+    /**
+        * Ver Proyectos Admin
+    */
+.check-p1 {
+    font-size: 20px;
+}
+
+/* COLS */
+    /**
+        * Ver Usuarios Admin
+    */
+.col-p1-3{
+    font-size: 16px;
+}
+
+    /**
+        * ver mas proyectos
+    */
+.col-p2-3{
+    font-size: 20px;
+}
+
+    /**
+        * Ver mas proyectos
+    */
+.col-p1-9{
+    font-size: 20px;
+}
+
+    /**
+        * Asignar Jueces
+    */
+.col-p1-6{
+    font-size: 25px;
+}
+    /**
+        * Calificar Admin
+        * Calificar Docente Juez
+    */
+.col-p1-12{
+    font-size: 20px;
+}
+
+    /**
+        * Calificar Docente Juez
+    */
+.col-p1-13{
+    font-size: 20px;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+
+/* OBJETOS ARRASTRABLES */
+.example-parent {
+    display: flex;
+    font-family: sans-serif;
+    font-weight: bold;
+  }
+  
+  .example-origin {
+    flex-basis: 100%;
+    flex-grow: 1;
+    padding: 10px;
+  }
+  
+  .example-draggable {
+    background-color: #4AAE9B;
+    font-weight: normal;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 10px;
+  }
+  
+  .example-dropzone {
+    flex-basis: 100%;
+    flex-grow: 1;
+    padding: 10px;
+  }
