@@ -24,9 +24,9 @@
 <?php
 
 //validamos datos del servidor
-$user = "root";
-$pass = "122469";
-$host = "localhost";
+$user = "TC2005B_401_1";
+$pass = "h9S0#t-B&0PH9rI#";
+$host = "lab403azms01.itesm.mx";
 
 //conetamos al base datos
 $connection = mysqli_connect($host, $user, $pass);
@@ -42,7 +42,7 @@ $nombreCompleto = $nombre . " " . $apellidoPaterno . " " . $apellidoMaterno;
 //verificamos la conexion a base datos
 if(($server == "tec.mx"  && $usuario[0]!="A" )){
     //indicamos el nombre de la base datos
-    $datab = "test_proyecto";
+    $datab = "TC2005B_401_1";
     //indicamos selecionar ala base datos
     $db = mysqli_select_db($connection,$datab);
     //insertamos datos de registro al mysql xamp, indicando nombre de la tabla y sus atributos
@@ -68,7 +68,7 @@ if(($server == "tec.mx"  && $usuario[0]!="A" )){
     echo "</div>";
 } elseif($server == "tec.mx" && $usuario[0]=="A"){
     //indicamos el nombre de la base datos
-    $datab = "test_proyecto";
+    $datab = "TC2005B_401_1";
     //indicamos selecionar ala base datos
     $db = mysqli_select_db($connection,$datab);
     //insertamos datos de registro al mysql xamp, indicando nombre de la tabla y sus atributos
@@ -94,7 +94,7 @@ if(($server == "tec.mx"  && $usuario[0]!="A" )){
     echo "</div>";
 } elseif($server != "tec.mx"){
     //indicamos el nombre de la base datos
-    $datab = "test_proyecto";
+    $datab = "TC2005B_401_1";
     //indicamos selecionar ala base datos
     $db = mysqli_select_db($connection,$datab);
     //insertamos datos de registro al mysql xamp, indicando nombre de la tabla y sus atributos

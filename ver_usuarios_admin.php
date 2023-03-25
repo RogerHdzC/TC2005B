@@ -17,15 +17,14 @@
 <?php
 
 //validamos datos del servidor
-$user = "root";
-$pass = "122469";
-$host = "localhost";
-
+$user = "TC2005B_401_1";
+$pass = "h9S0#t-B&0PH9rI#";
+$host = "lab403azms01.itesm.mx";
 //conetamos al base datos
 $connection = mysqli_connect($host, $user, $pass);
 
     //indicamos el nombre de la base datos
-    $datab = "test_proyecto";
+    $datab = "TC2005B_401_1";
     //indicamos selecionar ala base datos
     $db = mysqli_select_db($connection,$datab);     
     $consulta = "SELECT * FROM md1_docente";
