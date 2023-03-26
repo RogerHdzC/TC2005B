@@ -34,7 +34,7 @@ $connection = mysqli_connect($host, $user, $pass);
     {
         echo "No se ha podido realizar la consulta";
         //echo "Fuera " ;
-    echo'<a href="pagina_bienvenida.html"> Volver Atrás</a>';
+    echo'<a href="index.html.html"> Volver Atrás</a>';
     }
     
 ?>
