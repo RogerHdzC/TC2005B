@@ -60,7 +60,7 @@ if(($server == "tec.mx"  && $usuario[0]!="A" )){
                     echo "<a href='inicio_sesion.html'><button type='button' class='btn btn-dark btn-custom btn-p1'>Iniciar Sesión</button></a>";
                     echo "</div>";
                     echo "<div class='col-6'>";
-                    echo "<a href='index.html.html'><button type='button' class='btn btn-dark btn-custom btn-p1'>Inicio</button></a>";
+                    echo "<a href='index.html'><button type='button' class='btn btn-dark btn-custom btn-p1'>Inicio</button></a>";
                     echo "</div>";
                 echo "</div>";
             echo "</div>";
@@ -86,7 +86,7 @@ if(($server == "tec.mx"  && $usuario[0]!="A" )){
                     echo "<a href='inicio_sesion.html'><button type='button' class='btn btn-dark btn-custom btn-p1'>Iniciar Sesión</button></a>";
                     echo "</div>";
                     echo "<div class='col-6'>";
-                    echo "<a href='index.html.html'><button type='button' class='btn btn-dark btn-custom btn-p1'>Inicio</button></a>";
+                    echo "<a href='index.html'><button type='button' class='btn btn-dark btn-custom btn-p1'>Inicio</button></a>";
                     echo "</div>";
                 echo "</div>";
             echo "</div>";
@@ -113,7 +113,7 @@ if(($server == "tec.mx"  && $usuario[0]!="A" )){
                 echo "<button type='button' class='btn btn-dark btn-custom btn-p1 disabled' aria-disabled='true' >Iniciar Sesión</button>";
                 echo "</div>";
                 echo "<div class='col-6'>";
-                echo "<a href='index.html.html'><button type='button' class='btn btn-dark btn-custom btn-p1'>Inicio</button></a>";
+                echo "<a href='index.html'><button type='button' class='btn btn-dark btn-custom btn-p1'>Inicio</button></a>";
                 echo "</div>";
             echo "</div>";
         echo "</div>";

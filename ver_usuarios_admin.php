@@ -34,7 +34,7 @@ $connection = mysqli_connect($host, $user, $pass);
     {
         echo "No se ha podido realizar la consulta";
         //echo "Fuera " ;
-    echo'<a href="index.html.html"> Volver Atrás</a>';
+    echo'<a href="index.html"> Volver Atrás</a>';
     }
     
 ?>
@@ -49,7 +49,7 @@ $connection = mysqli_connect($host, $user, $pass);
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="pagina_inicio_admin.html">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="ver_usuarios_admin.html">Ver Usuarios</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="ver_usuarios_admin.php">Ver Usuarios</a></li>
             <li class="nav-item"><a class="nav-link" href="ver_proyectos_Admin.html">Ver Proyectos</a></li>
             <li class="nav-item"><a class="nav-link" href="sobre_nosotros_admin.html">Sobre Nosotros</a></li>
             <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_admin.html">Preguntas Frecuentes</a></li>

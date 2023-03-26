@@ -18,46 +18,47 @@
   <body>
     <br></br>
     <h1>Registro</h1>
+    <form action="respuesta_registro.php" name="" method="POST">
     <div class="container">
       <br>
       <div class="row">
         <div class="col-5 align-self-center">Nombre(s): </div>       
         <div class="col-5 align-self-center">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <input type="text" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" name="nombreProfesor" id="nombreProfesor">
           </div>     
         </div>
         <br></br>
         <div class="col-5 align-self-center">Apellidos: </div>
         <div class="col-5 align-self-center">
           <div class="input-group mb-3">
-            <input type="text" aria-label="First name" class="form-control">
-            <input type="text" aria-label="Last name" class="form-control">
+            <input type="text" aria-label="First name" class="form-control" name="apellidoPaterno" id="apellidoPaterno">
+            <input type="text" aria-label="Last name" class="form-control" name="apellidoMaterno" id="apellidoMaterno">
           </div>
         </div>
         <br></br>
         <div class="col-5 align-self-center">Correo: </div>
         <div class="col-5 align-self-center">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="" aria-label="Username">
+            <input type="text" class="form-control" placeholder="" aria-label="Username" name="correoProfesor" id="correoProfesor">
             <span class="input-group-text">@</span>
-            <input type="text" class="form-control" placeholder="" aria-label="Server">
+            <input type="text" class="form-control" placeholder="" aria-label="Server" name="serverProfesor" id="serverProfesor">
           </div>
         </div>
         <br></br>
         <div class="col-5 align-self-center">Contraseña: </div>
         <div class="col-5 align-self-center">
           <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <input type="password" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" name="password" id="password">
           </div>  
         </div>
         <br></br>
         <div class="col-12 align-self-center">
           <br>
-        <button type="button" class="btn btn-primary btn-custom btn-6" onclick="document.location='respuesta_registro.html'">Registrarse</button>  
+        <button type="submit" name="enviar" id="enviar" class="btn btn-primary btn-custom btn-6" onclick="document.location='respuesta_registro.html'">Registrarse</button>  
         </div>
       </div>
    </div>
-
+  </form>
   </body>
 </html>
