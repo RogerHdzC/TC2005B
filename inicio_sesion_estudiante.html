@@ -19,26 +19,27 @@
   <br></br>
    <h1>Inicio de Sesión</h1>
    <br></br>
+      <form method="POST" action="">
       <div class="container">
          <div class="row">
             <div class="col-5 align-self-center">Correo: </div>
             <div class="col-5 align-self-center">
               <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="" aria-label="Username">
+                <input type="text" class="form-control" placeholder="" aria-label="Username" name="user">
                 <span class="input-group-text">@</span>
-                <input type="text" class="form-control" placeholder="" aria-label="Server">
+                <input type="text" class="form-control" placeholder="" aria-label="Server" name="server">
               </div>
             </div>
             <div class="col-5 align-self-center">Contraseña: </div>
             <div class="col-5 align-self-center">
               <div class="input-group mb-3">
-                <input type="password" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <input type="password" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" name="password">
               </div>  
             </div>
             <br></br>
            <div class="col-12">
             <br>
-            <button type="button" class="btn btn-primary btn-custom btn-p3" onclick="document.location='pagina_inicio_estudiantes.html'">Iniciar Sesión</button>
+            <input name="btningresar" class="btn btn-primary btn-custom btn-p3" type="submit" value="INICIAR SESION">
             </div>
             <br></br>
             <br></br>
@@ -47,5 +48,6 @@
             </div>
          </div>
       </div>
+    </form>
 </body>
 </html>

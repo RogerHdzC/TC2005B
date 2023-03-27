@@ -23,13 +23,9 @@
     <br></br>
 <?php
 
-//validamos datos del servidor
-$user = "TC2005B_401_1";
-$pass = "h9S0#t-B&0PH9rI#";
-$host = "lab403azms01.itesm.mx";
+include 'database.php';
 
-//conetamos al base datos
-$connection = mysqli_connect($host, $user, $pass);
+$pdp = Database::connect();
 
 //hacemos llamado al imput de formuario
 $nombre = $_POST["nombreProfesor"] ;
@@ -39,17 +35,12 @@ $usuario = $_POST["correoProfesor"] ;
 $server = $_POST["serverProfesor"] ;
 $password = $_POST["password"];
 $nombreCompleto = $nombre . " " . $apellidoPaterno . " " . $apellidoMaterno;
-//verificamos la conexion a base datos
 if(($server == "tec.mx"  && $usuario[0]!="A" )){
-    //indicamos el nombre de la base datos
-    $datab = "TC2005B_401_1";
-    //indicamos selecionar ala base datos
-    $db = mysqli_select_db($connection,$datab);
     //insertamos datos de registro al mysql xamp, indicando nombre de la tabla y sus atributos
     $instruccion_SQL = "INSERT INTO md1_docente (nomina, nombre, contraseña)
                          VALUES ('$usuario','$nombreCompleto','$password')"; 
-    $resultado = mysqli_query($connection,$instruccion_SQL);
-    mysqli_close( $connection ); 
+
+    Database::disconnect(); 
     echo "<div class='card col-6 offset-3 text-white bg-primary' style='max-width: 80rem;'>";
         echo "<div class='card-body'>";
             echo "<h2 class='card-title'>¡Muy bien!</h2>";
@@ -67,15 +58,10 @@ if(($server == "tec.mx"  && $usuario[0]!="A" )){
         echo "</div>";
     echo "</div>";
 } elseif($server == "tec.mx" && $usuario[0]=="A"){
-    //indicamos el nombre de la base datos
-    $datab = "TC2005B_401_1";
-    //indicamos selecionar ala base datos
-    $db = mysqli_select_db($connection,$datab);
     //insertamos datos de registro al mysql xamp, indicando nombre de la tabla y sus atributos
     $instruccion_SQL = "INSERT INTO md1_estudiante (matricula, nombre, contraseña)
                             VALUES ('$usuario','$nombreCompleto','$password')";          
-    $resultado = mysqli_query($connection,$instruccion_SQL);
-    mysqli_close( $connection );
+    Database::disconnect(); 
     echo "<div class='card col-6 offset-3 text-white bg-primary' style='max-width: 80rem;'>";
         echo "<div class='card-body'>";
             echo "<h2 class='card-title'>¡Muy bien!</h2>";
@@ -93,17 +79,12 @@ if(($server == "tec.mx"  && $usuario[0]!="A" )){
         echo "</div>";
     echo "</div>";
 } elseif($server != "tec.mx"){
-    //indicamos el nombre de la base datos
-    $datab = "TC2005B_401_1";
-    //indicamos selecionar ala base datos
-    $db = mysqli_select_db($connection,$datab);
     //insertamos datos de registro al mysql xamp, indicando nombre de la tabla y sus atributos
     $instruccion_SQL = "INSERT INTO md1_jurado (correo, nombre, contraseña)
                             VALUES ('$usuario','$nombreCompleto','$password')";
-    $resultado = mysqli_query($connection,$instruccion_SQL);
    
-    mysqli_close( $connection );
-    echo "<div class='card col-6 offset-3 text-white bg-primary' style='max-width: 80rem;'>";
+   Database::disconnect(); 
+   echo "<div class='card col-6 offset-3 text-white bg-primary' style='max-width: 80rem;'>";
     echo "<div class='card-body'>";
         echo "<h2 class='card-title'>¡Muy bien!</h2>";
         echo "<h3 class='card-text'>Detectamos que tu correo no corresponde al de un usuario del Tecnológico de Monterrey. Acabamos de enviarle un correo de confirmación al administrador</p>";
@@ -120,8 +101,6 @@ if(($server == "tec.mx"  && $usuario[0]!="A" )){
     echo "</div>";
 echo "</div>";
 }
-   
-//echo "Fuera " ;
 
 
 

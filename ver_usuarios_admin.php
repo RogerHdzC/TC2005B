@@ -15,28 +15,12 @@
 </head>
 <body class="font-20">
 <?php
-
-//validamos datos del servidor
-$user = "TC2005B_401_1";
-$pass = "h9S0#t-B&0PH9rI#";
-$host = "lab403azms01.itesm.mx";
-//conetamos al base datos
-$connection = mysqli_connect($host, $user, $pass);
-
-    //indicamos el nombre de la base datos
-    $datab = "TC2005B_401_1";
-    //indicamos selecionar ala base datos
-    $db = mysqli_select_db($connection,$datab);     
-    $consulta = "SELECT * FROM md1_docente";
-        
-    $result = mysqli_query($connection,$consulta);
-    if(!$result) 
-    {
-        echo "No se ha podido realizar la consulta";
-        //echo "Fuera " ;
-    echo'<a href="index.html"> Volver Atrás</a>';
-    }
     
+    include 'database.php';
+
+    $pdo = Database::connect();
+
+    $consulta = "SELECT * FROM md1_docente";
 ?>
 
 
@@ -74,7 +58,7 @@ $connection = mysqli_connect($host, $user, $pass);
        </div> 
         <?php 
         $num=0; 
-        while ($colum = mysqli_fetch_array($result)){
+        foreach ($pdo->query($consulta) as $colum){
             echo "<div class='row'>";
                 echo "<div class='col-4'>";
                 echo "<div class='form-check'>";
@@ -94,9 +78,8 @@ $connection = mysqli_connect($host, $user, $pass);
             $num=$num+1;
         }
         $consulta = "SELECT * FROM md1_estudiante";
-        $result = mysqli_query($connection,$consulta);
 
-        while ($colum = mysqli_fetch_array($result))
+        foreach ($pdo->query($consulta) as $colum)
         {
 
         echo "<div class='row'>";
@@ -118,8 +101,7 @@ $connection = mysqli_connect($host, $user, $pass);
         $num=$num+1;
         }
         $consulta = "SELECT * FROM md1_jurado";
-        $result = mysqli_query($connection,$consulta);
-        while ($colum = mysqli_fetch_array($result))
+        foreach ($pdo->query($consulta) as $colum)
         {
         echo "<div class='row'>";
             echo "<div class='col-4'>";
@@ -140,8 +122,8 @@ $connection = mysqli_connect($host, $user, $pass);
         $num=$num+1;
      }
 
-        mysqli_close( $connection );
-        ?>
+     Database::disconnect();
+     ?>
         <div class="row">
             <div class="col-4">
             <button type="button" class="btn btn-danger btn-custom">Eliminar Usuarios</button>
