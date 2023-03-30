@@ -69,7 +69,7 @@ if($server == "tec.mx" && $username[0]!="A"){
   echo '<div class="container">';
   echo '<br>';
   echo '<br>';
-  echo "<a href='inicio_sesion_docentejuez.html'><button type='button' class='btn btn-primary btn-custom btn-p3'>Docente</button></a> ";
+  echo "<a href='inicio_sesion_estudiante.html'><button type='button' class='btn btn-primary btn-custom btn-p3'>Estudiante</button></a> ";
   echo '<br>';
   echo '<br>';
   echo "<a href='inicio_sesion_docentejuez.html'><button type='button' class='btn btn-primary btn-custom btn-p3'>Juez</button></a>";
