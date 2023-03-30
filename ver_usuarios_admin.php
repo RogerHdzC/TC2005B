@@ -77,9 +77,9 @@
             echo "</div>";
             $num=$num+1;
         }
-        $consulta = "SELECT * FROM md1_estudiante";
+        $consulta2 = "SELECT * FROM md1_estudiante";
 
-        foreach ($pdo->query($consulta) as $colum)
+        foreach ($pdo->query($consulta2) as $colum)
         {
 
         echo "<div class='row'>";
@@ -100,8 +100,8 @@
         echo "</div>";
         $num=$num+1;
         }
-        $consulta = "SELECT * FROM md1_jurado";
-        foreach ($pdo->query($consulta) as $colum)
+        $consulta2 = "SELECT * FROM md1_jurado";
+        foreach ($pdo->query($consulta2) as $colum)
         {
         echo "<div class='row'>";
             echo "<div class='col-4'>";

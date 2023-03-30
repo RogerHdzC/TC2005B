@@ -74,7 +74,7 @@
       <br>
       <div class="col-12">
         <br>
-        <button type="button" class="btn btn-primary btn-custom btn-p1" onclick="document.location='pagina_inicio_estudiantes.html'">Guardar</button>
+        <button type="button" class="btn btn-primary btn-custom btn-p1" onclick="document.location='logout.php'">Guardar</button>
       </div>
       <br>
       <div class="col-12">
