@@ -13,8 +13,8 @@
 
    <!-- CSS -->
    <link href="css/general.css" rel="stylesheet">
-
-   <title>Ajustes</title>
+   <link href="css/resultadosEstudiante.css" rel="stylesheet">
+   <title>Resultados</title>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -29,10 +29,10 @@
             <li class="nav-item"><a class="nav-link" href="mis_proyectos_Estudiante.php">Mis proyectos</a></li>
             <li class="nav-item"><a class="nav-link" href="explorar_proyectos_estudiante.php">Explorar Proyectos</a></li>
             <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver Layout</a></li>
-            <li class="nav-item"><a class="nav-link" href="resultados_estudiante.php">Resultados</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="resultados_estudiante.php">Resultados</a></li>
             <li class="nav-item"><a class="nav-link" href="sobre_nosotros_estudiante.php">Sobre Nosotros</a></li>
             <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_estudiante.php">Preguntas Frecuentes</a></li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="ajustes_estudiante.php">Ajustes</a></li>
+            <li class="nav-item"><a class="nav-link" href="ajustes_estudiante.php">Ajustes</a></li>
 
           </ul>
         </div>
@@ -41,48 +41,40 @@
         </a>
     </div>
   </nav>
-   <div class="container">
-    <br></br>
-    <h1>Ajustes</h1>
-    <br></br>
-      <div class="row">
-        <div class="col-5 align-self-center">Nombre(s): </div>       
-        <div class="col-5 align-self-center">
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="" value="Pepito" aria-label="Recipient's username" aria-describedby="button-addon2">
-          </div>     
-        </div>
-        <div class="col-5 align-self-center">Apellidos: </div>
-        <div class="col-5 align-self-center">
-          <div class="input-group mb-3">
-            <input type="text" aria-label="First name" value="Manzana" class="form-control">
-            <input type="text" aria-label="Last name" value="Rizo" class="form-control">
+
+  <div class="container-fluid">
+    <br>
+    <h1>Resultados</h1>
+    <br>
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+        <div class="card card-p1 h-100">
+          <div class="card-header card-p1-header bg-warning">Proyecto Ganador</div>
+          <div class="card-body card-p1-header">
+            <img src="img/app.jpg" class="card-img-top card-info" alt="...">
+            <h5 class="card-title">Proyecto 1</h5>
+            <p class="card-text">Calificación Final: 9.85</p>
+            <a href="verMas_proyecto_estudiante.php" class="btn btn-primary">Ver más</a>
+            <a href="reconocimiento.php" class="btn btn-primary">Descargar Reconocimiento</a>
           </div>
         </div>
-        <div class="col-5 align-self-center">Correo: </div>
-        <div class="col-5 align-self-center">
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="" value="A0173****" aria-label="Username">
-            <span class="input-group-text">@</span>
-            <input type="text" class="form-control" placeholder="" value="tec.mx" aria-label="Server">
+      </div>
+      <div class="col">
+        <div class="card card-p1 h-100">
+          <div class="card-header card-p1-header bg-light card-info">Calificado</div>
+          <div class="card-body ">
+            <img src="img/brazo.jpg" class="card-img-top card-info" alt="...">
+            <h5 class="card-title card-p1-header">Proyecto 2</h5>
+            <p class="card-text">Calificación Final: 9.69</p>
+            <a href="verMas_proyecto_estudiante.php" class="btn btn-primary">Ver más</a>
+            <a href="reconocimiento.php" class="btn btn-primary">Descargar Reconocimiento</a>
           </div>
         </div>
-        <div class="col-5 align-self-center">Contraseña: </div>
-        <div class="col-5 align-self-center">
-          <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="" value="**********" aria-label="Recipient's username" aria-describedby="button-addon2">
-          </div>  
-        </div>
       </div>
-      <br>
-      <div class="col-12">
-        <br>
-        <button type="button" class="btn btn-primary btn-custom btn-p1" onclick="document.location='pagina_inicio_estudiantes.php'">Guardar</button>
-      </div>
-      <br>
-      <div class="col-12">
-        <button type="button" class="btn btn-primary btn-custom btn-p1" onclick="document.location='logout.php'">Cerrar Sesión</button>  
-      </div>
-   </div>     
-</body>
+    </div>
+</div>
+</div>
+    <br>
+  </body>
 </html>

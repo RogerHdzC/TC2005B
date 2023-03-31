@@ -37,10 +37,10 @@ if($server == "tec.mx" && $username[0]=="L"){
     if ($q->rowCount() > 0){
         if (password_verify($password, $data['contraseña'])){            
             session_start();
-            $_SESSION['username'] = $data['correo'];
-            header('Location:restrictedDocenteJuez.php');     
+            $_SESSION['admin'] = $data['correo'];
+            header('Location:pagina_inicio_admin.php');     
         }else{
-            header('Location:inicio_sesion_docentejuez.html');     
+            header('Location:inicio_sesion_admin.html');     
         }
     } else{
         echo '<div class="alert alert-danger d-flex align-items-center" role="alert">';

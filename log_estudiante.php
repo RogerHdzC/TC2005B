@@ -38,7 +38,7 @@ if($server == "tec.mx" && $username[0]=="A"){
         if (password_verify($password, $data['contraseña'])){            
             session_start();
             $_SESSION['username'] = $data['matricula'];
-            header('Location:restrictedEstudiante.php');     
+            header('Location:pagina_inicio_estudiantes.php');     
         }else{
             header('Location:inicio_sesion_estudiante.html');     
             

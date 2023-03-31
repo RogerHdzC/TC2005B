@@ -1,14 +1,7 @@
 <?php
 session_start();
-
-            if(!isset($_SESSION['username'])){
-        
+            if(!isset($_SESSION['admin'])){
                 header('Location: index.html');
-                exit;
-                
-            } else {
-                    // Show users the page!
-                    header('Location: pagina_inicio_admin.html');
             }
 
 ?>

@@ -7,14 +7,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <!-- BOOTSTRAP-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <!-- CSS -->
     <link href="css/general.css" rel="stylesheet">
-    <link href="css/inicioEstudiante.css" rel="stylesheet">
-    <title>Inicio</title>
+
+    <title>Registrar Proyecto</title>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -24,7 +25,7 @@
           </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="pagina_inicio_estudiantes.php">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="pagina_inicio_estudiantes.php">Inicio</a></li>
             <li class="nav-item"><a class="nav-link" href="registrar_proyecto_estudiante.php">Registrar Proyectos</a></li>
             <li class="nav-item"><a class="nav-link" href="mis_proyectos_Estudiante.php">Mis proyectos</a></li>
             <li class="nav-item"><a class="nav-link" href="explorar_proyectos_estudiante.php">Explorar Proyectos</a></li>
@@ -42,48 +43,16 @@
     </div>
   </nav>
 
-<div class="container-fluid">
-  <br></br>
-  <h1>Inicio</h1>
-  <br></br>
-  <div class="container">
-    <div class="row">
-      <div class="col - 6">
-        <a class="btn btn-primary btn-custom btn-p3" href="registrar_proyecto_estudiante.php" role="button">Registrar Proyecto</a>
-      </div>
-      <div class="col - 6">
-        <a class="btn btn-primary btn-custom btn-p3" href="mis_proyectos_Estudiante.php" role="button">Mis Proyectos</a>
-      </div>
+    <br></br>
+    <br></br>
+    <br></br>
+    <div class="card col-6 offset-3 text-white bg-primary" style="max-width: 80rem;">
+        <div class="card-body">
+          <h2 class="card-title">¡Muy bien!</h2>
+          <h4 class="card-text">Tu proyecto ha sido registrado. El profesor encargado de la Unidad de Formación del Proyecto determinará si tu proyecto cumple con todos los requisitos para ser aprobado. Puedes consultar tus proyectos en la sección "Mis Proyectos".</p>
+        </div>
     </div>
-    <br>
-    <div class="row">
-      <div class="col - 6">
-        <a class="btn btn-primary btn-custom btn-p3" href="explorar_proyectos_estudiante.php" role="button">Explorar Proyectos</a>
-      </div>
-      <div class="col - 6">
-        <a class="btn btn-primary btn-custom btn-p3" href="ver_layout_estudiante.php" role="button">Ver Layout</a>
-      </div>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col - 6">
-        <a class="btn btn-primary btn-custom btn-p3" href="resultados_estudiante.php" role="button">Resultados</a>
-      </div>
-      <div class="col - 6">
-        <a class="btn btn-primary btn-custom btn-p3" href="sobre_nosotros_estudiante.php" role="button">Sobre Nosotros</a>
-      </div>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col - 6">
-        <a class="btn btn-primary btn-custom btn-p3" href="preguntas_frecuentes_estudiante.php" role="button">Preguntas Frecuentes</a>
-      </div>
-      <div class="col - 6">
-        <a class="btn btn-primary btn-custom btn-p3" href="ajustes_estudiante.php" role="button">Ajustes</a>
-      </div>
-    </div>
-    </div>
-  </div>
-</div> 
+    <br></br>
+        <button type="button" class="btn btn-primary btn-custom btn_p1" onclick="document.location='mis_proyectos_Estudiante.php'">Continuar</button>
 </body>
 </html>

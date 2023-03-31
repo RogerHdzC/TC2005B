@@ -1,5 +1,5 @@
 <?php
-  require_once 'restrictedEstudiante.php';
+  require_once 'restrictedAdmin.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -13,6 +13,7 @@
 
    <!-- CSS -->
    <link href="css/general.css" rel="stylesheet">
+   <link href="css/ajustesAllUsers.css" rel="stylesheet">
 
    <title>Ajustes</title>
 </head>
@@ -24,19 +25,17 @@
           </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="pagina_inicio_estudiantes.php">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link" href="registrar_proyecto_estudiante.php">Registrar Proyectos</a></li>
-            <li class="nav-item"><a class="nav-link" href="mis_proyectos_Estudiante.php">Mis proyectos</a></li>
-            <li class="nav-item"><a class="nav-link" href="explorar_proyectos_estudiante.php">Explorar Proyectos</a></li>
-            <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver Layout</a></li>
-            <li class="nav-item"><a class="nav-link" href="resultados_estudiante.php">Resultados</a></li>
-            <li class="nav-item"><a class="nav-link" href="sobre_nosotros_estudiante.php">Sobre Nosotros</a></li>
-            <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_estudiante.php">Preguntas Frecuentes</a></li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="ajustes_estudiante.php">Ajustes</a></li>
-
+            <li class="nav-item"><a class="nav-link" href="pagina_inicio_admin.php">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="ver_usuarios_admin.php">Ver Usuarios</a></li>
+            <li class="nav-item"><a class="nav-link" href="ver_proyectos_Admin.php">Ver Proyectos</a></li>
+            <li class="nav-item"><a class="nav-link" href="sobre_nosotros_admin.php">Sobre Nosotros</a></li>
+            <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_admin.php">Preguntas Frecuentes</a></li>
+            <li class="nav-item"><a class="nav-link" href="historicodatos.php">Historico de Datos</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="ajustes_admin.php">Ajustes</a></li>
+            
           </ul>
         </div>
-        <a class="navbar-brand" href="pagina_inicio_estudiantes.php">
+        <a class="navbar-brand" href="pagina_inicio_admin.php">
           <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
         </a>
     </div>
@@ -49,20 +48,20 @@
         <div class="col-5 align-self-center">Nombre(s): </div>       
         <div class="col-5 align-self-center">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="" value="Pepito" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <input type="text" class="form-control" placeholder="" value="José Rafael" aria-label="Recipient's username" aria-describedby="button-addon2">
           </div>     
         </div>
         <div class="col-5 align-self-center">Apellidos: </div>
         <div class="col-5 align-self-center">
           <div class="input-group mb-3">
-            <input type="text" aria-label="First name" value="Manzana" class="form-control">
-            <input type="text" aria-label="Last name" value="Rizo" class="form-control">
+            <input type="text" aria-label="First name" value="Aguilar" class="form-control">
+            <input type="text" aria-label="Last name" value="Mejía" class="form-control">
           </div>
         </div>
         <div class="col-5 align-self-center">Correo: </div>
         <div class="col-5 align-self-center">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="" value="A0173****" aria-label="Username">
+            <input type="text" class="form-control" placeholder="" value="jraguilar" aria-label="Username">
             <span class="input-group-text">@</span>
             <input type="text" class="form-control" placeholder="" value="tec.mx" aria-label="Server">
           </div>
@@ -74,14 +73,13 @@
           </div>  
         </div>
       </div>
-      <br>
-      <div class="col-12">
-        <br>
-        <button type="button" class="btn btn-primary btn-custom btn-p1" onclick="document.location='pagina_inicio_estudiantes.php'">Guardar</button>
-      </div>
-      <br>
-      <div class="col-12">
-        <button type="button" class="btn btn-primary btn-custom btn-p1" onclick="document.location='logout.php'">Cerrar Sesión</button>  
+      <div class="row">
+        <div class="col-12">
+          <button type="button" class="btn btn-primary btn-custom btn-de-estado" onclick="document.location='pagina_inicio_admin.php'">Guardar</button>
+        </div>
+        <div class="col-12">
+          <button type="button" class="btn btn-primary btn-custom btn-de-estado" onclick="document.location='logout.php'">Cerrar Sesión</button>  
+        </div>
       </div>
    </div>     
 </body>

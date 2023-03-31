@@ -1,0 +1,56 @@
+<?php
+  require_once 'restrictedDocenteJuez.php';
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- BOOTSTRAP-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- CSS -->
+    <link href="css/general.css" rel="stylesheet">
+    <link href="css/respuestaCalificacion.css" rel="stylesheet">
+
+    <title>Registrar Proyecto</title>
+    <nav class="navbar navbar-dark bg-primary">
+        <div class="container-fluid">
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="pagina_inicio_docenteJuez.php">Inicio</a></li>
+              <li><a class="dropdown-item" href="mis_proyectos_docenteJuez.php">Mis proyectos</a></li>
+              <li><a class="dropdown-item" href="explorar_proyectos_docentejuez.php">Explorar Proyectos</a></li>
+              <li><a class="dropdown-item" href="proyectosa_calificar.php">Proyectos a Calificar</a></li>
+              <li><a class="dropdown-item" href="ver_layout_docenteJuez.php">Ver Layout</a></li>
+              <li><a class="dropdown-item" href="sobre_nosotros_docenteJuez.php">Sobre Nosotros</a></li>
+              <li><a class="dropdown-item" href="preguntas_frecuentes_docenteJuez.php">Preguntas Frecuentes</a></li>
+              <li><a class="dropdown-item" href="ajustes_docenteJuez.php">Ajustes</a></li>
+            </ul>
+          </div>
+          <a class="navbar-brand" href="pagina_inicio_docenteJuez.php">
+            <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
+          </a>
+        </div>
+      </nav>
+</head>
+<body>
+    <br></br>
+    <br></br>
+    <br></br>
+    <div class="card col-6 offset-3 text-white bg-primary" style="max-width: 80rem;">
+        <div class="card-body">
+          <h2 class="card-title">¡Muy bien!</h2>
+          <h4 class="card-text">El Proyecto ha sido calificado.</p>
+        </div>
+    </div>
+    <br></br>
+        <button type="button" class="btn btn-primary btn-custom btn-p1" onclick="document.location='proyectosa_calificar.php'">Continuar</button>
+</body>
+</html>

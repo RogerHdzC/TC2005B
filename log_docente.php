@@ -37,8 +37,8 @@ if($server == "tec.mx" && $username[0]!="A"){
     if ($q->rowCount() > 0){
         if (password_verify($password, $data['contraseña'])){            
             session_start();
-            $_SESSION['username'] = $data['nomina'];
-            header('Location:restrictedDocenteJuez.php');     
+            $_SESSION['docente'] = $data['nomina'];
+            header('Location:pagina_inicio_docentejuez.php');     
         }else{
             header('Location:inicio_sesion_docentejuez.html');     
         }
