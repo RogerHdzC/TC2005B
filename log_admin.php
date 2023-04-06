@@ -27,12 +27,12 @@ $server = $_POST["server"] ;
 $password = $_POST["password"];
 $correo = $username . "@" . $server;
 
-if($server == "tec.mx" && $username[0]=="L"){
+if($server == "tec.mx" && strtoupper($username[0])=="L"){
     $pdo = Database::connect();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql ="SELECT * FROM md1_administrador WHERE correo = ?"; 
     $q = $pdo->prepare($sql);
-    $q->execute(array($username));
+    $q->execute(array($correo));
     $data = $q->fetch(PDO::FETCH_ASSOC);
     if ($q->rowCount() > 0){
         if (password_verify($password, $data['contraseña'])){            

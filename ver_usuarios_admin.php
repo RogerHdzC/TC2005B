@@ -93,7 +93,7 @@
             echo "</div>";
             echo "</div>";
             echo "<div class='col-4'>";    
-                echo "<p>" . $colum['matricula']. "</p>";
+                echo "<p>" . $colum['matricula']. "@tec.mx" ."</p>";
             echo "</div>";
             echo "<div class='col-4'>";    
                 echo "<p>" . "Estudiante". "</p>";

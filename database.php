@@ -1,9 +1,9 @@
 <?php
 	class Database {
-		private static $dbName = 'test_proyecto' ;
+		private static $dbName = 'tc2005b' ;
 		private static $dbHost = 'localhost' ;
 		private static $dbUsername = 'root';
-		private static $dbUserPassword = '122469';
+		private static $dbUserPassword = '1234';
 
 		private static $cont  = null;
 

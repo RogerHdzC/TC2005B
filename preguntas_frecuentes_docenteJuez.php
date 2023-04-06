@@ -56,14 +56,14 @@
             <br>
             <div class="card">
                 <div class="card-header card-p2-header">
-                    <p><b>Postulaciones</b></p>
+                    <p class='pfTitulo'><b>Postulaciones</b></p>
                     <p>1 Noviembre - 25 Noviembre</p>
                 </div>
             </div>
             <br>
             <div class="card">
                 <div class="card-header card-p2-header">
-                    <p><b>Asignación de Jurado y Espacios</b></p>
+                    <p class='pfTitulo'><b>Asignación de Jurado y Espacios</b></p>
                     <p> 2 Diciembre</p>
                 </div>
                 
@@ -71,7 +71,7 @@
             <br>
             <div class="card">
                 <div class="card-header card-p2-header">
-                    <p><b>Expo-Ingenierias</b></p>
+                    <p class='pfTitulo'><b>Expo-Ingenierias</b></p>
                     <p> 6 Diciembre</p>
                 </div>
             </div>

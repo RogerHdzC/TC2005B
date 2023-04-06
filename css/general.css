@@ -5,7 +5,15 @@ body {
     font-size: 25px;
 }
 
+/* div {
+   border: solid 2px white;
+} */
+
 /* FONT SIZE */
+
+.pfTitulo{
+   font-size: 18pt;
+}
 
 .font-20{
     font-size: 20px;
@@ -21,8 +29,8 @@ body {
 }
 
 .carousel{
-    width: 100%;
-    height: 100%;
+    width: 98%;
+    height: 98%;
 }
 
 /* HEADER */
@@ -31,6 +39,8 @@ body {
         * Preguntas Frecuentes Admin
         * Proyectos a Calificar
     */
+
+
 .h1-p1{
     color:white;
 }
@@ -47,6 +57,19 @@ body {
         * Ver proyectos admin
         * Ver usuarios admin
     */
+
+.btn {
+   transition: all .5s ease;
+   border-radius: 10px;
+ }
+
+ .btn:hover {
+   color: #1bb3eb;
+   background-color: white;
+   border-color: white;
+}
+
+
 .btn-p1 {
     width: 200px;
     padding: 15px;
@@ -98,9 +121,11 @@ body {
         * Preguntas frecuentes admin
     */
 .btn-p5 {
-    width: 630px;
-    height: 45px;
+    width: 545px;
+    height: 60px;
     font-size: 20px;
+    margin-bottom: -15px;
+    border-radius: 5px;
 }
 
     /**
@@ -156,6 +181,10 @@ body {
 .card-info{
     width: 100%;
     height: 70%;
+}
+
+.card-body{
+   font-size: 20px;
 }
 
 .card-info2{
@@ -243,3 +272,102 @@ body {
     flex-grow: 1;
     padding: 10px;
   }
+
+
+
+  /*Sección del apartado de Registro de Proyectos*/
+
+  .names {
+   width:235px;
+  font-style: oblique;
+  font-weight: bold;
+  margin-bottom: 50px;
+  }
+
+  .names1 {
+  font-style: oblique;
+  font-weight: bold;
+  }
+
+  .separation {
+   width:35px;
+   height:35px;
+  }
+
+  .separation2 {
+   width:35px;
+   height:35px;
+   margin-left: 15px;
+   margin-right: -12px;
+  }
+  
+  #explicacion {
+   background-color: #fff;
+   color: black;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   /* width: 200px;
+   height: 100px; */
+   padding: 10px 20px;
+   border-radius: 5px;
+   font-size: 1.2rem;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   animation-name: animatemodal;
+   animation-duration: .4s;
+  }
+  #btn-salida {
+   font-size: 3rem;
+   margin-left: 25px;
+  }
+  #btn-salida:hover {
+   cursor: pointer;
+   font-size: 3rem;
+   color: #ff0000;
+  }
+  #popUp-container {
+   display: none;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 1;
+   background-color: rgba(0,0,0, .6);
+  } 
+
+  .questionMark {
+   transition: all .5s ease;
+   background-color: #1bb3eb;
+   border-color: #1bb3eb;
+   color: white;
+   border-radius: 50%;
+   padding-right: 20px;
+   padding-bottom: 40px;
+   cursor: pointer;
+  }
+
+  .questionMark:hover {
+   background-color: white;
+   border-color: white;
+   color: #1bb3eb;
+
+  }
+
+
+    /* Animación del cuadro */
+
+    @keyframes animatemodal {
+      from {
+         top: -300px;
+         opacity: 0;
+      }
+
+      to {
+         top: 50%;
+         opacity: 1;
+      }
+  } 

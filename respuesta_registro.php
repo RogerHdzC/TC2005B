@@ -25,7 +25,7 @@
 
 include 'database.php';
 
-//hacemos llamado al imput de formuario
+//hacemos llamado al input de formulario
 $nombre = $_POST["nombreProfesor"] ;
 $apellidoPaterno = $_POST["apellidoPaterno"] ;
 $apellidoMaterno = $_POST["apellidoMaterno"] ;
@@ -40,7 +40,7 @@ $password_hash = password_hash($password, PASSWORD_BCRYPT, $options);
 $nombreCompleto = $nombre . " " . $apellidoPaterno . " " . $apellidoMaterno;
 $correo = $usuario . "@" . $server;
 
-if(($server == "tec.mx"  && $usuario[0]!="A" )){
+if(($server == "tec.mx"  && strtoupper($usuario[0])!="A" && !is_numeric($usuario[1]))){
     $pdo = Database::connect();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql ="SELECT * FROM md1_docente WHERE nomina = ?"; 
@@ -88,7 +88,7 @@ if(($server == "tec.mx"  && $usuario[0]!="A" )){
         echo "</div>";
         Database::disconnect();
      }
-} elseif($server == "tec.mx" && $usuario[0]=="A"){
+} elseif($server == "tec.mx" && strtoupper($usuario[0])=="A" && is_numeric($usuario[1])){
     $pdo = Database::connect();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql ="SELECT * FROM md1_estudiante WHERE matricula = ?"; 
@@ -121,7 +121,7 @@ if(($server == "tec.mx"  && $usuario[0]!="A" )){
         Database::disconnect();        
         echo "<div class='card col-6 offset-3 text-white bg-primary' style='max-width: 80rem;'>";
             echo "<div class='card-body'>";
-                echo "<h2 class='card-title'>¡Muy bien!</h2>";
+                echo "<h2 class='card-title'>¡Muy Bien!</h2>";
                 echo "<h3 class='card-text'>Detectamos que tu correo corresponde al de un usuario del Tecnológico de Monterrey. Acabamos de enviarte un correo de confirmación a $usuario@$server.</p>";
                 echo "<div class='container'>";
                     echo "<div class='row'>";
@@ -141,7 +141,7 @@ if(($server == "tec.mx"  && $usuario[0]!="A" )){
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql ="SELECT * FROM md1_jurado WHERE correo = ?"; 
     $q = $pdo->prepare($sql);
-    $q->execute(array($usuario));
+    $q->execute(array($correo));
     if ($q->rowCount() > 0) {
         echo '<div class="alert alert-danger d-flex align-items-center" role="alert">';
         echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
@@ -165,7 +165,6 @@ if(($server == "tec.mx"  && $usuario[0]!="A" )){
         $sql ="INSERT INTO md1_jurado (correo, nombre, contraseña)
         VALUES (?,?,?)"; 
         $q = $pdo->prepare($sql);
-        ($ac=="S")?$acq=1:$acq=0;
         $q->execute(array($correo,$nombreCompleto,$password));
        Database::disconnect(); 
        echo "<div class='card col-6 offset-3 text-white bg-primary' style='max-width: 80rem;'>";

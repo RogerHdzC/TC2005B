@@ -48,15 +48,26 @@
    <br>
    <h1>Registrar Proyecto</h1>
    <br></br>
+
+   <div id="popUp-container">
+        <div id="explicacion">
+            <p id = 'texto'></p>
+            <div id="btn-salida">&times;</div>
+        </div>
+    </div> 
+
       <div class="container">
+      
          <div class="row">
-            <div class="col-3 col-p2-3">
+         <div class="separation"></div>
+            <div class="col-3 col-p2-3 names">
                Nombre del Proyecto: 
             </div>
             <div class="col-3 col-p2-3">
                <input type="text" class="form-control" required>
             </div>
-            <div class="col-3 col-p2-3">
+            <div class="separation2"></div>
+            <div class="col-3 col-p2-3 names" >
                Profesor: 
             </div>
             <div class="col-3 col-p2-3">
@@ -66,15 +77,23 @@
             </div>
          </div>
          <div class="row">
-            <div class="col-3 col-p2-3">
-               Categoría
+         <div class="separation questionMark" id="area">&quest;</div>
+         <div class="col-3 col-p2-3 names">
+               Área Estratégica:
             </div>
             <div class="col-3 col-p2-3">
                <div class="mb-3">
-                  <input type="text" class="form-control" id="validationServer02" required>
+                  <select class="form-select" aria-label="Default select example" required>
+                     <option selected>Seleccione una Opción</option>
+                     <option value="1">Nano</option>
+                     <option value="2">Bio</option>
+                     <option value="3">Nexus</option>
+                     <option value="4">Cyber</option>
+                   </select>
                 </div>
             </div>
-            <div class="col-3 col-p2-3">
+            <div class="separation2"></div>
+            <div class="col-3 col-p2-3 names">
                Correo del Profesor:
             </div>
             <div class="col-3 col-p2-3">
@@ -86,22 +105,16 @@
             </div>
          </div>
          <div class="row">
-            <div class="col-3 col-p2-3">
-               Área Estratégica
+         <div class="separation"></div>
+         <div class="col-3 col-p2-3 names">
+               Nombre de la UF:
             </div>
             <div class="col-3 col-p2-3">
-               <div class="mb-3">
-                  <select class="form-select" aria-label="Default select example" required>
-                     <option selected>Opciones</option>
-                     <option value="1">Nano</option>
-                     <option value="2">Bio</option>
-                     <option value="3">Nexus</option>
-                     <option value="4">Cyber</option>
-                   </select>
-                </div>
+               <input type="text" class="form-control" id="formGroupExampleInput" required>
             </div>
-            <div class="col-3 col-p2-3">
-               Descripción del Proyecto
+            <div class="separation2 questionMark" id="descrip">&quest;</div>
+            <div class="col-3 col-p2-3 names">
+               Descripción del Proyecto:
             </div>
             <div class="col-3 col-p2-3">
                <div class="input-group">
@@ -110,30 +123,37 @@
                 </div>
             </div>
          </div>
-         <br>
+  
          <div class="row">
-            <div class="col-3 col-p2-3">
-               Nombre de la UF:
+         <div class="separation questionMark" id='compañero'>&quest;</div>
+         <div class="col-3 col-p2-3 names">
+               Correo de Compañero:
             </div>
             <div class="col-3 col-p2-3">
-               <input type="text" class="form-control" id="formGroupExampleInput" required>
+               <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+                  <span class="input-group-text">@</span>
+                  <input type="text" class="form-control" placeholder="Server" aria-label="Server">
+                </div>
             </div>
-            <div class="col-3 col-p2-3">
+            <div class="separation2 questionMark" id="nivel">&quest;</div>
+            <div class="col-3 col-p2-3 names">
                Nivel de Desarrollo:
             </div>
             <div class="col-3 col-p2-3">
                <select class="form-select" aria-label="Default select example">
-                  <option selected>Opciones</option>
+                  <option selected>Seleccione una Opción</option>
                   <option value="1">Concepto</option>
                   <option value="2">Prototipo</option>
                   <option value="3">Producto Terminado</option>
                 </select>
             </div>
          </div>
-         <br>
+
          <div class="row">
-            <div class="col-3 col-p2-3">
-               Correo de Compañero
+         <div class="separation"></div>
+         <div class="col-3 col-p2-3 names">
+               Correo de Compañero:
             </div>
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
@@ -142,8 +162,9 @@
                   <input type="text" class="form-control" placeholder="Server" aria-label="Server">
                 </div>
             </div>
-            <div class="col-3 col-p2-3">
-               Espacio Para Subir Video (.mp4): 
+            <div class="separation2 questionMark" id="video">&quest;</div>
+            <div class="col-3 col-p2-3 names">
+               Subir Video (.mp4): 
             </div>
             <div class="col-3 col-p2-3">
                <div class="mb-3">
@@ -152,8 +173,9 @@
             </div>
          </div>
          <div class="row">
-            <div class="col-3 col-p2-3">
-               Correo de Compañero
+         <div class="separation"></div>
+         <div class="col-3 col-p2-3 names">
+               Correo de Compañero:
             </div>
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
@@ -162,8 +184,9 @@
                   <input type="text" class="form-control" placeholder="Server" aria-label="Server">
                 </div>
             </div>
-            <div class="col-3 col-p2-3">
-               Espacio Para Subir Poster (.pdf): 
+            <div class="separation2"></div>
+            <div class="col-3 col-p2-3 names">
+               Subir Poster (.pdf): 
             </div>
             <div class="col-3 col-p2-3">
                <div class="mb-3">
@@ -172,8 +195,9 @@
             </div>
          </div>
          <div class="row">
-            <div class="col-3 col-p2-3">
-               Correo de Compañero
+            <div class="separation"></div>
+         <div class="col-3 col-p2-3 names">
+               Correo de Compañero:
             </div>
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
@@ -182,8 +206,9 @@
                   <input type="text" class="form-control" placeholder="Server" aria-label="Server">
                 </div>
             </div>
-            <div class="col-3 col-p2-3">
-               Espacio Para Subir Imagen del Proyecto (.png): 
+            <div class="separation2 questionMark" id="imagen">&quest;</div>
+            <div class="col-3 col-p2-3 names">
+               Subir Imagen del Proyecto (.png): 
             </div>
             <div class="col-3 col-p2-3">
                <div class="mb-3">
@@ -191,25 +216,14 @@
                </div>
             </div>
          </div>
+    
          <div class="row">
-            <div class="col-3 col-p2-3">
-               Correo de Compañero
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username">
-                  <span class="input-group-text">@</span>
-                  <input type="text" class="form-control" placeholder="Server" aria-label="Server">
-                </div>
+            <div class="col-12 col-p1-12 names1">
+               Tiene Componente de Emprendimiento:
             </div>
          </div>
          <div class="row">
-            <div class="col-9 col-p1-9">
-               Tiene Componente de Emprendimiento
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-9 col-p1-9">
+            <div class="col-12 col-p1-12">
                <div class="form-check form-check-inline">
                   <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                   <label class="form-check-label" for="inlineRadio1">Sí</label>
@@ -222,8 +236,14 @@
             </div>
          </div>
       </div>
-      <button type="button" class="btn btn-primary btn-custom btn-p1" onclick="document.location='respuesta_registro_proyecto.php'">Registrar</button>
+      
+      <button type="submit" class="btn btn-primary btn-custom btn-p1" onclick="document.location='respuesta_registro_proyecto.php'">Registrar</button>
       <br></br>
+          <!-- SCRIPTS -->
+    <script src="js/main.js"></script>
       </form>
+
+
+
 </body>
 </html>
