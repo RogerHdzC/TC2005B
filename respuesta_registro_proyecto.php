@@ -25,7 +25,7 @@
           </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="pagina_inicio_estudiantes.php">Inicio</a></li>
+            
             <li class="nav-item"><a class="nav-link" href="registrar_proyecto_estudiante.php">Registrar Proyectos</a></li>
             <li class="nav-item"><a class="nav-link" href="mis_proyectos_Estudiante.php">Mis proyectos</a></li>
             <li class="nav-item"><a class="nav-link" href="explorar_proyectos_estudiante.php">Explorar Proyectos</a></li>
@@ -43,16 +43,15 @@
     </div>
   </nav>
 
-    <br></br>
-    <br></br>
+
     <br></br>
     <div class="card col-6 offset-3 text-white bg-primary" style="max-width: 80rem;">
-        <div class="card-body">
+        <div class="card-body msg">
           <h2 class="card-title">¡Muy bien!</h2>
           <h4 class="card-text">Tu proyecto ha sido registrado. El profesor encargado de la Unidad de Formación del Proyecto determinará si tu proyecto cumple con todos los requisitos para ser aprobado. Puedes consultar tus proyectos en la sección "Mis Proyectos".</p>
         </div>
     </div>
     <br></br>
-        <button type="button" class="btn btn-primary btn-custom btn_p1" onclick="document.location='mis_proyectos_Estudiante.php'">Continuar</button>
+        <button type="button" class="btn btn-primary btn-custom btn-p1" onclick="document.location='mis_proyectos_Estudiante.php'">Continuar</button>
 </body>
 </html>

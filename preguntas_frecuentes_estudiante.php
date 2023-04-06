@@ -18,14 +18,14 @@
     <title>Preguntas Frecuentes</title>
 </head>
 <body class="p1-color">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar-fixed-top">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="pagina_inicio_estudiantes.php">Inicio</a></li>
+                
                 <li class="nav-item"><a class="nav-link" href="registrar_proyecto_estudiante.php">Registrar Proyectos</a></li>
                 <li class="nav-item"><a class="nav-link" href="mis_proyectos_Estudiante.php">Mis proyectos</a></li>
                 <li class="nav-item"><a class="nav-link" href="explorar_proyectos_estudiante.php">Explorar Proyectos</a></li>
@@ -122,23 +122,62 @@
             <br>
                 <p>
                     <a class="btn btn-primary btn-custom btn-p5" data-bs-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample3">
-                    <b>¿Cual es el formato del video?</b>
+                    <b>¿Cual es el formato del Video?</b>
                     </a>
                 </p>
                 <div class="collapse" id="collapseExample3">
                     <div class="card card-body">
-                        Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                     <ul>
+                        <li>El formato de presentación de video es libre, refiriéndose esto a que puede ser en Canva, Power Point, utilizar los fondos asociados a cada área estratégica (BIO, NANO, NEXUS, CYBER), cortinilla de fondo y uno o varios participantes durante el video. Revisar materiales en: 
+                        <a href="https://bit.ly/materialesExpoIng">Materiales</a></li>
+                        <br>
+                        <li>El video debe de contener las siguientes características: </li>
+                           <ul>
+                              <li>Ser un archivo MP4.</li>
+                              <li><b>Para simplificar la verificación de los derechos de autor y evitar que tu video sea eliminado del canal de YouTube:</b></li>
+                              <ul>
+                                 <li>Utiliza música de la librería de YouTube o Bensound si consideras necesario incluir música de fondo.</li>
+                                 <li>YouTube: Únicamente de la “Audio library”. Verifica en la columna “License type” que la pista musical sea gratuita.</li>
+                                 <li>Bensound: Deben ser pistas que permitan la descarga con el botón negro DOWNLOAD (Free license with distribution).</li>
+                                 <li>Para simplificar el proceso de verificación de derechos de autor, no usar música de otra procedencia.</li>
+                                 <li>En ambos casos (Youtube o Bensound), incluir la atribución gratuita de uso de la pista musical en la sección de créditos, al final del video.</li>
+                                 <li>La música debe ser instrumental, y no debe opacar la voz de quien esté hablando en el video.</li>
+                                 <li><b>Youtube</b> (Música sin Copyright): <a href="https://www.youtube.com/playlist?list=PLzCxunOM5WFJ7sbHi_9Zwq2xOwtkYeZlx">Playlist</a></li>
+                                 <li><b>Bensound</b> (Música sin Copyright): <a href="https://www.bensound.com/royalty-free-music">Playlist</a></li>
+                              </ul>
+                              <li>Ser compartido en la plataforma oficial del evento.</li>
+                              <li>Utilizar el fondo asociado según el área estratégica en todo momento durante el video.</li>
+                              <li>Utilizar formato de cortinilla institucional. Revisa</li>
+                              <li>Tener una duración máxima de 3 minutos en formato horizontal.</li>
+                           </ul>
+                        <br>
+                        <li>Aquellos videos que no cumplan las características anteriores serán descartados de la Expo Ingenierías.</li>
+                        <br>
+                     </ul>
                     </div>
                 </div>
             <br>
                 <p>
                     <a class="btn btn-primary btn-custom btn-p5" data-bs-toggle="collapse" href="#collapseExample4" role="button" aria-expanded="false" aria-controls="collapseExample4">
-                    <b>¿Cómo descargar mi reconocimiento?</b>
+                    <b>¿Cual es el formato del Póster?</b>
                     </a>
                 </p>
                 <div class="collapse" id="collapseExample4">
                     <div class="card card-body">
-                        Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                    <ul>
+                        <li>La plantilla de acuerdo al área estratégica la podrás encontrar en:  
+                        <a href="https://docs.google.com/presentation/d/1ZJY_WfWoAF7g2DGhnc3mI0JnMpONxjby/edit#slide=id.p1">Fondo Para Póster</a></li>
+                        <br>
+                        <li>El contenido deberá ser el siguiente:</li>
+                           <ul>
+                           <li>Nombre del proyecto</li>
+                           <li>Matrícula y nombre de los integrantes del equipo</li>
+                           <li>Objetivo</li>
+                           <li>Metodología</li>
+                           <li>Conclusiones</li>
+                           <li>Referencias bibliográficas</li>
+                           </ul>
+                     </ul>
                     </div>
                 </div>
             <br>

@@ -14,7 +14,7 @@
 
    <title>Usuarios</title>
 </head>
-<body class="font-20">
+<body>
 <?php
     
     include 'database.php';
@@ -26,20 +26,20 @@
 
 
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="pagina_inicio_admin.php">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="ver_usuarios_admin.php">Ver Usuarios</a></li>
-            <li class="nav-item"><a class="nav-link" href="ver_proyectos_Admin.php">Ver Proyectos</a></li>
-            <li class="nav-item"><a class="nav-link" href="sobre_nosotros_admin.php">Sobre Nosotros</a></li>
-            <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_admin.php">Preguntas Frecuentes</a></li>
-            <li class="nav-item"><a class="nav-link" href="historicodatos.php">Historico de Datos</a></li>
-            <li class="nav-item"><a class="nav-link" href="ajustes_admin.php">Ajustes</a></li>
+            
+            <li class="nav-item-admin"><a class="nav-link active" href="ver_usuarios_admin.php">Ver Usuarios</a></li>
+            <li class="nav-item-admin"><a class="nav-link" href="ver_proyectos_Admin.php">Ver Proyectos</a></li>
+            <li class="nav-item-admin"><a class="nav-link" href="sobre_nosotros_admin.php">Sobre Nosotros</a></li>
+            <li class="nav-item-admin"><a class="nav-link" href="preguntas_frecuentes_admin.php">Preguntas Frecuentes</a></li>
+            <li class="nav-item-admin"><a class="nav-link" aria-current="page" href="historicodatos.php">Historico de Datos</a></li>
+            <li class="nav-item-admin"><a class="nav-link" href="ajustes_admin.php">Ajustes</a></li>
             
           </ul>
         </div>
@@ -51,7 +51,7 @@
       <br>
       <h1>Usuarios</h1>
       <br>
-    <div class="container">
+    <div class="container font-20">
        <div class="row">
             <div class="col-4">Nombre</div>
             <div class="col-4">Correo</div>

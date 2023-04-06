@@ -24,14 +24,14 @@
           </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="mis_proyectos_docenteJuez.php">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="mis_proyectos_docenteJuez.php">Mis proyectos</a></li>
-            <li class="nav-item"><a class="nav-link"  href="explorar_proyectos_docentejuez.php">Explorar Proyectos</a></li>
-            <li class="nav-item"><a class="nav-link"  href="proyectosa_calificar.php">Proyectos a Calificar</a></li>
-            <li class="nav-item"><a class="nav-link"  href="ver_layout_docenteJuez.php">Ver Layout</a></li>
-            <li class="nav-item"><a class="nav-link"  href="sobre_nosotros_docenteJuez.php">Sobre Nosotros</a></li>
-            <li class="nav-item"><a class="nav-link"  href="preguntas_frecuentes_docenteJuez.php">Preguntas Frecuentes</a></li>
-            <li class="nav-item"><a class="nav-link"  href="ajustes_docenteJuez.php">Ajustes</a></li>
+            
+            <li class="nav-item-docenJuez"><a class="nav-link active" aria-current="page" href="mis_proyectos_docenteJuez.php">Mis proyectos</a></li>
+            <li class="nav-item-docenJuez"><a class="nav-link"  href="explorar_proyectos_docentejuez.php">Explorar Proyectos</a></li>
+            <li class="nav-item-docenJuez"><a class="nav-link"  href="proyectosa_calificar.php">Proyectos a Calificar</a></li>
+            <li class="nav-item-docenJuez"><a class="nav-link"  href="ver_layout_docenteJuez.php">Ver Layout</a></li>
+            <li class="nav-item-docenJuez"><a class="nav-link"  href="sobre_nosotros_docenteJuez.php">Sobre Nosotros</a></li>
+            <li class="nav-item-docenJuez"><a class="nav-link"  href="preguntas_frecuentes_docenteJuez.php">Preguntas Frecuentes</a></li>
+            <li class="nav-item-docenJuez"><a class="nav-link"  href="ajustes_docenteJuez.php">Ajustes</a></li>
           </ul>
         </div>
         <a class="navbar-brand" href="pagina_inicio_docenteJuez.php">
@@ -41,7 +41,7 @@
   </nav>
 
     <br>
-    <h1-p1>Mis Proyectos</h1-p1>
+    <h1>Mis Proyectos</h1>
     <br>
     <div class="container">
     <div class="row">

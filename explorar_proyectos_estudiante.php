@@ -24,7 +24,7 @@
           </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="pagina_inicio_estudiantes.php">Inicio</a></li>
+            
             <li class="nav-item"><a class="nav-link" href="registrar_proyecto_estudiante.php">Registrar Proyectos</a></li>
             <li class="nav-item"><a class="nav-link" href="mis_proyectos_Estudiante.php">Mis proyectos</a></li>
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="explorar_proyectos_estudiante.php">Explorar Proyectos</a></li>
@@ -42,7 +42,7 @@
     </div>
   </nav>
 
-  <br></br>
+  <br>
   <h1>Explorar Proyectos</h1> 
   <br></br>
     <div class="container">

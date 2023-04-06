@@ -1,3 +1,8 @@
+
+html {
+   padding-top: 100px;
+}
+
 body {
     background-color: #040227;
     color:white;
@@ -11,6 +16,7 @@ body {
 
 /* FONT SIZE */
 
+/*Clase de Preguntas Frecuentes*/
 .pfTitulo{
    font-size: 18pt;
 }
@@ -33,13 +39,20 @@ body {
     height: 98%;
 }
 
+li{
+   margin-top: 15px;
+}
+
 /* HEADER */
     /**
         * Mis proyectos Docente Juez
         * Preguntas Frecuentes Admin
         * Proyectos a Calificar
     */
-
+/* 
+h1{
+   margin-top: 100px;
+} */
 
 .h1-p1{
     color:white;
@@ -66,7 +79,33 @@ body {
  .btn:hover {
    color: #1bb3eb;
    background-color: white;
-   border-color: white;
+   border-color: #1bb3eb;
+}
+
+/* NAV ITEMS*/
+
+.navbar{
+   position: fixed;
+   top: 0;
+   right: 0;
+   left: 0;
+   z-index: 100;
+}
+
+.nav-item{
+   margin: auto 8px;
+   width: 140px;
+}
+
+.nav-item-docenJuez{
+   margin: auto 15px;
+   width: 150px;
+}
+
+.nav-item-admin{
+   margin: auto 30px;
+   padding-left: 30px;
+   width: 150px;
 }
 
 
@@ -185,6 +224,8 @@ body {
 
 .card-body{
    font-size: 20px;
+   text-align: justify;
+   padding-right: 35px;
 }
 
 .card-info2{
@@ -337,6 +378,7 @@ body {
    height: 100%;
    z-index: 1;
    background-color: rgba(0,0,0, .6);
+   text-align: justify;
   } 
 
   .questionMark {
@@ -358,7 +400,7 @@ body {
   }
 
 
-    /* Animación del cuadro */
+    /* Animación del cuadro de registro de Proyectos */
 
     @keyframes animatemodal {
       from {
