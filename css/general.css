@@ -353,7 +353,7 @@ h1{
    height: 100px; */
    padding: 10px 20px;
    border-radius: 5px;
-   font-size: 1.2rem;
+   font-size: 1.1rem;
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -370,6 +370,7 @@ h1{
    color: #ff0000;
   }
   #popUp-container {
+   margin-top: 40px;
    display: none;
    position: fixed;
    top: 0;
