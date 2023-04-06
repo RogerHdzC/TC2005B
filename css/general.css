@@ -49,10 +49,10 @@ li{
         * Preguntas Frecuentes Admin
         * Proyectos a Calificar
     */
-/* 
-h1{
-   margin-top: 100px;
-} */
+
+.inicio{
+   margin-top: -60px;
+}
 
 .h1-p1{
     color:white;
