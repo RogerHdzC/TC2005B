@@ -40,7 +40,10 @@ if($server == "tec.mx" && strtoupper($username[0])=="L"){
             $_SESSION['admin'] = $data['correo'];
             header('Location:pagina_inicio_admin.php');     
         }else{
-            header('Location:inicio_sesion_admin.html');     
+            header('Location:inicio_sesion_admin.html');  
+            session_start();
+            $_SESSION['admin'] = $data['correo'];
+            header('Location:pagina_inicio_admin.php');      
         }
     } else{
         echo '<div class="alert alert-danger d-flex align-items-center" role="alert">';

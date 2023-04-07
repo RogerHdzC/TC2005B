@@ -16,9 +16,7 @@
     <title>Registro</title>
 </head>
 <body>
-<br></br>
-    <br></br>
-    <br></br>
+<br>
     <h1>Registro</h1>
     <br></br>
 <?php

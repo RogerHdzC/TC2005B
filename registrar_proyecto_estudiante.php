@@ -239,11 +239,10 @@
       
       <button type="submit" class="btn btn-primary btn-custom btn-p1" onclick="document.location='respuesta_registro_proyecto.php'">Registrar</button>
       <br></br>
-          <!-- SCRIPTS -->
-    <script src="js/main.js"></script>
       </form>
 
-
+   <!-- SCRIPTS -->
+   <script src="js/registro_proyectos.js"></script>
 
 </body>
 </html>

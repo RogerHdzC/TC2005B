@@ -125,9 +125,10 @@
 
      Database::disconnect();
      ?>
+     
         <div class="row">
-            <div class="col-4">
-            <button type="button" class="btn btn-danger btn-custom">Eliminar Usuarios</button>
+            <div class="col-12">
+            <button type="button" class="btn btn-danger btn-custom btn-de-estado">Eliminar Usuarios</button>
             </div>
         </div>
 

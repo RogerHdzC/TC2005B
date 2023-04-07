@@ -25,12 +25,12 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 
-                <li class="nav-item"><a class="nav-link" href="ver_usuarios_admin.php">Ver Usuarios</a></li>
-                <li class="nav-item"><a class="nav-link" href="ver_proyectos_Admin.php">Ver Proyectos</a></li>
-                <li class="nav-item"><a class="nav-link" href="sobre_nosotros_admin.php">Sobre Nosotros</a></li>
-                <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_admin.php">Preguntas Frecuentes</a></li>
-                <li class="nav-item"><a class="nav-link" href="historicodatos.php">Historico de Datos</a></li>
-                <li class="nav-item"><a class="nav-link" href="ajustes_admin.php">Ajustes</a></li>
+                <li class="nav-item-admin"><a class="nav-link" href="ver_usuarios_admin.php">Ver Usuarios</a></li>
+                <li class="nav-item-admin"><a class="nav-link" href="ver_proyectos_Admin.php">Ver Proyectos</a></li>
+                <li class="nav-item-admin"><a class="nav-link" href="sobre_nosotros_admin.php">Sobre Nosotros</a></li>
+                <li class="nav-item-admin"><a class="nav-link" href="preguntas_frecuentes_admin.php">Preguntas Frecuentes</a></li>
+                <li class="nav-item-admin"><a class="nav-link" href="historicodatos.php">Historico de Datos</a></li>
+                <li class="nav-item-admin"><a class="nav-link" href="ajustes_admin.php">Ajustes</a></li>
                 
               </ul>
             </div>
@@ -50,8 +50,8 @@
             <div class="col-p1-12">
                 El proyecto resuelve un problema actual en el área de interés y/o el proyecto da alta prioridad al cliente quien queda ampliamente satisfecho.
             </div>
-            <div class="col-p1-12">
-                Deficiente 
+            <div class="col-p1-13">
+                Deficiente&emsp; 
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                     <label class="form-check-label" for="inlineRadio1">1</label>
@@ -79,8 +79,8 @@
             <div class="col-p1-12">
                 El proyecto presenta una idea nueva e impacta positivamente en el área de interés y/o el producto presenta una idea nueva e incrementa la productividad.
             </div>
-            <div class="col-p1-12">
-                Deficiente 
+            <div class="col-p1-13">
+                Deficiente&emsp; 
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                     <label class="form-check-label" for="inlineRadio1">1</label>
@@ -108,8 +108,8 @@
             <div class="col-p1-12">
                 Ausencia de errores técnicos los resultados y/o producto resuelven el problema propuesto.
             </div>
-            <div class="col-p1-12">
-                Deficiente  
+            <div class="col-p1-13">
+                Deficiente&emsp;  
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                     <label class="form-check-label" for="inlineRadio1">1</label>

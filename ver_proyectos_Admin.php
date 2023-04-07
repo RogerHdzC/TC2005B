@@ -52,8 +52,8 @@
                         <div class="card-body card-p1">
                           <h5 class="card-title">Proyecto 1</h5>
                           <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                          <a href="#" class="btn btn-de-estado btn-success">Aprobar</a>
-                          <a href="verMas_proyecto_admin.php" class="btn btn-de-estado btn-primary">Ver más</a>
+                          <a href="#" class="btn btn-primary btn-success">Aprobar</a>
+                          <a href="verMas_proyecto_admin.php" class="btn btn-primary">Ver más</a>
                         </div>
                       </div>
                     </div>
@@ -63,8 +63,8 @@
                         <div class="card-body card-p1">
                           <h5 class="card-title">Proyecto 2</h5>
                           <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                          <a href="calificar_admin.php" class="btn btn-de-estado btn-primary">Calificar</a>
-                          <a href="verMas_proyecto_admin.php" class="btn btn-de-estado btn-primary">Ver más</a>
+                          <a href="calificar_admin.php" class="btn btn-primary">Calificar</a>
+                          <a href="verMas_proyecto_admin.php" class="btn btn-primary">Ver más</a>
                         </div>
                       </div>
                       </div>
@@ -156,8 +156,8 @@
                       <div class="card-body card-p1">
                         <h5 class="card-title">Proyecto 3</h5>
                         <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                        <a href="calificar_admin.php" class="btn btn-de-estado btn-primary">Calificar</a>
-                        <a href="verMas_proyecto_admin.php" class="btn btn-de-estado btn-primary">Ver más</a>
+                        <a href="calificar_admin.php" class="btn btn-primary">Calificar</a>
+                        <a href="verMas_proyecto_admin.php" class="btn btn-primary">Ver más</a>
                       </div>
                     </div>
                   </div>
@@ -167,8 +167,8 @@
                       <div class="card-body card-p1">
                         <h5 class="card-title">Proyecto 4</h5>
                         <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                        <a href="#" class="btn btn-de-estado btn-success">Aprobar</a>
-                        <a href="verMas_proyecto_admin.php" class="btn btn-de-estado btn-primary">Ver más</a>
+                        <a href="#" class="btn btn-primary btn-success">Aprobar</a>
+                        <a href="verMas_proyecto_admin.php" class="btn btn-primary">Ver más</a>
                       </div>
                     </div>
                     </div>
@@ -185,8 +185,8 @@
                         <div class="card-body card-p1">
                           <h5 class="card-title">Proyecto 5</h5>
                           <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                          <a href="#" class="btn btn-de-estado btn-success">Aprobar</a>
-                          <a href="verMas_proyecto_admin.php" class="btn btn-de-estado btn-primary">Ver más</a>
+                          <a href="#" class="btn btn-primary btn-success">Aprobar</a>
+                          <a href="verMas_proyecto_admin.php" class="btn btn-primary">Ver más</a>
                         </div>
                       </div>
                     </div>
@@ -196,8 +196,8 @@
                         <div class="card-body card-p1">
                           <h5 class="card-title">Proyecto 6</h5>
                           <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                          <a href="calificar_admin.php" class="btn btn-de-estado btn-primary">Calificar</a>
-                          <a href="verMas_proyecto_admin.php" class="btn btn-de-estado btn-primary">Ver más</a>
+                          <a href="calificar_admin.php" class="btn btn-primary">Calificar</a>
+                          <a href="verMas_proyecto_admin.php" class="btn btn-primary">Ver más</a>
                         </div>
                       </div>
                       </div>
@@ -214,8 +214,8 @@
                           <div class="card-body card-p1">
                             <h5 class="card-title">Proyecto 7</h5>
                             <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                            <a href="calificar_admin.php" class="btn btn-de-estado btn-primary">Calificar</a>
-                            <a href="verMas_proyecto_admin.php" class="btn btn-de-estado btn-primary">Ver más</a>
+                            <a href="calificar_admin.php" class="btn btn-primary">Calificar</a>
+                            <a href="verMas_proyecto_admin.php" class="btn btn-primary">Ver más</a>
                           </div>
                         </div>
                       </div>
@@ -225,8 +225,8 @@
                           <div class="card-body card-p1">
                             <h5 class="card-title">Proyecto 8</h5>
                             <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                            <a href="#" class="btn btn-de-estado btn-success">Aprobar</a>
-                            <a href="verMas_proyecto_admin.php" class="btn btn-de-estado btn-primary">Ver más</a>
+                            <a href="#" class="btn btn-primary btn-success">Aprobar</a>
+                            <a href="verMas_proyecto_admin.php" class="btn btn-primary">Ver más</a>
                           </div>
                         </div>
                         </div>

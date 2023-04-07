@@ -51,7 +51,7 @@
                 El proyecto resuelve un problema actual en el área de interés y/o el proyecto da alta prioridad al cliente quien queda ampliamente satisfecho.
             </div>
             <div class="col-p1-13">
-                Deficiente 
+                Deficiente&emsp; 
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                     <label class="form-check-label" for="inlineRadio1">1</label>
@@ -80,7 +80,7 @@
                 El proyecto presenta una idea nueva e impacta positivamente en el área de interés y/o el producto presenta una idea nueva e incrementa la productividad.
             </div>
             <div class="col-p1-13">
-                Deficiente 
+                Deficiente&emsp; 
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio1" value="option1">
                     <label class="form-check-label" for="inlineRadio1">1</label>
@@ -109,7 +109,7 @@
                 Ausencia de errores técnicos los resultados y/o producto resuelven el problema propuesto.
             </div>
             <div class="col-p1-13">
-                Deficiente  
+                Deficiente&emsp;  
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadio1" value="option1">
                     <label class="form-check-label" for="inlineRadio1">1</label>
