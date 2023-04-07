@@ -20,22 +20,24 @@
   <br>
    <h1 class="inicio">Inicio de Sesión</h1>
    <br></br>
-   <form action="log_admin.php" name="" method="POST">
-    <div class="container">
+   <form action="log_admin.php" name="" method="POST" id="signup">
+    <div class="container validacion">
          <div class="row">
             <div class="col-5 align-self-center">Correo: </div>
             <div class="col-5 align-self-center">
               <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="" aria-label="Username" name="username">
+                <input type="text" class="form-control" placeholder="" aria-label="Username" name="username" id="correoProfesor">
                 <span class="input-group-text">@</span>
-                <input type="text" class="form-control" placeholder="" aria-label="Server" name="server">
+                <input type="text" class="form-control" placeholder="" aria-label="Server" name="server" id="serverProfesor">
               </div>
+              <small></small>
             </div>
             <div class="col-5 align-self-center">Contraseña: </div>
             <div class="col-5 align-self-center">
               <div class="input-group mb-3">
                 <input type="password" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" name="password" id="password">
               </div>  
+              <small></small>
             </div>
             <div class="col-1">
                <i class="bi bi-eye-slash" id="togglePassword"></i>
@@ -55,5 +57,6 @@
     </form>
       <!-- SCRIPTS -->
   <script src="js/visibilidad_password.js"></script>
+  <script src="js/Validacion_inicioSesion.js"></script>
 </body>
 </html>

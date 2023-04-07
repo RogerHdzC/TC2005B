@@ -10,10 +10,27 @@ body {
     font-size: 25px;
 }
 
+/* .form-control {
+   border: solid 2.5px #28a745;
+} */
+
 /* div {
    border: solid 2px white;
 } */
 
+/* Clases para efectos visuales en los forms */
+.errores input{
+   border: solid 3px #b94a48;
+}
+
+.exito input{
+   border: solid 3px #28a745;
+}
+
+.validacion small{
+   font-size: 1.5rem;
+   color: #b94a48;
+}
 
 /*Clase de Preguntas Frecuentes*/
 .pfTitulo{
@@ -342,7 +359,7 @@ li{
 
 
 
-  /*Sección del apartado de Registro de Proyectos*/
+  /* Sección del apartado de Registro de Proyectos */
 
   .names {
    width:235px;
