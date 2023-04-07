@@ -24,9 +24,12 @@ const checkCorreo = () => {
    if (!isRequired(u) || !isRequired(s)) {
        showError(server, 'El correo no puede estar vacío.');
 
-   } else if (!isBetween(email.length,min,max)) {
-      showError(server, `El correo debe de ser entre ${min} y ${max} caracteres.`)
+   } else if (!isBigger(u.length,min+1,max)) {
+      showError(server, `La primera entrada debe ser mayor que ${min+1} caracteres.`)
       
+  } else if (!isBetween(email.length,min,max)) {
+   showError(server, `El correo debe de ser entre ${min} y ${max} caracteres.`)
+   
   } else if (!isEmailValid(email)) {
    showError(server, `El correo es Inválido`)
 
@@ -59,6 +62,7 @@ const checkPassword = () => {
 //Variables de verificación del forms
 
 const isRequired = value => value === '' ? false : true;
+const isBigger = (length, min) => length < min ? false : true;
 const isBetween = (length, min, max) => length < min || length > max ? false : true;
 
 const isEmailValid = (email) => {
@@ -128,7 +132,7 @@ const debounce = (fn, delay = 500) => {
    };
 };
 
-// Función para que se realicé un cheque automático en cada entrada
+// Función para que se realicé un chequeo automático en cada entrada
 form.addEventListener('input', debounce(function (e) {
    switch (e.target.id) {
       case 'correoProfesor':

@@ -18,12 +18,21 @@ body {
    border: solid 2px white;
 } */
 
+
 /* Clases para efectos visuales en los forms */
-.errores input{
+.radioOpts{
+   font-size: 20px;
+   margin:auto;
+   margin-top:10px;
+   height: 50px;
+   width: 200px;
+}
+
+.errores input, .erroresExtra{
    border: solid 3px #b94a48;
 }
 
-.exito input{
+.exito input, .exitoExtra{
    border: solid 3px #28a745;
 }
 

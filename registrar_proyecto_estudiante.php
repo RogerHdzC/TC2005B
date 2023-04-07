@@ -44,7 +44,7 @@
       </div>
     </nav>
   
-<form>
+<form action="respuesta_registro_proyecto.php"  method="POST" id="signup">
    <br>
    <h1>Registrar Proyecto</h1>
    <br></br>
@@ -56,7 +56,7 @@
         </div>
     </div> 
 
-      <div class="container">
+      <div class="container validacion">
       
          <div class="row">
          <div class="separation"></div>
@@ -64,7 +64,8 @@
                Nombre del Proyecto: 
             </div>
             <div class="col-3 col-p2-3">
-               <input type="text" class="form-control" required>
+               <input type="text" class="form-control" id="nombre_pro">
+               <small></small>
             </div>
             <div class="separation2"></div>
             <div class="col-3 col-p2-3 names" >
@@ -72,7 +73,8 @@
             </div>
             <div class="col-3 col-p2-3">
                <div class="mb-3">
-                  <input type="text" class="form-control" id="formGroupExampleInput" required>
+                  <input type="text" class="form-control" id="nombre_prof" >
+                  <small></small>
                 </div>
             </div>
          </div>
@@ -83,14 +85,15 @@
             </div>
             <div class="col-3 col-p2-3">
                <div class="mb-3">
-                  <select class="form-select" aria-label="Default select example" required>
-                     <option selected>Seleccione una Opción</option>
+                  <select class="form-select" aria-label="Default select example" id="areaInput">
+                     <option selected disabled="disabled" value="">Seleccione una Opción</option>
                      <option value="1">Nano</option>
                      <option value="2">Bio</option>
                      <option value="3">Nexus</option>
                      <option value="4">Cyber</option>
                    </select>
                 </div>
+                <small></small>
             </div>
             <div class="separation2"></div>
             <div class="col-3 col-p2-3 names">
@@ -98,10 +101,11 @@
             </div>
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" required>
+                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" id="correoProfesor">
                   <span class="input-group-text">@</span>
-                  <input type="text" class="form-control" placeholder="Server" aria-label="Server" required>
+                  <input type="text" class="form-control" placeholder="Server" aria-label="Server" id="serverProfesor">
                 </div>
+                <small></small>
             </div>
          </div>
          <div class="row">
@@ -110,7 +114,8 @@
                Nombre de la UF:
             </div>
             <div class="col-3 col-p2-3">
-               <input type="text" class="form-control" id="formGroupExampleInput" required>
+               <input type="text" class="form-control" id="nombreUf" >
+               <small></small>
             </div>
             <div class="separation2 questionMark" id="descrip">&quest;</div>
             <div class="col-3 col-p2-3 names">
@@ -119,8 +124,9 @@
             <div class="col-3 col-p2-3">
                <div class="input-group">
                   <span class="input-group-text"></span>
-                  <textarea class="form-control" aria-label="With textarea"></textarea>
+                  <textarea class="form-control" aria-label="With textarea" id="descripInput"></textarea>
                 </div>
+                <small></small>
             </div>
          </div>
   
@@ -135,18 +141,23 @@
                   <span class="input-group-text">@</span>
                   <input type="text" class="form-control" placeholder="Server" aria-label="Server">
                 </div>
+                <small></small>
             </div>
             <div class="separation2 questionMark" id="nivel">&quest;</div>
             <div class="col-3 col-p2-3 names">
                Nivel de Desarrollo:
             </div>
             <div class="col-3 col-p2-3">
-               <select class="form-select" aria-label="Default select example">
-                  <option selected>Seleccione una Opción</option>
+            <div class="mb-3">
+               <select class="form-select" aria-label="Default select example" id="nivelInput">
+                  <option selected value="" disabled="disabled">Seleccione una Opción</option>
                   <option value="1">Concepto</option>
                   <option value="2">Prototipo</option>
                   <option value="3">Producto Terminado</option>
                 </select>
+                
+            </div>
+            <small></small>
             </div>
          </div>
 
@@ -168,7 +179,8 @@
             </div>
             <div class="col-3 col-p2-3">
                <div class="mb-3">
-                  <input class="form-control" type="file" id="formFile">
+                  <input class="form-control" type="file" id="videoInput">
+                  <small></small>
                </div>
             </div>
          </div>
@@ -183,6 +195,7 @@
                   <span class="input-group-text">@</span>
                   <input type="text" class="form-control" placeholder="Server" aria-label="Server">
                 </div>
+                <small></small>
             </div>
             <div class="separation2"></div>
             <div class="col-3 col-p2-3 names">
@@ -190,7 +203,8 @@
             </div>
             <div class="col-3 col-p2-3">
                <div class="mb-3">
-                  <input class="form-control" type="file" id="formFile">
+                  <input class="form-control" type="file" id="posterInput">
+                  <small></small>
                </div>
             </div>
          </div>
@@ -205,6 +219,7 @@
                   <span class="input-group-text">@</span>
                   <input type="text" class="form-control" placeholder="Server" aria-label="Server">
                 </div>
+                <small></small>
             </div>
             <div class="separation2 questionMark" id="imagen">&quest;</div>
             <div class="col-3 col-p2-3 names">
@@ -212,7 +227,8 @@
             </div>
             <div class="col-3 col-p2-3">
                <div class="mb-3">
-                  <input class="form-control" type="file" id="formFile">
+                  <input class="form-control" type="file" id="imagenInput">
+                  <small></small>
                </div>
             </div>
          </div>
@@ -223,8 +239,8 @@
             </div>
          </div>
          <div class="row">
-            <div class="col-12 col-p1-12">
-               <div class="form-check form-check-inline">
+            <div class="col-3 radioOpts">
+               <div class="form-check form-check-inline" id="radios">
                   <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                   <label class="form-check-label" for="inlineRadio1">Sí</label>
                 </div>
@@ -232,17 +248,18 @@
                   <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
                   <label class="form-check-label" for="inlineRadio2">No</label>
                 </div>
-                <br></br>
             </div>
+            <small></small>
          </div>
       </div>
-      
-      <button type="submit" class="btn btn-primary btn-custom btn-p1" onclick="document.location='respuesta_registro_proyecto.php'">Registrar</button>
+      <br>
+      <button type="submit" class="btn btn-primary btn-custom btn-p1" >Registrar</button>
       <br></br>
       </form>
 
    <!-- SCRIPTS -->
    <script src="js/registro_proyectos.js"></script>
+   <script src="js/validacion_registro_proyecto.js"></script>
 
 </body>
 </html>
