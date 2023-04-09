@@ -171,7 +171,7 @@ const checkVideo = () => {
    const video = videoEl.value.trim();
 
    if (!isRequired(video)) {
-       showError(videoEl, 'Debe Subir un video');
+       showError(videoEl, 'Debe Subir un Archivo');
    } else if (!validate_fileupload(video, extension)) {
       showError(videoEl, 'Tipo de Archivo Inválido');
   } else {
@@ -188,7 +188,7 @@ const checkPoster = () => {
    const poster = posterEl.value.trim();
 
    if (!isRequired(poster)) {
-       showError(posterEl, 'Debe Subir un video');
+       showError(posterEl, 'Debe Subir un Archivo');
    } else if (!validate_fileupload(poster, extension)) {
       showError(posterEl, 'Tipo de Archivo Inválido');
   } else {
@@ -205,7 +205,7 @@ const checkImagen = () => {
    const imag = imagenEl.value.trim();
 
    if (!isRequired(imag)) {
-       showError(imagenEl, 'Debe Subir un video');
+       showError(imagenEl, 'Debe Subir un Archivo');
    } else if (!validate_fileupload(imag, extension)) {
       showError(imagenEl, 'Tipo de Archivo Inválido');
   } else {
