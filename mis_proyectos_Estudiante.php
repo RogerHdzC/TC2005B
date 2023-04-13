@@ -1,5 +1,11 @@
 <?php
   require_once 'restrictedEstudiante.php';
+  include 'database.php';
+  $matricula = $_SESSION["username"];
+  $pdo = Database::connect();
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $sql = "SELECT * FROM md1_proyecto WHERE  correoLider = '$matricula' OR correoCompañero1 = '$matricula' OR correoCompañero2 = '$matricula' OR correoCompañero3 = '$matricula' OR correoCompañero4 = '$matricula'";
+  Database::disconnect();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -24,15 +30,15 @@
         </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-          
-          <li class="nav-item"><a class="nav-link" href="registrar_proyecto_estudiante.php">Registrar Proyectos</a></li>
-          <li class="nav-item"><a class="nav-link active" aria-current="page" href="mis_proyectos_Estudiante.php">Mis proyectos</a></li>
-          <li class="nav-item"><a class="nav-link" href="explorar_proyectos_estudiante.php">Explorar Proyectos</a></li>
-          <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver Layout</a></li>
-          <li class="nav-item"><a class="nav-link" href="resultados_estudiante.php">Resultados</a></li>
-          <li class="nav-item"><a class="nav-link" href="sobre_nosotros_estudiante.php">Sobre Nosotros</a></li>
-          <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_estudiante.php">Preguntas Frecuentes</a></li>
-          <li class="nav-item"><a class="nav-link" href="ajustes_estudiante.php">Ajustes</a></li>
+
+            <li class="nav-item"><a class="nav-link" href="registrar_proyecto_estudiante.php">Registrar Proyectos</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="mis_proyectos_Estudiante.php">Mis proyectos</a></li>
+            <li class="nav-item"><a class="nav-link" href="explorar_proyectos_estudiante.php">Explorar Proyectos</a></li>
+            <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver Layout</a></li>
+            <li class="nav-item"><a class="nav-link" href="resultados_estudiante.php">Resultados</a></li>
+            <li class="nav-item"><a class="nav-link" href="sobre_nosotros_estudiante.php">Sobre Nosotros</a></li>
+            <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_estudiante.php">Preguntas Frecuentes</a></li>
+            <li class="nav-item"><a class="nav-link" href="ajustes_estudiante.php">Ajustes</a></li>
 
         </ul>
       </div>
@@ -46,43 +52,51 @@
     <br>
     <h1 h1-p1>Mis Proyectos</h1>
     <br>
+    <?php
+  foreach ($pdo->query($sql) as $colum){
+    ?>
     <div class="container">
     <div class="row">
     <div class="col-12">
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <div class="col">
         <div class="card h-100">
-          <div class="card-header card-p1-header bg-success">Aprobado</div>
-          <div class="card-body p1-color">
-            <img src="img/app.jpg" class="card-img-top" alt="..." width="100%" height="30%"">
-            <h5 class="card-title">Proyecto 1</h5>
-            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-            <a href="verMas_proyecto_estudiante.php" class="btn btn-primary">Ver más</a>
+          <?php
+             if ($colum['autorizado']==0){
+              echo "<div class='card-header card-p1-header bg-danger'>";
+              echo "Aún no autorizado";
+             }else{
+              if($colum['promedio'] == 0){
+                echo "<div class='card-header card-p1-header bg-warning'>";
+                echo "Autorizado y no calificado";
+              }else{
+                echo "<div class='card-header card-p1-header bg-success'>";
+                echo "Autorizado y calificado";
+              }
+              
+             }
+            ?>
           </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <div class="card-header card-p1-header bg-success">Aprobado</div>
+          <img src='data:image/png;base64,<?php echo base64_encode($colum['portada']);?>' class='card-img-top' alt='Imagen de Portada Proyecto' width='100%' height='100%'>
           <div class="card-body p1-color">
-            <img src="img/brazo.jpg" class="card-img-top" alt="..." width="100%" height="30%">
-            <h5 class="card-title">Proyecto 2</h5>
-            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <a href="verMas_proyecto_estudiante.php" class="btn btn-primary">Ver más</a>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <div class="card-header card-p1-header bg-secondary">
-            Pendiente
-          </div>
-          <div class="card-body p1-color">
-            <img src="img/carro.jpg" class="card-img-top" alt="..." width="100%" height="30%>
-            <h5 class="card-title">Proyecto 3</h5>
-            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <a href="editar_proyecto_estudiante.php" class="btn btn-primary">Editar</a>
-            <a href="verMas_proyecto_estudiante.php" class="btn btn-primary">Ver más</a>
+
+            <h5 class="card-title">
+              <?php echo $colum['nombre'];
+              ?>
+            </h5>
+            <p class="card-text">
+              <?php 
+                echo $colum ['descripcion'];
+              ?>
+            </p>
+            <?php 
+              if($colum['autorizado'] == 1){
+                echo '<a href="verMas_proyecto_estudiante.php?id='.$colum['id'].'" class="btn btn-primary">Ver más</a>';
+              }else{
+                echo '<a href="verMas_proyecto_estudiante.php?id='.$colum['id'].'" class="btn btn-primary">Ver más</a>';
+                echo '<a href="editar_proyecto_estudiante.php?id='.$colum['id'].'" class="btn btn-primary">Editar</a>';
+              }
+            ?>
           </div>
         </div>
       </div>
@@ -91,5 +105,7 @@
 </div>
 </div>
 <br>
+  <?php } ?>
+
 </body>
 </html>

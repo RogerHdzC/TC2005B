@@ -1,4 +1,7 @@
-
+<?php
+  require_once 'restrictedAdmin.php';
+  include 'database.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,7 +34,8 @@
             <li class="nav-item-admin"><a class="nav-link" href="preguntas_frecuentes_admin.php">Preguntas Frecuentes</a></li>
             <li class="nav-item-admin"><a class="nav-link" href="historicodatos.php">Historico de Datos</a></li>
             <li class="nav-item-admin"><a class="nav-link" href="ajustes_admin.php">Ajustes</a></li>
-            
+            <li class="nav-item-admin"><a class="nav-link" href="ver_layout_admin.php">Layout</a></li>
+
           </ul>
         </div>
         <a class="navbar-brand" href="pagina_inicio_admin.php">
@@ -39,49 +43,87 @@
         </a>
     </div>
   </nav>
-<div class="container-fluid">
+  <div class="container-fluid">
   <br>
   <h1>Inicio</h1>
   <br></br>
   <div class="container">
     <div class="row">
-      <div class="col - 6">
+      <div class="col-6">
         <a class="btn btn-primary btn-custom btn-p3" href="ver_usuarios_admin.php" role="button">Ver Usuarios</a>
       </div>
-      <div class="col - 6">
+      <div class="col-6">
         <a class="btn btn-primary btn-custom btn-p3" href="ver_proyectos_Admin.php" role="button">Ver Proyectos</a>
       </div>
     </div>
     <br>
     <div class="row">
-      <div class="col - 6">
+      <div class="col-6">
         <a class="btn btn-primary btn-custom btn-p3" href="sobre_nosotros_admin.php" role="button">Sobre Nosotros</a>
       </div>
-      <div class="col - 6">
+      <div class="col-6">
         <a class="btn btn-primary btn-custom btn-p3" href="preguntas_frecuentes_admin.php" role="button">Preguntas Frecuentes</a>
       </div>
     </div>
     <br>
     <div class="row">
-      <div class="col - 6">
+      <div class="col-6">
         <a class="btn btn-primary btn-custom btn-p3" href="historicodatos.php" role="button">Descargar Histórico de Datos</a>
       </div>
-      <div class="col - 6">
+      <div class="col-6">
          <a class="btn btn-primary btn-custom btn-p3" href="ajustes_admin.php" role="button">Ajustes</a>
       </div>
     </div>
     <br>
+
     <div class="row">
-      <div class="col - 6">
-        <a class="btn btn-primary btn-custom btn-p3" href="#" role="button"><input class="form-control" type="file" id="formFile">Subir Layout</a>
+    <div class="col-6">
+         <a class="btn btn-primary btn-custom btn-p3" href="ver_layout_admin.php" role="button">Ver layout</a>
       </div>
-      <div class="col - 6">
-        <a class="btn btn-primary btn-custom btn-p3" href="#" role="button"><input class="form-control" type="file" id="formFile">Subir Anuncio</a>
-     </div>
+      <div class="col-6">
+        <form>
+        <input class="form-control" type="file" id="formFile">
+        <button type="submit" class="btn btn-primary btn-custom btn-p1" >Subir anuncio</button>
+        </form>
+      </div>
+</div>
+<br>
+    <div class="row">
+      <div class="col-6">
+      <form action=""  method="POST" enctype="multipart/form-data">
+        <input class="form-control" type="file" id="formFile" name="image">
+        <button type="submit" class="btn btn-primary btn-custom btn-p1" >Subir layout</button>
+      </form>  
+      </div>  
+      <div class="col-6">
+        
+      </div>
     </div>
-    <br>
+    </div>
     </div>
   </div>
 </div>
+</form>
 </body>
 </html>
+
+<?php 
+  $pdo = Database::connect();
+  $consulta = "SELECT * FROM md1_layout";
+  
+  foreach ($pdo->query($consulta) as $colum){
+    $id = $colum['id'];
+  }
+  $layout = addslashes(file_get_contents($_FILES['image']['tmp_name']));
+  $pdo = Database::connect();
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $sql = "DELETE FROM md1_layout WHERE id = ?";
+  $q = $pdo->prepare($sql);
+  $q->execute(array($id));
+  $sql2 ="INSERT INTO md1_layout (layout)
+  VALUES (?)"; 
+  $q = $pdo->prepare($sql2);
+  $q->execute(array($layout));
+  header('Location: ver_layout_admin.php');  
+  Database::disconnect();
+  ?>

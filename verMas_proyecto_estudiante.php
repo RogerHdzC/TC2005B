@@ -1,20 +1,40 @@
 <?php
   require_once 'restrictedEstudiante.php';
+  require 'database.php';
+            $id = 0;
+            if ( !empty($_GET['id'])) {
+               $id = $_REQUEST['id'];
+            }
+            $pdo = Database::connect();
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql = "SELECT * FROM md1_proyecto WHERE id = ?";
+            $q = $pdo->prepare($sql);
+            $q->execute(array($id));
+            $data = $q->fetch(PDO::FETCH_ASSOC);
+            Database::disconnect();
+
+            $pdo = Database::connect();
+            $sql2 = 'SELECT * FROM md1_docente WHERE nomina = ? ';
+            $q2 = $pdo->prepare($sql2);
+            $q2->execute(array($data['correoProfesor']));
+            $data2 = $q2->fetch(PDO::FETCH_ASSOC);
+            Database::disconnect();
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <!-- BOOTSTRAP-->
+   
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-   <!-- CSS -->
+   
    <link href="css/general.css" rel="stylesheet">
 
-   <!-- JS-->
+   
    <title>Ver más - Proyecto</title>
 </head>
 <body>
@@ -25,8 +45,8 @@
             </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-              
-              <li class="nav-item"><a class="nav-link" href="registrar_proyecto_estudiante.php">Registrar Proyectos</a></li>
+
+             <li class="nav-item"><a class="nav-link" href="registrar_proyecto_estudiante.php">Registrar Proyectos</a></li>
               <li class="nav-item"><a class="nav-link" href="mis_proyectos_Estudiante.php">Mis proyectos</a></li>
               <li class="nav-item"><a class="nav-link" href="explorar_proyectos_estudiante.php">Explorar Proyectos</a></li>
               <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver Layout</a></li>
@@ -42,183 +62,197 @@
           </a>
       </div>
     </nav>
-  
-<form>
    <br>
    <h1>Ver más - Proyecto</h1>
    <br></br>
       <div class="container">
          <div class="row">
-            <div class="col-3 col-p2-3">
-               Nombre del Proyecto: 
-            </div>
-            <div class="col-3 col-p2-3">
-               <input type="text" class="form-control" value="Programming AI" required>
-            </div>
-            <div class="col-3 col-p2-3">
-               Profesor: 
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="mb-3">
-                  <input type="text" class="form-control" id="formGroupExampleInput" value="Daniel Pérez Rojas" required>
-                </div>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-3 col-p2-3">
-               Categoría
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="mb-3">
-                  <input type="text" class="form-control" id="validationServer02" value="Computación" required>
-                </div>
-            </div>
-            <div class="col-3 col-p2-3">
-               Correo del Profesor:
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" value="danperez" required>
-                  <span class="input-group-text">@</span>
-                  <input type="text" class="form-control" placeholder="Server" aria-label="Server" value="tec.mx" required>
-                </div>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-3 col-p2-3">
-               Área Estratégica
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="mb-3">
-                  <select class="form-select" aria-label="Default select example" required>
-                     <option value="1">Nano</option>
-                     <option value="2">Bio</option>
-                     <option value="3">Nexus</option>
-                     <option selected="4">Cyber</option>
-                   </select>
-                </div>
-            </div>
-            <div class="col-3 col-p2-3">
-               Descripción del Proyecto
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="input-group">
-                  <span class="input-group-text"></span>
-                  <textarea class="form-control" aria-label="With textarea">Este proyecto consiste en la programación de una IA... </textarea>
-                </div>
-            </div>
-         </div>
-         <br>
-         <div class="row">
-            <div class="col-3 col-p2-3">
-               Nombre de la UF:
-            </div>
-            <div class="col-3 col-p2-3">
-               <input type="text" class="form-control" id="formGroupExampleInput" value="Construcción de Software (TC2005B)" required>
-            </div>
-            <div class="col-3 col-p2-3">
-               Nivel de Desarrollo:
-            </div>
-            <div class="col-3 col-p2-3">
-               <select class="form-select" aria-label="Default select example">
-                  <option selected="1">Concepto</option>
-                  <option value="2">Prototipo</option>
-                  <option value="3">Producto Terminado</option>
-                </select>
-            </div>
-         </div>
-         <br>
-         <div class="row">
-            <div class="col-3 col-p2-3">
-               Correo de Compañero
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="input-group mb-3">
-                  <input type="text" class="form-control" aria-label="Username" value="A0XXXXXXX">
-                  <span class="input-group-text">@</span>
-                  <input type="text" class="form-control" aria-label="Server" value="tec.mx">
-                </div>
-            </div>
-            <div class="col-3 col-p2-3">
-               Espacio Para Subir Video (.mp4): 
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="mb-3">
-                  <input class="form-control" type="file" id="formFile">
+                 <div class='col-3 col-p2-3'>
+                 Nombre del Proyecto:
+                 </div>
+                 <div class='col-3 col-p2-3'>
+                 <?php echo $data['nombre']; ?>
+                 </div>
+                 <div class='col-3 col-p2-3'>
+                 Profesor: 
+                 </div>
+                 <div class='col-3 col-p2-3'>
+                 <div class='mb-3'>
+                  <?php echo $data2['nombre']; ?>
+                   </div>
+                  </div>
+                  </div>
+                  <div class='row'>
+                  <div class='col-3 col-p2-3'>
+                  Categoría
+                  </div>
+                  <div class='col-3 col-p2-3'>
+                  <div class='mb-3'>
+                  <?php echo $data['categoria']; ?>
+                   </div>
+                  </div>
+                     </div>
+                     <div class='row'>
+                        <div class='col-3 col-p2-3'>
+                           Área Estratégica
+                        </div>
+                        <div class='col-3 col-p2-3'>
+                           <div class='mb-3'>
+                  <?php echo $data['areaEstrategica']; ?>
+                  </div>
+              </div>
+              <div class='col-3 col-p2-3'>
+                 Descripción del Proyecto
+              </div>
+              <div class='col-3 col-p2-3'>
+                 <div class='input-group'>
+                  <?php  echo $data['descripcion'];  ?>
+                    
+                  </div>
                </div>
             </div>
-         </div>
-         <div class="row">
-            <div class="col-3 col-p2-3">
-               Correo de Compañero
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="input-group mb-3">
-                  <input type="text" class="form-control" aria-label="Username" value="A0XXXXXXX">
-                  <span class="input-group-text">@</span>
-                  <input type="text" class="form-control" aria-label="Server" value="tec.mx">
-                </div>
-            </div>
-            <div class="col-3 col-p2-3">
-               Espacio Para Subir Poster (.pdf): 
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="mb-3">
-                  <input class="form-control" type="file" id="formFile">
+            <br>
+            <div class='row'>
+               <div class='col-3 col-p2-3'>
+                  Nombre de la UF:
                </div>
-            </div>
+               <div class='col-3 col-p2-3'>
+               <?php echo $data['UF']; ?>
+
+              </div>
+              <div class="col-3 col-p2-3">
+                 Nivel de Desarrollo:
+              </div>
+              <div class="col-3 col-p2-3">
+                  <?php echo $data['nivel']; ?>
+              </div>
+           </div>
+           <br>
+           <div class="row">
+              <div class="col-3 col-p2-3">
+                 Correo del lider
+              </div>
+              <div class="col-3 col-p2-3">
+                 <div class="input-group mb-3">
+                 <?php 
+                 
+                 $pdo = Database::connect();
+                  $sql3 = 'SELECT * FROM md1_estudiante WHERE matricula = ? ';
+                  $q3 = $pdo->prepare($sql3);
+                  $q3->execute(array($data['correoLider']));
+                  $data3 = $q3->fetch(PDO::FETCH_ASSOC);
+                  Database::disconnect();
+
+                 echo $data3['nombre']; 
+                 ?>                  </div>
+              </div>
+              <div class="col-3 col-p2-3"></div>
+               <div class="col-3 col-p2-3"></div>
          </div>
-         <div class="row">
-            <div class="col-3 col-p2-3">
-               Correo de Compañero
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="input-group mb-3">
-                  <input type="text" class="form-control" aria-label="Username" value="A0XXXXXXX">
-                  <span class="input-group-text">@</span>
-                  <input type="text" class="form-control" aria-label="Server" value="tec.mx">
-                </div>
-            </div>
-            <div class="col-3 col-p2-3">
-               Espacio Para Subir Imagen del Proyecto (.png): 
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="mb-3">
-                  <input class="form-control" type="file" id="formFile">
+           <div class="row">
+              <div class="col-3 col-p2-3">
+                 Correo de Compañero
+              </div>
+              <div class="col-3 col-p2-3">
+                 <div class="input-group mb-3">
+                 <?php 
+                 
+                 $pdo = Database::connect();
+                  $sql3 = 'SELECT * FROM md1_estudiante WHERE matricula = ? ';
+                  $q3 = $pdo->prepare($sql3);
+                  $q3->execute(array($data['correoCompañero1']));
+                  $data3 = $q3->fetch(PDO::FETCH_ASSOC);
+                  Database::disconnect();
+
+                 echo $data3['nombre']; 
+                 ?>
+                  </div>
+              </div>
+              <div class="col-3 col-p2-3"></div>
+               <div class="col-3 col-p2-3"></div>
+         </div>
+           <div class="row">
+              <div class="col-3 col-p2-3">
+                 Correo de Compañero
+              </div>
+              <div class="col-3 col-p2-3">
+                 <div class="input-group mb-3">
+                 <?php 
+                 
+                 $pdo = Database::connect();
+                  $sql3 = 'SELECT * FROM md1_estudiante WHERE matricula = ? ';
+                  $q3 = $pdo->prepare($sql3);
+                  $q3->execute(array($data['correoCompañero2']));
+                  $data3 = $q3->fetch(PDO::FETCH_ASSOC);
+                  Database::disconnect();
+
+                 echo $data3['nombre']; 
+                 ?>
+                  </div>
+              </div>
+              <div class="col-3 col-p2-3"></div>
+               <div class="col-3 col-p2-3"></div>
+         </div>
+              <div class="row">
+               <div class="col-3 col-p2-3">
+                  Correo de Compañero
                </div>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-3 col-p2-3">
-               Correo de Compañero
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="input-group mb-3">
-                  <input type="text" class="form-control" aria-label="Username" value="A0XXXXXXX">
-                  <span class="input-group-text">@</span>
-                  <input type="text" class="form-control" aria-label="Server" value="tec.mx">
-                </div>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-9 col-p1-9">
-               Tiene Componente de Emprendimiento
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-9 col-p1-9">
-               <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                  <label class="form-check-label" for="inlineRadio1">Sí</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                  <label class="form-check-label" for="inlineRadio2">No</label>
-                </div>
-                <br></br>
-            </div>
-         </div>
+               <div class="col-3 col-p2-3">
+                  <div class="input-group mb-3">
+                  <?php 
+                 
+                 $pdo = Database::connect();
+                  $sql3 = 'SELECT * FROM md1_estudiante WHERE matricula = ? ';
+                  $q3 = $pdo->prepare($sql3);
+                  $q3->execute(array($data['correoCompañero3']));
+                  $data3 = $q3->fetch(PDO::FETCH_ASSOC);
+                  Database::disconnect();
+
+                 echo $data3['nombre']; 
+                 ?>
+                     </div>
+               </div>
+               <div class="col-3 col-p2-3"></div>
+               <div class="col-3 col-p2-3"></div>
+         </div> 
+           <div class="row">
+              <div class="col-3 col-p2-3">
+                 Correo de Compañero
+              </div>
+              <div class="col-3 col-p2-3">
+                 <div class="input-group mb-3">
+                 <?php 
+                 
+                 $pdo = Database::connect();
+                  $sql3 = 'SELECT * FROM md1_estudiante WHERE matricula = ? ';
+                  $q3 = $pdo->prepare($sql3);
+                  $q3->execute(array($data['correoCompañero4']));
+                  $data3 = $q3->fetch(PDO::FETCH_ASSOC);
+                  Database::disconnect();
+
+                 echo $data3['nombre']; 
+                 ?>
+
+                  </div>
+              </div>
+           </div>
+           <div class="row">
+              <div class="col-9 col-p1-9">
+                 Tiene Componente de Emprendimiento
+              </div>
+           </div>
+           <div class="row">
+              <div class="col-9 col-p1-9">
+                 <?php 
+                  if ($data['componeteDeEmprendimiento'] == 1){
+                        echo "Si";
+                  }else{
+                     echo "No";
+                  } ?>
+              </div>
+              </div>                  
+
+
       </div>
-      </form>
 </body>
 </html>

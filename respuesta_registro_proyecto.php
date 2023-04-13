@@ -1,6 +1,51 @@
 <?php
   require_once 'restrictedEstudiante.php';
+  include 'database.php';
+$nombre = $_POST["nombre"] ;
+$uf = $_POST["uf"];
+$area = $_POST["area"];
+$descripcion= $_POST["descripcion"];
+$portada = addslashes(file_get_contents($_FILES['image']['tmp_name']));
+$correoLider = $_SESSION['username'];
+$compañero1 = $_POST["compañero1"];
+$compañero2 = $_POST["compañero2"];
+$compañero3 = $_POST["compañero3"];
+$compañero4 = $_POST["compañero4"];
+$correoProfesor = $_POST["profesor"];
+$nivel = $_POST["nivel"];
+$emprendimiento = $_POST["inlineRadioOptions"];
+$edicion = $_POST["edicion"];
+$promedio = 0;
+$autorizado = 0;
+$id = 0;
+if ( !empty($_GET['id'])) {
+   $id = $_REQUEST['id'];
+}
+
+if (isset($_POST['guardarCambios'])){
+  $pdo = Database::connect();
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $sql ="UPDATE `md1_proyecto` SET `nombre` = ? , `UF` = ?, `areaEstrategica` = ? , descripcion = ? , portada = ?, correoLider = ?, correoCompañero1 = ? , correoCompañero2 = ? , correoCompañero3 = ? , correoCompañero4 = ?, correoProfesor = ?, nivel = ?, promedio=?,componeteDeEmprendimiento=?,idEdicion=?,autorizado=? WHERE `md1_proyecto`.`id` = ? ";
+  $q = $pdo->prepare($sql);
+  $q->execute(array($nombre, $uf,$area, $descripcion, $portada, $correoLider, $compañero1,$compañero2, $compañero3, $compañero4,$correoProfesor,$nivel,$promedio,$emprendimiento,$edicion,$autorizado, $id));
+  
+  Database::disconnect();
+  header('Location: pagina_inicio_estudiantes.php');  
+}else{
+  $pdo = Database::connect();
+  
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          $sql ="INSERT INTO md1_proyecto (nombre,UF,areaEstrategica,descripcion,portada,correoLider,correoCompañero1,correoCompañero2,correoCompañero3,correoCompañero4,correoProfesor,nivel,promedio,componeteDeEmprendimiento,idEdicion,autorizado)
+          VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
+          $q = $pdo->prepare($sql);
+          $q->execute(array($nombre,$uf,$area,$descripcion,$portada,$correoLider,$compañero1,$compañero2,$compañero3,$compañero4,$correoProfesor,$nivel,$promedio,$emprendimiento,$edicion,$autorizado));
+  
+  header('Location: pagina_inicio_estudiantes.php');  
+  Database::disconnect();
+}
+
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

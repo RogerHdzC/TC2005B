@@ -1,5 +1,11 @@
 <?php
   require_once 'restrictedEstudiante.php';
+  include 'database.php';
+  $matricula = $_SESSION["username"];
+  $pdo = Database::connect();
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $sql = "SELECT * FROM md1_proyecto WHERE autorizado=1 AND promedio != 0 AND (correoLider = '$matricula' OR correoCompañero1 = '$matricula' OR correoCompañero2 = '$matricula' OR correoCompañero3 = '$matricula' OR correoCompañero4 = '$matricula')";
+  Database::disconnect();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -46,35 +52,43 @@
     <br>
     <h1>Resultados</h1>
     <br>
+    <?php
+  foreach ($pdo->query($sql) as $colum){
+    ?>
     <div class="container">
-        <div class="row">
-          <div class="col-sm-6">
-        <div class="card card-p1 h-100">
-          <div class="card-header card-p1-header bg-warning">Proyecto Ganador</div>
-          <div class="card-body card-p1-header">
-            <img src="img/app.jpg" class="card-img-top card-info" alt="...">
-            <h5 class="card-title">Proyecto 1</h5>
-            <p class="card-text">Calificación Final: 9.85</p>
-            <a href="verMas_proyecto_estudiante.php" class="btn btn-primary">Ver más</a>
-            <a href="reconocimiento.php" class="btn btn-primary">Descargar Reconocimiento</a>
-          </div>
-        </div>
-      </div>
+    <div class="row">
+    <div class="col-12">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
       <div class="col">
-        <div class="card card-p1 h-100">
-          <div class="card-header card-p1-header bg-light card-info">Calificado</div>
-          <div class="card-body ">
-            <img src="img/brazo.jpg" class="card-img-top card-info" alt="...">
-            <h5 class="card-title card-p1-header">Proyecto 2</h5>
-            <p class="card-text">Calificación Final: 9.69</p>
-            <a href="verMas_proyecto_estudiante.php" class="btn btn-primary">Ver más</a>
-            <a href="reconocimiento.php" class="btn btn-primary">Descargar Reconocimiento</a>
+        <div class="card h-100">
+          <?php
+              echo "<div class='card-header card-p1-header bg-info'>";
+              echo "calificado";          ?>
+          </div>
+          <img src='data:image/png;base64,<?php echo base64_encode($colum['portada']);?>' class='card-img-top' alt='Imagen de Portada Proyecto' width='100%' height='100%'>
+          <div class="card-body p1-color">
+
+            <h5 class="card-title">
+              <?php echo $colum['nombre'];
+              ?>
+            </h5>
+            <p class="card-text">
+              <?php 
+                echo $colum ['descripcion'];
+              ?>
+            </p>
+            <?php 
+            echo $colum['promedio'];
+            echo '<a href="reconocimiento.php?id='.$colum['id'].'" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Descargar Reconocimiento</a>';
+            ?>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </div>
 </div>
-    <br>
+<br>
+  <?php } ?>
   </body>
 </html>

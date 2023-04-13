@@ -27,7 +27,7 @@ $server = $_POST["server"] ;
 $password = $_POST["password"];
 $correo = $username . "@" . $server;
 
-if($server == "tec.mx" && strtoupper($username[0])=="L"){
+if($server){
     $pdo = Database::connect();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql ="SELECT * FROM md1_administrador WHERE correo = ?"; 
@@ -42,34 +42,33 @@ if($server == "tec.mx" && strtoupper($username[0])=="L"){
         }else{
             header('Location:inicio_sesion_admin.html');     
         }
-    } else{
-        echo '<div class="alert alert-danger d-flex align-items-center" role="alert">';
-        echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
-        echo '<div>';
-        echo 'No tienes una cuenta registrada con este correo, intenta de nuevo o registrate';
-        echo '</div>';
-        echo '</div>';
-        echo '<div class="container">';
-        echo '<br>';
-        echo '<br>';
-        echo "<a href='registro.html'><button type='button' class='btn btn-primary btn-custom btn-p3'>Registrarme</button></a> ";
-        echo '<br>';
-        echo '<br>';
-        echo '<a href="inicio_sesion_docentejuez.html"><button type="button" class="btn btn-primary btn-custom btn-p3">Intentar de nuevo</button></a>';
-        echo '</div>';
-    }
-} else{
-    
-    echo '<div class="alert alert-danger d-flex align-items-center" role="alert">';
-  echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
-  echo '<div>';
-  echo '¿Seguro que eres estudiante?';
-  echo '</div>';
-  echo '</div>';
-  echo '<div class="container">';
-  echo '<br>';
-  echo '<br>';
-  echo '<a href="inicio_sesion_estudiante.html"><button type="button" class="btn btn-primary btn-custom btn-p3">Intentar de nuevo</button></a>';
-  echo '</div>';
-}
+    } else{ ?>
+        <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+        <div>
+        No tienes una cuenta registrada con este correo, intenta de nuevo o registrate
+        </div>
+        </div>
+        <div class="container">
+        <br>
+        <br>
+        <a href='registro.html'><button type='button' class='btn btn-primary btn-custom btn-p3'>Registrarme</button></a> 
+        <br>
+        <br>
+        <a href="inicio_sesion_docentejuez.html"><button type="button" class="btn btn-primary btn-custom btn-p3">Intentar de nuevo</button></a>
+        </div>
+   <?php }
+} else{?> 
+        <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+        <div>
+        ¿Seguro que eres administrador?
+        </div>
+        </div>
+        <div class="container">
+        <br>
+        <br>
+        <a href="inicio_sesion_admin.html"><button type="button" class="btn btn-primary btn-custom btn-p3">Intentar de nuevo</button></a>
+        </div>
+<?php }
 ?>

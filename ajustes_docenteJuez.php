@@ -1,5 +1,17 @@
 <?php
   require_once 'restrictedDocenteJuez.php';
+  include 'database.php';
+  $pdo = Database::connect();
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $sql = "SELECT * FROM md1_docente WHERE  nomina = ?";
+  $q = $pdo->prepare($sql);
+  $q->execute(array($_SESSION['docente']));
+  $data = $q->fetch(PDO::FETCH_ASSOC);
+  $sql2 = "SELECT * FROM md1_jurado WHERE  correo = ?";
+  $q2 = $pdo->prepare($sql2);
+  $q2->execute(array($_SESSION['docente']));
+  $data2 = $q2->fetch(PDO::FETCH_ASSOC);
+  Database::disconnect();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -49,28 +61,22 @@
         <div class="col-5 align-self-center">Nombre(s): </div>       
         <div class="col-5 align-self-center">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="" value="Rosa Guadalupe" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <?php echo $data['nombre']; echo $data2['nombre']; ?>
           </div>     
-        </div>
-        <div class="col-5 align-self-center">Apellidos: </div>
-        <div class="col-5 align-self-center">
-          <div class="input-group mb-3">
-            <input type="text" aria-label="First name" value="Paredes" class="form-control">
-            <input type="text" aria-label="Last name" value="Juárez" class="form-control">
-          </div>
         </div>
         <div class="col-5 align-self-center">Correo: </div>
         <div class="col-5 align-self-center">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="" value="rgparedes" aria-label="Username">
-            <span class="input-group-text">@</span>
-            <input type="text" class="form-control" placeholder="" value="tec.mx" aria-label="Server">
+          <?php 
+            echo $data['nomina']; 
+            echo $data2['correo'];
+          ?>
           </div>
         </div>
         <div class="col-5 align-self-center">Contraseña: </div>
         <div class="col-5 align-self-center">
           <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="" value="**********" aria-label="Recipient's username" aria-describedby="button-addon2" id="password">
+          <?php echo $data['contraseña'];  echo $data2['contraseña']; ?>
           </div>  
         </div>
         <div class="col-1">
@@ -78,14 +84,13 @@
         </div>
       </div>
       <div class="col-12">
-        <button type="button" class="btn btn-primary btn-custom btn-de-estado" onclick="document.location='pagina_inicio_docenteJuez.php'">Guardar</button>
+        <button type="button" class="btn btn-primary btn-custom btn-de-estado" onclick="document.location='pagina_inicio_estudiantes.php'">Guardar</button>
       </div>
       <div class="col-12">
         <button type="button" class="btn btn-primary btn-custom btn-de-estado" onclick="document.location='logout.php'">Cerrar Sesión</button>  
       </div>
    </div>  
-   
-         <!-- SCRIPTS -->
+      <!-- SCRIPTS -->
   <script src="js/visibilidad_password.js"></script>  
 </body>
 </html>

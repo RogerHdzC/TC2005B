@@ -23,9 +23,6 @@
 
     $consulta = "SELECT * FROM md1_docente";
 ?>
-
-
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,81 +56,80 @@
        </div> 
         <?php 
         $num=0; 
-        foreach ($pdo->query($consulta) as $colum){
-            echo "<div class='row'>";
-                echo "<div class='col-4'>";
-                echo "<div class='form-check'>";
-                echo "<input class='form-check-input' type='checkbox' value='' id='flexCheckDefault$num'>";
-                echo "<label class='form-check-label' for='flexCheckDefault$num'>";
-                echo "<p>" . $colum['nombre']. "</p>";
-                echo "</label>";
-                echo "</div>";
-                echo "</div>";
-                echo "<div class='col-4'>";    
-                    echo "<p>" . $colum['nomina']. "</p>";
-                echo "</div>";
-                echo "<div class='col-4'>";    
-                    echo "<p>" . "Docente". "</p>";
-                echo "</div>";
-            echo "</div>";
-            $num=$num+1;
+        foreach ($pdo->query($consulta) as $colum){?>
+            <div class='row'>
+                <div class='col-4'>
+                <div class='form-check'>
+                <input class='form-check-input' type='checkbox' value='' id='flexCheckDefault$num'>
+                <label class='form-check-label' for='flexCheckDefault$num'>
+                <p><?php 
+                echo $colum['nombre']; 
+                ?></p>
+                </label>
+                </div>
+                </div>
+                <div class='col-4'>
+                    <p><?php 
+                    echo $colum['nomina']. "@tec.mx"?> </p>
+                </div>
+                <div class='col-4'>  
+                    <?php  
+                    if ($colum['es_jurado'] ==0 ){
+                        echo "<p>Docente</p>";
+                    }else{
+                        echo "<p>Docente y Jurado</p>";
+                    }
+                    ?>
+                </div>
+            </div>
+            <?php $num=$num+1;
         }
         $consulta2 = "SELECT * FROM md1_estudiante";
 
         foreach ($pdo->query($consulta2) as $colum)
-        {
-
-        echo "<div class='row'>";
-            echo "<div class='col-4'>";
-            echo "<div class='form-check'>";
-            echo "<input class='form-check-input' type='checkbox' value='' id='flexCheckDefault$num'>";
-            echo "<label class='form-check-label' for='flexCheckDefault$num'>";
-            echo "<p>" . $colum['nombre']. "</p>";
-            echo "</label>";
-            echo "</div>";
-            echo "</div>";
-            echo "<div class='col-4'>";    
-                echo "<p>" . $colum['matricula']. "@tec.mx" ."</p>";
-            echo "</div>";
-            echo "<div class='col-4'>";    
-                echo "<p>" . "Estudiante". "</p>";
-            echo "</div>";
-        echo "</div>";
-        $num=$num+1;
+        { ?>
+        <div class='row'>
+            <div class='col-4'>
+            <div class='form-check'>
+            <input class='form-check-input' type='checkbox' value='' id='flexCheckDefault$num'>
+            <label class='form-check-label' for='flexCheckDefault$num'>
+            <p><?php echo $colum['nombre']; ?></p>
+            </label>
+            </div>
+            </div>
+            <div class='col-4'>
+                <p><?php echo $colum['matricula']. "@tec.mx";?></p>
+            </div>
+            <div class='col-4'>
+                <p>Estudiante</p>
+            </div>
+        </div>
+        <?php $num=$num+1;
         }
         $consulta2 = "SELECT * FROM md1_jurado";
         foreach ($pdo->query($consulta2) as $colum)
-        {
-        echo "<div class='row'>";
-            echo "<div class='col-4'>";
-            echo "<div class='form-check'>";
-            echo "<input class='form-check-input' type='checkbox' value='' id='flexCheckDefault$num'>";
-            echo "<label class='form-check-label' for='flexCheckDefault$num'>";
-            echo "<p>" . $colum['nombre']. "</p>";
-            echo "</label>";
-            echo "</div>";
-            echo "</div>";
-            echo "<div class='col-4'>";    
-                echo "<p>" . $colum['correo']. "</p>";
-            echo "</div>";
-            echo "<div class='col-4'>";    
-                echo "<p>" . "Juez". "</p>";
-            echo "</div>";
-        echo "</div>";
-        $num=$num+1;
-     }
-
-     Database::disconnect();
-     ?>
-     
-        <div class="row">
-            <div class="col-12">
-            <button type="button" class="btn btn-danger btn-custom btn-de-estado">Eliminar Usuarios</button>
+        {?>
+        <div class='row'>
+            <div class='col-4'>
+            <div class='form-check'>
+            <input class='form-check-input' type='checkbox' value='' id='flexCheckDefault$num'>
+            <label class='form-check-label' for='flexCheckDefault$num'>
+            <p><?php $colum['nombre'] ?></p>
+            </label>
+            </div>
+            </div>
+            <div class='col-4'>  
+                <p><?php $colum['correo'] ?></p>
+            </div>
+            <div class='col-4'>
+                <p>Juez</p>
             </div>
         </div>
-
+       <?php $num=$num+1;
+     }
+     Database::disconnect();
+     ?>
     </div>
-     
 </body>
 </html>
 

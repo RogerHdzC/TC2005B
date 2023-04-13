@@ -1,5 +1,7 @@
 <?php
   require_once 'restrictedEstudiante.php';
+  include 'database.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -19,32 +21,32 @@
    <title>Registrar Proyecto</title>
 </head>
 <body>
-   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-              
-              <li class="nav-item"><a class="nav-link active" aria-current="page" href="registrar_proyecto_estudiante.php">Registrar Proyectos</a></li>
-              <li class="nav-item"><a class="nav-link" href="mis_proyectos_Estudiante.php">Mis proyectos</a></li>
-              <li class="nav-item"><a class="nav-link" href="explorar_proyectos_estudiante.php">Explorar Proyectos</a></li>
-              <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver Layout</a></li>
-              <li class="nav-item"><a class="nav-link" href="resultados_estudiante.php">Resultados</a></li>
-              <li class="nav-item"><a class="nav-link" href="sobre_nosotros_estudiante.php">Sobre Nosotros</a></li>
-              <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_estudiante.php">Preguntas Frecuentes</a></li>
-              <li class="nav-item"><a class="nav-link" href="ajustes_estudiante.php">Ajustes</a></li>
-  
-            </ul>
-          </div>
-          <a class="navbar-brand" href="pagina_inicio_estudiantes.php">
-            <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
-          </a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="registrar_proyecto_estudiante.php">Registrar Proyectos</a></li>
+            <li class="nav-item"><a class="nav-link" href="mis_proyectos_Estudiante.php">Mis proyectos</a></li>
+            <li class="nav-item"><a class="nav-link" href="explorar_proyectos_estudiante.php">Explorar Proyectos</a></li>
+            <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver Layout</a></li>
+            <li class="nav-item"><a class="nav-link" href="resultados_estudiante.php">Resultados</a></li>
+            <li class="nav-item"><a class="nav-link" href="sobre_nosotros_estudiante.php">Sobre Nosotros</a></li>
+            <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_estudiante.php">Preguntas Frecuentes</a></li>
+            <li class="nav-item"><a class="nav-link" href="ajustes_estudiante.php">Ajustes</a></li>
+
+        </ul>
       </div>
-    </nav>
+      <a class="navbar-brand" href="pagina_inicio_estudiantes.php">
+        <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
+      </a>
+  </div>
+</nav>
+
   
-<form action="respuesta_registro_proyecto.php"  method="POST" id="signup">
+<form action="respuesta_registro_proyecto.php"  method="POST" id="signup" enctype="multipart/form-data">
    <br>
    <h1>Registrar Proyecto</h1>
    <br></br>
@@ -64,18 +66,27 @@
                Nombre del Proyecto: 
             </div>
             <div class="col-3 col-p2-3">
-               <input type="text" class="form-control" id="nombre_pro">
+               <input type="text" class="form-control" name="nombre" id="nombre_pro">
                <small></small>
             </div>
             <div class="separation2"></div>
             <div class="col-3 col-p2-3 names" >
-               Profesor: 
+               Unidad de Formación: 
             </div>
             <div class="col-3 col-p2-3">
-               <div class="mb-3">
-                  <input type="text" class="form-control" id="nombre_prof" >
-                  <small></small>
-                </div>
+            <div class="input-group mb-3">
+                  <select class="form-select" aria-label="Default select example" name ="uf" required>
+                  <option selected>Opciones</option>
+                                 <?php
+                                 $pdo = Database::connect();
+                                 $query = 'SELECT * FROM md1_uf';
+                                 foreach ($pdo->query($query) as $row) {
+                                          echo "<option value='" . $row['clave'] . "'>" . $row['nombre'] . "</option>";
+
+                                 }
+                                 Database::disconnect();
+                           ?>
+                  </select>
             </div>
          </div>
          <div class="row">
@@ -85,37 +96,56 @@
             </div>
             <div class="col-3 col-p2-3">
                <div class="mb-3">
-                  <select class="form-select" aria-label="Default select example" id="areaInput">
+                  <select class="form-select" aria-label="Default select example" name="area" id="areaInput">
                      <option selected disabled="disabled" value="">Seleccione una Opción</option>
-                     <option value="1">Nano</option>
-                     <option value="2">Bio</option>
-                     <option value="3">Nexus</option>
-                     <option value="4">Cyber</option>
+                     <option value="Nano">Nano</option>
+                     <option value="Bio">Bio</option>
+                     <option value="Nexus">Nexus</option>
+                     <option value="Cyber">Cyber</option>
                    </select>
                 </div>
                 <small></small>
             </div>
             <div class="separation2"></div>
             <div class="col-3 col-p2-3 names">
-               Correo del Profesor:
+               Profesor:
             </div>
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" id="correoProfesor">
-                  <span class="input-group-text">@</span>
-                  <input type="text" class="form-control" placeholder="Server" aria-label="Server" id="serverProfesor">
+               <select class="form-select" aria-label="Default select example" name ="profesor" required>
+               <option selected>Opciones</option>
+		                        <?php
+							   		$pdo = Database::connect();
+							   		$query = 'SELECT * FROM md1_docente';
+			 				   		foreach ($pdo->query($query) as $row) {
+		                        			echo "<option value='" . $row['nomina'] . "'>" . $row['nombre'] . "</option>";
+
+			   						}
+			   						Database::disconnect();
+			  					?>
+               </select>
                 </div>
                 <small></small>
             </div>
          </div>
          <div class="row">
          <div class="separation"></div>
-         <div class="col-3 col-p2-3 names">
-               Nombre de la UF:
+            <div class="col-3 col-p2-3 names">
+               Edicion:
             </div>
             <div class="col-3 col-p2-3">
-               <input type="text" class="form-control" id="nombreUf" >
-               <small></small>
+            <select class="form-select" aria-label="Default select example" name ="edicion" required>
+               <option selected>Opciones</option>
+		                        <?php
+							   		$pdo = Database::connect();
+							   		$query = 'SELECT * FROM md1_edicion';
+			 				   		foreach ($pdo->query($query) as $row) {
+		                        			echo "<option value='" . $row['id'] . "'>" . $row['fechaInicio'] . "</option>";
+
+			   						}
+			   						Database::disconnect();
+			  					?>
+               </select>
             </div>
             <div class="separation2 questionMark" id="descrip">&quest;</div>
             <div class="col-3 col-p2-3 names">
@@ -124,7 +154,7 @@
             <div class="col-3 col-p2-3">
                <div class="input-group">
                   <span class="input-group-text"></span>
-                  <textarea class="form-control" aria-label="With textarea" id="descripInput"></textarea>
+                  <textarea class="form-control" aria-label="With textarea" name="descripcion" id="descripInput"></textarea>
                 </div>
                 <small></small>
             </div>
@@ -137,7 +167,7 @@
             </div>
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero1">
                   <span class="input-group-text">@</span>
                   <input type="text" class="form-control" placeholder="Server" aria-label="Server">
                 </div>
@@ -149,11 +179,11 @@
             </div>
             <div class="col-3 col-p2-3">
             <div class="mb-3">
-               <select class="form-select" aria-label="Default select example" id="nivelInput">
+               <select class="form-select" aria-label="Default select example" name="nivel" id="nivelInput">
                   <option selected value="" disabled="disabled">Seleccione una Opción</option>
-                  <option value="1">Concepto</option>
-                  <option value="2">Prototipo</option>
-                  <option value="3">Producto Terminado</option>
+                  <option value="Concepto">Concepto</option>
+                  <option value="Prototipo">Prototipo</option>
+                  <option value="Terminado">Producto Terminado</option>
                 </select>
                 
             </div>
@@ -168,7 +198,7 @@
             </div>
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero2">
                   <span class="input-group-text">@</span>
                   <input type="text" class="form-control" placeholder="Server" aria-label="Server">
                 </div>
@@ -191,7 +221,7 @@
             </div>
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero3">
                   <span class="input-group-text">@</span>
                   <input type="text" class="form-control" placeholder="Server" aria-label="Server">
                 </div>
@@ -215,7 +245,7 @@
             </div>
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero4">
                   <span class="input-group-text">@</span>
                   <input type="text" class="form-control" placeholder="Server" aria-label="Server">
                 </div>
@@ -223,11 +253,11 @@
             </div>
             <div class="separation2 questionMark" id="imagen">&quest;</div>
             <div class="col-3 col-p2-3 names">
-               Subir Imagen del Proyecto (.png): 
+               Subir Imagen del Proyecto (.jpg 2048kb max): 
             </div>
             <div class="col-3 col-p2-3">
                <div class="mb-3">
-                  <input class="form-control" type="file" id="imagenInput">
+                  <input class="form-control" type="file" id="imagenInput" name="image">
                   <small></small>
                </div>
             </div>
@@ -241,11 +271,11 @@
          <div class="row">
             <div class="col-3 radioOpts">
                <div class="form-check form-check-inline" id="radios">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
                   <label class="form-check-label" for="inlineRadio1">Sí</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="0">
                   <label class="form-check-label" for="inlineRadio2">No</label>
                 </div>
             </div>
@@ -258,8 +288,8 @@
       </form>
 
    <!-- SCRIPTS -->
-   <script src="js/registro_proyectos.js"></script>
+<!--   <script src="js/registro_proyectos.js"></script>
    <script src="js/validacion_registro_proyecto.js"></script>
-
+                           -->
 </body>
 </html>

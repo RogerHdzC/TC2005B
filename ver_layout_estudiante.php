@@ -1,5 +1,8 @@
 <?php
   require_once 'restrictedEstudiante.php';
+  include 'database.php';
+  $pdo = Database::connect();
+  $consulta = "SELECT * FROM md1_layout";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -41,8 +44,12 @@
         </a>
     </div>
   </nav>
-
-      <br></br>
-      <img src="img/Layout.png" height="577x" width="1069px">
+      <?php
+      foreach ($pdo->query($consulta) as $colum){
+    ?>
+      <img src='data:image/png;base64,<?php echo base64_encode($colum['layout']);?>' alt='Imagen de Portada Proyecto' width='550px' height='1069px'>
+    <?php 
+    }
+    ?>
 </body>
 </html>
