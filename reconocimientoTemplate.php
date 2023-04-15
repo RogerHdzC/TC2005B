@@ -20,6 +20,6 @@
 </head>
 <body>
   <h1>Reconocimiento</h>
-  <p>Felcidades a <?php $_SESSION["username"]?> por haber participado en expoIngenierias</p>
+  <p>Felcidades a {{ name }} por haber participado en expoIngenierias</p>
 </body>
 </html>

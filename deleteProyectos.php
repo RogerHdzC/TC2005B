@@ -1,4 +1,5 @@
 <?php
+  	require_once 'restrictedAdmin.php';
 	require 'database.php';
 	$id = 0;
 	if ( !empty($_GET['id'])) {
@@ -11,8 +12,8 @@
 		// delete data
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql = "INSERT INTO md1_proyectoBorrado (nombre,UF,areaEstrategica,descripcion,portada,correoLider,correoCompañero1,correoCompañero2,correoCompañero3,correoCompañero4,correoProfesor,nivel,promedio,componeteDeEmprendimiento,idEdicion,autorizado)
-		SELECT nombre,UF,areaEstrategica,descripcion,portada,correoLider,correoCompañero1,correoCompañero2,correoCompañero3,correoCompañero4,correoProfesor,nivel,promedio,componeteDeEmprendimiento,idEdicion,autorizado 
+		$sql = "INSERT INTO md1_proyectoBorrado (nombre,UF,areaEstrategica,descripcion,correoLider,correoCompañero1,correoCompañero2,correoCompañero3,correoCompañero4,correoProfesor,nivel,promedio,componeteDeEmprendimiento,idEdicion,autorizado,pdf,video)
+		SELECT nombre,UF,areaEstrategica,descripcion,correoLider,correoCompañero1,correoCompañero2,correoCompañero3,correoCompañero4,correoProfesor,nivel,promedio,componeteDeEmprendimiento,idEdicion,autorizado,pdf,video 
 		FROM md1_proyecto 
 		WHERE id = ?";
 		$q = $pdo->prepare($sql);
@@ -43,7 +44,7 @@
 			    </div>
 
 			    <form class="form-horizontal" action="deleteProyectos.php" method="post">
-		    		<input type="hidden" name="id" value="<?php echo $id;?>"/>
+		    		<input type="hidden" name="id" value="<?php echo $colum['id']?>'"/>
 					<p class="alert alert-error">Estas seguro que quieres eliminar este proyecto ?</p>
 					<div class="form-actions">
                         <button type="submit" class="btn btn-light btn-custom">Si</button>

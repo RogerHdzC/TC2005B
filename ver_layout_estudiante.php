@@ -3,6 +3,7 @@
   include 'database.php';
   $pdo = Database::connect();
   $consulta = "SELECT * FROM md1_layout";
+  Database::disconnect();
 ?>
 <!DOCTYPE html>
 <html lang="es">

@@ -77,7 +77,6 @@
              }
             ?>
           </div>
-          <img src='data:image/png;base64,<?php echo base64_encode($colum['portada']);?>' class='card-img-top' alt='Imagen de Portada Proyecto' width='100%' height='100%'>
           <div class="card-body p1-color">
 
             <h5 class="card-title">

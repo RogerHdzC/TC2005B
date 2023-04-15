@@ -197,7 +197,11 @@
             </div>
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero1" value="<?php echo $data['correoCompañero1'] ?>">
+                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero1" value="<?php if ($data['correoCompañero1']==NULL){
+                     echo "NULL";
+                  }else{
+                     echo $data['correoCompañero1'];
+                     } ?>">
                   <span class="input-group-text">@</span>
                   <input type="text" class="form-control" placeholder="Server" aria-label="Server" value="tec.mx">
                 </div>
@@ -228,7 +232,11 @@
             </div>
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero2" value="<?php echo $data['correoCompañero2'] ?>">
+                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero2" value="<?php if ($data['correoCompañero2']==NULL){
+                     echo "NULL";
+                  }else{
+                     echo $data['correoCompañero2'];
+                     } ?>">
                   <span class="input-group-text">@</span>
                   <input type="text" class="form-control" placeholder="Server" aria-label="Server" value="tec.mx">
                 </div>
@@ -239,7 +247,8 @@
             </div>
             <div class="col-3 col-p2-3">
                <div class="mb-3">
-                  <input class="form-control" type="file" id="videoInput">
+                  <input type="text" class="form-control" name="video" id="" value="<?php echo $data['video'] ?>">
+                  
                   <small></small>
                </div>
             </div>
@@ -251,7 +260,11 @@
             </div>
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero3" value="<?php echo $data['correoCompañero3'] ?>">
+                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero3" value="<?php if ($data['correoCompañero3']==NULL){
+                     echo "NULL";
+                  }else{
+                     echo $data['correoCompañero3'];
+                     } ?>">
                   <span class="input-group-text">@</span>
                   <input type="text" class="form-control" placeholder="Server" aria-label="Server" value="tec.mx">
                 </div>
@@ -263,7 +276,7 @@
             </div>
             <div class="col-3 col-p2-3">
                <div class="mb-3">
-                  <input class="form-control" type="file" id="posterInput">
+                  <input class="form-control" type="text" name="pdf" id="posterInput" value="<?php echo $data['pdf'] ?>">
                   <small></small>
                </div>
             </div>
@@ -275,7 +288,11 @@
             </div>
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero4" value="<?php echo $data['correoCompañero4'] ?>">
+                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero4" value="<?php if ($data['correoCompañero4']==NULL){
+                     echo "NULL";
+                  }else{
+                     echo $data['correoCompañero4'];
+                     } ?>">
                   <span class="input-group-text">@</span>
                   <input type="text" class="form-control" placeholder="Server" aria-label="Server" value="tec.mx">
                 </div>
@@ -283,11 +300,9 @@
             </div>
             <div class="separation2 questionMark" id="imagen">&quest;</div>
             <div class="col-3 col-p2-3 names">
-               Subir Imagen del Proyecto (.jpg 2048kb max): 
             </div>
             <div class="col-3 col-p2-3">
                <div class="mb-3">
-                  <input class="form-control" type="file" id="imagenInput" name="image">
                   <small></small>
                </div>
             </div>

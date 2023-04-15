@@ -2,19 +2,47 @@
   require_once 'restrictedEstudiante.php';
   include 'database.php';
 $nombre = $_POST["nombre"] ;
+echo $nombre;
 $uf = $_POST["uf"];
+echo $uf;
 $area = $_POST["area"];
+echo $area;
 $descripcion= $_POST["descripcion"];
-$portada = addslashes(file_get_contents($_FILES['image']['tmp_name']));
+echo $descripcion;
 $correoLider = $_SESSION['username'];
+echo $correoLider;
 $compañero1 = $_POST["compañero1"];
+if ($compañero1 == "NULL"){
+  $compañero1 = NULL;
+}
+echo $compañero1;
 $compañero2 = $_POST["compañero2"];
+if ($compañero2 == "NULL"){
+  $compañero2 = NULL;
+}
+echo $compañero2;
 $compañero3 = $_POST["compañero3"];
+if ($compañero3 == "NULL"){
+  $compañero3 = NULL;
+}
+echo $compañero3;
 $compañero4 = $_POST["compañero4"];
+if ($compañero4 == "NULL"){
+  $compañero4 = NULL;
+}
+echo $compañero4;
 $correoProfesor = $_POST["profesor"];
+echo $correoProfesor;
 $nivel = $_POST["nivel"];
+echo $nivel;
 $emprendimiento = $_POST["inlineRadioOptions"];
+echo $emprendimiento;
 $edicion = $_POST["edicion"];
+echo $edicion;
+$video = $_POST["video"];
+echo $video;
+$pdf =$_POST["pdf"];
+echo $pdf;
 $promedio = 0;
 $autorizado = 0;
 $id = 0;
@@ -25,21 +53,24 @@ if ( !empty($_GET['id'])) {
 if (isset($_POST['guardarCambios'])){
   $pdo = Database::connect();
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $sql ="UPDATE `md1_proyecto` SET `nombre` = ? , `UF` = ?, `areaEstrategica` = ? , descripcion = ? , portada = ?, correoLider = ?, correoCompañero1 = ? , correoCompañero2 = ? , correoCompañero3 = ? , correoCompañero4 = ?, correoProfesor = ?, nivel = ?, promedio=?,componeteDeEmprendimiento=?,idEdicion=?,autorizado=? WHERE `md1_proyecto`.`id` = ? ";
+  $sql ="UPDATE `md1_proyecto` SET `nombre` = ? , `UF` = ?, `areaEstrategica` = ? , descripcion = ? , correoLider = ?, correoCompañero1 = ? , correoCompañero2 = ? , correoCompañero3 = ? , correoCompañero4 = ?, correoProfesor = ?, nivel = ?, promedio=?,componeteDeEmprendimiento=?,idEdicion=?,autorizado=?, pdf = ?, video = ? WHERE `md1_proyecto`.`id` = ? ";
   $q = $pdo->prepare($sql);
-  $q->execute(array($nombre, $uf,$area, $descripcion, $portada, $correoLider, $compañero1,$compañero2, $compañero3, $compañero4,$correoProfesor,$nivel,$promedio,$emprendimiento,$edicion,$autorizado, $id));
+  $q->execute(array($nombre, $uf,$area, $descripcion, $correoLider, $compañero1,$compañero2, $compañero3, $compañero4,$correoProfesor,$nivel,$promedio,$emprendimiento,$edicion,$autorizado,$pdf,$video, $id));
   
   Database::disconnect();
   header('Location: pagina_inicio_estudiantes.php');  
 }else{
   $pdo = Database::connect();
-  
+  echo "1";
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-          $sql ="INSERT INTO md1_proyecto (nombre,UF,areaEstrategica,descripcion,portada,correoLider,correoCompañero1,correoCompañero2,correoCompañero3,correoCompañero4,correoProfesor,nivel,promedio,componeteDeEmprendimiento,idEdicion,autorizado)
-          VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
-          $q = $pdo->prepare($sql);
-          $q->execute(array($nombre,$uf,$area,$descripcion,$portada,$correoLider,$compañero1,$compañero2,$compañero3,$compañero4,$correoProfesor,$nivel,$promedio,$emprendimiento,$edicion,$autorizado));
-  
+  echo "2";
+          $sql ="INSERT INTO md1_proyecto (nombre,UF,areaEstrategica,descripcion,correoLider,correoCompañero1,correoCompañero2,correoCompañero3,correoCompañero4,correoProfesor,nivel,promedio,componeteDeEmprendimiento,idEdicion,autorizado,pdf,video)
+          VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
+  echo "3";
+         $q = $pdo->prepare($sql);
+  echo "4";       
+          $q->execute(array($nombre,$uf,$area,$descripcion,$correoLider,$compañero1,$compañero2,$compañero3,$compañero4,$correoProfesor,$nivel,$promedio,$emprendimiento,$edicion,$autorizado,$pdf,$video));
+  echo "5";
   header('Location: pagina_inicio_estudiantes.php');  
   Database::disconnect();
 }

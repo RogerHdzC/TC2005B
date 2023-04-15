@@ -167,7 +167,15 @@
                  ?>
                   </div>
               </div>
-              <div class="col-3 col-p2-3"></div>
+              <div class="col-3 col-p2-3 names">
+                  Subir Video (URL): 
+               </div>
+               <div class="col-3 col-p2-3">
+                  <div class="mb-3">
+                     <a href="<?php echo $data['video'] ?>">VIDEO</a>
+                     <small></small>
+                  </div>
+               </div>
                <div class="col-3 col-p2-3"></div>
          </div>
            <div class="row">
@@ -189,8 +197,15 @@
                  ?>
                   </div>
               </div>
-              <div class="col-3 col-p2-3"></div>
-               <div class="col-3 col-p2-3"></div>
+              <div class="col-3 col-p2-3 names">
+                  Subir Poster (URL): 
+               </div>
+               <div class="col-3 col-p2-3">
+                  <div class="mb-3">
+                     <a href="<?php echo $data['pdf'] ?>">POSTER</a>
+                  <small></small>
+                  </div>
+               </div>               <div class="col-3 col-p2-3"></div>
          </div>
               <div class="row">
                <div class="col-3 col-p2-3">

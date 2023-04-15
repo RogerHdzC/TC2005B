@@ -55,7 +55,6 @@
                 <div class="row row-cols-1 row-cols-md-2 mb-2 text-center">
                     <div class="col">
                       <div class="card h-100">
-                        <img src='data:image/png;base64,<?php echo base64_encode($colum['portada']);?>' class='card-img-top' alt='Imagen de Portada Proyecto' width='100%' height='100%'>
                         <div class='card-body card-p1'>
                           <h5 class='card-title'> <?php  echo $colum['nombre']; ?> </h5>
                           <p class='card-text'><?php  echo $colum['descripcion']; ?></p>

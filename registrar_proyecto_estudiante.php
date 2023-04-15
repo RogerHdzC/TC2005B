@@ -167,7 +167,7 @@
             </div>
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero1">
+                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero1" value="NULL">
                   <span class="input-group-text">@</span>
                   <input type="text" class="form-control" placeholder="Server" aria-label="Server">
                 </div>
@@ -198,21 +198,21 @@
             </div>
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero2">
+                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero2" value="NULL">
                   <span class="input-group-text">@</span>
                   <input type="text" class="form-control" placeholder="Server" aria-label="Server">
                 </div>
             </div>
             <div class="separation2 questionMark" id="video">&quest;</div>
-            <div class="col-3 col-p2-3 names">
-               Subir Video (.mp4): 
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="mb-3">
-                  <input class="form-control" type="file" id="videoInput">
-                  <small></small>
+               <div class="col-3 col-p2-3 names">
+                  Subir Video (URL): 
                </div>
-            </div>
+               <div class="col-3 col-p2-3">
+                  <div class="mb-3">
+                     <input type="text" class="form-control" name="video" id="">
+                     <small></small>
+                  </div>
+               </div>
          </div>
          <div class="row">
          <div class="separation"></div>
@@ -221,22 +221,22 @@
             </div>
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero3">
+                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero3" value="NULL">
                   <span class="input-group-text">@</span>
                   <input type="text" class="form-control" placeholder="Server" aria-label="Server">
                 </div>
                 <small></small>
             </div>
             <div class="separation2"></div>
-            <div class="col-3 col-p2-3 names">
-               Subir Poster (.pdf): 
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="mb-3">
-                  <input class="form-control" type="file" id="posterInput">
-                  <small></small>
+               <div class="col-3 col-p2-3 names">
+                  Subir Poster (URL): 
                </div>
-            </div>
+               <div class="col-3 col-p2-3">
+                  <div class="mb-3">
+                     <input class="form-control" type="text" name="pdf" id="posterInput">
+                     <small></small>
+                  </div>
+               </div>
          </div>
          <div class="row">
             <div class="separation"></div>
@@ -245,7 +245,7 @@
             </div>
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero4">
+                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero4" value="NULL">
                   <span class="input-group-text">@</span>
                   <input type="text" class="form-control" placeholder="Server" aria-label="Server">
                 </div>
@@ -253,11 +253,9 @@
             </div>
             <div class="separation2 questionMark" id="imagen">&quest;</div>
             <div class="col-3 col-p2-3 names">
-               Subir Imagen del Proyecto (.jpg 2048kb max): 
             </div>
             <div class="col-3 col-p2-3">
                <div class="mb-3">
-                  <input class="form-control" type="file" id="imagenInput" name="image">
                   <small></small>
                </div>
             </div>
