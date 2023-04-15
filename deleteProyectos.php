@@ -10,6 +10,7 @@
 		// keep track post values
 		$id = $_POST['id'];
 		// delete data
+		echo $id;
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$sql = "INSERT INTO md1_proyectoBorrado (nombre,UF,areaEstrategica,descripcion,correoLider,correoCompañero1,correoCompañero2,correoCompañero3,correoCompañero4,correoProfesor,nivel,promedio,componeteDeEmprendimiento,idEdicion,autorizado,pdf,video)
@@ -44,7 +45,7 @@
 			    </div>
 
 			    <form class="form-horizontal" action="deleteProyectos.php" method="post">
-		    		<input type="hidden" name="id" value="<?php echo $colum['id']?>'"/>
+		    		<input type="hidden" name="id" value="<?php echo $id?>"/>
 					<p class="alert alert-error">Estas seguro que quieres eliminar este proyecto ?</p>
 					<div class="form-actions">
                         <button type="submit" class="btn btn-light btn-custom">Si</button>

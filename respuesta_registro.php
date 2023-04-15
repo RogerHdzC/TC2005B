@@ -38,6 +38,8 @@ $password_hash = password_hash($password, PASSWORD_BCRYPT, $options);
 $nombreCompleto = $nombre . " " . $apellidoPaterno . " " . $apellidoMaterno;
 $correo = $usuario . "@" . $server;
 
+
+
 if(($server == "tec.mx"  && strtoupper($usuario[0])!="A")){
     $pdo = Database::connect();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
