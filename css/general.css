@@ -96,6 +96,10 @@ li{
 }
 
 /* NAV ITEMS*/
+.navbar-collapse{
+   align-items: center;
+   justify-content: center;
+}
 
 .navbar{
    position: fixed;
@@ -116,7 +120,7 @@ li{
 }
 
 .nav-item-admin{
-   margin: auto 30px;
+   margin: auto 10px;
    padding-left: 30px;
    width: 150px;
 }

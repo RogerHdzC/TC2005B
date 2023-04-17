@@ -13,6 +13,9 @@ const apellido2 = document.querySelector('#apellidoMaterno');
 const user = document.querySelector('#correoProfesor');
 const server = document.querySelector('#serverProfesor');
 
+const op1 = document.querySelector('#inlineRadio1');
+const op2 = document.querySelector('#inlineRadio2');
+
 const passwordEl = document.querySelector('#password');
 
 const form = document.querySelector('#signup');
@@ -71,23 +74,65 @@ const checkCorreo = () => {
    const s = server.value.trim();
    const email = u + "@" + s;
    const min = 1,
-       max = 30;
+       max = 30,
+       tam = 9;
+
+      //  console.clear();
+      //  console.log(!isNaN(u[1]));
+      //  console.log(u[0].toUpperCase() =="A");
        
    if (!isRequired(u) || !isRequired(s)) {
-       showError(server, 'El correo no puede estar vacío.');
+         showError(server, 'El correo no puede estar vacío.');
 
-   } else if (!isBigger(u.length,min+1,max)) {
+   } else if (!isBigger(u.length, min+1)) {
       showError(server, `La primera entrada debe ser mayor que ${min+1} caracteres.`)
       
-  } else if (!isBetween(email.length,min,max)) {
+   } else if (!isBetween(email.length,min,max)) {
    showError(server, `El correo debe de ser entre ${min} y ${max} caracteres.`)
-   
-  }  else if (!isEmailValid(email)) {
+
+   }  else if (!isEmailValid(email)) {
    showError(server, `El correo es Inválido`)
 
-}else {
-       showSuccess(server);
-       valid = true;
+   } else {
+         showSuccess(server);
+         valid = true;
+      }
+
+   if (isBigger(u.length, min+1)) {
+      if(s == "tec.mx" && u[0].toUpperCase() =="A" && !isNaN(u[1])){
+         if (u.length != tam) {
+            showError(server, `La Matrícula debe de ser de ${tam} caracteres`)
+         }
+         else{
+            showSuccess(server);
+            valid = true;
+         }
+      }
+      
+      } 
+   return valid;
+};
+
+const checkEsJuez = () => {
+
+   let valid = false;
+
+   const u = user.value.trim();
+   const s = server.value.trim();
+   const e1 = op1;
+   const e2 = op2;
+
+   if(s == "tec.mx"  && u[0].toUpperCase() !="A"){
+      if (e1.checked == false && e2.checked == false) {
+         showErrorRadio(op2, 'Debe Seleccionar Una Opción');
+      } else {
+         showSuccessRadio(op2);
+            valid = true;
+      }
+   }
+   else {
+      removeErrorRadio(op2)
+      valid = true;
    }
    return valid;
 };
@@ -156,6 +201,48 @@ const showSuccess = (input) => {
    error.textContent = '';
 }
 
+// Función para mostrar error en pantalla para inputs de tipo radio
+const showErrorRadio = (input, message) => {
+   // Consigue el padre del padre del input
+   const grandpa = input.parentElement.parentElement;
+
+   // Añade la clase error al padre del padre
+   grandpa.classList.remove('exitoExtra');
+   grandpa.classList.add('erroresExtra');
+
+   // Muestra el mensaje de error al modificar el tag small del padre del abuelo
+   const error = grandpa.parentElement.querySelector('small');
+   error.textContent = message;
+}
+
+// Función para mostrar éxito en pantalla para inputs de tipo radio
+const showSuccessRadio = (input) => {
+   // Consigue el padre del padre del input
+   const grandpa = input.parentElement.parentElement;
+
+   // Esconde el mensaje de error al modificar el tag small del abuelo
+   grandpa.classList.remove('erroresExtra');
+   grandpa.classList.add('exitoExtra');
+   
+   // Quita el mensaje de error al modificar el tag small del padre del abuelo
+   const error = grandpa.parentElement.querySelector('small');
+   error.textContent = '';
+}
+
+const removeErrorRadio = (input) => {
+   // Consigue el padre y el padre del padre del input
+   const grandpa = input.parentElement.parentElement;
+
+   // Quita la clase error al padre
+   grandpa.classList.remove('erroresExtra');
+   grandpa.classList.remove('exitoExtra');
+
+   // Esconde el mensaje de error al modificar el tag small del abuelo
+
+   const error = grandpa.parentElement.querySelector('small');
+   error.textContent = '';
+}
+
 
 form.addEventListener('submit', function (e) {
    // Evita que el form se suba
@@ -165,11 +252,13 @@ form.addEventListener('submit', function (e) {
    let isNombreValid = checkNombre(),
        isApellidosValid = checkApellidos(),
        isCorreoValid = checkCorreo(),
+       isJuezValid = checkEsJuez(),
        isPasswordValid = checkPassword();
 
    let isFormValid = isNombreValid &&
    isApellidosValid &&
    isCorreoValid &&
+   isJuezValid &&
    isPasswordValid;
 
    // Se hace submit en caso de que todas las entradas sean válidas
@@ -179,7 +268,7 @@ form.addEventListener('submit', function (e) {
 });
 
 // Función de temporizador
-const debounce = (fn, delay = 500) => {
+const debounce = (fn, delay = 100) => {
    let timeoutId;
    return (...args) => {
        // Cancela el temporizador previo
@@ -213,6 +302,12 @@ form.addEventListener('input', debounce(function (e) {
          break;
       case 'password':
          checkPassword();
+         break;
+      case 'inlineRadio1':
+         checkEsJuez();
+         break;
+      case 'inlineRadio2':
+         checkEsJuez();
          break;
    }
 }));

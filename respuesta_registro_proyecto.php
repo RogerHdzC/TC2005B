@@ -11,26 +11,18 @@ $descripcion= $_POST["descripcion"];
 echo $descripcion;
 $correoLider = $_SESSION['username'];
 echo $correoLider;
-$compañero1 = $_POST["compañero1"];
-if ($compañero1 == "NULL"){
-  $compañero1 = NULL;
-}
-echo $compañero1;
-$compañero2 = $_POST["compañero2"];
-if ($compañero2 == "NULL"){
-  $compañero2 = NULL;
-}
+$compañero1 = !empty($_POST["compañero1"]) ? $_POST["compañero1"]:NULL;
+echo $compañero1 . "PENDEJO";
+
+$compañero2 = !empty($_POST["compañero2"]) ? $_POST["compañero2"]:NULL;
 echo $compañero2;
-$compañero3 = $_POST["compañero3"];
-if ($compañero3 == "NULL"){
-  $compañero3 = NULL;
-}
+
+$compañero3 = !empty($_POST["compañero3"]) ? $_POST["compañero3"]:NULL;
 echo $compañero3;
-$compañero4 = $_POST["compañero4"];
-if ($compañero4 == "NULL"){
-  $compañero4 = NULL;
-}
+
+$compañero4 = !empty($_POST["compañero4"]) ? $_POST["compañero4"]:NULL;
 echo $compañero4;
+
 $correoProfesor = $_POST["profesor"];
 echo $correoProfesor;
 $nivel = $_POST["nivel"];

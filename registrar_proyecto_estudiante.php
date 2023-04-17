@@ -12,6 +12,9 @@
    <!-- BOOTSTRAP-->
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   
+   <!-- Sweet Alert -->
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
    <!-- CSS -->
    <link href="css/general.css" rel="stylesheet">
@@ -66,7 +69,7 @@
                Nombre del Proyecto: 
             </div>
             <div class="col-3 col-p2-3">
-               <input type="text" class="form-control" name="nombre" id="nombre_pro">
+               <input type="text" class="form-control" name="nombre" id="nombre_pro" required>
                <small></small>
             </div>
             <div class="separation2"></div>
@@ -75,8 +78,8 @@
             </div>
             <div class="col-3 col-p2-3">
             <div class="input-group mb-3">
-                  <select class="form-select" aria-label="Default select example" name ="uf" required>
-                  <option selected>Opciones</option>
+                  <select class="form-select" aria-label="Default select example" name ="uf" id="nombreUf" required>
+                  <option selected disabled="disabled" value="">Seleccione una Opción</option>
                                  <?php
                                  $pdo = Database::connect();
                                  $query = 'SELECT * FROM md1_uf';
@@ -88,6 +91,7 @@
                            ?>
                   </select>
             </div>
+            <small></small>
          </div>
          <div class="row">
          <div class="separation questionMark" id="area">&quest;</div>
@@ -96,7 +100,7 @@
             </div>
             <div class="col-3 col-p2-3">
                <div class="mb-3">
-                  <select class="form-select" aria-label="Default select example" name="area" id="areaInput">
+                  <select class="form-select" aria-label="Default select example" name="area" id="areaInput" required>
                      <option selected disabled="disabled" value="">Seleccione una Opción</option>
                      <option value="Nano">Nano</option>
                      <option value="Bio">Bio</option>
@@ -112,8 +116,8 @@
             </div>
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
-               <select class="form-select" aria-label="Default select example" name ="profesor" required>
-               <option selected>Opciones</option>
+               <select class="form-select" aria-label="Default select example" name ="profesor" id="nombreProfesor" required>
+               <option selected disabled="disabled" value="">Seleccione una Opción</option>
 		                        <?php
 							   		$pdo = Database::connect();
 							   		$query = 'SELECT * FROM md1_docente';
@@ -134,8 +138,9 @@
                Edicion:
             </div>
             <div class="col-3 col-p2-3">
-            <select class="form-select" aria-label="Default select example" name ="edicion" required>
-               <option selected>Opciones</option>
+            <div class="input-group mb-3">
+            <select class="form-select" aria-label="Default select example" name ="edicion" id="edicion" required>
+               <option selected disabled="disabled" value="">Seleccione una Opción</option>
 		                        <?php
 							   		$pdo = Database::connect();
 							   		$query = 'SELECT * FROM md1_edicion';
@@ -146,6 +151,8 @@
 			   						Database::disconnect();
 			  					?>
                </select>
+            </div>
+            <small></small>
             </div>
             <div class="separation2 questionMark" id="descrip">&quest;</div>
             <div class="col-3 col-p2-3 names">
@@ -163,13 +170,12 @@
          <div class="row">
          <div class="separation questionMark" id='compañero'>&quest;</div>
          <div class="col-3 col-p2-3 names">
-               Correo de Compañero:
+               Matrícula de Compañero:
             </div>
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero1" value="NULL">
-                  <span class="input-group-text">@</span>
-                  <input type="text" class="form-control" placeholder="Server" aria-label="Server">
+                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero1" value="" id="Comp1">
+
                 </div>
                 <small></small>
             </div>
@@ -179,7 +185,7 @@
             </div>
             <div class="col-3 col-p2-3">
             <div class="mb-3">
-               <select class="form-select" aria-label="Default select example" name="nivel" id="nivelInput">
+               <select class="form-select" aria-label="Default select example" name="nivel" id="nivelInput" required>
                   <option selected value="" disabled="disabled">Seleccione una Opción</option>
                   <option value="Concepto">Concepto</option>
                   <option value="Prototipo">Prototipo</option>
@@ -194,14 +200,13 @@
          <div class="row">
          <div class="separation"></div>
          <div class="col-3 col-p2-3 names">
-               Correo de Compañero:
+         Matrícula de Compañero:
             </div>
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero2" value="NULL">
-                  <span class="input-group-text">@</span>
-                  <input type="text" class="form-control" placeholder="Server" aria-label="Server">
+                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero2" value="" id="Comp2">
                 </div>
+                <small></small>
             </div>
             <div class="separation2 questionMark" id="video">&quest;</div>
                <div class="col-3 col-p2-3 names">
@@ -209,7 +214,7 @@
                </div>
                <div class="col-3 col-p2-3">
                   <div class="mb-3">
-                     <input type="text" class="form-control" name="video" id="">
+                     <input type="text" class="form-control" name="video" id="videoInput" required>
                      <small></small>
                   </div>
                </div>
@@ -217,13 +222,11 @@
          <div class="row">
          <div class="separation"></div>
          <div class="col-3 col-p2-3 names">
-               Correo de Compañero:
+         Matrícula de Compañero:
             </div>
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero3" value="NULL">
-                  <span class="input-group-text">@</span>
-                  <input type="text" class="form-control" placeholder="Server" aria-label="Server">
+                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero3" value="" id="Comp3">
                 </div>
                 <small></small>
             </div>
@@ -233,7 +236,7 @@
                </div>
                <div class="col-3 col-p2-3">
                   <div class="mb-3">
-                     <input class="form-control" type="text" name="pdf" id="posterInput">
+                     <input class="form-control" type="text" name="pdf" id="posterInput" required>
                      <small></small>
                   </div>
                </div>
@@ -241,17 +244,15 @@
          <div class="row">
             <div class="separation"></div>
          <div class="col-3 col-p2-3 names">
-               Correo de Compañero:
+         Matrícula de Compañero:
             </div>
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero4" value="NULL">
-                  <span class="input-group-text">@</span>
-                  <input type="text" class="form-control" placeholder="Server" aria-label="Server">
+                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero4" value="" id="Comp4">
                 </div>
                 <small></small>
             </div>
-            <div class="separation2 questionMark" id="imagen">&quest;</div>
+            <div class="separation2"></div>
             <div class="col-3 col-p2-3 names">
             </div>
             <div class="col-3 col-p2-3">
@@ -269,11 +270,11 @@
          <div class="row">
             <div class="col-3 radioOpts">
                <div class="form-check form-check-inline" id="radios">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" required>
                   <label class="form-check-label" for="inlineRadio1">Sí</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="0">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="0" required>
                   <label class="form-check-label" for="inlineRadio2">No</label>
                 </div>
             </div>
@@ -286,8 +287,8 @@
       </form>
 
    <!-- SCRIPTS -->
-<!--   <script src="js/registro_proyectos.js"></script>
+  <script src="js/registro_proyectos.js"></script>
    <script src="js/validacion_registro_proyecto.js"></script>
-                           -->
+                          
 </body>
 </html>

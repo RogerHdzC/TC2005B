@@ -55,7 +55,7 @@ btnApertura = document.querySelector('#compañero');
 // Event Listeners
 
 btnApertura.addEventListener('click', function(){
-   text.innerHTML = `Escribe El Correo de cada uno de tus compañeros.<br></br>En caso de tener <b>Menos de 4 compañeros</b>, Deja en blanco los espacios.`;
+   text.innerHTML = `Escribe La <b>Matrícula</b> de cada uno de tus compañeros.<br></br>En caso de tener <b>Menos de 4 compañeros</b>, Deja en blanco los espacios.`;
    container.style.display = 'block';
 });
 

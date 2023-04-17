@@ -22,7 +22,9 @@
 <?php
 
 include 'database.php';
-
+if (isset($_POST["inlineRadioOptions"])) {
+   $esjurado = $_POST["inlineRadioOptions"];
+}
 //hacemos llamado al input de formulario
 $nombre = $_POST["nombreProfesor"] ;
 $apellidoPaterno = $_POST["apellidoPaterno"] ;
@@ -30,7 +32,6 @@ $apellidoMaterno = $_POST["apellidoMaterno"] ;
 $usuario = $_POST["correoProfesor"] ;
 $server = $_POST["serverProfesor"] ;
 $password = $_POST["password"];
-$esjurado = $_POST["inlineRadioOptions"];
 $options = [
     'cost' => 12,
 ];
@@ -40,7 +41,7 @@ $correo = $usuario . "@" . $server;
 
 
 
-if(($server == "tec.mx"  && strtoupper($usuario[0])!="A")){
+if(($server == "tec.mx" && !is_numeric($usuario[1]))){
     $pdo = Database::connect();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql ="SELECT * FROM md1_docente WHERE nomina = ?"; 
