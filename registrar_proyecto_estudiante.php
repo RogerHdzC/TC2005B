@@ -18,7 +18,6 @@
 
    <!-- CSS -->
    <link href="css/general.css" rel="stylesheet">
-   <link href="css/registrarProyectoEstudiante.css" rel="stylesheet">
 
    <!-- JS-->
    <title>Registrar Proyecto</title>

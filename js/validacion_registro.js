@@ -4,6 +4,8 @@
   ##################################### */ 
 
 // Variables por id del form
+let validIfCorreoExists = false;
+
 const nombreEl = document.querySelector('#nombreProfesor');
 
 const apellido1 = document.querySelector('#apellidoPaterno');
@@ -69,7 +71,6 @@ const checkApellidos = () => {
 };
 
 const checkCorreo = () => {
-   let valid = false;
    const u = user.value.trim();
    const s = server.value.trim();
    const email = u + "@" + s;
@@ -83,35 +84,100 @@ const checkCorreo = () => {
        
    if (!isRequired(u) || !isRequired(s)) {
          showError(server, 'El correo no puede estar vacío.');
+         validIfCorreoExists = false;
 
    } else if (!isBigger(u.length, min+1)) {
       showError(server, `La primera entrada debe ser mayor que ${min+1} caracteres.`)
-      
+      validIfCorreoExists = false;
+
    } else if (!isBetween(email.length,min,max)) {
-   showError(server, `El correo debe de ser entre ${min} y ${max} caracteres.`)
+      showError(server, `El correo debe de ser entre ${min} y ${max} caracteres.`)
+      validIfCorreoExists = false;
 
    }  else if (!isEmailValid(email)) {
    showError(server, `El correo es Inválido`)
+   validIfCorreoExists = false;
 
    } else {
-         showSuccess(server);
-         valid = true;
-      }
-
-   if (isBigger(u.length, min+1)) {
-      if(s == "tec.mx" && u[0].toUpperCase() =="A" && !isNaN(u[1])){
-         if (u.length != tam) {
-            showError(server, `La Matrícula debe de ser de ${tam} caracteres`)
+      if (isBigger(u.length, min+1) && isRequired(s)) {
+         if(s.toLowerCase() == "tec.mx" && u[0].toUpperCase() =="A" && !isNaN(u[1])){
+            if (u.length != tam) {
+               showError(server, `La Matrícula debe de ser de ${tam} caracteres`)
+               validIfCorreoExists = false;
+            }
+            else{
+               if (isRequired(u) && isRequired(s)) {
+                  // Se manda consulta tipo Ajax al server para verificar
+                  var xhr = new XMLHttpRequest();
+                  xhr.open('POST', 'revisar_registro.php', true);
+                  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                  xhr.onreadystatechange = function() {
+                      if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                          // Handle server response
+                          var response = JSON.parse(xhr.responseText); // Parse the response as JSON
+                          if (response.exists) {
+                              // El valor existe
+                              showError(server, `El correo ya está registrado`)
+                              validIfCorreoExists = false;
+            
+                          } else {
+                              // El valor NO existe
+                              showSuccess(server);
+                              validIfCorreoExists = true;
+            
+                          }
+                      }
+            
+                  };
+                  xhr.send('user=' + encodeURIComponent(u) + '&server=' + encodeURIComponent(s));
+            
+              } 
+              else {
+               removeError(server);
+               validIfCorreoExists = true;
+            }
+            }
          }
          else{
-            showSuccess(server);
-            valid = true;
+            if (isRequired(u) && isRequired(s)) {
+               // Se manda consulta tipo Ajax al server para verificar
+               var xhr = new XMLHttpRequest();
+               xhr.open('POST', 'revisar_registro.php', true);
+               xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+               xhr.onreadystatechange = function() {
+                   if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                       // Handle server response
+                       var response = JSON.parse(xhr.responseText); // Parse the response as JSON
+                       if (response.exists) {
+                           // El valor existe
+                           showError(server, `El correo ya está registrado`)
+                           validIfCorreoExists = false;
+         
+                       } else {
+                           // El valor NO existe
+                           showSuccess(server);
+                           validIfCorreoExists = true;
+         
+                       }
+                   }
+         
+               };
+               xhr.send('user=' + encodeURIComponent(u) + '&server=' + encodeURIComponent(s));
+         
+           } 
+           else {
+            removeError(server);
+            validIfCorreoExists = true;
+         }
+         }
+         
          }
       }
-      
-      } 
-   return valid;
+
+ 
 };
+
+
 
 const checkEsJuez = () => {
 
@@ -122,7 +188,7 @@ const checkEsJuez = () => {
    const e1 = op1;
    const e2 = op2;
 
-   if(s == "tec.mx"  && u[0].toUpperCase() !="A"){
+   if(s.toLowerCase() == "tec.mx" && isNaN(u[1])){
       if (e1.checked == false && e2.checked == false) {
          showErrorRadio(op2, 'Debe Seleccionar Una Opción');
       } else {
@@ -145,7 +211,7 @@ const checkPassword = () => {
 
    if (!isRequired(password)) {
        showError(passwordEl, 'La contraseña no puede estar vacía.');
-   } else if (!isBetween(password)) {
+   } else if (!isBetween(password.length, min, max)) {
        showError(passwordEl, `La contraseña debe de ser entre ${min} y ${max} caracteres.`);
    } else {
        showSuccess(passwordEl);
@@ -243,24 +309,44 @@ const removeErrorRadio = (input) => {
    error.textContent = '';
 }
 
+const removeError = (input) => {
+   // Consigue el padre y el padre del padre del input
+   const parent = input.parentElement;
+   const grandpa = input.parentElement.parentElement;
+
+   // Quita la clase error al padre
+   parent.classList.remove('errores');
+   parent.classList.remove('exito');
+
+   // Esconde el mensaje de error al modificar el tag small del abuelo
+
+   const error = grandpa.querySelector('small');
+   error.textContent = '';
+}
 
 form.addEventListener('submit', function (e) {
    // Evita que el form se suba
    e.preventDefault();
 
    // Campos a validar
+   checkCorreo();
    let isNombreValid = checkNombre(),
        isApellidosValid = checkApellidos(),
-       isCorreoValid = checkCorreo(),
        isJuezValid = checkEsJuez(),
        isPasswordValid = checkPassword();
 
    let isFormValid = isNombreValid &&
    isApellidosValid &&
-   isCorreoValid &&
    isJuezValid &&
+   validIfCorreoExists &&
    isPasswordValid;
 
+   // console.clear()
+   // console.log(`var isNombreValid: ${isNombreValid}`)
+   // console.log(`var isApellidosValid: ${isApellidosValid}`)
+   // console.log(`var isJuezValid: ${isJuezValid}`)
+   // console.log(`var validIfCorreoExists: ${validIfCorreoExists}`)
+   // console.log(`var isPasswordValid: ${isPasswordValid}`)
    // Se hace submit en caso de que todas las entradas sean válidas
    if (isFormValid) {
       e.target.submit();
@@ -268,7 +354,7 @@ form.addEventListener('submit', function (e) {
 });
 
 // Función de temporizador
-const debounce = (fn, delay = 100) => {
+const debounce = (fn, delay = 10) => {
    let timeoutId;
    return (...args) => {
        // Cancela el temporizador previo

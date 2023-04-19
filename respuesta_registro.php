@@ -30,7 +30,7 @@ $nombre = $_POST["nombreProfesor"] ;
 $apellidoPaterno = $_POST["apellidoPaterno"] ;
 $apellidoMaterno = $_POST["apellidoMaterno"] ;
 $usuario = $_POST["correoProfesor"] ;
-$server = $_POST["serverProfesor"] ;
+$server = strtolower($_POST["serverProfesor"]) ;
 $password = $_POST["password"];
 $options = [
     'cost' => 12,
@@ -51,7 +51,7 @@ if(($server == "tec.mx" && !is_numeric($usuario[1]))){
         <div class="alert alert-danger d-flex align-items-center" role="alert">
         <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
         <div>
-        <p class="error">The email address is already registered!</p>
+        <p class="error">Este correo ya está Registrado!</p>
         </div>
         </div>
         <div class='container'>
@@ -100,7 +100,7 @@ if(($server == "tec.mx" && !is_numeric($usuario[1]))){
         <div class="alert alert-danger d-flex align-items-center" role="alert">
         <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
         <div>
-        <p class="error">The email address is already registered!</p>
+        <p class="error">Este correo ya está Registrado!</p>
         </div>
         </div>
         <div class='container'>
@@ -148,7 +148,7 @@ if(($server == "tec.mx" && !is_numeric($usuario[1]))){
         <div class="alert alert-danger d-flex align-items-center" role="alert">
         <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
         <div>
-        <p class="error">The email address is already registered!</p>
+        <p class="error">Este correo ya está Registrado!</p>
         </div>
         </div>
         <div class='container'>
@@ -186,55 +186,7 @@ if(($server == "tec.mx" && !is_numeric($usuario[1]))){
         </div>
      </div>
     <?php }
-    }else {
-        $pdo = Database::connect();
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql ="SELECT * FROM md1_administrador WHERE correo = ?"; 
-    $q = $pdo->prepare($sql);
-    $q->execute(array($correo));
-    if ($q->rowCount() > 0) {?>
-        <div class="alert alert-danger d-flex align-items-center" role="alert">
-        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-        <div>
-        <p class="error">The email address is already registered!</p>
-        </div>
-        </div>
-        <div class='container'>
-                    <div class='row'>
-                        <div class='col-6'>
-                        <a href='inicio_sesion.html'><button type='button' class='btn btn-primary btn-custom btn-p1'>Iniciar Sesión</button></a>
-                        </div>
-                        <div class='col-6'>
-                        <a href='index.html'><button type='button' class='btn btn-primary btn-custom btn-p1'>Inicio</button></a>
-                        </div>
-                    </div>
-                </div>
-        <?php Database::disconnect();
-    } else{
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql ="INSERT INTO md1_administrador (correo, nombre, contraseña)
-        VALUES (?,?,?)"; 
-        $q = $pdo->prepare($sql);
-        $q->execute(array($correo,$nombreCompleto,$password_hash));
-       Database::disconnect(); ?>
-       <div class='card col-6 offset-3 text-white bg-primary' style='max-width: 80rem;'>
-        <div class='card-body'>
-            <h2 class='card-title'>¡Muy bien!</h2>
-            <h3 class='card-text'>Detectamos que tu correo no corresponde al de un usuario del Tecnológico de Monterrey. Acabamos de enviarle un correo de confirmación al administrador</p>
-            <div class='container'>
-                <div class='row'>
-                    <div class='col-6'>
-                    <button type='button' class='btn btn-dark btn-custom btn-p1 disabled' aria-disabled='true' >Iniciar Sesión</button>
-                    </div>
-                    <div class='col-6'>
-                    <a href='index.html'><button type='button' class='btn btn-dark btn-custom btn-p1'>Inicio</button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-     </div>
-    <?php }
-    }  
+    }
 ?>
 
 
