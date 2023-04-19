@@ -198,7 +198,7 @@
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
                   <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero1" value="<?php if ($data['correoCompañero1']==NULL){
-                     echo "NULL";
+                     echo NULL;
                   }else{
                      echo $data['correoCompañero1'];
                      } ?>">
@@ -233,7 +233,7 @@
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
                   <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero2" value="<?php if ($data['correoCompañero2']==NULL){
-                     echo "NULL";
+                     echo NULL;
                   }else{
                      echo $data['correoCompañero2'];
                      } ?>">
@@ -261,7 +261,7 @@
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
                   <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero3" value="<?php if ($data['correoCompañero3']==NULL){
-                     echo "NULL";
+                     echo NULL;
                   }else{
                      echo $data['correoCompañero3'];
                      } ?>">
@@ -289,7 +289,7 @@
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
                   <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero4" value="<?php if ($data['correoCompañero4']==NULL){
-                     echo "NULL";
+                     echo NULL;
                   }else{
                      echo $data['correoCompañero4'];
                      } ?>">

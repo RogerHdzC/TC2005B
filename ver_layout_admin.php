@@ -43,11 +43,13 @@
         </a>
     </div>
   </nav>
+  <br>
       <h1>LAYOUT </h1>
+   <br>
     <?php
       foreach ($pdo->query($consulta) as $colum){
     ?>
-      <img src='data:image/png;base64,<?php echo base64_encode($colum['layout']);?>' class='card-img-top' alt='Imagen de Portada Proyecto' width='100%' height='100%'>
+      <img src='data:image/png;base64,<?php echo base64_encode($colum['layout']);?>' alt='Imagen de Portada Proyecto' width='550px' height='1069px'>
     <?php 
     }
     ?>

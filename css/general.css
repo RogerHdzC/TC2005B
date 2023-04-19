@@ -150,6 +150,12 @@ li{
    border-color: #1bb3eb;
 }
 
+.btn-dark:hover {
+   color: #292b2c;
+   background-color: white;
+   border-color: #292b2c;
+}
+
 .btn-success:hover{
    color: #5cb85c;
    background-color: white;

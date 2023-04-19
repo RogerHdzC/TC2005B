@@ -45,6 +45,9 @@
         </a>
     </div>
   </nav>
+  <br>
+      <h1>LAYOUT </h1>
+   <br>
       <?php
       foreach ($pdo->query($consulta) as $colum){
     ?>

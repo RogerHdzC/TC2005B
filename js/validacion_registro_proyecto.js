@@ -3,6 +3,12 @@
    Validación para Forms de Registro
   ##################################### */ 
 
+// Variables de verificación de Compañeros
+let validComp1 = true;
+let validComp2 = true;
+let validComp3 = true;
+let validComp4 = true;
+
 // Variables por id del form
 const nombreProyectoEl = document.querySelector('#nombre_pro');
 const areaEl = document.querySelector('#areaInput');
@@ -524,6 +530,22 @@ form.addEventListener('submit', function (e) {
    validComp3 &&
    validComp4;
 
+   // console.clear()
+   // console.log(`var isNombreValid: ${isNombreValid}`)
+   // console.log(`var isNombreProfValid: ${isNombreProfValid}`)
+   // console.log(`var isAreaValid: ${isAreaValid}`)
+   // console.log(`var isDescripValid: ${isDescripValid}`)
+   // console.log(`var isNivelValid: ${isNivelValid}`)
+   // console.log(`var isVideoValid: ${isVideoValid}`)
+   // console.log(`var isPosterValid: ${isPosterValid}`)
+   // console.log(`var isEdicionValid: ${isEdicionValid}`)
+   // console.log(`var isEmprendeValid: ${isEmprendeValid}`)
+   // console.log(`var validComp1: ${validComp1}`)
+   // console.log(`var validComp2: ${validComp2}`)
+   // console.log(`var validComp3: ${validComp3}`)
+   // console.log(`var validComp4: ${validComp4}`)
+   // console.log(`var ULTIMATE: ${isFormValid}`)
+
    // Se hace submit en caso de que todas las entradas sean válidas
    if (isFormValid) {
       e.target.submit();
@@ -540,7 +562,7 @@ form.addEventListener('submit', function (e) {
 });
 
 // Función de temporizador
-const debounce = (fn, delay = 100) => {
+const debounce = (fn, delay = 10) => {
    let timeoutId;
    return (...args) => {
        // Cancela el temporizador previo

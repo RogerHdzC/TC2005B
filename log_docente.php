@@ -27,7 +27,7 @@ $server = $_POST["server"] ;
 $password = $_POST["password"];
 $correo = $username . "@" . $server;
 
-if($server == "tec.mx" && strtoupper($username[0])!="A"){
+if($server == "tec.mx" && !is_numeric($username[1])){
     $pdo = Database::connect();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql ="SELECT * FROM md1_docente WHERE nomina = ?"; 
