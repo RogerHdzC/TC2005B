@@ -14,7 +14,7 @@ const passwordEl = document.querySelector('#password');
 
 const form = document.querySelector('#signup');
 
-const url = window.location.pathname.toString().substring(9);
+const url = window.location.pathname.toString();
 
 
 

@@ -15,7 +15,7 @@ $response = array();
 // Set the response header to indicate JSON content type
 header('Content-Type: application/json');
 
-if($url == "inicio_sesion_admin.html"){
+if(strpos($url, "inicio_sesion_admin.html") !== false){
 
    $pdo = Database::connect();
    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -35,7 +35,7 @@ if($url == "inicio_sesion_admin.html"){
    }
 }
 
-elseif($url == "inicio_sesion_docentejuez.html"){
+elseif(strpos($url, "inicio_sesion_docentejuez.html") !== false){
    if($server == "tec.mx" && !is_numeric($usuario[1])){
       $pdo = Database::connect();
       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -74,7 +74,7 @@ elseif($url == "inicio_sesion_docentejuez.html"){
   }
 
 }
-elseif($url == "inicio_sesion_estudiante.html"){
+elseif(strpos($url, "inicio_sesion_estudiante.html") !== false){
 
    if($server == "tec.mx" && strtoupper($usuario[0])=="A" && is_numeric($usuario[1])){
       $pdo = Database::connect();
