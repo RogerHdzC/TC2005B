@@ -2,7 +2,11 @@
 /* #####################################
    Validación para Forms de Registro
   ##################################### */ 
-
+// Variables de verificación de Compañeros
+let validComp1 = true;
+let validComp2 = true;
+let validComp3 = true;
+let validComp4 = true;
 // Variables por id del form
 const nombreProyectoEl = document.querySelector('#nombre_pro');
 const areaEl = document.querySelector('#areaInput');

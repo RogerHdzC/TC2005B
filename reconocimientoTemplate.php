@@ -1,8 +1,3 @@
-<?php
-  require_once 'restrictedEstudiante.php';
-  include 'database.php';
-  ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>

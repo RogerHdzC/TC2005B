@@ -181,7 +181,6 @@
         </div>
     </div>
     <div >
-        <button type="button" class="btn btn-primary btn-custom btn-p6" onclick="document.location=''">Editar Datos</button>
     </div>
 </div>
 </div>

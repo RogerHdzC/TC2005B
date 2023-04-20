@@ -46,13 +46,15 @@
         <div class="container">
           <div class="row">
             <div class="col - 6">
-              <a class="btn btn-primary btn-custom btn-p3" href="datos.php" role="button">Agosto - Diciembre 2022</a>
+            <form method="POST" action="reportesExel.php">
+            <button class="btn btn-primary btn-custom btn-p3" name="export">Exportar a Excel</button>
+            </form>  
             </div>
           </div>
           <br>
           <div class="row">
             <div class="col - 6">
-              <a class="btn btn-primary btn-custom btn-p3" href="datos.php" role="button">Febrero - Junio 2022</a>
+              <a class="btn btn-primary btn-custom btn-p3" href="datos.php" role="button">Reporte en pdf</a>
             </div>
           </div>
           <br>
