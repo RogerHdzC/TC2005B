@@ -33,8 +33,9 @@
             <li class="nav-item-admin"><a class="nav-link" href="sobre_nosotros_admin.php">Sobre Nosotros</a></li>
             <li class="nav-item-admin"><a class="nav-link" href="preguntas_frecuentes_admin.php">Preguntas Frecuentes</a></li>
             <li class="nav-item-admin"><a class="nav-link" href="historicodatos.php">Historico de Datos</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="ajustes_admin.php">Ajustes</a></li>
             <li class="nav-item-admin"><a class="nav-link active" aria-current="page" href="ver_layout_admin.php">Layout</a></li>
+            <li class="nav-item-admin"><a class="nav-link" href="ajustes_admin.php">Ajustes</a></li>
+            
 
           </ul>
         </div>

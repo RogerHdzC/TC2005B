@@ -29,7 +29,7 @@
     
     <title>Preguntas Frecuentes</title>
 </head>
-<body>
+<body class="p1-color">
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
