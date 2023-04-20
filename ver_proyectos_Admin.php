@@ -63,9 +63,9 @@
                           <a class="btn btn-danger" href="deleteProyectos.php?id=<?php echo $colum['id'];?>">Eliminar</a>
                           <?php
                             if ($colum['autorizado'] == 0){?>
-                              <a href="#" class="btn btn-primary btn-success">Aprobar</a>
-                          <?php }else{?>
-                              <a href="#" class="btn btn-primary btn-success">Calificar</a>
+                              <a href="aprobarProyectosAdmin.php?id=<?php echo $colum['id'];?>" class="btn btn-primary btn-success">Aprobar</a>
+                          <?php }elseif(($colum['autorizado'] != 0)){?>
+                              <a href="calificar_admin.php?id=<?php echo $colum['id'];?>" class="btn btn-primary btn-success">Calificar</a>
                           <?php }
                           ?>
                         </div>

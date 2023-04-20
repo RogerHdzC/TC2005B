@@ -29,13 +29,24 @@
   $pdo = Database::connect();
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  $sql ="UPDATE `md1_evalua` SET `rubrica1`= ?, `rubrica2`= ?, `rubrica3`= ? WHERE (idProyecto=? AND idjurado = ?) OR (idProyecto=? AND idDocente = ?)";
+  if ($data2['correo']== $_SESSION['docente']){
+    $sql ="UPDATE `md1_evaluaJurado` SET `rubrica1`= ?, `rubrica2`= ?, `rubrica3`= ? WHERE (idProyecto=? AND idjurado = ?)";
 
-  $q = $pdo->prepare($sql);
+    $q = $pdo->prepare($sql);
 
-  $q->execute(array($rubrica1,$rubrica2,$rubrica3,$id,$user,$id,$user));
+    $q->execute(array($rubrica1,$rubrica2,$rubrica3,$id,$user));
 
-  Database::disconnect();
+    Database::disconnect();
+  }else{
+    $sql ="UPDATE `md1_evaluaDocente` SET `rubrica1`= ?, `rubrica2`= ?, `rubrica3`= ? WHERE (idProyecto=? AND idjurado = ?)";
+
+    $q = $pdo->prepare($sql);
+
+    $q->execute(array($rubrica1,$rubrica2,$rubrica3,$id,$user));
+
+    Database::disconnect();
+  }
+  
   
 ?>
 <!DOCTYPE html>

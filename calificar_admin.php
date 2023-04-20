@@ -1,5 +1,10 @@
 <?php
   require_once 'restrictedAdmin.php';
+  include 'database.php';
+  $id = 0;
+  if ( !empty($_GET['id'])) {
+    $id = $_REQUEST['id'];
+ }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -43,6 +48,7 @@
       <br>
       <h1>Calificar Proyecto</h1>
       <br></br>
+      <form action="respuestacalificacionAdmin.php?id=<?php echo $id;?>"  method="POST" id="signup" enctype="multipart/form-data">
     <div class="container">
        <div class="row">
             <div class="col-p1-12">
@@ -54,20 +60,20 @@
             <div class="col-p1-13">
                 Deficiente&emsp; 
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <input class="form-check-input" type="radio" name="pregunta1" id="inlineRadio1" value="1">
                     <label class="form-check-label" for="inlineRadio1">1</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                    <label class="form-check-label" for="inlineRadio2">2</label>
+                    <input class="form-check-input" type="radio" name="pregunta1" id="inlineRadio1" value="2">
+                    <label class="form-check-label" for="inlineRadio1">2</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <input class="form-check-input" type="radio" name="pregunta1" id="inlineRadio1" value="3">
                     <label class="form-check-label" for="inlineRadio1">3</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                    <label class="form-check-label" for="inlineRadio2">4</label>
+                    <input class="form-check-input" type="radio" name="pregunta1" id="inlineRadio1" value="4">
+                    <label class="form-check-label" for="inlineRadio1">4</label>
                 </div>
                 Excelente
             </div>
@@ -83,19 +89,19 @@
             <div class="col-p1-13">
                 Deficiente&emsp; 
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                    <label class="form-check-label" for="inlineRadio1">1</label>
+                    <input class="form-check-input" type="radio" name="pregunta2" id="inlineRadio2" value="1">
+                    <label class="form-check-label" for="inlineRadio2">1</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                    <input class="form-check-input" type="radio" name="pregunta2" id="inlineRadio2" value="2">
                     <label class="form-check-label" for="inlineRadio2">2</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                    <label class="form-check-label" for="inlineRadio1">3</label>
+                    <input class="form-check-input" type="radio" name="pregunta2" id="inlineRadio2" value="3">
+                    <label class="form-check-label" for="inlineRadio2">3</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                    <input class="form-check-input" type="radio" name="pregunta2" id="inlineRadio2" value="4">
                     <label class="form-check-label" for="inlineRadio2">4</label>
                 </div>
                 Excelente
@@ -112,27 +118,28 @@
             <div class="col-p1-13">
                 Deficiente&emsp;  
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                    <label class="form-check-label" for="inlineRadio1">1</label>
+                    <input class="form-check-input" type="radio" name="pregunta3" id="inlineRadio3" value="1">
+                    <label class="form-check-label" for="inlineRadio3">1</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                    <label class="form-check-label" for="inlineRadio2">2</label>
+                    <input class="form-check-input" type="radio" name="pregunta3" id="inlineRadio3" value="2">
+                    <label class="form-check-label" for="inlineRadio3">2</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                    <label class="form-check-label" for="inlineRadio1">3</label>
+                    <input class="form-check-input" type="radio" name="pregunta3" id="inlineRadio3" value="3">
+                    <label class="form-check-label" for="inlineRadio3">3</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                    <label class="form-check-label" for="inlineRadio2">4</label>
+                    <input class="form-check-input" type="radio" name="pregunta3" id="inlineRadio3" value="4">
+                    <label class="form-check-label" for="inlineRadio3">4</label>
                 </div>
                 Excelente
             </div>
         </div>
     </div>
     <br></br>
-    <button type="button" class="btn btn-primary btn-custom btn-p2" onclick="document.location='respuestacalificacionAdmin.php'">Enviar Calificación</button>
+    <button type="submit" class="btn btn-primary btn-custom btn-p2">Enviar Calificación</button>
     <br></br>
+    </form>
 </body>
 </html>

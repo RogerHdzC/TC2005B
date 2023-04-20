@@ -27,6 +27,7 @@
     $q3->execute(array($id));
     Database::disconnect();
 
+
     echo $q->rowCount();
     echo $q2->rowCount();
     echo $q3->rowCount();
@@ -34,10 +35,15 @@
   if ( !empty($_POST)) {
     
     $id = $_POST['id'];
+    $q = $_POST['q'];
+    $q2 = $_POST['q2'];
+    $q3 = $_POST['q3'];
     echo "hola";
     echo $id . "es el id";
 
-    if ($q->rowCount() > 0) {
+
+
+    if ($q > 0) {
         echo "hola";
         $pdo = Database::connect();
         $sql = "DELETE FROM md1_docente WHERE nomina = ?";
@@ -45,7 +51,7 @@
         $q->execute(array($id));
         Database::disconnect();
         header("Location: ver_usuarios_admin.php");
-    }elseif($q2->rowCount() > 0){
+    }elseif($q2 > 0){
       echo "hola";
         $pdo = Database::connect();
         $sql = "DELETE FROM md1_jurado WHERE correo = ?";
@@ -53,7 +59,7 @@
         $q->execute(array($id));
         Database::disconnect();
         header("Location: ver_usuarios_admin.php");
-    }elseif($q3->rowCount() > 0){
+    }elseif($q3 > 0){
       echo "hola";
         $pdo = Database::connect();
         $sql = "DELETE FROM md1_estudiante WHERE matricula = ?";
@@ -88,16 +94,15 @@
                                           echo $colum['correo'];
                                           echo $colum['matricula'];
                                           echo $id;
+
+                                          echo $q->rowCount();
+                                          echo $q2->rowCount(); 
+                                          echo $q3->rowCount();
                 ?>
-                  <input type="hidden" name="id" value="<?php 
-                      if ($q->rowCount() > 0) {
-                        echo $colum['nomina'];
-                    }elseif($q2->rowCount() > 0){
-                        echo $colum['correo'];
-                    }elseif($q3->rowCount() > 0){
-                        echo $colum['matricula'];
-                    } 
-                  ?>'"/>
+                  <input type="hidden" name="id" value="<?php echo $id;?>"/>
+                  <input type="hidden" name="q" value="<?php echo $q->rowCount();?>"/>
+                  <input type="hidden" name="q2" value="<?php echo $q2->rowCount();?>"/>
+                  <input type="hidden" name="q3" value="<?php echo $q3->rowCount();?>"/>
                   <p class="alert alert-error">Estas seguro que quieres eliminar este usuario ?</p>
                   <div class="form-actions">
                       <button type="submit" class="btn btn-light btn-custom">Si</button>
@@ -109,3 +114,5 @@
     </div> <!-- /container -->
   </body>
 </html>
+
+
