@@ -17,5 +17,6 @@ if ($q->rowCount() > 0) {
 } else {
     $response['exists'] = false;
 }
+Database::disconnect();
 echo json_encode($response);
 ?>

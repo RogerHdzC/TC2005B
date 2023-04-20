@@ -89,17 +89,3 @@ btnApertura.addEventListener('click', function(){
    container.style.display = 'block';
 });
 
-/* #################################
-        Botón de Subir Imagen
-  ################################# */
-
-// Variables
-
-btnApertura = document.querySelector('#imagen');
-
-// Event Listeners
-
-btnApertura.addEventListener('click', function(){
-   text.innerHTML = `Sube una Imagen libre de <b>Copyright</b> &copy; relacionada a tu proyecto.`;
-   container.style.display = 'block';
-});
