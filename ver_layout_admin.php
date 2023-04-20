@@ -33,8 +33,9 @@
             <li class="nav-item-admin"><a class="nav-link" href="sobre_nosotros_admin.php">Sobre Nosotros</a></li>
             <li class="nav-item-admin"><a class="nav-link" href="preguntas_frecuentes_admin.php">Preguntas Frecuentes</a></li>
             <li class="nav-item-admin"><a class="nav-link" href="historicodatos.php">Historico de Datos</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="ajustes_admin.php">Ajustes</a></li>
             <li class="nav-item-admin"><a class="nav-link active" aria-current="page" href="ver_layout_admin.php">Layout</a></li>
+            <li class="nav-item-admin"><a class="nav-link" href="ajustes_admin.php">Ajustes</a></li>
+            
 
           </ul>
         </div>
@@ -43,11 +44,13 @@
         </a>
     </div>
   </nav>
+  <br>
       <h1>LAYOUT </h1>
+   <br>
     <?php
       foreach ($pdo->query($consulta) as $colum){
     ?>
-      <img src='data:image/png;base64,<?php echo base64_encode($colum['layout']);?>' class='card-img-top' alt='Imagen de Portada Proyecto' width='100%' height='100%'>
+      <img src='data:image/png;base64,<?php echo base64_encode($colum['layout']);?>' alt='Imagen de Portada Proyecto' width='550px' height='1069px'>
     <?php 
     }
     ?>

@@ -13,7 +13,7 @@
 
     <!-- CSS -->
     <link href="css/general.css" rel="stylesheet">
-    <link href="css/preguntasFrecuentes.css" rel="stylesheet">
+
 
     <title>Preguntas Frecuentes</title>
 </head>
