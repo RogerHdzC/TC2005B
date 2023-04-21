@@ -22,8 +22,8 @@
 include 'database.php';
 
 
-$username = $_POST["username"] ;
-$server = $_POST["server"] ;
+$username = strtolower($_POST["username"]) ;
+$server = strtolower($_POST["server"]) ;
 $password = $_POST["password"];
 $correo = $username . "@" . $server;
 

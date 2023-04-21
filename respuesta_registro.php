@@ -29,7 +29,7 @@ if (isset($_POST["inlineRadioOptions"])) {
 $nombre = $_POST["nombreProfesor"] ;
 $apellidoPaterno = $_POST["apellidoPaterno"] ;
 $apellidoMaterno = $_POST["apellidoMaterno"] ;
-$usuario = $_POST["correoProfesor"] ;
+$usuario = strtolower($_POST["correoProfesor"]) ;
 $server = strtolower($_POST["serverProfesor"]) ;
 $password = $_POST["password"];
 $options = [
@@ -41,7 +41,7 @@ $correo = $usuario . "@" . $server;
 
 
 
-if(($server == "tec.mx" && !is_numeric($usuario[1]))){
+if($server == "tec.mx" && (!is_numeric($usuario[1]) || $usuario[0] == "l")){
     $pdo = Database::connect();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql ="SELECT * FROM md1_docente WHERE nomina = ?"; 
@@ -90,7 +90,7 @@ if(($server == "tec.mx" && !is_numeric($usuario[1]))){
         </div>
        <?php Database::disconnect();
      }
-} elseif($server == "tec.mx" && strtoupper($usuario[0])=="A" && is_numeric($usuario[1])){
+} elseif($server == "tec.mx" && $usuario[0] =="a" && is_numeric($usuario[1])){
     $pdo = Database::connect();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql ="SELECT * FROM md1_estudiante WHERE matricula = ?"; 

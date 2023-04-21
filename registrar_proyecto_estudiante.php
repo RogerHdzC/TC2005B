@@ -134,7 +134,7 @@
          <div class="row">
          <div class="separation"></div>
             <div class="col-3 col-p2-3 names">
-               Edicion:
+               Edición:
             </div>
             <div class="col-3 col-p2-3">
             <div class="input-group mb-3">
@@ -231,7 +231,7 @@
             </div>
             <div class="separation2"></div>
                <div class="col-3 col-p2-3 names">
-                  Subir Poster (URL): 
+                  Subir Póster (URL): 
                </div>
                <div class="col-3 col-p2-3">
                   <div class="mb-3">

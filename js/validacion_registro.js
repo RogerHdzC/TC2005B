@@ -188,7 +188,7 @@ const checkEsJuez = () => {
    const e1 = op1;
    const e2 = op2;
 
-   if(s.toLowerCase() == "tec.mx" && isNaN(u[1])){
+   if(s.toLowerCase() == "tec.mx" && (isNaN(u[1]) || u[0].toLowerCase() == "l")){
       if (e1.checked == false && e2.checked == false) {
          showErrorRadio(op2, 'Debe Seleccionar Una Opción');
       } else {

@@ -22,12 +22,12 @@
 include 'database.php';
 
 
-$username = $_POST["username"] ;
-$server = $_POST["server"] ;
+$username = strtolower($_POST["username"]) ;
+$server = strtolower($_POST["server"]) ;
 $password = $_POST["password"];
 $correo = $username . "@" . $server;
 
-if($server == "tec.mx" && strtoupper($username[0])=="A" && is_numeric($username[1])){
+if($server == "tec.mx" && $username[0] =="a" && is_numeric($username[1])){
     $pdo = Database::connect();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql ="SELECT * FROM md1_estudiante WHERE matricula = ?"; 
