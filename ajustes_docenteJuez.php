@@ -76,10 +76,10 @@
           ?>
           </div>
         </div>
-        <div class="col-5 align-self-center">Contraseña: </div>
+        <div class="col-5 align-self-center"> </div>
         <div class="col-5 align-self-center">
           <div class="input-group mb-3">
-          <?php echo $data['contraseña'];  echo $data2['contraseña']; ?>
+          
           </div>  
         </div>
         <div class="col-1">

@@ -30,7 +30,7 @@
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
   if ($data2['correo']== $_SESSION['docente']){
-    $sql ="UPDATE `md1_evaluaJurado` SET `rubrica1`= ?, `rubrica2`= ?, `rubrica3`= ? WHERE (idProyecto=? AND idjurado = ?)";
+    $sql ="UPDATE `md1_evaluaJurado` SET `rubrica1`= ?, `rubrica2`= ?, `rubrica3`= ? WHERE (idProyecto=? AND idJurado = ?)";
 
     $q = $pdo->prepare($sql);
 
@@ -38,7 +38,7 @@
 
     Database::disconnect();
   }else{
-    $sql ="UPDATE `md1_evaluaDocente` SET `rubrica1`= ?, `rubrica2`= ?, `rubrica3`= ? WHERE (idProyecto=? AND idjurado = ?)";
+    $sql ="UPDATE `md1_evaluaDocente` SET `rubrica1`= ?, `rubrica2`= ?, `rubrica3`= ? WHERE (idProyecto=? AND idJurado = ?)";
 
     $q = $pdo->prepare($sql);
 

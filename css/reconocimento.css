@@ -1,3 +1,19 @@
 body{
     text-align: center;
 }
+
+div {
+  border: red 5px solid;
+  height: 97%;
+  width: 100%;
+  justify-content: center;
+  align-content: center;
+}
+
+.reconocimiento{
+    padding: 50;
+}
+
+h1{
+    padding-top: 25%;
+}

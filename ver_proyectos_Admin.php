@@ -43,9 +43,8 @@
         </a>
     </div>
   </nav>
-  <br></br>
   <h1>Proyectos</h1> 
-  <br></br>
+  <button type="button" class="btn btn-de-estado btn-primary btn-custom btn-p1" onclick="document.location='asignar_jueces.php'">Asignar Jueces</button>
 
   <?php
   foreach ($pdo->query($consulta) as $colum){
@@ -76,6 +75,7 @@
               </div>
           
   <?php } ?>
+  <!--
             <div class="col-3">
                 <h2>Tipo de Proyecto</h2>
                 <div class="form-check">
@@ -147,9 +147,8 @@
                 <label class="form-check-label check-p1" for="flexCheckDefault">
                   Default checkbox
                 </label>
-              </div>
+              </div>-->
               <br>
-              <button type="button" class="btn btn-de-estado btn-primary btn-custom btn-p1" onclick="document.location='asignar_jueces.php'">Asignar Jueces</button>
             </div>
         </div>
       </div>

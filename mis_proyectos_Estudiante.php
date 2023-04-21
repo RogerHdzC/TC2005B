@@ -62,19 +62,47 @@
       <div class="col">
         <div class="card h-100">
           <?php
-             if ($colum['autorizado']==0){
-              echo "<div class='card-header card-p1-header bg-danger'>";
-              echo "Aún no autorizado";
-             }else{
-              if($colum['promedio'] == 0){
-                echo "<div class='card-header card-p1-header bg-warning'>";
-                echo "Autorizado y no calificado";
-              }else{
-                echo "<div class='card-header card-p1-header bg-success'>";
-                echo "Autorizado y calificado";
-              }
-              
-             }
+          $pdo = Database::connect();
+          $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          
+          $sql1 = "SELECT * FROM md1_evaluaAdministrador WHERE idProyecto = ?";
+          $q1 = $pdo->prepare($sql1);
+          $q1->execute(array($colum['id']));
+          $data = $q1->fetch(PDO::FETCH_ASSOC);
+
+          $sql2 ="SELECT * FROM `md1_evaluaJurado` WHERE idProyecto=?";
+          $q2 = $pdo->prepare($sql2);
+          $q2->execute(array($colum['id']));
+          $data2 = $q2->fetch(PDO::FETCH_ASSOC);
+          
+          $sql3 ="SELECT * FROM `md1_evaluaDocente` WHERE idProyecto=?";
+          $q3 = $pdo->prepare($sql3);
+          $q3->execute(array($colum['id']));
+          $data3 = $q3->fetch(PDO::FETCH_ASSOC);
+          Database::disconnect();
+          if (($q1->rowCount() + $q2->rowCount() + $q3->rowCount()) == 4){
+            $promedio = ($data['rubrica1']+$data['rubrica2']+$data['rubrica3']+$data2['rubrica1']+$data2['rubrica2']+$data2['rubrica3']+$data3['rubrica1']+$data3['rubrica2']+$data3['rubrica3'])/9/4*100;
+            $pdo = Database::connect();
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql5 = "UPDATE `md1_proyecto` SET `promedio` = ? WHERE `md1_proyecto`.`id` = ? ";
+            $q5 = $pdo->prepare($sql5);
+            $q5->execute(array($promedio, $colum['id']));
+            Database::disconnect();
+          }
+          
+          if ($colum['autorizado']==0){
+          echo "<div class='card-header card-p1-header bg-danger'>";
+          echo "Aún no autorizado";
+          }else{
+          if($colum['promedio'] == 0){
+            echo "<div class='card-header card-p1-header bg-warning'>";
+            echo "Autorizado y no calificado";
+          }else{
+            echo "<div class='card-header card-p1-header bg-success'>";
+            echo "Autorizado y calificado";
+          }
+          
+          }
             ?>
           </div>
           <div class="card-body p1-color">

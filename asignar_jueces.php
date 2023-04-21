@@ -45,139 +45,136 @@
       <br>
       <h1>Asignación de Jurado</h1>
       <form action=""  method="POST" id="signup">
-        <input type="submit" class="btn btn-primary" value="Asignar de manera aleatoria" name="aleatoria">
+        <!--<input type="submit" class="btn btn-primary" value="Asignar de manera aleatoria" name="aleatoria">-->
         <input type="submit" class="btn btn-primary" value="Asignar de manera manual" name="manual">
       </form>
       <br>
+
       <?php
       
         if(isset($_POST['aleatoria'])){
-          $pdo = Database::connect();
-          $query = 'SELECT * FROM md1_docente WHERE es_jurado=1';
-          $q = $pdo->prepare($query);
-          $q->execute(array());
-          echo rand(1,$q->rowCount());
-          echo rand(1,$q->rowCount());
-          echo rand(1,$q->rowCount());
+          echo "<h1>EN DESARROLLO</h1>";
         }elseif(isset($_POST['manual'])){?>
-          <?php
-      foreach ($pdo->query($consulta3) as $colum){
-      ?>
-      <div class="container">
-        <div class="row">
-          <div class="col-6">
-            <h1>PROYECTOS</h1>
-            <div class="container">
-              <div class="row">
-                <div class="col-6">
-                  <h5 class='card-title'> <?php  echo $colum['nombre']; ?> </h5>
-                </div>
-                <div class="col-6">
-                  <a class="btn btn-primary" href="verMas_proyecto_admin.php?id=<?php echo $colum['id'];?>">Ver más</a>
-                </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-6">
+                <h1>PROYECTOS</h1>
+              </div>
+              <div class="col-6">
+                <h1>JURADOS</h1>
               </div>
             </div>
-          </div>
-      <?php } ?>
-          <div class="col-6">
-            <h1>JUECES</h1> 
-            <div class="container">
-              <div class="row">
-                <div class="col-3">
+          <?php foreach ($pdo->query($consulta3) as $colum){?>
+            <div class="row">
+              <div class="col-6">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-6">
+                      <h5 class='card-title'> <?php  echo $colum['nombre']; ?> </h5>
+                    </div>
+                    <div class="col-6">
+                      <a class="btn btn-primary" href="verMas_proyecto_admin.php?id=<?php echo $colum['id'];?>">Ver más</a>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
                 <form action=""  method="POST" id="signup" enctype="multipart/form-data">
-                  <select class="form-select" aria-label="Default select example" name="califica1" id="nivelInput">
-                  <?php
-							   		$pdo = Database::connect();
-							   		$query = 'SELECT * FROM md1_jurado';
-			 				   		foreach ($pdo->query($query) as $row) {
-		                        			echo "<option value='" . $row['correo'] . "'>" . $row['nombre'] . "</option>";
-			   						}
-                    $query = 'SELECT * FROM md1_docente WHERE es_jurado=1';
-                    foreach ($pdo->query($query) as $row) {
-                                  echo "<option value='" . $row['nomina'] . "'>" . $row['nombre'] . "</option>";
-                    }
-                    $query = 'SELECT * FROM md1_administrador';
-                    foreach ($pdo->query($query) as $row) {
-                                echo "<option value='" . $row['nomina'] . "'>" . $row['nombre'] . "</option>";
-                    }
-			   						Database::disconnect();
-			  					?>
-                  </select>
-                </div>
-                <div class="col-3">
-                  <select class="form-select" aria-label="Default select example" name="califica2" id="nivelInput">
-                  <?php
-							   		$pdo = Database::connect();
-                     $query = 'SELECT * FROM md1_jurado';
-                     foreach ($pdo->query($query) as $row) {
-                      echo "<option value='" . $row['correo'] . "'>" . $row['nombre'] . "</option>";
-                      }
-                      $query = 'SELECT * FROM md1_docente WHERE es_jurado=1';
-                      foreach ($pdo->query($query) as $row) {
-                                    echo "<option value='" . $row['nomina'] . "'>" . $row['nombre'] . "</option>";
-                      }
-                      $query = 'SELECT * FROM md1_administrador';
-                      foreach ($pdo->query($query) as $row) {
-                                  echo "<option value='" . $row['nomina'] . "'>" . $row['nombre'] . "</option>";
-                      }
-			   						Database::disconnect();
-			  					?>
-                  </select>
-                </div>
-                <div class="col-3">
-                  <select class="form-select" aria-label="Default select example" name="califica3" id="nivelInput">
-                  <?php
-							   		$pdo = Database::connect();
-							   		$query = 'SELECT * FROM md1_jurado';
-			 				   		foreach ($pdo->query($query) as $row) {
-		                        			echo "<option value='" . $row['correo'] . "'>" . $row['nombre'] . "</option>";
-			   						}
-                    $query = 'SELECT * FROM md1_docente WHERE es_jurado=1';
-                    foreach ($pdo->query($query) as $row) {
-                                  echo "<option value='" . $row['nomina'] . "'>" . $row['nombre'] . "</option>";
-                    }
-                    $query = 'SELECT * FROM md1_administrador';
-                    foreach ($pdo->query($query) as $row) {
-                                  echo "<option value='" . $row['nomina'] . "'>" . $row['nombre'] . "</option>";
-                    }
-			   						Database::disconnect();
-			  					?>
-                  </select>
-                </div>
-                <div class="col-3">
-                  <select class="form-select" aria-label="Default select example" name="califica4" id="nivelInput">
-                  <?php
-							   		$pdo = Database::connect();
-							   		$query = 'SELECT * FROM md1_jurado';
-                    foreach ($pdo->query($query) as $row) {
-                                  echo "<option value='" . $row['correo'] . "'>" . $row['nombre'] . "</option>";
-                    }
-                    $query = 'SELECT * FROM md1_docente WHERE es_jurado=1';
-                    foreach ($pdo->query($query) as $row) {
-                                  echo "<option value='" . $row['nomina'] . "'>" . $row['nombre'] . "</option>";
-                    }
-                    $query = 'SELECT * FROM md1_administrador';
-                    foreach ($pdo->query($query) as $row) {
-                                  echo "<option value='" . $row['nomina'] . "'>" . $row['nombre'] . "</option>";
-                    }
-			   						Database::disconnect();
-			  					?>
-                  </select>
-                </form>
-                </div>
-              </div>
-            </div>
+                  <div class="container">
+                    <div class="row">
+                        <div class="col-3">
+                          <select class="form-select" aria-label="Default select example" name="califica1" id="nivelInput">
+                            <option selected value="" disabled="disabled">Seleccione una Opción</option>
+                            <?php
+                            $pdo = Database::connect();
+                            $uf=$colum['UF'];
+                            $query = 'SELECT * FROM md1_jurado';
+                            foreach ($pdo->query($query) as $row) {
+                                          echo "<option value='" . $row['correo'] . "'>" . $row['nombre'] . "</option>";
+                            }
+                            $query = "SELECT d.nomina,d.nombre,d.es_jurado FROM md1_docente as d, md1_ensena as e WHERE d.es_jurado=1 AND (e.idProfesor=d.nomina AND e.idUf != 'TC2005B')";
+                            foreach ($pdo->query($query) as $row) {
+                                          echo "<option value='" . $row['nomina'] . "'>" . $row['nombre'] . "</option>";
+                            }
+                            $query = 'SELECT * FROM md1_administrador';
+                            foreach ($pdo->query($query) as $row) {
+                                        echo "<option value='" . $row['nomina'] . "'>" . $row['nombre'] . "</option>";
+                            }
+                            Database::disconnect();
+                            ?>
+                          </select>
+                        </div>
+                        <div class="col-3">
+                          <select class="form-select" aria-label="Default select example" name="califica2" id="nivelInput">
+                            <option selected value="" disabled="disabled">Seleccione una Opción</option>
+                            <?php
+                            $pdo = Database::connect();
+                            $query = 'SELECT * FROM md1_jurado';
+                            foreach ($pdo->query($query) as $row) {
+                            echo "<option value='" . $row['correo'] . "'>" . $row['nombre'] . "</option>";
+                            }
+                            $query = "SELECT d.nomina,d.nombre,d.es_jurado FROM md1_docente as d, md1_ensena as e WHERE d.es_jurado=1 AND (e.idProfesor=d.nomina AND e.idUf != 'TC2005B')";
+                            foreach ($pdo->query($query) as $row) {
+                                          echo "<option value='" . $row['nomina'] . "'>" . $row['nombre'] . "</option>";
+                            }
+                            $query = 'SELECT * FROM md1_administrador';
+                            foreach ($pdo->query($query) as $row) {
+                                        echo "<option value='" . $row['nomina'] . "'>" . $row['nombre'] . "</option>";
+                            }
+                            Database::disconnect();
+                            ?>
+                          </select>
+                        </div>
+                        <div class="col-3">
+                          <select class="form-select" aria-label="Default select example" name="califica3" id="nivelInput">
+                            <option selected value="" disabled="disabled">Seleccione una Opción</option>
+                            <?php
+                            $pdo = Database::connect();
+                            $query = 'SELECT * FROM md1_jurado';
+                            foreach ($pdo->query($query) as $row) {
+                                          echo "<option value='" . $row['correo'] . "'>" . $row['nombre'] . "</option>";
+                            }
+                            $query = "SELECT d.nomina,d.nombre,d.es_jurado FROM md1_docente as d, md1_ensena as e WHERE d.es_jurado=1 AND (e.idProfesor=d.nomina AND e.idUf != 'TC2005B')";
+                            foreach ($pdo->query($query) as $row) {
+                                          echo "<option value='" . $row['nomina'] . "'>" . $row['nombre'] . "</option>";
+                            }
+                            $query = 'SELECT * FROM md1_administrador';
+                            foreach ($pdo->query($query) as $row) {
+                                          echo "<option value='" . $row['nomina'] . "'>" . $row['nombre'] . "</option>";
+                            }
+                            Database::disconnect();
+                            ?>
+                          </select>
+                        </div>
+                        <div class="col-3">
+                          <select class="form-select" aria-label="Default select example" name="califica4" id="nivelInput">
+                            <option selected value="" disabled="disabled">Seleccione una Opción</option>
+                            <?php
+                            $pdo = Database::connect();
+                            $query = 'SELECT * FROM md1_jurado';
+                            foreach ($pdo->query($query) as $row) {
+                                          echo "<option value='" . $row['correo'] . "'>" . $row['nombre'] . "</option>";
+                            }
+                            $query = "SELECT d.nomina,d.nombre,d.es_jurado FROM md1_docente as d, md1_ensena as e WHERE d.es_jurado=1 AND (e.idProfesor=d.nomina AND e.idUf != 'TC2005B')";
+                            foreach ($pdo->query($query) as $row) {
+                                          echo "<option value='" . $row['nomina'] . "'>" . $row['nombre'] . "</option>";
+                            }
+                            $query = 'SELECT * FROM md1_administrador';
+                            foreach ($pdo->query($query) as $row) {
+                                          echo "<option value='" . $row['nomina'] . "'>" . $row['nombre'] . "</option>";
+                            }
+                            Database::disconnect();
+                            ?>
+                          </select>
+                        </div>
+                    </div>
+                  </div>
+                </form>  
+              </div> 
+            </div>   
+          <?php } ?>
           </div>
-        </div>
-      </div>
-        <?php } 
-      ?>
+        <?php } ?>
 </body>
 </html>
 
-
-
-
-
- 
- 

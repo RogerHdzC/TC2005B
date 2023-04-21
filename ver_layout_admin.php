@@ -50,7 +50,7 @@
     <?php
       foreach ($pdo->query($consulta) as $colum){
     ?>
-      <img src='data:image/png;base64,<?php echo base64_encode($colum['layout']);?>' alt='Imagen de Portada Proyecto' width='550px' height='1069px'>
+      <img src='data:image/png;base64,<?php echo $colum['layout'];?>' alt='Imagen de Portada Proyecto' width='550px' height='1069px'>
     <?php 
     }
     ?>

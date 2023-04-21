@@ -41,40 +41,25 @@
     </div>
   </nav>
       <br>
-      <h1>Ediciones de la Expo Ingenierías</h1>
+      <h1>Historico de Datos</h1>
       <br></br>
       <div class="container-fluid">
         <div class="container">
           <div class="row">
             <div class="col - 6">
             <form method="POST" action="reportesExel.php">
-            <button class="btn btn-primary btn-custom btn-p3" name="export">Exportar a Excel</button>
+            <button class="btn btn-primary btn-custom btn-p3" name="export">Reporte a Excel</button>
             </form>  
             </div>
           </div>
           <br>
           <div class="row">
             <div class="col - 6">
-              <a class="btn btn-primary btn-custom btn-p3" href="datos.php" role="button">Reporte en pdf</a>
+              <a class="btn btn-primary btn-custom btn-p3" href="reportesPDF.php" target="_blank" rel="noopener noreferrer" role="button">Reporte en pdf</a>
             </div>
           </div>
           <br>
-          <div class="row">
-            <div class="col - 6">
-              <a class="btn btn-primary btn-custom btn-p3" href="datos.php" role="button">Agosto - Diciembre 2021</a>
-            </div>
-          </div>
-          <br>
-          <div class="row">
-            <div class="col - 6">
-              <a class="btn btn-primary btn-custom btn-p3" href="datos.php" role="button">Febrero - Junio 2021</a>
-            </div>
-          </div>
-          <br>
-          <div class="row">
-            <div class="col - 6">
-              <a class="btn btn-primary btn-custom btn-p3" href="datos.php" role="button">Agosto - Diciembre 2020</a>
-            </div>
+          
           </div>
           </div>
         </div>

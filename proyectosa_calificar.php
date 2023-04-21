@@ -15,7 +15,9 @@
   Database::disconnect();
   $pdo = Database::connect();
   $user = $_SESSION['docente'];
-  $consulta = "SELECT DISTINCT p.nombre,p.descripcion,p.id,e.rubrica1, e.rubrica2, e.rubrica3 FROM md1_evalua as e, md1_proyecto as p, md1_jurado as j, md1_docente as d WHERE ('$user'=e.idJurado) OR ('$user'=e.idDocente)";
+  $consulta = "SELECT DISTINCT p.nombre,p.descripcion,p.id,e.rubrica1, e.rubrica2, e.rubrica3 FROM md1_evaluaDocente as e, md1_proyecto as p WHERE ('$user'=e.idJurado) AND e.idProyecto = p.id;";
+
+  $consulta2 = "SELECT DISTINCT p.nombre,p.descripcion,p.id,e.rubrica1, e.rubrica2, e.rubrica3 FROM md1_evaluaJurado as e, md1_proyecto as p WHERE ('$user'=e.idJurado) AND e.idProyecto = p.id;";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -93,6 +95,39 @@
           </div>              
     </div>
   <?php } ?>
+
+  <?php
+  foreach ($pdo->query($consulta2) as $colum){
+    ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="row row-cols-1 row-cols-md-2 mb-2 text-center">
+                    <div class="col">
+                      <div class="card h-100">
+                        <div class='card-body card-p1'>
+                          <h5 class='card-title'> <?php  echo $colum['nombre']; ?> </h5>
+                          <p class='card-text'><?php  echo $colum['descripcion']; ?></p>
+                          <a class="btn btn-primary" href="verMas_proyecto_docenteJuez.php?id=<?php echo $colum['id'];?>">Ver más</a>
+                          <?php if ($colum['rubrica1'] == NULL) {?>
+                            <a class="btn btn-primary" href="calificar_docenteJuez.php?id=<?php echo $colum['id'];?>">Calificar</a>
+                            <?php }else{?>
+                              <p class="btn-warning">  YA HAS CALIFICADO ESTE PROYECTO </p>
+                              <P>RUBRICA 1: <?php echo $colum['rubrica1'] ?>/4</p>
+                              <P>RUBRICA 2: <?php echo $colum['rubrica2'] ?>/4</p>
+                              <P>RUBRICA 3: <?php echo $colum['rubrica3'] ?>/4</p>
+                            <?php } ?>
+                          
+                        </div>
+                        <br>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          </div>              
+    </div>
+  <?php } ?>
+
 <br>
 </body>
 </html>

@@ -6,6 +6,7 @@
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   $sql = "SELECT * FROM md1_proyecto WHERE autorizado=1 AND promedio != 0 AND (correoLider = '$matricula' OR correoCompañero1 = '$matricula' OR correoCompañero2 = '$matricula' OR correoCompañero3 = '$matricula' OR correoCompañero4 = '$matricula')";
   Database::disconnect();
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -77,9 +78,10 @@
                 echo $colum ['descripcion'];
               ?>
             </p>
-            <?php 
-            echo $colum['promedio'];
-            echo '<a href="reconocimiento.php?id='.$colum['id'].'" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Descargar Reconocimiento</a>';
+            <?php
+              
+              echo $colum['promedio'];
+              echo '<a href="reconocimiento.php?id='.$colum['id'].'" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Descargar Reconocimiento</a>';
             ?>
           </div>
         </div>

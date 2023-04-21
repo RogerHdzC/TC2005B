@@ -82,10 +82,7 @@
          <a class="btn btn-primary btn-custom btn-p3" href="ver_layout_admin.php" role="button">Ver layout</a>
       </div>
       <div class="col-6">
-        <form>
-        <input class="form-control" type="file" id="formFile">
-        <button type="submit" class="btn btn-primary btn-custom btn-p1" >Subir anuncio</button>
-        </form>
+
       </div>
 </div>
 <br>
@@ -115,7 +112,9 @@
   foreach ($pdo->query($consulta) as $colum){
     $id = $colum['id'];
   }
-  $layout = addslashes(file_get_contents($_FILES['image']['tmp_name']));
+  $layout = $_FILES['image']['name'];
+  $temp  = $_FILES['image']['tmp_name'];
+
   $pdo = Database::connect();
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   $sql = "DELETE FROM md1_layout WHERE id = ?";
@@ -125,6 +124,8 @@
   VALUES (?)"; 
   $q = $pdo->prepare($sql2);
   $q->execute(array($layout));
+  move_uploaded_file($temp,"imagenes/$layout");   
   header('Location: ver_layout_admin.php');  
   Database::disconnect();
+
   ?>
