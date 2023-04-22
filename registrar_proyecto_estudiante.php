@@ -68,7 +68,7 @@
                Nombre del Proyecto: 
             </div>
             <div class="col-3 col-p2-3">
-               <input type="text" class="form-control" name="nombre" id="nombre_pro" required>
+               <input type="text" class="form-control" name="nombre" id="nombre_pro" >
                <small></small>
             </div>
             <div class="separation2"></div>
@@ -77,7 +77,7 @@
             </div>
             <div class="col-3 col-p2-3">
             <div class="input-group mb-3">
-                  <select class="form-select" aria-label="Default select example" name ="uf" id="nombreUf" required>
+                  <select class="form-select" aria-label="Default select example" name ="uf" id="nombreUf" >
                   <option selected disabled="disabled" value="">Seleccione una Opción</option>
                                  <?php
                                  $pdo = Database::connect();
@@ -99,7 +99,7 @@
             </div>
             <div class="col-3 col-p2-3">
                <div class="mb-3">
-                  <select class="form-select" aria-label="Default select example" name="area" id="areaInput" required>
+                  <select class="form-select" aria-label="Default select example" name="area" id="areaInput" >
                      <option selected disabled="disabled" value="">Seleccione una Opción</option>
                      <option value="Nano">Nano</option>
                      <option value="Bio">Bio</option>
@@ -115,7 +115,7 @@
             </div>
             <div class="col-3 col-p2-3">
                <div class="input-group mb-3">
-               <select class="form-select" aria-label="Default select example" name ="profesor" id="nombreProfesor" required>
+               <select class="form-select" aria-label="Default select example" name ="profesor" id="nombreProfesor" >
                <option selected disabled="disabled" value="">Seleccione una Opción</option>
 		                        <?php
 							   		$pdo = Database::connect();
@@ -138,7 +138,7 @@
             </div>
             <div class="col-3 col-p2-3">
             <div class="input-group mb-3">
-            <select class="form-select" aria-label="Default select example" name ="edicion" id="edicion" required>
+            <select class="form-select" aria-label="Default select example" name ="edicion" id="edicion" >
                <option selected disabled="disabled" value="">Seleccione una Opción</option>
 		                        <?php
 							   		$pdo = Database::connect();
@@ -184,7 +184,7 @@
             </div>
             <div class="col-3 col-p2-3">
             <div class="mb-3">
-               <select class="form-select" aria-label="Default select example" name="nivel" id="nivelInput" required>
+               <select class="form-select" aria-label="Default select example" name="nivel" id="nivelInput" >
                   <option selected value="" disabled="disabled">Seleccione una Opción</option>
                   <option value="Concepto">Concepto</option>
                   <option value="Prototipo">Prototipo</option>
@@ -213,7 +213,7 @@
                </div>
                <div class="col-3 col-p2-3">
                   <div class="mb-3">
-                     <input type="text" class="form-control" name="video" id="videoInput" required>
+                     <input type="text" class="form-control" name="video" id="videoInput" >
                      <small></small>
                   </div>
                </div>
@@ -235,7 +235,7 @@
                </div>
                <div class="col-3 col-p2-3">
                   <div class="mb-3">
-                     <input class="form-control" type="text" name="pdf" id="posterInput" required>
+                     <input class="form-control" type="text" name="pdf" id="posterInput" >
                      <small></small>
                   </div>
                </div>
@@ -269,11 +269,11 @@
          <div class="row">
             <div class="col-3 radioOpts">
                <div class="form-check form-check-inline" id="radios">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" required>
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" >
                   <label class="form-check-label" for="inlineRadio1">Sí</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="0" required>
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="0" >
                   <label class="form-check-label" for="inlineRadio2">No</label>
                 </div>
             </div>
