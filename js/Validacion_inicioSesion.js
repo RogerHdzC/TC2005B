@@ -44,6 +44,11 @@ const checkCorreo = () => {
    showError(server, `El correo es Inválido`)
    validIfCorreoExists = false;
 
+  } else if (s.toLowerCase() == "tec.mx" && u[0].toUpperCase() =="A" && !isNaN(u[1]) && u.length != tam) {
+   showError(server, `La Matrícula debe de ser de ${tam} caracteres`)
+   validIfCorreoExists = false;
+
+
   } else {
    showSuccess(server)
    validIfCorreoExists = true;
