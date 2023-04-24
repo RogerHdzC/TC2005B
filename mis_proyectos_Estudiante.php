@@ -123,10 +123,10 @@
                 <div class="card-footer">
                   <?php 
                     if($colum['autorizado'] == 1){
-                      echo '<a href="verMas_proyecto_estudiante.php?id='.$colum['id'].'" class="btn btn-primary">Ver más</a>';
+                      echo '<a href="verMas_proyecto_estudiante.php?id='.base64_encode($colum['id']).'" class="btn btn-primary">Ver más</a>';
                     }else{
-                      echo '<a href="verMas_proyecto_estudiante.php?id='.$colum['id'].'" class="btn btn-primary">Ver más</a>';
-                      echo '<a href="editar_proyecto_estudiante.php?id='.$colum['id'].'" class="btn btn-primary">Editar</a>';
+                      echo '<a href="verMas_proyecto_estudiante.php?id='.base64_encode($colum['id']).'" class="btn btn-primary">Ver más</a>';
+                      echo '<a href="editar_proyecto_estudiante.php?id='.base64_encode($colum['id']).'" class="btn btn-primary">Editar</a>';
                     }
                   ?>
                 </div>

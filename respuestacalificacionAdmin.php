@@ -5,7 +5,7 @@
 
   $id = 0;
   if ( !empty($_GET['id'])) {
-     $id = $_REQUEST['id'];
+     $id = base64_decode($_REQUEST['id']);
   }
 
   $rubrica1 = $_POST['pregunta1'];

@@ -226,7 +226,7 @@
                     <p class="card-text p1-color"><?php  echo $producto->descripcion; ?></p>
                     
                 </div>
-                <div class="card-footer"><a class="btn btn-primary" href="verMas_proyecto_docenteJuez.php?id=<?php echo $producto->id;?>">Ver más</a></div>
+                <div class="card-footer"><a class="btn btn-primary" href="verMas_proyecto_docenteJuez.php?id=<?php echo base64_encode($producto->id);?>">Ver más</a></div>
               </div>
             <?php } ?>
           </div>

@@ -4,7 +4,7 @@
 
   $id = 0;
   if ( !empty($_GET['id'])) {
-     $id = $_REQUEST['id'];
+   $id = base64_decode($_REQUEST['id']);
   }
 
   $pdo = Database::connect();

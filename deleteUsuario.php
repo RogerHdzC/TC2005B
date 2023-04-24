@@ -3,8 +3,9 @@
   include 'database.php';
   $id = '';
   if ( !empty($_GET['id'])) {
-      $id = $_REQUEST['id'];
+      $id = base64_decode($_REQUEST['id']);
   }
+
     
     $pdo = Database::connect();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -28,23 +29,15 @@
     Database::disconnect();
 
 
-    echo $q->rowCount();
-    echo $q2->rowCount();
-    echo $q3->rowCount();
-
   if ( !empty($_POST)) {
     
     $id = $_POST['id'];
     $q = $_POST['q'];
     $q2 = $_POST['q2'];
     $q3 = $_POST['q3'];
-    echo "hola";
-    echo $id . "es el id";
-
-
 
     if ($q > 0) {
-        echo "hola";
+
         $pdo = Database::connect();
         $sql = "DELETE FROM md1_docente WHERE nomina = ?";
         $q = $pdo->prepare($sql);
@@ -52,7 +45,7 @@
         Database::disconnect();
         header("Location: ver_usuarios_admin.php");
     }elseif($q2 > 0){
-      echo "hola";
+
         $pdo = Database::connect();
         $sql = "DELETE FROM md1_jurado WHERE correo = ?";
         $q = $pdo->prepare($sql);
@@ -60,12 +53,12 @@
         Database::disconnect();
         header("Location: ver_usuarios_admin.php");
     }elseif($q3 > 0){
-      echo "hola";
         $pdo = Database::connect();
         $sql = "DELETE FROM md1_estudiante WHERE matricula = ?";
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
         Database::disconnect();
+
         header("Location: ver_usuarios_admin.php");
     }
   }
@@ -90,14 +83,6 @@
               
               <form class="form-horizontal" action="deleteUsuario.php" method="post">
                 <?php  
-                                          echo $colum['nomina'];
-                                          echo $colum['correo'];
-                                          echo $colum['matricula'];
-                                          echo $id;
-
-                                          echo $q->rowCount();
-                                          echo $q2->rowCount(); 
-                                          echo $q3->rowCount();
                 ?>
                   <input type="hidden" name="id" value="<?php echo $id;?>"/>
                   <input type="hidden" name="q" value="<?php echo $q->rowCount();?>"/>

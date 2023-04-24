@@ -210,13 +210,13 @@
                     
                 </div>
                 <div class="card-footer">
-                <a class="btn btn-primary" href="verMas_proyecto_admin.php?id=<?php echo $producto->id;?>">Ver más</a>
-                          <a class="btn btn-danger" href="deleteProyectos.php?id=<?php echo $producto->id;?>">Eliminar</a>
+                <a class="btn btn-primary" href="verMas_proyecto_admin.php?id=<?php echo base64_encode($producto->id);?>">Ver más</a>
+                          <a class="btn btn-danger" href="deleteProyectos.php?id=<?php echo base64_encode($producto->id);?>">Eliminar</a>
                           <?php
-                            if ($colum['autorizado'] == 0){?>
-                              <a href="aprobarProyectosAdmin.php?id=<?php echo $producto->id;?>" class="btn btn-primary btn-success">Aprobar</a>
-                          <?php }elseif(($colum['autorizado'] != 0)){?>
-                              <a href="calificar_admin.php?id=<?php echo $producto->id;?>" class="btn btn-primary btn-success">Calificar</a>
+                            if ($producto->autorizado == 0){?>
+                              <a href="aprobarProyectosAdmin.php?id=<?php echo base64_encode($producto->id);?>" class="btn btn-primary btn-success">Aprobar</a>
+                          <?php }elseif(($producto->autorizado == 1)){?>
+                              <a href="calificar_admin.php?id=<?php echo base64_encode($producto->id);?>" class="btn btn-primary btn-success">Calificar</a>
                           <?php }
                           ?>
                 </div>

@@ -4,7 +4,7 @@
     $autorizado=1;
     $id = 0;
 	if ( !empty($_GET['id'])) {
-		$id = $_REQUEST['id'];
+		$id = base64_decode($_REQUEST['id']);
 	}
 	if ( !empty($_POST)) {
         echo $id;
@@ -17,7 +17,7 @@
         $q->execute(array($autorizado, $id));		
 
         Database::disconnect();
-		header("Location: mis_proyectos_docenteJuez.php");
+		header("Location: ver_proyectos_Admin.php");
 	}
 ?>
 
@@ -38,12 +38,12 @@
 			    	<h3>Aprobar un proyecto</h3>
 			    </div>
 
-			    <form class="form-horizontal" action="aprobarProyecto.php" method="post">
+			    <form class="form-horizontal" action="aprobarProyectosAdmin.php" method="post">
 		    		<input type="hidden" name="id" value="<?php echo $id;?>"/>
 					<p class="alert alert-error">Estas seguro que quieres aprobar este proyecto ?</p>
 					<div class="form-actions">
                         <button type="submit" class="btn btn-light btn-custom">Si</button>
-						<a class="btn btn-danger" href="mis_proyectos_docenteJuez.php">No</button>
+						<a class="btn btn-danger" href="ver_proyectos_Admin.php">No</button>
 						
 					</div>
 				</form>

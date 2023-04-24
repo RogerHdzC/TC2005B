@@ -86,11 +86,11 @@
                     ?>
                 </div>
                 <div class="col-3">
-                    <a class="btn btn-danger" href="deleteUsuario.php?id=<?php echo $colum['nomina'];?>">Eliminar</a>
+                    <a class="btn btn-danger" href="deleteUsuario.php?id=<?php echo base64_encode($colum['nomina']);?>">Eliminar</a>
                     <?php if ($colum['es_jurado'] ==0 ){ ?>
-                        <a class="btn btn-success" href="updateJuez.php?id=<?php echo $colum['nomina'];?>">Asignar rol de juez</a>
+                        <a class="btn btn-success" href="updateJuez.php?id=<?php echo base64_encode($colum['nomina']);?>">Asignar rol de juez</a>
                     <?php }else{ ?>
-                        <a class="btn btn-danger" href="deleteJuez.php?id=<?php echo $colum['nomina'];?>">Quitar rol de juez</a>
+                        <a class="btn btn-danger" href="deleteJuez.php?id=<?php echo base64_encode($colum['nomina']);?>">Quitar rol de juez</a>
                     <?php } ?>
                 </div>
             </div>
@@ -114,7 +114,7 @@
                 <p>Estudiante</p>
             </div>
             <div class="col-3">
-                    <a class="btn btn-danger" href="deleteUsuario.php?id=<?php echo $colum['matricula'];?>">Eliminar</a>
+                    <a class="btn btn-danger" href="deleteUsuario.php?id=<?php echo base64_encode($colum['matricula']);?>">Eliminar</a>
                 </div>
         </div>
         <?php 
@@ -136,9 +136,9 @@
                 <p>Juez</p>
             </div>
             <div class="col-3">
-                    <a class="btn btn-danger" href="deleteUsuario.php?id=<?php echo $colum['correo'];?>">Eliminar</a>
+                    <a class="btn btn-danger" href="deleteUsuario.php?id=<?php echo base64_encode($colum['correo']);?>">Eliminar</a>
                     <?php if($colum['confirmado'] != 1){ ?>
-                        <a class="btn btn-success" href="aceptarJuez.php?id=<?php echo $colum['correo'];?>">Aceptar juez</a>
+                        <a class="btn btn-success" href="aceptarJuez.php?id=<?php echo base64_encode($colum['correo']);?>">Aceptar juez</a>
                     <?php } ?>
                 </div>
         </div>

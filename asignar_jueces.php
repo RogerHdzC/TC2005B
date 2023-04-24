@@ -79,7 +79,7 @@
                       <h5 class='card-title'> <?php  echo $colum['nombre']; ?> </h5>
                     </div>
                     <div class="col-6">
-                      <a class="btn btn-primary" href="verMas_proyecto_admin.php?id=<?php echo $colum['id'];?>">Ver más</a>
+                      <a class="btn btn-primary" href="verMas_proyecto_admin.php?id=<?php echo base64_encode($colum['id']);?>">Ver más</a>
                     </div>  
                   </div>
                 </div>

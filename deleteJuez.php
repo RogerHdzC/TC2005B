@@ -3,7 +3,7 @@
 	require 'database.php';
 	$id = 0;
 	if ( !empty($_GET['id'])) {
-		$id = $_REQUEST['id'];
+		$id = base64_decode($_REQUEST['id']);
 	}
     $juez=0;
 	if ( !empty($_POST)) {

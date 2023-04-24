@@ -95,7 +95,7 @@ if(($server == "tec.mx" && !is_numeric($usuario[1]))){
        <?php Database::disconnect();
        if($q){
             $uniqidStr = md5(uniqid(mt_rand()));;
-            echo $uniqidStr;
+
 			//update data with forgot pass code
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

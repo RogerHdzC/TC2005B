@@ -84,11 +84,11 @@
                     </div>  
                     <div class="card-footer">  
                       <?php if($colum['autorizado']==0){?>
-                        <a href="aprobarProyecto.php?id=<?php echo $colum['id'] ?>" class="btn btn-success">Aprobar</a>
+                        <a href="aprobarProyecto.php?id=<?php echo base64_encode($colum['id']) ?>" class="btn btn-success">Aprobar</a>
                       <?php }else{?>
                         <p class="p1-color">Ya has aprobado este proyecto</p>
                       <?php } ?>
-                      <a href="verMas_proyecto_docenteJuez.php?id=<?php echo $colum['id'] ?>" class="btn btn-primary">Ver más</a>
+                      <a href="verMas_proyecto_docenteJuez.php?id=<?php echo base64_encode($colum['id']) ?>" class="btn btn-primary">Ver más</a>
                     </div>
                 </div>
               </div>
