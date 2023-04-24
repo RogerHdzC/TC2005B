@@ -9,12 +9,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <!-- CSS -->
-    <link href="css/reconocimiento.css" rel="stylesheet">
+    <link href="css/reconocimento.css" rel="stylesheet">
 
     <title>Reconocimiento</title>
 </head>
 <body>
-  <h1>Reconocimiento</h>
-  <p>Felcidades a {{ name }} por haber participado en expoIngenierias</p>
+  <div>
+      <h1>Reconocimiento</h>
+      <p>Felcidades a {{ name }} por haber participado en expoIngenierias</p>
+  </div>
+
 </body>
 </html>

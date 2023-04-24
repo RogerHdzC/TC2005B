@@ -17,7 +17,9 @@ body {
 /* div {
    border: solid 2px white;
 } */
-
+a.logout{float: right;}
+p.success{color:#34A853;}
+p.error{color:#EA4335;}
 
 /* Clases para efectos visuales en los forms */
 .radioOpts{

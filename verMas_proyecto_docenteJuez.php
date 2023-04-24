@@ -46,7 +46,7 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -56,11 +56,11 @@
             <?php if($data2['correo']!= $_SESSION['docente']){?>
             <li class="nav-item-docenJuez"><a class="nav-link"  href="mis_proyectos_docenteJuez.php">Mis proyectos</a></li>
             <?php }?>
-            <li class="nav-item-docenJuez"><a class="nav-link"  href="explorar_proyectos_docentejuez.php">Explorar Proyectos</a></li>
             <?php if(($data['es_jurado']==1) || ($data2['correo']== $_SESSION['docente'])){?>
               <li class="nav-item-docenJuez"><a class="nav-link"  href="proyectosa_calificar.php">Proyectos a Calificar</a></li>
             <?php }?>
-            <li class="nav-item-docenJuez"><a class="nav-link"  href="ver_layout_docenteJuez.php">Ver Layout</a></li>
+            <li class="nav-item-docenJuez"><a class="nav-link"  href="explorar_proyectos_docentejuez.php">Explorar Proyectos</a></li>
+            <li class="nav-item-docenJuez"><a class="nav-link"  href="ver_layout_docenteJuez.php">Ver mapa</a></li>
             <li class="nav-item-docenJuez"><a class="nav-link"  href="sobre_nosotros_docenteJuez.php">Sobre Nosotros</a></li>
             <li class="nav-item-docenJuez"><a class="nav-link"  href="preguntas_frecuentes_docenteJuez.php">Preguntas Frecuentes</a></li>
             <li class="nav-item-docenJuez"><a class="nav-link"  href="ajustes_docenteJuez.php">Ajustes</a></li>
@@ -68,6 +68,9 @@
         </div>
         <a class="navbar-brand" href="pagina_inicio_docenteJuez.php">
           <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
+        </a>
+        <a class="navbar-brand" href="logout.php">
+          <img src="img/logout.png" alt="" width="40" height="40">
         </a>
     </div>
   </nav>
@@ -192,7 +195,7 @@
                </div>
                <div class="col-3 col-p2-3">
                   <div class="mb-3">
-                     <a href="<?php echo $data3['video'] ?>">VIDEO</a>
+                     <a href="<?php echo $data3['video'] ?>" target="_blank" rel="noopener noreferrer">VIDEO</a>
                      <small></small>
                   </div>
                </div>
@@ -232,7 +235,7 @@
                </div>
                <div class="col-3 col-p2-3">
                   <div class="mb-3">
-                     <a href="<?php echo $data3['pdf'] ?>">POSTER</a>
+                     <a href="<?php echo $data3['pdf'] ?>" target="_blank" rel="noopener noreferrer">POSTER</a>
                   <small></small>
                   </div>
                </div>

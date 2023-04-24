@@ -34,7 +34,7 @@ if($server == "tec.mx" && strtoupper($username[0])=="A" && is_numeric($username[
     $q = $pdo->prepare($sql);
     $q->execute(array($username));
     $data = $q->fetch(PDO::FETCH_ASSOC);
-    if ($q->rowCount() > 0){
+    if ($q->rowCount() > 0 && $data['correoConfirmado'] == 1){
         if (password_verify($password, $data['contraseña'])){            
             session_start();
             $_SESSION['username'] = $data['matricula'];

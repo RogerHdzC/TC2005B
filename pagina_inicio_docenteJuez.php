@@ -41,11 +41,11 @@
             <?php if($data2['correo']!= $_SESSION['docente']){?>
             <li class="nav-item-docenJuez"><a class="nav-link"  href="mis_proyectos_docenteJuez.php">Mis proyectos</a></li>
             <?php }?>
-            <li class="nav-item-docenJuez"><a class="nav-link"  href="explorar_proyectos_docentejuez.php">Explorar Proyectos</a></li>
             <?php if(($data['es_jurado']==1) || ($data2['correo']== $_SESSION['docente'])){?>
               <li class="nav-item-docenJuez"><a class="nav-link"  href="proyectosa_calificar.php">Proyectos a Calificar</a></li>
             <?php }?>
-            <li class="nav-item-docenJuez"><a class="nav-link"  href="ver_layout_docenteJuez.php">Ver Layout</a></li>
+            <li class="nav-item-docenJuez"><a class="nav-link"  href="explorar_proyectos_docentejuez.php">Explorar Proyectos</a></li>
+            <li class="nav-item-docenJuez"><a class="nav-link"  href="ver_layout_docenteJuez.php">Ver mapa</a></li>
             <li class="nav-item-docenJuez"><a class="nav-link"  href="sobre_nosotros_docenteJuez.php">Sobre Nosotros</a></li>
             <li class="nav-item-docenJuez"><a class="nav-link"  href="preguntas_frecuentes_docenteJuez.php">Preguntas Frecuentes</a></li>
             <li class="nav-item-docenJuez"><a class="nav-link"  href="ajustes_docenteJuez.php">Ajustes</a></li>
@@ -53,6 +53,9 @@
         </div>
         <a class="navbar-brand" href="pagina_inicio_docenteJuez.php">
           <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
+        </a>
+        <a class="navbar-brand" href="logout.php">
+          <img src="img/logout.png" alt="" width="40" height="40">
         </a>
     </div>
   </nav>
@@ -76,7 +79,7 @@
         <a class="btn btn-primary btn-custom btn-p3" href="proyectosa_calificar.php" role="button">Proyectos a Calificar</a>
       </div>
       <div class="col - 6">
-        <a class="btn btn-primary btn-custom btn-p3" href="ver_layout_docenteJuez.php" role="button">Ver Layout</a>
+        <a class="btn btn-primary btn-custom btn-p3" href="ver_layout_docenteJuez.php" role="button">Ver Mapa</a>
       </div>
     </div>
     <br>

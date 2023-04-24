@@ -30,7 +30,7 @@
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
   if ($data2['correo']== $_SESSION['docente']){
-    $sql ="UPDATE `md1_evaluaJurado` SET `rubrica1`= ?, `rubrica2`= ?, `rubrica3`= ? WHERE (idProyecto=? AND idjurado = ?)";
+    $sql ="UPDATE `md1_evaluaJurado` SET `rubrica1`= ?, `rubrica2`= ?, `rubrica3`= ? WHERE (idProyecto=? AND idJurado = ?)";
 
     $q = $pdo->prepare($sql);
 
@@ -38,7 +38,7 @@
 
     Database::disconnect();
   }else{
-    $sql ="UPDATE `md1_evaluaDocente` SET `rubrica1`= ?, `rubrica2`= ?, `rubrica3`= ? WHERE (idProyecto=? AND idjurado = ?)";
+    $sql ="UPDATE `md1_evaluaDocente` SET `rubrica1`= ?, `rubrica2`= ?, `rubrica3`= ? WHERE (idProyecto=? AND idJurado = ?)";
 
     $q = $pdo->prepare($sql);
 
@@ -66,7 +66,7 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -76,10 +76,10 @@
             <?php if($data2['correo']!= $_SESSION['docente']){?>
             <li class="nav-item-docenJuez"><a class="nav-link"  href="mis_proyectos_docenteJuez.php">Mis proyectos</a></li>
             <?php }?>
-            <li class="nav-item-docenJuez"><a class="nav-link"  href="explorar_proyectos_docentejuez.php">Explorar Proyectos</a></li>
             <?php if(($data['es_jurado']==1) || ($data2['correo']== $_SESSION['docente'])){?>
               <li class="nav-item-docenJuez"><a class="nav-link"  href="proyectosa_calificar.php">Proyectos a Calificar</a></li>
             <?php }?>
+            <li class="nav-item-docenJuez"><a class="nav-link"  href="explorar_proyectos_docentejuez.php">Explorar Proyectos</a></li>
             <li class="nav-item-docenJuez"><a class="nav-link"  href="ver_layout_docenteJuez.php">Ver Layout</a></li>
             <li class="nav-item-docenJuez"><a class="nav-link"  href="sobre_nosotros_docenteJuez.php">Sobre Nosotros</a></li>
             <li class="nav-item-docenJuez"><a class="nav-link"  href="preguntas_frecuentes_docenteJuez.php">Preguntas Frecuentes</a></li>
@@ -91,7 +91,6 @@
         </a>
     </div>
   </nav>
-
 
     <br></br>
     <br></br>
