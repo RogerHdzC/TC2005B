@@ -270,9 +270,9 @@ form.addEventListener('submit', function (e) {
    validIfPassCorrect;
 
    // console.clear()
-   console.log(`var validIfCorreoExists: ${validIfCorreoExists}`)
-   console.log(`var validIfPassCorrect: ${validIfPassCorrect}`)
-   console.log(`var ultimate: ${isFormValid}`)
+   // console.log(`var validIfCorreoExists: ${validIfCorreoExists}`)
+   // console.log(`var validIfPassCorrect: ${validIfPassCorrect}`)
+   // console.log(`var ultimate: ${isFormValid}`)
    // Se hace submit en caso de que todas las entradas sean válidas
    if (isFormValid) {
       e.target.submit();
