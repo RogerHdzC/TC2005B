@@ -44,6 +44,66 @@ const checkCorreo = () => {
    showError(server, `El correo es Inválido`)
    validIfCorreoExists = false;
 
+  } else if (s.toLowerCase() == "tec.mx" && u[0].toUpperCase() =="A" && !isNaN(u[1]) && u.length != tam) {
+   showError(server, `La Matrícula debe de ser de ${tam} caracteres`)
+   validIfCorreoExists = false;
+
+
+  } else {
+   showSuccess(server)
+   validIfCorreoExists = true;
+   }
+
+ 
+
+};
+
+const checkIfCorreoExists = () => {
+
+   const u = user.value.trim();
+   const s = server.value.trim();
+   const email = u + "@" + s;
+   const min = 1,
+       max = 30,
+       tam = 9;
+       
+
+       if (isBigger(u.length, min+1) && isRequired(s)) {
+         if(s.toLowerCase() == "tec.mx" && u[0].toUpperCase() =="A" && !isNaN(u[1])){
+            if (u.length != tam) {
+               showError(server, `La Matrícula debe de ser de ${tam} caracteres`)
+               validIfCorreoExists = false;
+            }
+            else{
+               if (isRequired(u) && isRequired(s)) {
+                  // Se manda consulta tipo Ajax al server para verificar
+                  var xhr = new XMLHttpRequest();
+                  xhr.open('POST', 'revisar_inicioSesion.php', false);
+                  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                  xhr.onreadystatechange = function() {
+                      if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                          // Handle server response
+                          var response = JSON.parse(xhr.responseText); // Parse the response as JSON
+                          if (response.correo) {
+                              // El valor existe
+                              showSuccess(server);
+                              validIfCorreoExists = true;
+   
+            
+                          } else {
+                              // El valor NO existe
+                              showError(server, `El correo No está registrado, porfavor registre su correo antes de iniciar sesión`)
+                              validIfCorreoExists = false;
+            
+                          }
+                      }
+            
+                  };
+                  xhr.send('password=' + encodeURIComponent(u) + '&url=' + encodeURIComponent(url) + '&user=' + encodeURIComponent(u) + '&server=' + encodeURIComponent(s));
+            
+              } 
+            }
+
 }else {
    if (isBigger(u.length, min+1) && isRequired(s)) {
       if(s.toLowerCase() == "tec.mx" && u[0].toUpperCase() =="A" && !isNaN(u[1])){
@@ -55,7 +115,11 @@ const checkCorreo = () => {
             if (isRequired(u) && isRequired(s)) {
                // Se manda consulta tipo Ajax al server para verificar
                var xhr = new XMLHttpRequest();
+
+               xhr.open('POST', 'revisar_inicioSesion.php', false);
+
                xhr.open('POST', 'revisar_inicioSesion.php', true);
+
                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                xhr.onreadystatechange = function() {
                    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
@@ -79,6 +143,10 @@ const checkCorreo = () => {
                xhr.send('password=' + encodeURIComponent(u) + '&url=' + encodeURIComponent(url) + '&user=' + encodeURIComponent(u) + '&server=' + encodeURIComponent(s));
          
            } 
+
+         }
+         }
+
            else {
             removeError(server);
             validIfCorreoExists = true;
@@ -120,10 +188,10 @@ const checkCorreo = () => {
       }
    }
 
+
  
 
 };
-
 
 
 const checkPassword = () => {
@@ -135,6 +203,54 @@ const checkPassword = () => {
 
    if (!isRequired(password)) {
        showError(passwordEl, 'La contraseña no puede estar vacía.');
+
+       validIfPassCorrect = false;
+   } else if (!isBetween(password)) {
+       showError(passwordEl, `La contraseña debe de ser entre ${min} y ${max} caracteres.`);
+       validIfPassCorrect = false;
+   } 
+   else {
+      showSuccess(passwordEl)
+      validIfPassCorrect = true;
+
+   }
+// console.log(`INfunction var validIfPassCorrect: ${validIfPassCorrect}`)
+
+};
+
+const checkIfPasswordCorrect = () => {
+   const u = user.value.trim();
+   const s = server.value.trim();
+   const password = passwordEl.value.trim();
+   const min = 1,
+   max = 30;
+
+   if (isRequired(password) && isRequired(u) && isRequired(s)) {
+      // Se manda consulta tipo Ajax al server para verificar
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'revisar_inicioSesion.php', false);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.onreadystatechange = function() {
+          if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+              // Handle server response
+              var response = JSON.parse(xhr.responseText); // Parse the response as JSON
+               if (response.exists) {
+                  // El valor existe
+                  showSuccess(passwordEl);
+                  validIfPassCorrect = true;
+
+               } else {
+                  // El valor NO existe
+                  showError(passwordEl, `La contraseña es incorrecta!`)
+                  validIfPassCorrect = false;
+               }
+
+          }
+
+      };
+      xhr.send('password=' + encodeURIComponent(password) + '&url=' + encodeURIComponent(url) + '&user=' + encodeURIComponent(u) + '&server=' + encodeURIComponent(s));
+
+
    } else if (!isBetween(password)) {
        showError(passwordEl, `La contraseña debe de ser entre ${min} y ${max} caracteres.`);
    } else if (isRequired(password) && isRequired(u) && isRequired(s)) {
@@ -162,6 +278,7 @@ const checkPassword = () => {
          };
          xhr.send('password=' + encodeURIComponent(password) + '&url=' + encodeURIComponent(url) + '&user=' + encodeURIComponent(u) + '&server=' + encodeURIComponent(s));
    
+
 }
 // console.log(`INfunction var validIfPassCorrect: ${validIfPassCorrect}`)
 
@@ -232,6 +349,10 @@ form.addEventListener('submit', function (e) {
    checkPassword();
    checkCorreo();
 
+   checkIfCorreoExists();
+   checkIfPasswordCorrect();
+
+
    let isFormValid = 
    validIfCorreoExists &&
    validIfPassCorrect;
@@ -266,6 +387,17 @@ form.addEventListener('input', debounce(function (e) {
    switch (e.target.id) {
       case 'correoProfesor':
          checkCorreo();
+
+         break;
+      case 'serverProfesor':
+         checkCorreo();
+         break;
+      case 'password':
+         checkPassword();
+         break;
+   }
+}));
+
          checkPassword();
          break;
       case 'serverProfesor':
@@ -278,3 +410,4 @@ form.addEventListener('input', debounce(function (e) {
          break;
    }
 }));
+

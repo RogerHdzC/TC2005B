@@ -3,7 +3,7 @@
 include 'database.php';
 
 // Valor a verificar
-$usuario = $_POST['user'];
+$usuario = strtolower($_POST['user']);
 $server = strtolower($_POST['server']);
 $correo = $usuario . "@" . $server;
 
@@ -36,7 +36,8 @@ if(strpos($url, "inicio_sesion_admin.html") !== false){
 }
 
 elseif(strpos($url, "inicio_sesion_docentejuez.html") !== false){
-   if($server == "tec.mx" && !is_numeric($usuario[1])){
+
+   if(($server == "tec.mx" && (!is_numeric($usuario[1]) || $usuario[0] == "l"))){
       $pdo = Database::connect();
       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       $sql ="SELECT * FROM md1_docente WHERE nomina = ?"; 
@@ -76,7 +77,7 @@ elseif(strpos($url, "inicio_sesion_docentejuez.html") !== false){
 }
 elseif(strpos($url, "inicio_sesion_estudiante.html") !== false){
 
-   if($server == "tec.mx" && strtoupper($usuario[0])=="A" && is_numeric($usuario[1])){
+   if($server == "tec.mx" && $usuario[0] =="a" && is_numeric($usuario[1])){
       $pdo = Database::connect();
       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       $sql ="SELECT * FROM md1_estudiante WHERE matricula = ?"; 

@@ -3,7 +3,7 @@
 include 'database.php';
 
 // Valor a verificar
-$matricula = $_POST['matricula'];
+$matricula = strtolower($_POST['matricula']);
 
 $response = array();
 // PDO

@@ -109,7 +109,7 @@ const checkCorreo = () => {
                if (isRequired(u) && isRequired(s)) {
                   // Se manda consulta tipo Ajax al server para verificar
                   var xhr = new XMLHttpRequest();
-                  xhr.open('POST', 'revisar_registro.php', true);
+                  xhr.open('POST', 'revisar_registro.php', false);
                   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                   xhr.onreadystatechange = function() {
                       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
@@ -142,7 +142,7 @@ const checkCorreo = () => {
             if (isRequired(u) && isRequired(s)) {
                // Se manda consulta tipo Ajax al server para verificar
                var xhr = new XMLHttpRequest();
-               xhr.open('POST', 'revisar_registro.php', true);
+               xhr.open('POST', 'revisar_registro.php', false);
                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                xhr.onreadystatechange = function() {
                    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
@@ -188,7 +188,7 @@ const checkEsJuez = () => {
    const e1 = op1;
    const e2 = op2;
 
-   if(s.toLowerCase() == "tec.mx" && isNaN(u[1])){
+   if(s.toLowerCase() == "tec.mx" && (isNaN(u[1]) || u[0].toLowerCase() == "l")){
       if (e1.checked == false && e2.checked == false) {
          showErrorRadio(op2, 'Debe Seleccionar Una Opción');
       } else {

@@ -3,7 +3,7 @@
 include 'database.php';
 
 // Valor a verificar
-$usuario = $_POST['user'];
+$usuario = strtolower($_POST['user']);
 $server = strtolower($_POST['server']);
 $correo = $usuario . "@" . $server;
 $response = array();
@@ -11,7 +11,7 @@ $response = array();
 // Set the response header to indicate JSON content type
 header('Content-Type: application/json');
 
-if($server == "tec.mx" && !is_numeric($usuario[1])){
+if(($server == "tec.mx" && (!is_numeric($usuario[1]) || $usuario[0] == "l"))){
    $pdo = Database::connect();
    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
    $sql ="SELECT * FROM md1_docente WHERE nomina = ?"; 
@@ -26,7 +26,7 @@ if($server == "tec.mx" && !is_numeric($usuario[1])){
 
        Database::disconnect();
     }
-} elseif($server == "tec.mx" && strtoupper($usuario[0])=="A" && is_numeric($usuario[1])){
+} elseif($server == "tec.mx" && $usuario[0] =="a" && is_numeric($usuario[1])){
    $pdo = Database::connect();
    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
    $sql ="SELECT * FROM md1_estudiante WHERE matricula = ?"; 
