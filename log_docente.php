@@ -65,7 +65,7 @@ if($server == "tec.mx" && !is_numeric($username[1])){
     $q = $pdo->prepare($sql);
     $q->execute(array($username . '@' . $server));
     $data = $q->fetch(PDO::FETCH_ASSOC);
-    if ($q->rowCount() > 0){
+    if ($q->rowCount() > 0 && $data['confirmado'] == 1){
         if (password_verify($password, $data['contraseña'])){            
             session_start();
             $_SESSION['docente'] = $data['correo'];
@@ -77,7 +77,7 @@ if($server == "tec.mx" && !is_numeric($username[1])){
         <div class="alert alert-danger d-flex align-items-center" role="alert">
             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
             <div>
-            No tienes una cuenta registrada con este correo, intenta de nuevo o registrate
+                Corrobora si ya confirmaste tu correo y si ya has sido aceptado por el administrado, intenta de nuevo o registrate
             </div>
         </div>
         <div class="container">

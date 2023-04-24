@@ -1,3 +1,12 @@
+<?php 
+  session_start();
+  $sessData = !empty($_SESSION['sessData'])?$_SESSION['sessData']:'';
+  if(!empty($sessData['estado']['msg'])){
+      $statusMsg = $sessData['estado']['msg'];
+      $statusMsgType = $sessData['estado']['type'];
+      unset($_SESSION['sessData']['estado']);
+  }
+?>
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
   <head>
@@ -18,6 +27,7 @@
   <body>
    
     <h1 class="inicio">Registro</h1>
+    <?php echo !empty($statusMsg)?'<p class="'.$statusMsgType.'">'.$statusMsg.'</p>':''; ?>
     <form action="respuesta_registro.php"  method="POST" id="signup">
     <div class="container validacion">
       <br>
@@ -52,28 +62,10 @@
           <small></small>
         </div>
         <br></br>
-        <div class="col-5 align-self-center">Si es docente, ¿también será jurado? </div>
-        <div class="col-5 align-self-center">
-          <div class="input-group mb-3 align-self-center">
-            <div class="col-3 radioOpts">
-              <div class="form-check form-check-inline" id="radios">
-                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
-                 <label class="form-check-label" for="inlineRadio1">Sí</label>
-               </div>
-               <div class="form-check form-check-inline">
-                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="0">
-                 <label class="form-check-label" for="inlineRadio2">No</label>
-               </div>
-           </div>
-           <small></small>
-          </div>
-        </div>
-        <br></br>
         <div class="col-5 align-self-center">Contraseña: </div>
         <div class="col-5 ">
           <div class="input-group mb-3">
             <input type="password" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" name="password" id="password" />
-            
          </div> 
          <small></small>
         </div>
@@ -93,8 +85,8 @@
   </form>
    <!-- SCRIPTS -->
 
-     <script src="js/visibilidad_password.js"></script>
-     <script src="js/validacion_registro.js"></script>
+   <!--<script src="js/visibilidad_password.js"></script>
+     <script src="js/validacion_registro.js"></script>-->
 
 
   </body>

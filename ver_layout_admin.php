@@ -2,7 +2,7 @@
   require_once 'restrictedAdmin.php';
   include 'database.php';
   $pdo = Database::connect();
-  $consulta = "SELECT * FROM md1_layout";
+  $consulta = "SELECT * FROM images_tabla";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -29,11 +29,12 @@
         <ul class="navbar-nav">
 
             <li class="nav-item-admin"><a class="nav-link" href="ver_usuarios_admin.php">Ver Usuarios</a></li>
+            <li class="nav-item-admin"><a class="nav-link" href="asignar_jueces.php">Asignar Jueces</a></li>
             <li class="nav-item-admin"><a class="nav-link" href="ver_proyectos_Admin.php">Ver Proyectos</a></li>
+            <li class="nav-item-admin"><a class="nav-link" href="historicodatos.php">Historico de Datos</a></li>
+            <li class="nav-item-admin"><a class="nav-link active" aria-current="page" href="ver_layout_admin.php">Mapa</a></li>
             <li class="nav-item-admin"><a class="nav-link" href="sobre_nosotros_admin.php">Sobre Nosotros</a></li>
             <li class="nav-item-admin"><a class="nav-link" href="preguntas_frecuentes_admin.php">Preguntas Frecuentes</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="historicodatos.php">Historico de Datos</a></li>
-            <li class="nav-item-admin"><a class="nav-link active" aria-current="page" href="ver_layout_admin.php">Layout</a></li>
             <li class="nav-item-admin"><a class="nav-link" href="ajustes_admin.php">Ajustes</a></li>
             
 
@@ -42,15 +43,19 @@
         <a class="navbar-brand" href="pagina_inicio_admin.php">
           <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
         </a>
+        <a class="navbar-brand" href="logout.php">
+          <img src="img/logout.png" alt="" width="40" height="40">
+        </a>
     </div>
   </nav>
   <br>
-      <h1>LAYOUT </h1>
+      <h1>Mapa </h1>
    <br>
     <?php
       foreach ($pdo->query($consulta) as $colum){
     ?>
-      <img src='data:image/png;base64,<?php echo $colum['layout'];?>' alt='Imagen de Portada Proyecto' width='550px' height='1069px'>
+      <img src='vista.php?id=<?php echo $colum['id'] ?>' alt='Img blob desde MySQL' width="600" />      
+
     <?php 
     }
     ?>
