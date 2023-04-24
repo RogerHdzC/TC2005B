@@ -30,7 +30,7 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -40,22 +40,24 @@
             <?php if($data2['correo']!= $_SESSION['docente']){?>
             <li class="nav-item-docenJuez"><a class="nav-link"  href="mis_proyectos_docenteJuez.php">Mis proyectos</a></li>
             <?php }?>
-            <li class="nav-item-docenJuez"><a class="nav-link"  href="explorar_proyectos_docentejuez.php">Explorar Proyectos</a></li>
             <?php if(($data['es_jurado']==1) || ($data2['correo']== $_SESSION['docente'])){?>
               <li class="nav-item-docenJuez"><a class="nav-link"  href="proyectosa_calificar.php">Proyectos a Calificar</a></li>
             <?php }?>
-            <li class="nav-item-docenJuez"><a class="nav-link"  href="ver_layout_docenteJuez.php">Ver Layout</a></li>
+            <li class="nav-item-docenJuez"><a class="nav-link"  href="explorar_proyectos_docentejuez.php">Explorar Proyectos</a></li>
+            <li class="nav-item-docenJuez"><a class="nav-link"  href="ver_layout_docenteJuez.php">Ver mapa</a></li>
             <li class="nav-item-docenJuez"><a class="nav-link"  href="sobre_nosotros_docenteJuez.php">Sobre Nosotros</a></li>
             <li class="nav-item-docenJuez"><a class="nav-link"  href="preguntas_frecuentes_docenteJuez.php">Preguntas Frecuentes</a></li>
-            <li class="nav-item-docenJuez"><a class="nav-link"  href="ajustes_docenteJuez.php">Ajustes</a></li>
+            <li class="nav-item-docenJuez"><a class="nav-link active" aria-current="page"  href="ajustes_docenteJuez.php">Ajustes</a></li>
           </ul>
         </div>
         <a class="navbar-brand" href="pagina_inicio_docenteJuez.php">
           <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
         </a>
+        <a class="navbar-brand" href="logout.php">
+          <img src="img/logout.png" alt="" width="40" height="40">
+        </a>
     </div>
   </nav>
-
    <div class="container">
     <br>
     <h1>Ajustes</h1>
@@ -72,14 +74,19 @@
           <div class="input-group mb-3">
           <?php 
             echo $data['nomina']; 
-            echo $data2['correo'];
+            if ($_SESSION['docente'] == $data2['correo'] ){
+              echo $data2['correo'];
+            }else{
+
+              echo $data2['correo']."@tec.mx";
+            }
           ?>
           </div>
         </div>
-        <div class="col-5 align-self-center">Contraseña: </div>
+        <div class="col-5 align-self-center"> </div>
         <div class="col-5 align-self-center">
           <div class="input-group mb-3">
-          <?php echo $data['contraseña'];  echo $data2['contraseña']; ?>
+          
           </div>  
         </div>
         <div class="col-1">
@@ -87,7 +94,7 @@
         </div>
       </div>
       <div class="col-12">
-        <button type="button" class="btn btn-primary btn-custom btn-de-estado" onclick="document.location='pagina_inicio_docenteJuez.php'">Guardar</button>
+        <button type="button" class="btn btn-primary btn-custom btn-de-estado" onclick="document.location='enviar_password_estudiante.php'">Recuperar contraseña</button>
       </div>
       <div class="col-12">
         <button type="button" class="btn btn-primary btn-custom btn-de-estado" onclick="document.location='logout.php'">Cerrar Sesión</button>  

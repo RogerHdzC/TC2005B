@@ -22,9 +22,13 @@
 <?php
 
 include 'database.php';
-if (isset($_POST["inlineRadioOptions"])) {
-   $esjurado = $_POST["inlineRadioOptions"];
-}
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'Exception.php';
+require 'PHPMailer.php';
+require 'SMTP.php';
 //hacemos llamado al input de formulario
 $nombre = $_POST["nombreProfesor"] ;
 $apellidoPaterno = $_POST["apellidoPaterno"] ;
@@ -67,10 +71,10 @@ if($server == "tec.mx" && (!is_numeric($usuario[1]) || $usuario[0] == "l")){
     <?php    Database::disconnect();
      } else{
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql ="INSERT INTO md1_docente (nomina, nombre, contraseña, es_jurado)
-        VALUES (?,?,?,?)"; 
+        $sql ="INSERT INTO md1_docente (nomina, nombre, contraseña)
+        VALUES (?,?,?)"; 
         $q = $pdo->prepare($sql);
-        $q->execute(array($usuario,$nombreCompleto,$password_hash,$esjurado));
+        $q->execute(array($usuario,$nombreCompleto,$password_hash));
         ?>
         <div class='card col-6 offset-3 text-white bg-primary' style='max-width: 80rem;'>
             <div class='card-body'>
@@ -89,6 +93,53 @@ if($server == "tec.mx" && (!is_numeric($usuario[1]) || $usuario[0] == "l")){
             </div>
         </div>
        <?php Database::disconnect();
+       if($q){
+            $uniqidStr = md5(uniqid(mt_rand()));;
+
+			//update data with forgot pass code
+            $pdo = Database::connect();
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$sql = "UPDATE `md1_docente` SET `olvido_pass_iden` = ? WHERE `md1_docente`.`nomina` = ?";
+            $q = $pdo->prepare($sql);
+            $q->execute(array($uniqidStr, $_POST['correoProfesor']));
+            if($q){
+                $resetPassLink = 'http://ing.pue.itesm.mx/TC2005B_401_1/AceptarUsuario.php?fp_code='.$uniqidStr;
+				
+				//get user details
+                $pdo = Database::connect();
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $sql = "SELECT * FROM md1_docente WHERE  nomina = ?";
+                $q = $pdo->prepare($sql);
+                $q->execute(array($_POST['correoProfesor']));
+                $data = $q->fetch(PDO::FETCH_ASSOC);
+                Database::disconnect();
+				//send reset password email
+				$to = $data['matricula'] . '@tec.mx';
+				$subject = "Solicitud de registro";
+				$mailContent = 'Estimado '.$data['nombre'].', 
+                <br/>Recientemente se envió una solicitud para registrarse.
+                <br/>Visite el siguiente enlace: <a href="'.$resetPassLink.'">'.$resetPassLink.'</a>
+				<br/><br/>Saludos,
+				<br/>Expo Ing';
+				//send email
+                $mail = new PHPMailer(true);
+                $mail->CharSet = "UTF-8";
+                $mail->Encoding = 'base64';
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'hdc.rogelio@gmail.com';
+                $mail->Password = 'enstrylmtgchvbxb';
+                $mail->Port = 465;
+                $mail->SMTPSecure = 'ssl';
+                $mail->isHTML(true);
+                $mail->setFrom('hdc.rogelio@gmail.com', 'Rogelio');
+                $mail->addAddress($to);
+                $mail->Subject = ("$to ($subject)");
+                $mail->Body = $mailContent;
+                $mail->send();
+            }  
+       }
      }
 } elseif($server == "tec.mx" && $usuario[0] =="a" && is_numeric($usuario[1])){
     $pdo = Database::connect();
@@ -114,6 +165,7 @@ if($server == "tec.mx" && (!is_numeric($usuario[1]) || $usuario[0] == "l")){
             </div>
         </div>
         <?php Database::disconnect();
+        
     } else{
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql ="INSERT INTO md1_estudiante (matricula, nombre, contraseña)
@@ -137,6 +189,53 @@ if($server == "tec.mx" && (!is_numeric($usuario[1]) || $usuario[0] == "l")){
                 </div>
             </div>
         </div>
+        <?php
+        if($q){
+            $uniqidStr = md5(uniqid(mt_rand()));;
+			//update data with forgot pass code
+            $pdo = Database::connect();
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$sql = "UPDATE `md1_estudiante` SET `olvido_pass_iden` = ? WHERE `md1_estudiante`.`matricula` = ?";
+            $q = $pdo->prepare($sql);
+            $q->execute(array($uniqidStr, $_POST['correoProfesor']));
+            if($q){
+                $resetPassLink = 'http://ing.pue.itesm.mx/TC2005B_401_1/AceptarUsuario.php?fp_code='.$uniqidStr;
+				
+				//get user details
+                $pdo = Database::connect();
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $sql = "SELECT * FROM md1_estudiante WHERE  matricula = ?";
+                $q = $pdo->prepare($sql);
+                $q->execute(array($_POST['correoProfesor']));
+                $data = $q->fetch(PDO::FETCH_ASSOC);
+                Database::disconnect();
+				//send reset password email
+				$to = $data['nomina'] . '@tec.mx';
+				$subject = "Solicitud de registro";
+				$mailContent = 'Estimado '.$data['nombre'].', 
+				<br/>Recientemente se envió una solicitud para registrarse.
+                <br/>Visite el siguiente enlace: <a href="'.$resetPassLink.'">'.$resetPassLink.'</a>
+				<br/><br/>Saludos,
+				<br/>Expo Ing';
+				//send email
+                $mail = new PHPMailer(true);
+                $mail->CharSet = "UTF-8";
+                $mail->Encoding = 'base64';
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'hdc.rogelio@gmail.com';
+                $mail->Password = 'enstrylmtgchvbxb';
+                $mail->Port = 465;
+                $mail->SMTPSecure = 'ssl';
+                $mail->isHTML(true);
+                $mail->setFrom('hdc.rogelio@gmail.com', 'Rogelio');
+                $mail->addAddress($to);
+                $mail->Subject = ("$to ($subject)");
+                $mail->Body = $mailContent;
+                $mail->send();
+            }  
+       } ?>
    <?php }    
 } elseif($server != "tec.mx"){
     $pdo = Database::connect();
@@ -185,7 +284,54 @@ if($server == "tec.mx" && (!is_numeric($usuario[1]) || $usuario[0] == "l")){
             </div>
         </div>
      </div>
-    <?php }
+     <?php
+        if($q){
+            $uniqidStr = md5(uniqid(mt_rand()));;
+			//update data with forgot pass code
+            $pdo = Database::connect();
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$sql = "UPDATE `md1_jurado` SET `olvido_pass_iden` = ? WHERE `md1_jurado`.`correo` = ?";
+            $q = $pdo->prepare($sql);
+            $q->execute(array($uniqidStr, $_POST['correoProfesor']."@".$server));
+            if($q){
+                $resetPassLink = 'http://ing.pue.itesm.mx/TC2005B_401_1/AceptarUsuario.php?fp_code='.$uniqidStr;
+				
+				//get user details
+                $pdo = Database::connect();
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $sql = "SELECT * FROM md1_jurado WHERE  correo = ?";
+                $q = $pdo->prepare($sql);
+                $q->execute(array($_POST['correoProfesor']."@".$server));
+                $data = $q->fetch(PDO::FETCH_ASSOC);
+                Database::disconnect();
+				//send reset password email
+				$to = $data['correo'];
+				$subject = "Solicitud de registro";
+				$mailContent = 'Estimado '.$data['nombre'].', 
+				<br/>Recientemente se envió una solicitud para registrarse.
+                <br/>Visite el siguiente enlace: <a href="'.$resetPassLink.'">'.$resetPassLink.'</a>
+				<br/><br/>Saludos,
+				<br/>Expo Ing';
+				//send email
+                $mail = new PHPMailer(true);
+                $mail->CharSet = "UTF-8";
+                $mail->Encoding = 'base64';
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'hdc.rogelio@gmail.com';
+                $mail->Password = 'enstrylmtgchvbxb';
+                $mail->Port = 465;
+                $mail->SMTPSecure = 'ssl';
+                $mail->isHTML(true);
+                $mail->setFrom('hdc.rogelio@gmail.com', 'Rogelio');
+                $mail->addAddress($to);
+                $mail->Subject = ("$to ($subject)");
+                $mail->Body = $mailContent;
+                $mail->send();
+            }  
+       } ?>
+    <?php } 
     }
 ?>
 

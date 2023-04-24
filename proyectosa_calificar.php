@@ -15,7 +15,9 @@
   Database::disconnect();
   $pdo = Database::connect();
   $user = $_SESSION['docente'];
-  $consulta = "SELECT DISTINCT p.nombre,p.descripcion,p.id,e.rubrica1, e.rubrica2, e.rubrica3 FROM md1_evalua as e, md1_proyecto as p, md1_jurado as j, md1_docente as d WHERE ('$user'=e.idJurado) OR ('$user'=e.idDocente)";
+  $consulta = "SELECT DISTINCT p.nombre,p.descripcion,p.id,e.rubrica1, e.rubrica2, e.rubrica3 FROM md1_evaluaDocente as e, md1_proyecto as p WHERE ('$user'=e.idJurado) AND e.idProyecto = p.id;";
+
+  $consulta2 = "SELECT DISTINCT p.nombre,p.descripcion,p.id,e.rubrica1, e.rubrica2, e.rubrica3 FROM md1_evaluaJurado as e, md1_proyecto as p WHERE ('$user'=e.idJurado) AND e.idProyecto = p.id;";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -34,7 +36,7 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -44,11 +46,11 @@
             <?php if($data2['correo']!= $_SESSION['docente']){?>
             <li class="nav-item-docenJuez"><a class="nav-link"  href="mis_proyectos_docenteJuez.php">Mis proyectos</a></li>
             <?php }?>
-            <li class="nav-item-docenJuez"><a class="nav-link"  href="explorar_proyectos_docentejuez.php">Explorar Proyectos</a></li>
             <?php if(($data['es_jurado']==1) || ($data2['correo']== $_SESSION['docente'])){?>
-              <li class="nav-item-docenJuez"><a class="nav-link active" aria-current="page" href="proyectosa_calificar.php">Proyectos a Calificar</a></li>
+              <li class="nav-item-docenJuez"><a class="nav-link active" aria-current="page"  href="proyectosa_calificar.php">Proyectos a Calificar</a></li>
             <?php }?>
-            <li class="nav-item-docenJuez"><a class="nav-link"  href="ver_layout_docenteJuez.php">Ver Layout</a></li>
+            <li class="nav-item-docenJuez"><a class="nav-link"  href="explorar_proyectos_docentejuez.php">Explorar Proyectos</a></li>
+            <li class="nav-item-docenJuez"><a class="nav-link"  href="ver_layout_docenteJuez.php">Ver mapa</a></li>
             <li class="nav-item-docenJuez"><a class="nav-link"  href="sobre_nosotros_docenteJuez.php">Sobre Nosotros</a></li>
             <li class="nav-item-docenJuez"><a class="nav-link"  href="preguntas_frecuentes_docenteJuez.php">Preguntas Frecuentes</a></li>
             <li class="nav-item-docenJuez"><a class="nav-link"  href="ajustes_docenteJuez.php">Ajustes</a></li>
@@ -57,42 +59,91 @@
         <a class="navbar-brand" href="pagina_inicio_docenteJuez.php">
           <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
         </a>
+        <a class="navbar-brand" href="logout.php">
+          <img src="img/logout.png" alt="" width="40" height="40">
+        </a>
     </div>
   </nav>
     <br>
     <h1 class="h1-p1">Proyectos a Calificar</h1>
     <br>
-    <?php
-  foreach ($pdo->query($consulta) as $colum){
-    ?>
     <div class="container">
         <div class="row">
             <div class="col-6">
                 <div class="row row-cols-1 row-cols-md-2 mb-2 text-center">
+    <?php
+  foreach ($pdo->query($consulta) as $colum){
+    ?>
                     <div class="col">
                       <div class="card h-100">
+                        <div class="card-header p1-color"><h5 class='card-title'> <?php  echo $colum['nombre']; ?> </h5></div>
                         <div class='card-body card-p1'>
-                          <h5 class='card-title'> <?php  echo $colum['nombre']; ?> </h5>
                           <p class='card-text'><?php  echo $colum['descripcion']; ?></p>
-                          <a class="btn btn-primary" href="verMas_proyecto_docenteJuez.php?id=<?php echo $colum['id'];?>">Ver más</a>
+                          
                           <?php if ($colum['rubrica1'] == NULL) {?>
-                            <a class="btn btn-primary" href="calificar_docenteJuez.php?id=<?php echo $colum['id'];?>">Calificar</a>
+                          </div>
+                          <div class="card-footer">
+                            <a class="btn btn-primary" href="verMas_proyecto_docenteJuez.php?id=<?php echo base64_encode($colum['id']);?>">Ver más</a>
+                            <a class="btn btn-primary" href="calificar_docenteJuez.php?id=<?php echo base64_encode($colum['id']);?>">Calificar</a>
+                          </div>
                             <?php }else{?>
-                              <p class="btn-warning">  YA HAS CALIFICADO ESTE PROYECTO </p>
+                              <p><b>  YA HAS CALIFICADO ESTE PROYECTO </b></p>
                               <P>RUBRICA 1: <?php echo $colum['rubrica1'] ?>/4</p>
                               <P>RUBRICA 2: <?php echo $colum['rubrica2'] ?>/4</p>
                               <P>RUBRICA 3: <?php echo $colum['rubrica3'] ?>/4</p>
+                            </div>
+                            <div class="card-footer">
+                            <a class="btn btn-primary" href="verMas_proyecto_docenteJuez.php?id=<?php echo base64_encode($colum['id']);?>">Ver más</a>
+                            </div>       
                             <?php } ?>
-                          
-                        </div>
-                        <br>
+                        
                       </div>
                     </div>
+                    <?php } ?>
+                    
                   </div>
               </div>
           </div>              
     </div>
-  <?php } ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="row row-cols-1 row-cols-md-2 mb-2 text-center">
+  <?php
+  foreach ($pdo->query($consulta2) as $colum){
+    ?>
+<div class="col">
+                      <div class="card h-100">
+                        <div class="card-header p1-color"><h5 class='card-title'> <?php  echo $colum['nombre']; ?> </h5></div>
+                        <div class='card-body card-p1'>
+                          <p class='card-text'><?php  echo $colum['descripcion']; ?></p>
+                          
+                          <?php if ($colum['rubrica1'] == NULL) {?>
+                          </div>
+                          <div class="card-footer">
+                            <a class="btn btn-primary" href="verMas_proyecto_docenteJuez.php?id=<?php echo $colum['id'];?>">Ver más</a>
+                            <a class="btn btn-primary" href="calificar_docenteJuez.php?id=<?php echo $colum['id'];?>">Calificar</a>
+                          </div>
+                            <?php }else{?>
+                              <p><b>  YA HAS CALIFICADO ESTE PROYECTO </b></p>
+                              <P>RUBRICA 1: <?php echo $colum['rubrica1'] ?>/4</p>
+                              <P>RUBRICA 2: <?php echo $colum['rubrica2'] ?>/4</p>
+                              <P>RUBRICA 3: <?php echo $colum['rubrica3'] ?>/4</p>
+                            </div>
+                            <div class="card-footer">
+                            <a class="btn btn-primary" href="verMas_proyecto_docenteJuez.php?id=<?php echo $colum['id'];?>">Ver más</a>
+                            </div>       
+                            <?php } ?>
+                        
+                      </div>
+                    </div>
+                    </div>
+                    <?php } ?>
+                  </div>
+              </div>
+          </div>              
+    </div>
+
 <br>
 </body>
 </html>

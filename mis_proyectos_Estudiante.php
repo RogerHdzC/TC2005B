@@ -34,8 +34,8 @@
             <li class="nav-item"><a class="nav-link" href="registrar_proyecto_estudiante.php">Registrar Proyectos</a></li>
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="mis_proyectos_Estudiante.php">Mis proyectos</a></li>
             <li class="nav-item"><a class="nav-link" href="explorar_proyectos_estudiante.php">Explorar Proyectos</a></li>
-            <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver Layout</a></li>
             <li class="nav-item"><a class="nav-link" href="resultados_estudiante.php">Resultados</a></li>
+            <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver mapa</a></li>
             <li class="nav-item"><a class="nav-link" href="sobre_nosotros_estudiante.php">Sobre Nosotros</a></li>
             <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_estudiante.php">Preguntas Frecuentes</a></li>
             <li class="nav-item"><a class="nav-link" href="ajustes_estudiante.php">Ajustes</a></li>
@@ -45,66 +45,99 @@
       <a class="navbar-brand" href="pagina_inicio_estudiantes.php">
         <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
       </a>
+      <a class="navbar-brand" href="logout.php">
+          <img src="img/logout.png" alt="" width="40" height="40">
+        </a>
   </div>
 </nav>
-
-
-    <br>
-    <h1 h1-p1>Mis Proyectos</h1>
-    <br>
-    <?php
-  foreach ($pdo->query($sql) as $colum){
-    ?>
-    <div class="container">
-    <div class="row">
+<br>
+<h1 h1-p1>Mis Proyectos</h1>
+<br>
+<div class="container">
+  <div class="row">
     <div class="col-12">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
-        <div class="card h-100">
-          <?php
-             if ($colum['autorizado']==0){
-              echo "<div class='card-header card-p1-header bg-danger'>";
-              echo "Aún no autorizado";
-             }else{
-              if($colum['promedio'] == 0){
-                echo "<div class='card-header card-p1-header bg-warning'>";
-                echo "Autorizado y no calificado";
-              }else{
-                echo "<div class='card-header card-p1-header bg-success'>";
-                echo "Autorizado y calificado";
-              }
-              
-             }
-            ?>
-          </div>
-          <div class="card-body p1-color">
+      <div class="card-group">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <?php foreach ($pdo->query($sql) as $colum){ ?>
+            <div class="col">
+              <div class="card h-100">
+                <?php
+                  $pdo = Database::connect();
+                  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                  
+                  $sql1 = "SELECT * FROM md1_evaluaAdministrador WHERE idProyecto = ?";
+                  $q1 = $pdo->prepare($sql1);
+                  $q1->execute(array($colum['id']));
+                  $data = $q1->fetch(PDO::FETCH_ASSOC);
 
-            <h5 class="card-title">
-              <?php echo $colum['nombre'];
-              ?>
-            </h5>
-            <p class="card-text">
-              <?php 
-                echo $colum ['descripcion'];
-              ?>
-            </p>
-            <?php 
-              if($colum['autorizado'] == 1){
-                echo '<a href="verMas_proyecto_estudiante.php?id='.$colum['id'].'" class="btn btn-primary">Ver más</a>';
-              }else{
-                echo '<a href="verMas_proyecto_estudiante.php?id='.$colum['id'].'" class="btn btn-primary">Ver más</a>';
-                echo '<a href="editar_proyecto_estudiante.php?id='.$colum['id'].'" class="btn btn-primary">Editar</a>';
-              }
-            ?>
-          </div>
+                  $sql2 ="SELECT * FROM `md1_evaluaJurado` WHERE idProyecto=?";
+                  $q2 = $pdo->prepare($sql2);
+                  $q2->execute(array($colum['id']));
+                  $data2 = $q2->fetch(PDO::FETCH_ASSOC);
+                  
+                  $sql3 ="SELECT * FROM `md1_evaluaDocente` WHERE idProyecto=?";
+                  $q3 = $pdo->prepare($sql3);
+                  $q3->execute(array($colum['id']));
+                  $data3 = $q3->fetch(PDO::FETCH_ASSOC);
+                  Database::disconnect();
+                  if (($q1->rowCount() + $q2->rowCount() + $q3->rowCount()) == 3){
+                    $rubrica1 = round(($data['rubrica1'] + $data2['rubrica1'] + $data3['rubrica1'])/3,2);
+                    $rubrica2 = round(($data['rubrica2'] + $data2['rubrica2'] + $data3['rubrica2'])/3,2);
+                    $rubrica3 = round(($data['rubrica3'] + $data2['rubrica3'] + $data3['rubrica3'])/3,2);
+                    $promedio = round(($rubrica1 + $rubrica2 + $rubrica3)/3/4*100,2);
+                    $pdo = Database::connect();
+                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    $sql5 = "UPDATE `md1_proyecto` SET `promedio` = ? WHERE `md1_proyecto`.`id` = ? ";
+                    $q5 = $pdo->prepare($sql5);
+                    $q5->execute(array($promedio, $colum['id']));
+                    Database::disconnect();
+                  }
+
+                  if ($colum['autorizado']==0){
+                    echo "<div class='card-header card-p1-header bg-danger'>";
+                    echo "Aún no autorizado";
+                    echo "</div>";
+                  }else{
+                    if($colum['promedio'] == 0){
+                      echo "<div class='card-header card-p1-header bg-warning'>";
+                      echo "Autorizado y no calificado";
+                      echo "</div>";
+                    }else{
+                      echo "<div class='card-header card-p1-header bg-success'>";
+                      echo "Autorizado y calificado";
+                      echo "</div>";
+                  }
+                  
+                  }
+                    ?>
+                <div class="card-body p1-color">
+                  <h5 class="card-title"><?php echo $colum['nombre'];?></h5>
+                  <p class="card-text"><?php echo $colum ['descripcion'];?></p>
+                  <p class="card-text"><?php if($colum['promedio'] != 0) { ?>
+                    <p><?php echo $colum['promedio'];?></p>
+                    <p><?php echo $rubrica1;?>/4</p>
+                    <p><?php echo $rubrica2;?>/4</p>
+                    <p><?php echo $rubrica3;?>/4</p>
+                  <?php }?></p>
+                </div>
+                <div class="card-footer">
+                  <?php 
+                    if($colum['autorizado'] == 1){
+                      echo '<a href="verMas_proyecto_estudiante.php?id='.base64_encode($colum['id']).'" class="btn btn-primary">Ver más</a>';
+                    }else{
+                      echo '<a href="verMas_proyecto_estudiante.php?id='.base64_encode($colum['id']).'" class="btn btn-primary">Ver más</a>';
+                      echo '<a href="editar_proyecto_estudiante.php?id='.base64_encode($colum['id']).'" class="btn btn-primary">Editar</a>';
+                    }
+                  ?>
+                </div>
+              </div>
+              </div>  
+            <?php } ?>
         </div>
       </div>
     </div>
   </div>
 </div>
-</div>
-<br>
-  <?php } ?>
 
 </body>
 </html>

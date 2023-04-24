@@ -48,11 +48,11 @@
             <?php if($data2['correo']!= $_SESSION['docente']){?>
             <li class="nav-item-docenJuez"><a class="nav-link active" aria-current="page" href="mis_proyectos_docenteJuez.php">Mis proyectos</a></li>
             <?php }?>
-            <li class="nav-item-docenJuez"><a class="nav-link"  href="explorar_proyectos_docentejuez.php">Explorar Proyectos</a></li>
             <?php if(($data['es_jurado']==1) || ($data2['correo']== $_SESSION['docente'])){?>
               <li class="nav-item-docenJuez"><a class="nav-link"  href="proyectosa_calificar.php">Proyectos a Calificar</a></li>
             <?php }?>
-            <li class="nav-item-docenJuez"><a class="nav-link"  href="ver_layout_docenteJuez.php">Ver Layout</a></li>
+            <li class="nav-item-docenJuez"><a class="nav-link"  href="explorar_proyectos_docentejuez.php">Explorar Proyectos</a></li>
+            <li class="nav-item-docenJuez"><a class="nav-link"  href="ver_layout_docenteJuez.php">Ver mapa</a></li>
             <li class="nav-item-docenJuez"><a class="nav-link"  href="sobre_nosotros_docenteJuez.php">Sobre Nosotros</a></li>
             <li class="nav-item-docenJuez"><a class="nav-link"  href="preguntas_frecuentes_docenteJuez.php">Preguntas Frecuentes</a></li>
             <li class="nav-item-docenJuez"><a class="nav-link"  href="ajustes_docenteJuez.php">Ajustes</a></li>
@@ -61,6 +61,9 @@
         <a class="navbar-brand" href="pagina_inicio_docenteJuez.php">
           <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
         </a>
+        <a class="navbar-brand" href="logout.php">
+          <img src="img/logout.png" alt="" width="40" height="40">
+        </a>
     </div>
   </nav>
 
@@ -68,32 +71,32 @@
     <br>
     <h1>Mis Proyectos</h1>
     <br>
-    <?php
-  foreach ($pdo->query($consulta) as $colum){
-    ?>
     <div class="container">
-    <div class="row">
-    <div class="col-12">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
-        <div class="card h-100">
-            <div class="card-body">
-              <h5 class="card-title p1-color"><?php echo $colum['nombre'] ?></h5>
-              <p class="card-text card-p1"><?php echo $colum['descripcion'] ?></p>
-              <?php if($colum['autorizado']==0){?>
-                <a href="aprobarProyecto.php?id=<?php echo $colum['id'] ?>" class="btn btn-success">Aprobar</a>
-              <?php }else{?>
-                <p class="p1-color">Ya has aprobado este proyecto</p>
-              <?php } ?>
-              <a href="verMas_proyecto_docenteJuez.php?id=<?php echo $colum['id'] ?>" class="btn btn-primary">Ver más</a>
-            </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+            <?php foreach ($pdo->query($consulta) as $colum){ ?>
+              <div class="col">
+                <div class="card h-100">
+                    <div class="card-header"><h5 class="card-title p1-color"><?php echo $colum['nombre'] ?></h5></div>
+                    <div class="card-body">
+                      <p class="card-text card-p1"><?php echo $colum['descripcion'] ?></p>
+                    </div>  
+                    <div class="card-footer">  
+                      <?php if($colum['autorizado']==0){?>
+                        <a href="aprobarProyecto.php?id=<?php echo base64_encode($colum['id']) ?>" class="btn btn-success">Aprobar</a>
+                      <?php }else{?>
+                        <p class="p1-color">Ya has aprobado este proyecto</p>
+                      <?php } ?>
+                      <a href="verMas_proyecto_docenteJuez.php?id=<?php echo base64_encode($colum['id']) ?>" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+              </div>
+            <?php } ?>
+            <br>
           </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-</div>
-<?php } ?>
-<br>
 </body>
 </html>

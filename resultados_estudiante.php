@@ -6,6 +6,7 @@
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   $sql = "SELECT * FROM md1_proyecto WHERE autorizado=1 AND promedio != 0 AND (correoLider = '$matricula' OR correoCompañero1 = '$matricula' OR correoCompañero2 = '$matricula' OR correoCompañero3 = '$matricula' OR correoCompañero4 = '$matricula')";
   Database::disconnect();
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -34,8 +35,8 @@
             <li class="nav-item"><a class="nav-link" href="registrar_proyecto_estudiante.php">Registrar Proyectos</a></li>
             <li class="nav-item"><a class="nav-link" href="mis_proyectos_Estudiante.php">Mis proyectos</a></li>
             <li class="nav-item"><a class="nav-link" href="explorar_proyectos_estudiante.php">Explorar Proyectos</a></li>
-            <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver Layout</a></li>
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="resultados_estudiante.php">Resultados</a></li>
+            <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver Layout</a></li>
             <li class="nav-item"><a class="nav-link" href="sobre_nosotros_estudiante.php">Sobre Nosotros</a></li>
             <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_estudiante.php">Preguntas Frecuentes</a></li>
             <li class="nav-item"><a class="nav-link" href="ajustes_estudiante.php">Ajustes</a></li>
@@ -45,50 +46,47 @@
         <a class="navbar-brand" href="pagina_inicio_estudiantes.php">
           <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
         </a>
+        <a class="navbar-brand" href="logout.php">
+          <img src="img/logout.png" alt="" width="40" height="40">
+        </a>
     </div>
   </nav>
 
-  <div class="container-fluid">
     <br>
     <h1>Resultados</h1>
     <br>
-    <?php
-  foreach ($pdo->query($sql) as $colum){
-    ?>
     <div class="container">
-    <div class="row">
-    <div class="col-12">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
-        <div class="card h-100">
-          <?php
-              echo "<div class='card-header card-p1-header bg-info'>";
-              echo "calificado";          ?>
-          </div>
-          <img src='data:image/png;base64,<?php echo base64_encode($colum['portada']);?>' class='card-img-top' alt='Imagen de Portada Proyecto' width='100%' height='100%'>
-          <div class="card-body p1-color">
-
-            <h5 class="card-title">
-              <?php echo $colum['nombre'];
-              ?>
-            </h5>
-            <p class="card-text">
-              <?php 
-                echo $colum ['descripcion'];
-              ?>
-            </p>
-            <?php 
-            echo $colum['promedio'];
-            echo '<a href="reconocimiento.php?id='.$colum['id'].'" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Descargar Reconocimiento</a>';
-            ?>
+      <div class="row">
+        <div class="col-12">
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+            <?php foreach ($pdo->query($sql) as $colum){ ?>
+              <div class="col">
+                <div class="card h-100">
+                  <?php
+                      echo "<div class='card-header card-p1-header bg-info'>";
+                      echo "calificado";          ?>
+                </div>
+                <div class="card-body p1-color">
+                  <h5 class="card-title">
+                    <?php echo $colum['nombre'];
+                    ?>
+                  </h5>
+                  <p class="card-text">
+                    <?php 
+                      echo $colum ['descripcion'];
+                    ?>
+                  </p>
+                  <?php
+                    echo '<p>'. $colum['promedio'] . '</p>';
+                    echo '<a href="reconocimiento.php?id='.$colum['id'].'" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Descargar Reconocimiento</a>';
+                  ?>
+                </div>
+              </div>
+                <br>
+            <?php } ?>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-</div>
-<br>
-  <?php } ?>
   </body>
 </html>

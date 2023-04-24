@@ -29,11 +29,12 @@
         <ul class="navbar-nav">
 
             <li class="nav-item-admin"><a class="nav-link" href="ver_usuarios_admin.php">Ver Usuarios</a></li>
+            <li class="nav-item-admin"><a class="nav-link" href="asignar_jueces.php">Asignar Jueces</a></li>
             <li class="nav-item-admin"><a class="nav-link" href="ver_proyectos_Admin.php">Ver Proyectos</a></li>
+            <li class="nav-item-admin"><a class="nav-link" href="historicodatos.php">Historico de Datos</a></li>
+            <li class="nav-item-admin"><a class="nav-link" href="ver_layout_admin.php">Mapa</a></li>
             <li class="nav-item-admin"><a class="nav-link" href="sobre_nosotros_admin.php">Sobre Nosotros</a></li>
             <li class="nav-item-admin"><a class="nav-link" href="preguntas_frecuentes_admin.php">Preguntas Frecuentes</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="historicodatos.php">Historico de Datos</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="ver_layout_admin.php">Layout</a></li>
             <li class="nav-item-admin"><a class="nav-link" href="ajustes_admin.php">Ajustes</a></li>
             
 
@@ -41,6 +42,9 @@
         </div>
         <a class="navbar-brand" href="pagina_inicio_admin.php">
           <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
+        </a>
+        <a class="navbar-brand" href="logout.php">
+          <img src="img/logout.png" alt="" width="40" height="40">
         </a>
     </div>
   </nav>
@@ -79,22 +83,27 @@
 
     <div class="row">
     <div class="col-6">
-         <a class="btn btn-primary btn-custom btn-p3" href="ver_layout_admin.php" role="button">Ver layout</a>
+         <a class="btn btn-primary btn-custom btn-p3" href="ver_layout_admin.php" role="button">Ver mapa</a>
       </div>
       <div class="col-6">
-        <form>
-        <input class="form-control" type="file" id="formFile">
-        <button type="submit" class="btn btn-primary btn-custom btn-p1" >Subir anuncio</button>
-        </form>
+
       </div>
 </div>
 <br>
     <div class="row">
       <div class="col-6">
-      <form action=""  method="POST" enctype="multipart/form-data">
-        <input class="form-control" type="file" id="formFile" name="image">
-        <button type="submit" class="btn btn-primary btn-custom btn-p1" >Subir layout</button>
-      </form>  
+
+      <form name="MiForm" id="MiForm" method="post" action="cargar.php" enctype="multipart/form-data">
+        <h4 class="text-center">Seleccione imagen a cargar</h4>
+        <div class="form-group">
+          <div class="col-sm-8">
+            <input type="file" class="form-control" id="image" name="image" multiple>
+          </div>
+          <button name="submit" class="btn btn-primary">Cargar Imagen</button>
+        </div>
+        
+      </form>
+      
       </div>  
       <div class="col-6">
         
@@ -107,24 +116,3 @@
 </form>
 </body>
 </html>
-
-<?php 
-  $pdo = Database::connect();
-  $consulta = "SELECT * FROM md1_layout";
-  
-  foreach ($pdo->query($consulta) as $colum){
-    $id = $colum['id'];
-  }
-  $layout = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-  $pdo = Database::connect();
-  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $sql = "DELETE FROM md1_layout WHERE id = ?";
-  $q = $pdo->prepare($sql);
-  $q->execute(array($id));
-  $sql2 ="INSERT INTO md1_layout (layout)
-  VALUES (?)"; 
-  $q = $pdo->prepare($sql2);
-  $q->execute(array($layout));
-  header('Location: ver_layout_admin.php');  
-  Database::disconnect();
-  ?>

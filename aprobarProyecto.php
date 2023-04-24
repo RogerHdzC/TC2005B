@@ -4,7 +4,7 @@
     $autorizado=1;
     $id = 0;
 	if ( !empty($_GET['id'])) {
-		$id = $_REQUEST['id'];
+		$id = base64_decode($_REQUEST['id']);
 	}
 	if ( !empty($_POST)) {
         echo $id;

@@ -3,6 +3,7 @@
    Validación para Forms de Registro
   ##################################### */ 
 
+
 // Variables de verificación de Compañeros
 let validComp1 = true;
 let validComp2 = true;

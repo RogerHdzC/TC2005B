@@ -1,5 +1,38 @@
 <?php
   require_once 'restrictedAdmin.php';
+  include 'database.php';
+  $pdo = Database::connect();
+
+  $id = 0;
+  if ( !empty($_GET['id'])) {
+     $id = base64_decode($_REQUEST['id']);
+  }
+
+  $rubrica1 = $_POST['pregunta1'];
+  $rubrica2 = $_POST['pregunta2'];
+  $rubrica3 = $_POST['pregunta3'];
+  
+  $pdo = Database::connect();
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+  $sql = "SELECT * FROM md1_evaluaAdministrador WHERE idProyecto = ?";
+  $q = $pdo->prepare($sql);
+  $q->execute(array($id));
+  echo $id;
+  echo $q -> rowCount();
+
+  if ($q -> rowCount()>0){
+    header('Location: ver_proyectos_Admin.php');
+  }else{
+    $sql ="INSERT INTO `md1_evaluaAdministrador` (`idJurado`, `idProyecto`, `rubrica1`, `rubrica2`, `rubrica3`) VALUES (?, ?, ? , ?, ?) ";
+  
+    $q = $pdo->prepare($sql);
+  
+    $q->execute(array($_SESSION['admin'],$id,$rubrica1,$rubrica2,$rubrica3));
+  
+    Database::disconnect();
+  }
+  
 ?>
 <!DOCTYPE html>
 <html lang="es">

@@ -33,17 +33,21 @@
         <ul class="navbar-nav">
             
             <li class="nav-item-admin"><a class="nav-link active" href="ver_usuarios_admin.php">Ver Usuarios</a></li>
+            <li class="nav-item-admin"><a class="nav-link" href="asignar_jueces.php">Asignar Jueces</a></li>
             <li class="nav-item-admin"><a class="nav-link" href="ver_proyectos_Admin.php">Ver Proyectos</a></li>
+            <li class="nav-item-admin"><a class="nav-link" aria-current="page" href="historicodatos.php">Historico de Datos</a></li>
+            <li class="nav-item-admin"><a class="nav-link" href="ver_layout_admin.php">Mapa</a></li>
             <li class="nav-item-admin"><a class="nav-link" href="sobre_nosotros_admin.php">Sobre Nosotros</a></li>
             <li class="nav-item-admin"><a class="nav-link" href="preguntas_frecuentes_admin.php">Preguntas Frecuentes</a></li>
-            <li class="nav-item-admin"><a class="nav-link" aria-current="page" href="historicodatos.php">Historico de Datos</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="ver_layout_admin.php">Layout</a></li>
             <li class="nav-item-admin"><a class="nav-link" href="ajustes_admin.php">Ajustes</a></li>
             
           </ul>
         </div>
         <a class="navbar-brand" href="pagina_inicio_admin.php">
           <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
+        </a>
+        <a class="navbar-brand" href="logout.php">
+          <img src="img/logout.png" alt="" width="40" height="40">
         </a>
     </div>
   </nav>
@@ -64,11 +68,7 @@
             <div class='row'>
                 <div class='col-3'>
                 <div class='form-check'>
-                <!--<input class='form-check-input' type='checkbox' value='<?php echo $colum['nomina'] ?>' id='flexCheckDefault$num'>
-                <label class='form-check-label' for='flexCheckDefault$num'-->
-                <p><?php 
-                echo $colum['nombre']; 
-                ?></p>
+                <p><?php echo $colum['nombre']; ?></p>
                 </label>
                 </div>
                 </div>
@@ -86,7 +86,12 @@
                     ?>
                 </div>
                 <div class="col-3">
-                    <a class="btn btn-danger" href="deleteUsuario.php?id=<?php echo $colum['nomina'];?>">Eliminar</a>
+                    <a class="btn btn-danger" href="deleteUsuario.php?id=<?php echo base64_encode($colum['nomina']);?>">Eliminar</a>
+                    <?php if ($colum['es_jurado'] ==0 ){ ?>
+                        <a class="btn btn-success" href="updateJuez.php?id=<?php echo base64_encode($colum['nomina']);?>">Asignar rol de juez</a>
+                    <?php }else{ ?>
+                        <a class="btn btn-danger" href="deleteJuez.php?id=<?php echo base64_encode($colum['nomina']);?>">Quitar rol de juez</a>
+                    <?php } ?>
                 </div>
             </div>
             <?php 
@@ -98,8 +103,6 @@
         <div class='row'>
             <div class='col-3'>
             <div class='form-check'>
-            <!--<input class='form-check-input' type='checkbox' value='<?php echo $colum['matricula']; ?>' id='flexCheckDefault$num'>
-            <label class='form-check-label' for='flexCheckDefault$num'>-->
             <p><?php echo $colum['nombre']; ?></p>
             </label>
             </div>
@@ -111,7 +114,7 @@
                 <p>Estudiante</p>
             </div>
             <div class="col-3">
-                    <a class="btn btn-danger" href="deleteUsuario.php?id=<?php echo $colum['matricula'];?>">Eliminar</a>
+                    <a class="btn btn-danger" href="deleteUsuario.php?id=<?php echo base64_encode($colum['matricula']);?>">Eliminar</a>
                 </div>
         </div>
         <?php 
@@ -122,8 +125,6 @@
         <div class='row'>
             <div class='col-3'>
             <div class='form-check'>
-            <!--<input class='form-check-input' type='checkbox' value='<?php echo $colum['correo'] ?>' id='flexCheckDefault$num'>
-            <label class='form-check-label' for='flexCheckDefault$num'>-->
             <p><?php echo $colum['nombre']; ?></p>
             </label>
             </div>
@@ -135,7 +136,10 @@
                 <p>Juez</p>
             </div>
             <div class="col-3">
-                    <a class="btn btn-danger" href="deleteUsuario.php?id=<?php echo $colum['correo'];?>">Eliminar</a>
+                    <a class="btn btn-danger" href="deleteUsuario.php?id=<?php echo base64_encode($colum['correo']);?>">Eliminar</a>
+                    <?php if($colum['confirmado'] != 1){ ?>
+                        <a class="btn btn-success" href="aceptarJuez.php?id=<?php echo base64_encode($colum['correo']);?>">Aceptar juez</a>
+                    <?php } ?>
                 </div>
         </div>
        <?php 
@@ -143,6 +147,7 @@
      Database::disconnect();
      ?>
     </div>
+    
 </body>
 </html>
 
