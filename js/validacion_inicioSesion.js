@@ -2,7 +2,7 @@
    Validación para Forms de Inicio de Sesión
   ########################################### */ 
 
-// variable booleana para verificar valores con el servidor
+// variables booleanas para verificar valores con el servidor
 let validIfCorreoExists = false;
 var validIfPassCorrect = false;
 
@@ -18,16 +18,18 @@ const url = window.location.pathname.toString();
 
 
 
+// Funciones booleanas para verificar varios aspectos de cada entrada
+
 // Función para revisar si el correo introducido es válido
 const checkCorreo = () => {
-// Variables utilizadas para verificar las condiciones
+
+   // Variables utilizadas para verificar las condiciones
    const u = user.value.trim();
    const s = server.value.trim();
    const email = u + "@" + s;
-   const min = 1,
-       max = 30,
-       tam = 9;
-       // Condiciones para verificar que la entrada sea válida
+   const min = 1, max = 30, tam = 9;
+       
+   // Condiciones para verificar que la entrada sea válida
    if (!isRequired(u) || !isRequired(s)) {
        showError(server, 'El correo no puede estar vacío.');
        validIfCorreoExists = false;
@@ -58,8 +60,9 @@ const checkCorreo = () => {
 
 };
 
-const checkIfCorreoExists = () => {
 // Función para revisar si el correo existe en el servidor
+const checkIfCorreoExists = () => {
+   // Variables utilizadas para verificar las condiciones
    const u = user.value.trim();
    const s = server.value.trim();
    const email = u + "@" + s;
@@ -67,85 +70,91 @@ const checkIfCorreoExists = () => {
        max = 30,
        tam = 9;
        
-// Condiciones para verificar que la entrada sea válida
-       if (isBigger(u.length, min+1) && isRequired(s)) {
-         if(s.toLowerCase() == "tec.mx" && u[0].toUpperCase() =="A" && !isNaN(u[1])){
-            if (u.length != tam) {
-               showError(server, `La Matrícula debe de ser de ${tam} caracteres`)
-               validIfCorreoExists = false;
-            }
-            else{
-               if (isRequired(u) && isRequired(s)) {
-                  // Se manda consulta tipo Ajax al servidor para verificar si el correo ya está registrado
-                  var xhr = new XMLHttpRequest();
-                  xhr.open('POST', 'revisar_inicioSesion.php', false);
-                  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                  xhr.onreadystatechange = function() {
-                     // Se revisa si hubo una respuesta de la consulta Ajax
-                      if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-// Se hace un parse de la respuesta para manejarla a través de JS
-                          var response = JSON.parse(xhr.responseText); // Parse the response as JSON
-                          if (response.correo) {
-                              // El valor existe
-                              showSuccess(server);
-                              validIfCorreoExists = true;
+   // Condiciones para verificar que la entrada sea válida
+   if (isBigger(u.length, min+1) && isRequired(s)) {
+   if(s.toLowerCase() == "tec.mx" && u[0].toUpperCase() =="A" && !isNaN(u[1])){
+      if (u.length != tam) {
+         showError(server, `La Matrícula debe de ser de ${tam} caracteres`)
+         validIfCorreoExists = false;
+      }
+      else{
+         if (isRequired(u) && isRequired(s)) {
+            // Se manda consulta tipo Ajax al servidor para verificar si el correo ya está registrado
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'revisar_inicioSesion.php', false);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+               // Se revisa si hubo una respuesta de la consulta Ajax
+                  if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                     // Se hace un parse de la respuesta para manejarla a través de JS
+                     var response = JSON.parse(xhr.responseText); 
+                     if (response.correo) {
+                        // El valor existe
+                        showSuccess(server);
+                        validIfCorreoExists = true;
+
+      
+                     } else {
+                        // El valor NO existe
+                        showError(server, `El correo no está registrado, porfavor registre su correo antes de iniciar sesión`)
+                        validIfCorreoExists = false;
+      
+                     }
+                  }
+      
+            };
+            // Se manda al servidos las siguientes variables a verificar
+            xhr.send('password=' + encodeURIComponent(u) + '&url=' + encodeURIComponent(url) + '&user=' + encodeURIComponent(u) + '&server=' + encodeURIComponent(s));
+      
+         } 
+      }
+   }
+   else{
+      if (isRequired(u) && isRequired(s)) {
+         // Se manda consulta tipo Ajax al servidor para verificar si el correo ya está registrado
+         var xhr = new XMLHttpRequest();
+         xhr.open('POST', 'revisar_inicioSesion.php', false);
+         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+         xhr.onreadystatechange = function() {
+            // Se revisa si hubo una respuesta de la consulta Ajax
+               if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                  // Se hace un parse de la respuesta para manejarla a través de JS
+                  var response = JSON.parse(xhr.responseText); // Parse the response as JSON
+                  if (response.correo) {
+                     // El valor existe
+                     showSuccess(server);
+                     validIfCorreoExists = true;
    
-            
-                          } else {
-                              // El valor NO existe
-                              showError(server, `El correo no está registrado, porfavor registre su correo antes de iniciar sesión`)
-                              validIfCorreoExists = false;
-            
-                          }
-                      }
-            
-                  };
-                  xhr.send('password=' + encodeURIComponent(u) + '&url=' + encodeURIComponent(url) + '&user=' + encodeURIComponent(u) + '&server=' + encodeURIComponent(s));
-            
-              } 
-            }
-         }
-         else{
-            if (isRequired(u) && isRequired(s)) {
-               // Se manda consulta tipo Ajax al server para verificar
-               var xhr = new XMLHttpRequest();
-               xhr.open('POST', 'revisar_inicioSesion.php', false);
-               xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-               xhr.onreadystatechange = function() {
-                   if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                       // Handle server response
-                       var response = JSON.parse(xhr.responseText); // Parse the response as JSON
-                       if (response.correo) {
-                           // El valor existe
-                           showSuccess(server);
-                           validIfCorreoExists = true;
-         
-                       } else {
-                           // El valor NO existe
-                           showError(server, `El correo no está registrado, porfavor registre su correo antes de iniciar sesión`)
-                           validIfCorreoExists = false;
-         
-                       }
-                   }
-         
-               };
-               xhr.send('password=' + encodeURIComponent(u) + '&url=' + encodeURIComponent(url) + '&user=' + encodeURIComponent(u) + '&server=' + encodeURIComponent(s));
-         
-           } 
-         }
-         }
+                  } else {
+                     // El valor NO existe
+                     showError(server, `El correo no está registrado, porfavor registre su correo antes de iniciar sesión`)
+                     validIfCorreoExists = false;
+   
+                  }
+               }
+   
+         };
+         // Se manda al servidos las siguientes variables a verificar
+         xhr.send('password=' + encodeURIComponent(u) + '&url=' + encodeURIComponent(url) + '&user=' + encodeURIComponent(u) + '&server=' + encodeURIComponent(s));
+   
+      } 
+   }
+   }
 
  
 
 };
 
+// Función para revisar si la contraseña es válida
 const checkPassword = () => {
+   // Variables utilizadas para verificar las condiciones
    const u = user.value.trim();
    const s = server.value.trim();
    const password = passwordEl.value.trim();
    const min = 1,
    max = 30;
 
+   // Condiciones para verificar que la entrada sea válida 
    if (!isRequired(password)) {
        showError(passwordEl, 'La contraseña no puede estar vacía.');
        validIfPassCorrect = false;
@@ -158,27 +167,28 @@ const checkPassword = () => {
       validIfPassCorrect = true;
 
    }
-// console.log(`INfunction var validIfPassCorrect: ${validIfPassCorrect}`)
+
 
 };
 
+// Función para revisar si la contraseña dada es congurente con la existente en el servidor con respecto al correo dado
 const checkIfPasswordCorrect = () => {
+   // Variables utilizadas para verificar las condiciones
    const u = user.value.trim();
    const s = server.value.trim();
    const password = passwordEl.value.trim();
-   const min = 1,
-   max = 30;
 
+   // Condiciones para verificar que la entrada sea válida 
    if (isRequired(password) && isRequired(u) && isRequired(s)) {
-      // Se manda consulta tipo Ajax al server para verificar
+      // Se manda consulta tipo Ajax al servidor para verificar si el correo ya está registrado
       var xhr = new XMLHttpRequest();
       xhr.open('POST', 'revisar_inicioSesion.php', false);
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       xhr.onreadystatechange = function() {
          // Se revisa si hubo una respuesta de la consulta Ajax
           if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-// Se hace un parse de la respuesta para manejarla a través de JS
-              var response = JSON.parse(xhr.responseText); // Parse the response as JSON
+              // Se hace un parse de la respuesta para manejarla a través de JS
+              var response = JSON.parse(xhr.responseText); 
                if (response.exists) {
                   // El valor existe
                   showSuccess(passwordEl);
@@ -193,25 +203,34 @@ const checkIfPasswordCorrect = () => {
           }
 
       };
+      // Se manda al servidos las siguientes variables a verificar
       xhr.send('password=' + encodeURIComponent(password) + '&url=' + encodeURIComponent(url) + '&user=' + encodeURIComponent(u) + '&server=' + encodeURIComponent(s));
 
 }
 
+
 };
 
 
-//Variables de verificación del forms
+// Funciones de verificación de diversos aspectos de las entradas dadas
 
+// Se verifica si la entrada está vacía
 const isRequired = value => value === '' ? false : true;
+
+// Se verifica si la entrada supera cierta cantidad de caracteres
 const isBigger = (length, min) => length < min ? false : true;
+
+// Se verifica si la entrada está entre cierto rango de longitud de caracteres
 const isBetween = (length, min, max) => length < min || length > max ? false : true;
 
+// Se utiliza una expresión regular para verificar si el correo dado es válido 
 const isEmailValid = (email) => {
    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
    return re.test(email);
 };
 
-// Función para mostrar error en pantalla
+
+// Función para mostrar error en pantalla a través de etiquetas del archivo html
 const showError = (input, message) => {
    // Consigue el padre y el padre del padre del input
    const parent = input.parentElement;
@@ -225,7 +244,7 @@ const showError = (input, message) => {
    error.textContent = message;
 };
 
-// Función para mostrar éxito en pantalla
+// Función para mostrar un delineado verde en la entrada dada a través de etiquetas del archivo html
 const showSuccess = (input) => {
    // Consigue el padre y el padre del padre del input
    const parent = input.parentElement;
@@ -240,6 +259,7 @@ const showSuccess = (input) => {
    error.textContent = '';
 }
 
+// Función para eliminar todo tipo de mensaje en una entrada
 const removeError = (input) => {
    // Consigue el padre y el padre del padre del input
    const parent = input.parentElement;
@@ -255,7 +275,7 @@ const removeError = (input) => {
    error.textContent = '';
 }
 
-
+// Función para verificar todas las entradas antes de realizar el 'sumbit' del formulario
 form.addEventListener('submit', function (e) {
    // Evita que el form se suba
    e.preventDefault();
@@ -270,10 +290,6 @@ form.addEventListener('submit', function (e) {
    validIfCorreoExists &&
    validIfPassCorrect;
 
-   // console.clear()
-   // console.log(`var validIfCorreoExists: ${validIfCorreoExists}`)
-   // console.log(`var validIfPassCorrect: ${validIfPassCorrect}`)
-   // console.log(`var ultimate: ${isFormValid}`)
    // Se hace submit en caso de que todas las entradas sean válidas
    if (isFormValid) {
       e.target.submit();
@@ -295,7 +311,7 @@ const debounce = (fn, delay = 10) => {
    };
 };
 
-// Función para que se realicé un chequeo automático en cada entrada
+// Función para que se realicé un chequeo automático en cada entrada cuando se modifique el Input correspondiente
 form.addEventListener('input', debounce(function (e) {
    switch (e.target.id) {
       case 'correoProfesor':

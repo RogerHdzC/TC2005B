@@ -93,7 +93,7 @@ if(!empty($sessData['estado']['msg'])){
    <!-- SCRIPTS -->
 
     <script src="js/visibilidad_password.js"></script>
-    <!-- <script src="js/validacion_registro.js"></script> -->
+    <script src="js/validacion_registro.js"></script>
 
 
   </body>

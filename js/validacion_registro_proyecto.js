@@ -4,13 +4,13 @@
   ##################################### */ 
 
 
-// Variables de verificación de Compañeros
+// Variables de verificación de Compañeros con el servidor
 let validComp1 = true;
 let validComp2 = true;
 let validComp3 = true;
 let validComp4 = true;
 
-// Variables por id del form
+// Variables por id para modificar etiquetas inluídas en el form de registro
 const nombreProyectoEl = document.querySelector('#nombre_pro');
 const areaEl = document.querySelector('#areaInput');
 
@@ -34,16 +34,18 @@ const emprende2 = document.querySelector('#inlineRadio2');
 const form = document.querySelector('#signup');
 
 
-
-// Variables booleanas para verificar varios aspectos de cada entrada
-
 // Funciones booleanas para verificar varios aspectos de cada entrada
+
+// Función para revisar si la matrícula del primer compañero introducida es válida
 const checkComp1 = () => {
+
+   // Variables utilizadas para verificar las condiciones
    validComp1 = false;
    const etiqueta = Comp1El;
    const matricula = etiqueta.value.trim();
    const tam = 9;
        
+   // Condiciones para verificar que la entrada sea válida
    if (isRequired(matricula)) {
       if (matricula.length != tam) {
          showError(etiqueta, `La Matrícula debe de ser de ${tam} caracteres`)
@@ -52,14 +54,15 @@ const checkComp1 = () => {
          showError(etiqueta, `No puedes tener compañeros repetidos`)
          
       } else {
-         // Se manda consulta tipo Ajax al server para verificar
+         // Se manda consulta tipo Ajax al servidor para verificar si el correo ya está registrado
          var xhr = new XMLHttpRequest();
          xhr.open('POST', 'revisar_registro_proyecto.php', true);
          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
          xhr.onreadystatechange = function() {
+             // Se revisa si hubo una respuesta de la consulta Ajax
              if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                 // Handle server response
-                 var response = JSON.parse(xhr.responseText); // Parse the response as JSON
+                 // Se hace un parse de la respuesta para manejarla a través de JS
+                 var response = JSON.parse(xhr.responseText); 
                  if (response.exists) {
                      // El valor existe
                      showSuccess(etiqueta);
@@ -72,6 +75,7 @@ const checkComp1 = () => {
                  }
              }
          };
+         // Se manda al servidos las siguientes variables a verificar
          xhr.send('matricula=' + encodeURIComponent(matricula));
          
       }
@@ -83,12 +87,15 @@ const checkComp1 = () => {
 
 };
 
+// Función para revisar si la matrícula del segundo compañero introducida es válida
 const checkComp2 = () => {
+   // Variables utilizadas para verificar las condiciones
    validComp2 = false;
    const etiqueta = Comp2El;
    const matricula = etiqueta.value.trim();
    const tam=9;
        
+   // Condiciones para verificar que la entrada sea válida
    if (isRequired(matricula)) {
       if (matricula.length != tam) {
          showError(etiqueta, `La Matrícula debe de ser de ${tam} caracteres`)
@@ -97,14 +104,15 @@ const checkComp2 = () => {
          showError(etiqueta, `No puedes tener compañeros repetidos`)
          
       } else {
-         // Se manda consulta tipo Ajax al server para verificar
+         // Se manda consulta tipo Ajax al servidor para verificar si el correo ya está registrado
          var xhr = new XMLHttpRequest();
          xhr.open('POST', 'revisar_registro_proyecto.php', true);
          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
          xhr.onreadystatechange = function() {
+            // Se revisa si hubo una respuesta de la consulta Ajax
              if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                 // Handle server response
-                 var response = JSON.parse(xhr.responseText); // Parse the response as JSON
+                 // Se hace un parse de la respuesta para manejarla a través de JS
+                 var response = JSON.parse(xhr.responseText); 
                  if (response.exists) {
                      // El valor existe
                      showSuccess(etiqueta);
@@ -117,6 +125,7 @@ const checkComp2 = () => {
                  }
              }
          };
+         // Se manda al servidos las siguientes variables a verificar
          xhr.send('matricula=' + encodeURIComponent(matricula));
          
       }
@@ -128,12 +137,15 @@ const checkComp2 = () => {
 
 };
 
+// Función para revisar si la matrícula del tercer compañero introducida es válida
 const checkComp3 = () => {
+   // Variables utilizadas para verificar las condiciones
    validComp3 = false;
    const etiqueta = Comp3El;
    const matricula = etiqueta.value.trim();
    const tam=9;
        
+   // Condiciones para verificar que la entrada sea válida
    if (isRequired(matricula)) {
       if (matricula.length != tam) {
          showError(etiqueta, `La Matrícula debe de ser de ${tam} caracteres`)
@@ -142,13 +154,14 @@ const checkComp3 = () => {
          showError(etiqueta, `No puedes tener compañeros repetidos`)
          
       } else {
-         // Se manda consulta tipo Ajax al server para verificar
+         // Se manda consulta tipo Ajax al servidor para verificar si el correo ya está registrado
          var xhr = new XMLHttpRequest();
          xhr.open('POST', 'revisar_registro_proyecto.php', true);
          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
          xhr.onreadystatechange = function() {
+            // Se revisa si hubo una respuesta de la consulta Ajax
              if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                 // Handle server response
+                 // Se hace un parse de la respuesta para manejarla a través de JS
                  var response = JSON.parse(xhr.responseText); // Parse the response as JSON
                  if (response.exists) {
                      // El valor existe
@@ -162,6 +175,7 @@ const checkComp3 = () => {
                  }
              }
          };
+         // Se manda al servidos las siguientes variables a verificar
          xhr.send('matricula=' + encodeURIComponent(matricula));
          
       }
@@ -173,12 +187,16 @@ const checkComp3 = () => {
 
 };
 
+// Función para revisar si la matrícula del cuarto compañero introducida es válida
 const checkComp4 = () => {
+
+   // Variables utilizadas para verificar las condiciones
    validComp4 = false;
    const etiqueta = Comp4El;
    const matricula = etiqueta.value.trim();
    const tam=9;
-       
+   
+   // Condiciones para verificar que la entrada sea válida       
    if (isRequired(matricula)) {
       if (matricula.length != tam) {
          showError(etiqueta, `La Matrícula debe de ser de ${tam} caracteres`)
@@ -187,14 +205,15 @@ const checkComp4 = () => {
          showError(etiqueta, `No puedes tener compañeros repetidos`)
          
       } else {
-         // Se manda consulta tipo Ajax al server para verificar
+         // Se manda consulta tipo Ajax al servidor para verificar si el correo ya está registrado
          var xhr = new XMLHttpRequest();
          xhr.open('POST', 'revisar_registro_proyecto.php', true);
          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
          xhr.onreadystatechange = function() {
+            // Se revisa si hubo una respuesta de la consulta Ajax
              if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                 // Handle server response
-                 var response = JSON.parse(xhr.responseText); // Parse the response as JSON
+                 // Se hace un parse de la respuesta para manejarla a través de JS
+                 var response = JSON.parse(xhr.responseText); 
                  if (response.exists) {
                      // El valor existe
                      showSuccess(etiqueta);
@@ -207,6 +226,7 @@ const checkComp4 = () => {
                  }
              }
          };
+         // Se manda al servidos las siguientes variables a verificar
          xhr.send('matricula=' + encodeURIComponent(matricula));
          
       }
@@ -218,15 +238,15 @@ const checkComp4 = () => {
 
 };
 
+// Función para revisar si el nombre del proyecto es válido
 const checkNombreProyecto = () => {
 
+   // Variables utilizadas para verificar las condiciones
    let valid = false;
-
-   const min = 3,
-       max = 50;
-
+   const min = 3,max = 50;
    const nombrePro = nombreProyectoEl.value.trim();
 
+   // Condiciones para verificar que la entrada sea válida
    if (!isRequired(nombrePro)) {
        showError(nombreProyectoEl, 'El nombre del proyecto no puede estar vacío');
    } else if (!isBetween(nombrePro.length, min, max)) {
@@ -238,12 +258,14 @@ const checkNombreProyecto = () => {
    return valid;
 };
 
+// Función para revisar si el nombre del profesor dado es válido
 const checkNombreProf = () => {
 
+   // Variables utilizadas para verificar las condiciones   
    let valid = false;
-
    const nombreProf = nombreProfEl.value.trim();
 
+   // Condiciones para verificar que la entrada sea válida 
    if (!isRequired(nombreProf)) {
       showError(nombreProfEl, 'Debe Seleccionar Una Opción');
   }  else {
@@ -253,12 +275,13 @@ const checkNombreProf = () => {
   return valid;
 };
 
+// Función para revisar si la área estratégica es válida
 const checkArea = () => {
-
+   // Variables utilizadas para verificar las condiciones
    let valid = false;
-
    const area = areaEl.value.trim();
 
+   // Condiciones para verificar que la entrada sea válida 
    if (!isRequired(area)) {
        showError(areaEl, 'Debe Seleccionar Una Opción');
    }  else {
@@ -268,13 +291,14 @@ const checkArea = () => {
    return valid;
 };
 
-
+// Función para revisar si la UF es válida
 const checkUf = () => {
 
+   // Variables utilizadas para verificar las condiciones
    let valid = false;
-
    const uf = nombreUfEl.value.trim();
 
+   // Condiciones para verificar que la entrada sea válida 
    if (!isRequired(uf)) {
        showError(nombreUfEl, 'Debe Seleccionar Una Opción');
    }  else {
@@ -284,12 +308,13 @@ const checkUf = () => {
    return valid;
 };
 
+// Función para revisar si la Edición es válida
 const checkEdicion = () => {
-
+   // Variables utilizadas para verificar las condiciones
    let valid = false;
-
    const edicion = edicionEl.value.trim();
 
+   // Condiciones para verificar que la entrada sea válida
    if (!isRequired(edicion)) {
        showError(edicionEl, 'Debe Seleccionar Una Opción');
    }  else {
@@ -299,15 +324,14 @@ const checkEdicion = () => {
    return valid;
 };
 
+// Función para revisar si la descripción es válida
 const checkDescrip = () => {
-
+   // Variables utilizadas para verificar las condiciones
    let valid = false;
-
-   const min = 20,
-       max = 200;
-
+   const min = 20,max = 2000;
    const descrip = descripEl.value.trim();
 
+   // Condiciones para verificar que la entrada sea válida
    if (!isRequired(descrip)) {
        showError(descripEl, 'La Descripción no puede estar vacía');
    } else if (!isBetween(descrip.length, min, max)) {
@@ -319,12 +343,13 @@ const checkDescrip = () => {
    return valid;
 };
 
+// Función para revisar si el nivel de desarrollo es válido
 const checkNivel = () => {
-
+   // Variables utilizadas para verificar las condiciones
    let valid = false;
-
    const nivel = nivelEl.value.trim();
 
+   // Condiciones para verificar que la entrada sea válida
    if (!isRequired(nivel)) {
        showError(nivelEl, 'Debe Seleccionar Una Opción');
    }  else {
@@ -334,12 +359,14 @@ const checkNivel = () => {
    return valid;
 };
 
+// Función para revisar si el url del video es válido
 const checkVideo = () => {
    
+   // Variables utilizadas para verificar las condiciones
    let valid = false;
-
    const video = videoEl.value.trim();
 
+   // Condiciones para verificar que la entrada sea válida
    if (!isRequired(video)) {
        showError(videoEl, 'Debe Subir un Link');
    } else {
@@ -349,12 +376,14 @@ const checkVideo = () => {
    return valid;
 };
 
+// Función para revisar si el url del póster es válido
 const checkPoster = () => {
-   
-   let valid = false;
 
+   // Variables utilizadas para verificar las condiciones
+   let valid = false;
    const poster = posterEl.value.trim();
 
+   // Condiciones para verificar que la entrada sea válida
    if (!isRequired(poster)) {
        showError(posterEl, 'Debe Subir un Link');
    } else {
@@ -365,14 +394,15 @@ const checkPoster = () => {
 };
 
 
-
+// Función para revisar si el componente de emprendimiento es válido
 const checkEmprende = () => {
 
+   // Variables utilizadas para verificar las condiciones
    let valid = false;
-
    const e1 = emprende1;
    const e2 = emprende2;
 
+   // Condiciones para verificar que la entrada sea válida
    if (e1.checked == false && e2.checked == false) {
       showErrorRadio(emprende2, 'Debe Seleccionar Una Opción');
    }  else {
@@ -383,41 +413,26 @@ const checkEmprende = () => {
 };
 
 
-//Variables de verificación del forms
+// Funciones de verificación de diversos aspectos de las entradas dadas
 
+// Se verifica si la entrada está vacía
 const isRequired = value => value === '' ? false : true;
+
+// Se verifica si la entrada supera cierta cantidad de caracteres
 const isBigger = (length, min) => length < min ? false : true;
+
+// Se verifica si la entrada está entre cierto rango de longitud de caracteres
 const isBetween = (length, min, max) => length < min || length > max ? false : true;
 
+// En las siguientes funciones se verifican diversos casos para revisar que no existan matrículas repetidas
 const areEqualsComp1 = matricula => matricula == Comp2El.value.trim() || matricula == Comp3El.value.trim() || matricula == Comp4El.value.trim() ? true : false;
 const areEqualsComp2 = matricula => matricula == Comp1El.value.trim() || matricula == Comp3El.value.trim() || matricula == Comp4El.value.trim() ? true : false;
 const areEqualsComp3 = matricula => matricula == Comp2El.value.trim() || matricula == Comp1El.value.trim() || matricula == Comp4El.value.trim() ? true : false;
 const areEqualsComp4 = matricula => matricula == Comp2El.value.trim() || matricula == Comp3El.value.trim() || matricula == Comp1El.value.trim() ? true : false;
 
-const isNameValid = (nombre) => {
-   const re = /^[a-zA-ZàèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ'`'\-]( ?[a-zA-ZàèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ'`'\-])+$/;
-   return re.test(nombre);
-};
-
-function validate_fileupload(fileName, extension)
-{
-    let file_extension = fileName.split('.').pop(); // Función para obtener la extensión del archivo
-    console.log(extension == file_extension);
-
-        if(extension == file_extension){
-            return true;
-        }
 
 
-    return false;
-}
-
-const isEmailValid = (email) => {
-   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-   return re.test(email);
-};
-
-// Función para mostrar error en pantalla
+// Función para mostrar error en pantalla a través de etiquetas del archivo html
 const showError = (input, message) => {
    // Consigue el padre y el padre del padre del input
    const parent = input.parentElement;
@@ -435,7 +450,7 @@ const showError = (input, message) => {
    error.textContent = message;
 };
 
-// Función para mostrar éxito en pantalla
+// Función para mostrar un delineado verde en la entrada dada a través de etiquetas del archivo html
 const showSuccess = (input) => {
    // Consigue el padre y el padre del padre del input
    const parent = input.parentElement;
@@ -455,7 +470,7 @@ const showSuccess = (input) => {
    error.textContent = '';
 }
 
-// Función para mostrar éxito en pantalla para inputs de tipo radio
+// Función para mostrar un delineado verde en la entrada dada a través de etiquetas del archivo html para inputs de tipo radio
 const showSuccessRadio = (input) => {
    // Consigue el padre del padre del input
    const grandpa = input.parentElement.parentElement;
@@ -469,7 +484,7 @@ const showSuccessRadio = (input) => {
    error.textContent = '';
 }
 
-// Función para mostrar error en pantalla para inputs de tipo radio
+// Función para mostrar error en pantalla a través de etiquetas del archivo html para inputs de tipo radio
 const showErrorRadio = (input, message) => {
    // Consigue el padre del padre del input
    const grandpa = input.parentElement.parentElement;
@@ -483,7 +498,7 @@ const showErrorRadio = (input, message) => {
    error.textContent = message;
 }
 
-// Función para remover el error mostrado en pantalla
+// Función para eliminar todo tipo de mensaje en una entrada
 const removeError = (input) => {
    // Consigue el padre y el padre del padre del input
    const parent = input.parentElement;
@@ -499,7 +514,7 @@ const removeError = (input) => {
    error.textContent = '';
 }
 
-
+// Función para verificar todas las entradas antes de realizar el 'sumbit' del formulario
 form.addEventListener('submit', function (e) {
    // Evita que el form se suba
    e.preventDefault();
@@ -532,26 +547,11 @@ form.addEventListener('submit', function (e) {
    validComp3 &&
    validComp4;
 
-   // console.clear()
-   // console.log(`var isNombreValid: ${isNombreValid}`)
-   // console.log(`var isNombreProfValid: ${isNombreProfValid}`)
-   // console.log(`var isAreaValid: ${isAreaValid}`)
-   // console.log(`var isDescripValid: ${isDescripValid}`)
-   // console.log(`var isNivelValid: ${isNivelValid}`)
-   // console.log(`var isVideoValid: ${isVideoValid}`)
-   // console.log(`var isPosterValid: ${isPosterValid}`)
-   // console.log(`var isEdicionValid: ${isEdicionValid}`)
-   // console.log(`var isEmprendeValid: ${isEmprendeValid}`)
-   // console.log(`var validComp1: ${validComp1}`)
-   // console.log(`var validComp2: ${validComp2}`)
-   // console.log(`var validComp3: ${validComp3}`)
-   // console.log(`var validComp4: ${validComp4}`)
-   // console.log(`var ULTIMATE: ${isFormValid}`)
-
    // Se hace submit en caso de que todas las entradas sean válidas
    if (isFormValid) {
       e.target.submit();
    }
+   // En caso de que alguna de las entradas no sea válida, se muestra una alerta en pantalla
    else{
       Swal.fire({
          icon: 'error',
@@ -578,7 +578,7 @@ const debounce = (fn, delay = 10) => {
    };
 };
 
-// Función para que se realicé un chequeo automático en cada entrada
+// Función para que se realicé un chequeo automático en cada entrada cuando se modifique el Input correspondiente
 form.addEventListener('input', debounce(function (e) {
    switch (e.target.id) {
       case 'nombre_pro':

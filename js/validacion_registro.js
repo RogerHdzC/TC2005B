@@ -3,9 +3,10 @@
    Validación para Forms de Registro
   ##################################### */ 
 
-// Variables por id del form
+// variable booleana para verificar valores con el servidor
 let validIfCorreoExists = false;
 
+// Variables por id para modificar etiquetas inluídas en el form de registro
 const nombreEl = document.querySelector('#nombreProfesor');
 
 const apellido1 = document.querySelector('#apellidoPaterno');
@@ -15,24 +16,24 @@ const apellido2 = document.querySelector('#apellidoMaterno');
 const user = document.querySelector('#correoProfesor');
 const server = document.querySelector('#serverProfesor');
 
-const op1 = document.querySelector('#inlineRadio1');
-const op2 = document.querySelector('#inlineRadio2');
 
 const passwordEl = document.querySelector('#password');
 
 const form = document.querySelector('#signup');
 
 
-// Variables booleanas para verificar varios aspectos de cada entrada
+// Funciones booleanas para verificar varios aspectos de cada entrada
+
+// Función para revisar si el nombre introducido es válido
 const checkNombre = () => {
 
+   // Variables utilizadas para verificar las condiciones
    let valid = false;
-
-   const min = 1,
-       max = 50;
+   const min = 1, max = 50;
 
    const nombre = nombreEl.value.trim();
 
+   // Condiciones para verificar que la entrada sea válida
    if (!isRequired(nombre)) {
        showError(nombreEl, 'El nombre no puede estar vacío');
    } else if (!isBetween(nombre.length, min, max)) {
@@ -46,10 +47,11 @@ const checkNombre = () => {
    return valid;
 };
 
+// Función para revisar si los apellidos introducidos son válidos
 const checkApellidos = () => {
 
+   // Variables utilizadas para verificar las condiciones
    let valid = false;
-
    const min = 1,
        max = 50;
 
@@ -57,12 +59,13 @@ const checkApellidos = () => {
    const app2 = apellido2.value.trim();
    const apellidos = app1 + " " + app2;
 
+   // Condiciones para verificar que la entrada sea válida   
    if (!isRequired(app1) || !isRequired(app2)) {
        showError(apellido2, 'Los apellidos no pueden estar vacíos');
    } else if (!isBetween(apellidos.length, min, max)) {
        showError(apellido2, `Los apellidos deben de ser entre ${min} y ${max} caracteres.`)
    } else if (!isNameValid(apellidos)) {
-      showError(apellido2, `Uno o ambos apellidos son Inválidos`)
+      showError(apellido2, `Uno o ambos apellidos son inválidos`)
    } else {
        showSuccess(apellido2);
        valid = true;
@@ -70,14 +73,18 @@ const checkApellidos = () => {
    return valid;
 };
 
+// Función para revisar si el correo es válido y si existe en el servidor
 const checkCorreo = () => {
+
+   // Variables utilizadas para verificar las condiciones
    const u = user.value.trim();
    const s = server.value.trim();
    const email = u + "@" + s;
    const min = 1,
        max = 30,
        tam = 9;
-       
+
+   // Condiciones para verificar que la entrada sea válida      
    if (!isRequired(u) || !isRequired(s)) {
          showError(server, 'El correo no puede estar vacío.');
          validIfCorreoExists = false;
@@ -91,7 +98,7 @@ const checkCorreo = () => {
       validIfCorreoExists = false;
 
    }  else if (!isEmailValid(email)) {
-   showError(server, `El correo es Inválido`)
+   showError(server, `El correo es inválido`)
    validIfCorreoExists = false;
 
    } else {
@@ -103,14 +110,15 @@ const checkCorreo = () => {
             }
             else{
                if (isRequired(u) && isRequired(s)) {
-                  // Se manda consulta tipo Ajax al server para verificar
+                  // Se manda consulta tipo Ajax al servidor para verificar si el correo ya está registrado
                   var xhr = new XMLHttpRequest();
                   xhr.open('POST', 'revisar_registro.php', false);
                   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                   xhr.onreadystatechange = function() {
+                     // Se revisa si hubo una respuesta de la consulta Ajax
                       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                          // Handle server response
-                          var response = JSON.parse(xhr.responseText); // Parse the response as JSON
+                        // Se hace un parse de la respuesta para manejarla a través de JS
+                          var response = JSON.parse(xhr.responseText); 
                           if (response.exists) {
                               // El valor existe
                               showError(server, `El correo ya está registrado`)
@@ -125,6 +133,7 @@ const checkCorreo = () => {
                       }
             
                   };
+                  // Se manda al servidos las siguientes variables a verificar
                   xhr.send('user=' + encodeURIComponent(u) + '&server=' + encodeURIComponent(s));
             
               } 
@@ -136,14 +145,15 @@ const checkCorreo = () => {
          }
          else{
             if (isRequired(u) && isRequired(s)) {
-               // Se manda consulta tipo Ajax al server para verificar
+               // Se manda consulta tipo Ajax al servidor para verificar si el correo ya está registrado
                var xhr = new XMLHttpRequest();
                xhr.open('POST', 'revisar_registro.php', false);
                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                xhr.onreadystatechange = function() {
+                  // Se revisa si hubo una respuesta de la consulta Ajax
                    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                       // Handle server response
-                       var response = JSON.parse(xhr.responseText); // Parse the response as JSON
+                       // Se hace un parse de la respuesta para manejarla a través de JS
+                       var response = JSON.parse(xhr.responseText); 
                        if (response.exists) {
                            // El valor existe
                            showError(server, `El correo ya está registrado`)
@@ -158,6 +168,7 @@ const checkCorreo = () => {
                    }
          
                };
+               // Se manda al servidos las siguientes variables a verificar
                xhr.send('user=' + encodeURIComponent(u) + '&server=' + encodeURIComponent(s));
          
            } 
@@ -173,12 +184,15 @@ const checkCorreo = () => {
  
 };
 
+// Función para revisar si la contraseña es válida
 const checkPassword = () => {
+   // Variables utilizadas para verificar las condiciones   
    let valid = false;
    const password = passwordEl.value.trim();
    const min = 1,
    max = 30;
 
+   // Condiciones para verificar que la entrada sea válida
    if (!isRequired(password)) {
        showError(passwordEl, 'La contraseña no puede estar vacía.');
    } else if (!isBetween(password.length, min, max)) {
@@ -192,23 +206,30 @@ const checkPassword = () => {
 };
 
 
-//Variables de verificación del forms
+// Funciones de verificación de diversos aspectos de las entradas dadas
 
+// Se verifica si la entrada está vacía
 const isRequired = value => value === '' ? false : true;
+
+// Se verifica si la entrada supera cierta cantidad de caracteres
 const isBigger = (length, min) => length < min ? false : true;
+
+// Se verifica si la entrada está entre cierto rango de longitud de caracteres
 const isBetween = (length, min, max) => length < min || length > max ? false : true;
 
+// Se utiliza una expresión regular para verificar si el nombre dado es válido 
 const isNameValid = (nombre) => {
    const re = /^[a-zA-ZàèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ'`'\-]( ?[a-zA-ZàèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ'`'\-])+$/;
    return re.test(nombre);
 };
 
+// Se utiliza una expresión regular para verificar si el correo dado es válido 
 const isEmailValid = (email) => {
    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
    return re.test(email);
 };
 
-// Función para mostrar error en pantalla
+// Función para mostrar error en pantalla a través de etiquetas del archivo html
 const showError = (input, message) => {
    // Consigue el padre y el padre del padre del input
    const parent = input.parentElement;
@@ -222,7 +243,7 @@ const showError = (input, message) => {
    error.textContent = message;
 };
 
-// Función para mostrar éxito en pantalla
+// Función para mostrar un delineado verde en la entrada dada a través de etiquetas del archivo html
 const showSuccess = (input) => {
    // Consigue el padre y el padre del padre del input
    const parent = input.parentElement;
@@ -237,7 +258,7 @@ const showSuccess = (input) => {
    error.textContent = '';
 }
 
-// Función para mostrar error en pantalla para inputs de tipo radio
+// Función para mostrar error en pantalla a través de etiquetas del archivo html para inputs de tipo radio
 const showErrorRadio = (input, message) => {
    // Consigue el padre del padre del input
    const grandpa = input.parentElement.parentElement;
@@ -251,7 +272,7 @@ const showErrorRadio = (input, message) => {
    error.textContent = message;
 }
 
-// Función para mostrar éxito en pantalla para inputs de tipo radio
+// Función para mostrar un delineado verde en la entrada a través de etiquetas del archivo html para inputs de tipo radio
 const showSuccessRadio = (input) => {
    // Consigue el padre del padre del input
    const grandpa = input.parentElement.parentElement;
@@ -265,6 +286,7 @@ const showSuccessRadio = (input) => {
    error.textContent = '';
 }
 
+// Función para eliminar todo tipo de mensaje en una entrada para inputs de tipo radio
 const removeErrorRadio = (input) => {
    // Consigue el padre y el padre del padre del input
    const grandpa = input.parentElement.parentElement;
@@ -279,6 +301,7 @@ const removeErrorRadio = (input) => {
    error.textContent = '';
 }
 
+// Función para eliminar todo tipo de mensaje en una entrada
 const removeError = (input) => {
    // Consigue el padre y el padre del padre del input
    const parent = input.parentElement;
@@ -294,6 +317,7 @@ const removeError = (input) => {
    error.textContent = '';
 }
 
+// Función para verificar todas las entradas antes de realizar el 'sumbit' del formulario
 form.addEventListener('submit', function (e) {
    // Evita que el form se suba
    e.preventDefault();
@@ -302,15 +326,14 @@ form.addEventListener('submit', function (e) {
    checkCorreo();
    let isNombreValid = checkNombre(),
        isApellidosValid = checkApellidos(),
-       isJuezValid = checkEsJuez(),
        isPasswordValid = checkPassword();
 
    let isFormValid = isNombreValid &&
    isApellidosValid &&
-   isJuezValid &&
    validIfCorreoExists &&
    isPasswordValid;
 
+   // Se hace submit en caso de que todas las entradas sean válidas
    if (isFormValid) {
       e.target.submit();
    }
@@ -331,7 +354,7 @@ const debounce = (fn, delay = 10) => {
    };
 };
 
-// Función para que se realicé un chequeo automático en cada entrada
+// Función para que se realicé un chequeo automático en cada entrada cuando se modifique el Input correspondiente
 form.addEventListener('input', debounce(function (e) {
    switch (e.target.id) {
       case 'nombreProfesor':
@@ -351,12 +374,6 @@ form.addEventListener('input', debounce(function (e) {
          break;
       case 'password':
          checkPassword();
-         break;
-      case 'inlineRadio1':
-         checkEsJuez();
-         break;
-      case 'inlineRadio2':
-         checkEsJuez();
          break;
    }
 }));
