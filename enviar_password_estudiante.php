@@ -50,7 +50,7 @@
 						<br></br>
 					<div class="col-12">
 						<br>
-						<button type="button" class="btn btn-primary btn-custom btn-p3">Continuar</button> 
+						<button type="submit" name="forgotSubmit" class="btn btn-primary btn-custom btn-p3">Continuar</button> 
 					</div>
 					<div class="col-12">
 						<br>

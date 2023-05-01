@@ -13,7 +13,7 @@
 
     <title>Reconocimiento</title>
 </head>
-<body>
+<body background="<img class='img-fluid' src='vista.php?id=<?php echo $colum['id'] ?>' alt='Img blob desde MySQL' width='600' />">
   <div>
       <h1>Reconocimiento</h>
       <p>Felcidades a {{ name }} por haber participado en expoIngenierias</p>

@@ -7,6 +7,12 @@
   $q = $pdo->prepare($sql);
   $q->execute(array($_SESSION['username']));
   $data = $q->fetch(PDO::FETCH_ASSOC);
+
+  $sql1 = '  $consulta = "SELECT * FROM images_tabla";';
+  $q1 = $pdo->prepare($sql1);
+  $q1->execute(array());
+  $data = $q->fetch(PDO::FETCH_ASSOC);
+
   Database::disconnect();
 
 

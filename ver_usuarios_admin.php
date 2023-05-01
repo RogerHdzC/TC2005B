@@ -52,7 +52,7 @@
     </div>
   </nav>
       <br>
-      <h1>Usuarios</h1>
+      <h1>Usuarios Activos</h1>
       <br>
 
     <div class="container">
@@ -178,7 +178,7 @@
                 <br>
                 <?php 
                 $num=0; 
-                $consulta3 = "SELECT * FROM md1_jurado WHERE borrado IS NULL";
+                $consulta3 = "SELECT * FROM md1_jurado WHERE borrado = 1";
                 foreach ($pdo->query($consulta3) as $colum)
                 { $num=$num+1;?>
                     <div class='row'>
@@ -211,7 +211,169 @@
             </div>
         </div>
       </div>
-    </div>    
+    </div>
+    <br>
+      <h1>Usuarios Eliminados</h1>
+      <br>
+
+    <div class="container">
+    <p>
+        <a class="btn btn-primary btn-custom btn-p5" data-bs-toggle="collapse" href="#collapseExampleA" role="button" aria-expanded="false" aria-controls="collapseExampleA">
+          <b>Docentes</b>
+        </a>
+      </p>    
+      <div class="collapse" id="collapseExampleA">
+        <div class="card card-body">
+            <div class="container font-20 p1-color text-center">
+                <div class="row">
+                    <div class="col-3 col-3-a col-4-a"><b>Nombre</b></div>
+                    <div class="col-3 col-3-a col-4-a"><b>Correo</b></div>
+                    <div class="col-3 col-3-a col-4-a"><b>Rol</b></div>
+                    <div class="col-3 col-3-a col-4-a"><b>Acciones</b></div>
+                </div> 
+                <?php 
+                    $consulta = "SELECT * FROM md1_docente WHERE borrado = 1";
+                $num=0; 
+                foreach ($pdo->query($consulta) as $colum)
+                { $num=$num+1;?>
+                    <div class='row'>
+                        <div class='col-3 col-3-a'>
+                        <p class="p-a"><b>Nombre</b></p>
+                        <div class='form-check'>
+                        <p><?php echo $colum['nombre']; ?></p>
+                        </label>
+                        </div>
+                        </div>
+                        <div class='col-3 col-3-a'>
+                        <p class="p-a"><b>Correo</b></p>
+                            <p><?php 
+                            echo $colum['nomina']. "@tec.mx"?> </p>
+                        </div>
+                        <div class='col-3 col-3-a'>
+                        <p class="p-a"><b>Rol</b></p>  
+                            <?php  
+                            if ($colum['es_jurado'] ==0 ){
+                                echo "<p>Docente</p>";
+                            }else{
+                                echo "<p>Docente y Jurado</p>";
+                            }
+                            ?>
+                        </div>
+                        <div class="col-3 col-3-a">
+                        <p class="p-a"><b>Acciones</b></p>
+                            <?php if ($colum['es_jurado'] ==0 ){ ?>
+                                <a class="btn btn-success" href="updateJuez.php?id=<?php echo base64_encode($colum['nomina']);?>">Asignar rol de juez</a>
+                            <?php }else{ ?>
+                                <a class="btn btn-warning" href="deleteJuez.php?id=<?php echo base64_encode($colum['nomina']);?>">Quitar rol de juez</a>
+                            <?php } ?>
+                            <a class="btn btn-danger" href="deleteUsuario.php?id=<?php echo base64_encode($colum['nomina']);?>">Eliminar</a>
+                        </div>
+                    </div>
+                    <?php 
+                }?>
+            </div>
+        </div>
+      </div>
+    <p>
+        <a class="btn btn-primary btn-custom btn-p5" data-bs-toggle="collapse" href="#collapseExampleB" role="button" aria-expanded="false" aria-controls="collapseExample">
+          <b>Estudiantes</b>
+        </a>
+      </p>    
+      <div class="collapse" id="collapseExampleB">
+        <div class="card card-body">
+            <div class="container font-20 p1-color text-center">
+                <div class="row">
+                    <div class="col-3 col-3-a col-4-a"><b>Nombre</b></div>
+                    <div class="col-3 col-3-a col-4-a"><b>Correo</b></div>
+                    <div class="col-3 col-3-a col-4-a"><b>Rol</b></div>
+                    <div class="col-3 col-3-a col-4-a"><b>Acciones</b></div>
+                </div> 
+                <?php 
+                $num=0; 
+                $consulta2 = "SELECT * FROM md1_estudiante WHERE borrado = 1";
+                foreach ($pdo->query($consulta2) as $colum)
+                { $num=$num+1;?>
+                    <div class='row'>
+                        <div class='col-3 col-3-a'>
+                        <p class="p-a"><b>Nombre</b></p>
+
+                        <div class='form-check'>
+                        <p><?php echo $colum['nombre']; ?></p>
+                        </label>
+                        </div>
+                        </div>
+                        <div class='col-3 col-3-a'>
+                        <p class="p-a"><b>Correo</b></p>
+
+                            <p><?php 
+                            echo $colum['matricula']. "@tec.mx"?> </p>
+                        </div>
+                        <div class='col-3 col-3-a'>  
+                        <p class="p-a"><b>Rol</b></p>
+                            <p>Estudiante</p>
+                        </div>
+                        <div class="col-3 col-3-a">
+                        <p class="p-a"><b>Acciones</b></p>
+
+                            <a class="btn btn-danger" href="deleteUsuario.php?id=<?php echo base64_encode($colum['matricula']);?>">Eliminar</a>
+                        </div>
+                    </div>
+                    <?php 
+                }?>
+            </div>
+        </div>
+      </div> 
+    <p>
+        <a class="btn btn-primary btn-custom btn-p5" data-bs-toggle="collapse" href="#collapseExampleC" role="button" aria-expanded="false" aria-controls="collapseExample">
+          <b>Jueces</b>
+        </a>
+      </p>    
+      <div class="collapse" id="collapseExampleC">
+        <div class="card card-body">
+            <div class="container font-20 p1-color text-center">
+                <div class="row">
+                    <div class="col-3 col-3-a col-4-a"><b>Nombre</b></div>
+                    <div class="col-3 col-3-a col-4-a"><b>Correo</b></div>
+                    <div class="col-3 col-3-a col-4-a"><b>Rol</b></div>
+                    <div class="col-3 col-3-a col-4-a"><b>Acciones</b></div>
+                </div> 
+                <br>
+                <?php 
+                $num=0; 
+                $consulta3 = "SELECT * FROM md1_jurado WHERE borrado = 1";
+                foreach ($pdo->query($consulta3) as $colum)
+                { $num=$num+1;?>
+                    <div class='row'>
+                        <div class='col-3 col-3-a'>
+                            <p class="p-a"><b>Nombre</b></p>
+                        <div class='form-check'>
+                        <p><?php echo $colum['nombre']; ?></p>
+                        </label>
+                        </div>
+                        </div>
+                        <div class='col-3 col-3-a'>
+                        <p class="p-a"><b>Correo</b></p>
+                            <p><?php 
+                            echo $colum['correo']?> </p>
+                        </div>
+                        <div class='col-3 col-3-a'>
+                        <p class="p-a"><b>Rol</b></p>  
+                            <p>Juez</p>
+                        </div>
+                        <div class="col-3 col-3-a">
+                        <p class="p-a"><b>Acciones</b></p>
+                            <?php if($colum['confirmado'] != 1){ ?>
+                                <a class="btn btn-success" href="aceptarJuez.php?id=<?php echo base64_encode($colum['correo']);?>">Aceptar juez</a>
+                            <?php } ?>
+                            <a class="btn btn-danger" href="deleteUsuario.php?id=<?php echo base64_encode($colum['correo']);?>">Eliminar</a>
+                        </div>
+                    </div>
+                    <?php 
+                }?>
+            </div>
+        </div>
+      </div>
+    </div>        
 </body>
 </html>
 

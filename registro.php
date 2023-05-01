@@ -38,7 +38,7 @@ if(!empty($sessData['estado']['msg'])){
       <br>
       <div class="row">
         <div class="col-3 align-self-center">Nombre(s): </div>       
-        <div class="col-9 align-self-center">
+        <div class="col-8 align-self-center">
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="" <?php echo !empty($statusName)?'value='.$statusName.'':''; ?>  aria-label="Recipient's username" aria-describedby="button-addon2" name="nombreProfesor" id="nombreProfesor">
             
@@ -47,7 +47,7 @@ if(!empty($sessData['estado']['msg'])){
         </div>
         <br></br>
         <div class="col-3 align-self-center">Apellidos: </div>
-        <div class="col-9 align-self-center">
+        <div class="col-8 align-self-center">
           <div class="input-group mb-3">
             <input type="text" aria-label="First name"  class="form-control" name="apellidoPaterno" id="apellidoPaterno" <?php echo !empty($statusAP)?'value='.$statusAP.'':''; ?> >
             <input type="text" aria-label="Last name" class="form-control" name="apellidoMaterno" id="apellidoMaterno" <?php echo !empty($statusAM)?'value='.$statusAM.'':''; ?> >
@@ -93,7 +93,7 @@ if(!empty($sessData['estado']['msg'])){
    <!-- SCRIPTS -->
 
     <script src="js/visibilidad_password.js"></script>
-    <script src="js/validacion_registro.js"></script>
+    <!-- <script src="js/validacion_registro.js"></script> -->
 
 
   </body>

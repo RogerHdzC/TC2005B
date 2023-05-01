@@ -15,6 +15,7 @@
 		$sql = "UPDATE `md1_proyecto` SET `borrado` = '1' WHERE `md1_proyecto`.`id` = ?";
 		$q = $pdo->prepare($sql);
 		$q->execute(array($id));
+		header("Location: ver_proyectos_Admin.php");
 	}
 ?>
 
