@@ -1,12 +1,12 @@
-
 /* ###########################################
    Validación para Forms de Inicio de Sesión
   ########################################### */ 
 
-// Variables por id del form
+// variable booleana para verificar valores con el servidor
 let validIfCorreoExists = false;
 var validIfPassCorrect = false;
 
+// Variables por id para modificar etiquetas inluídas en el form de registro
 const user = document.querySelector('#correoProfesor');
 const server = document.querySelector('#serverProfesor');
 
@@ -18,16 +18,16 @@ const url = window.location.pathname.toString();
 
 
 
-// Variables booleanas para verificar varios aspectos de cada entrada
+// Función para revisar si el correo introducido es válido
 const checkCorreo = () => {
-
+// Variables utilizadas para verificar las condiciones
    const u = user.value.trim();
    const s = server.value.trim();
    const email = u + "@" + s;
    const min = 1,
        max = 30,
        tam = 9;
-       
+       // Condiciones para verificar que la entrada sea válida
    if (!isRequired(u) || !isRequired(s)) {
        showError(server, 'El correo no puede estar vacío.');
        validIfCorreoExists = false;
@@ -41,7 +41,7 @@ const checkCorreo = () => {
    validIfCorreoExists = false;
    
   } else if (!isEmailValid(email)) {
-   showError(server, `El correo es Inválido`)
+   showError(server, `El correo es inválido`)
    validIfCorreoExists = false;
 
   } else if (s.toLowerCase() == "tec.mx" && u[0].toUpperCase() =="A" && !isNaN(u[1]) && u.length != tam) {
@@ -59,7 +59,7 @@ const checkCorreo = () => {
 };
 
 const checkIfCorreoExists = () => {
-
+// Función para revisar si el correo existe en el servidor
    const u = user.value.trim();
    const s = server.value.trim();
    const email = u + "@" + s;
@@ -67,7 +67,7 @@ const checkIfCorreoExists = () => {
        max = 30,
        tam = 9;
        
-
+// Condiciones para verificar que la entrada sea válida
        if (isBigger(u.length, min+1) && isRequired(s)) {
          if(s.toLowerCase() == "tec.mx" && u[0].toUpperCase() =="A" && !isNaN(u[1])){
             if (u.length != tam) {
@@ -76,13 +76,14 @@ const checkIfCorreoExists = () => {
             }
             else{
                if (isRequired(u) && isRequired(s)) {
-                  // Se manda consulta tipo Ajax al server para verificar
+                  // Se manda consulta tipo Ajax al servidor para verificar si el correo ya está registrado
                   var xhr = new XMLHttpRequest();
                   xhr.open('POST', 'revisar_inicioSesion.php', false);
                   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                   xhr.onreadystatechange = function() {
+                     // Se revisa si hubo una respuesta de la consulta Ajax
                       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                          // Handle server response
+// Se hace un parse de la respuesta para manejarla a través de JS
                           var response = JSON.parse(xhr.responseText); // Parse the response as JSON
                           if (response.correo) {
                               // El valor existe
@@ -92,7 +93,7 @@ const checkIfCorreoExists = () => {
             
                           } else {
                               // El valor NO existe
-                              showError(server, `El correo No está registrado, porfavor registre su correo antes de iniciar sesión`)
+                              showError(server, `El correo no está registrado, porfavor registre su correo antes de iniciar sesión`)
                               validIfCorreoExists = false;
             
                           }
@@ -103,23 +104,12 @@ const checkIfCorreoExists = () => {
             
               } 
             }
-
-}else {
-   if (isBigger(u.length, min+1) && isRequired(s)) {
-      if(s.toLowerCase() == "tec.mx" && u[0].toUpperCase() =="A" && !isNaN(u[1])){
-         if (u.length != tam) {
-            showError(server, `La Matrícula debe de ser de ${tam} caracteres`)
-            validIfCorreoExists = false;
          }
          else{
             if (isRequired(u) && isRequired(s)) {
                // Se manda consulta tipo Ajax al server para verificar
                var xhr = new XMLHttpRequest();
-
                xhr.open('POST', 'revisar_inicioSesion.php', false);
-
-               xhr.open('POST', 'revisar_inicioSesion.php', true);
-
                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                xhr.onreadystatechange = function() {
                    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
@@ -129,11 +119,10 @@ const checkIfCorreoExists = () => {
                            // El valor existe
                            showSuccess(server);
                            validIfCorreoExists = true;
-
          
                        } else {
                            // El valor NO existe
-                           showError(server, `El correo No está registrado, porfavor registre su correo antes de iniciar sesión`)
+                           showError(server, `El correo no está registrado, porfavor registre su correo antes de iniciar sesión`)
                            validIfCorreoExists = false;
          
                        }
@@ -143,56 +132,12 @@ const checkIfCorreoExists = () => {
                xhr.send('password=' + encodeURIComponent(u) + '&url=' + encodeURIComponent(url) + '&user=' + encodeURIComponent(u) + '&server=' + encodeURIComponent(s));
          
            } 
-
          }
          }
-
-           else {
-            removeError(server);
-            validIfCorreoExists = true;
-         }
-         }
-      }
-      else{
-         if (isRequired(u) && isRequired(s)) {
-            // Se manda consulta tipo Ajax al server para verificar
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'revisar_inicioSesion.php', true);
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                    // Handle server response
-                    var response = JSON.parse(xhr.responseText); // Parse the response as JSON
-                    if (response.correo) {
-                        // El valor existe
-                        showSuccess(server);
-                        validIfCorreoExists = true;
-      
-                    } else {
-                        // El valor NO existe
-                        showError(server, `El correo No está registrado, porfavor registre su correo antes de iniciar sesión`)
-                        validIfCorreoExists = false;
-      
-                    }
-                }
-      
-            };
-            xhr.send('password=' + encodeURIComponent(u) + '&url=' + encodeURIComponent(url) + '&user=' + encodeURIComponent(u) + '&server=' + encodeURIComponent(s));
-      
-        } 
-        else {
-         removeError(server);
-         validIfCorreoExists = true;
-      }
-      }
-      }
-   }
-
 
  
 
 };
-
 
 const checkPassword = () => {
    const u = user.value.trim();
@@ -203,7 +148,6 @@ const checkPassword = () => {
 
    if (!isRequired(password)) {
        showError(passwordEl, 'La contraseña no puede estar vacía.');
-
        validIfPassCorrect = false;
    } else if (!isBetween(password)) {
        showError(passwordEl, `La contraseña debe de ser entre ${min} y ${max} caracteres.`);
@@ -231,8 +175,9 @@ const checkIfPasswordCorrect = () => {
       xhr.open('POST', 'revisar_inicioSesion.php', false);
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       xhr.onreadystatechange = function() {
+         // Se revisa si hubo una respuesta de la consulta Ajax
           if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-              // Handle server response
+// Se hace un parse de la respuesta para manejarla a través de JS
               var response = JSON.parse(xhr.responseText); // Parse the response as JSON
                if (response.exists) {
                   // El valor existe
@@ -250,37 +195,7 @@ const checkIfPasswordCorrect = () => {
       };
       xhr.send('password=' + encodeURIComponent(password) + '&url=' + encodeURIComponent(url) + '&user=' + encodeURIComponent(u) + '&server=' + encodeURIComponent(s));
 
-
-   } else if (!isBetween(password)) {
-       showError(passwordEl, `La contraseña debe de ser entre ${min} y ${max} caracteres.`);
-   } else if (isRequired(password) && isRequired(u) && isRequired(s)) {
-         // Se manda consulta tipo Ajax al server para verificar
-         var xhr = new XMLHttpRequest();
-         xhr.open('POST', 'revisar_inicioSesion.php', true);
-         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-         xhr.onreadystatechange = function() {
-             if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                 // Handle server response
-                 var response = JSON.parse(xhr.responseText); // Parse the response as JSON
-                  if (response.exists) {
-                     // El valor existe
-                     showSuccess(passwordEl);
-                     validIfPassCorrect = true;
-
-                  } else {
-                     // El valor NO existe
-                     showError(passwordEl, `La contraseña es incorrecta!`)
-                     validIfPassCorrect = false;
-                  }
-
-             }
-   
-         };
-         xhr.send('password=' + encodeURIComponent(password) + '&url=' + encodeURIComponent(url) + '&user=' + encodeURIComponent(u) + '&server=' + encodeURIComponent(s));
-   
-
 }
-// console.log(`INfunction var validIfPassCorrect: ${validIfPassCorrect}`)
 
 };
 
@@ -348,10 +263,8 @@ form.addEventListener('submit', function (e) {
    // Campos a validar
    checkPassword();
    checkCorreo();
-
    checkIfCorreoExists();
    checkIfPasswordCorrect();
-
 
    let isFormValid = 
    validIfCorreoExists &&
@@ -387,7 +300,6 @@ form.addEventListener('input', debounce(function (e) {
    switch (e.target.id) {
       case 'correoProfesor':
          checkCorreo();
-
          break;
       case 'serverProfesor':
          checkCorreo();
@@ -397,17 +309,3 @@ form.addEventListener('input', debounce(function (e) {
          break;
    }
 }));
-
-         checkPassword();
-         break;
-      case 'serverProfesor':
-         checkCorreo();
-         checkPassword();
-         break;
-      case 'password':
-         checkPassword();
-         checkCorreo();
-         break;
-   }
-}));
-

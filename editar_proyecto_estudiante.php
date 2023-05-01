@@ -14,7 +14,7 @@
    Database::disconnect();
 
    $pdo = Database::connect();
-   $sql2 = 'SELECT * FROM md1_docente WHERE nomina = ? ';
+   $sql2 = 'SELECT * FROM md1_docente WHERE nomina = ?';
    $q2 = $pdo->prepare($sql2);
    $q2->execute(array($data['correoProfesor']));
    $data2 = $q2->fetch(PDO::FETCH_ASSOC);
@@ -28,10 +28,45 @@
    Database::disconnect();
 
    $pdo = Database::connect();
-   $sql4 = 'SELECT * FROM md1_edicion    WHERE id = ? ';
+   $sql4 = 'SELECT * FROM md1_edicion WHERE id = ? ';
    $q4 = $pdo->prepare($sql4);
    $q4->execute(array($data['idEdicion']));
    $data4 = $q4->fetch(PDO::FETCH_ASSOC);
+   Database::disconnect();
+
+   $pdo = Database::connect();
+   $lider = 'SELECT * FROM md1_estudiante WHERE matricula = ? ';
+   $q5 = $pdo->prepare($lider);
+   $q5->execute(array($data['correoLider']));
+   $data5 = $q5->fetch(PDO::FETCH_ASSOC);
+   Database::disconnect();
+
+   $pdo = Database::connect();
+   $compañero1 = 'SELECT * FROM md1_estudiante WHERE matricula = ? ';
+   $q6 = $pdo->prepare($compañero1);
+   $q6->execute(array($data['correoCompañero1']));
+   $data6 = $q6->fetch(PDO::FETCH_ASSOC);
+   Database::disconnect();
+
+   $pdo = Database::connect();
+   $compañero2 = 'SELECT * FROM md1_estudiante WHERE matricula = ? ';
+   $q7 = $pdo->prepare($compañero2);
+   $q7->execute(array($data['correoCompañero2']));
+   $data7 = $q7->fetch(PDO::FETCH_ASSOC);
+   Database::disconnect();
+
+   $pdo = Database::connect();
+   $compañero3 = 'SELECT * FROM md1_estudiante WHERE matricula = ? ';
+   $q8 = $pdo->prepare($compañero3);
+   $q8->execute(array($data['correoCompañero3']));
+   $data8 = $q8->fetch(PDO::FETCH_ASSOC);
+   Database::disconnect();
+
+   $pdo = Database::connect();
+   $compañero4 = 'SELECT * FROM md1_estudiante WHERE matricula = ? ';
+   $q9 = $pdo->prepare($compañero4);
+   $q9->execute(array($data['correoCompañero4']));
+   $data9 = $q9->fetch(PDO::FETCH_ASSOC);
    Database::disconnect();
 ?>
 <!DOCTYPE html>
@@ -56,26 +91,27 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav">
+           <a class="navbar-brand" href="pagina_inicio_estudiantes.php">
+           <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
+         </a>
           <ul class="navbar-nav">
               
               <li class="nav-item"><a class="nav-link" href="registrar_proyecto_estudiante.php">Registrar Proyectos</a></li>
               <li class="nav-item"><a class="nav-link" href="mis_proyectos_Estudiante.php">Mis proyectos</a></li>
               <li class="nav-item"><a class="nav-link" href="explorar_proyectos_estudiante.php">Explorar Proyectos</a></li>
               <li class="nav-item"><a class="nav-link" href="resultados_estudiante.php">Resultados</a></li>
-              <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver Layout</a></li>
+              <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver mapa</a></li>
+              <li class="nav-item"><a class="nav-link" href="anuncios_estudiantes.php">Anuncios</a></li>
               <li class="nav-item"><a class="nav-link" href="sobre_nosotros_estudiante.php">Sobre Nosotros</a></li>
               <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_estudiante.php">Preguntas Frecuentes</a></li>
               <li class="nav-item"><a class="nav-link" href="ajustes_estudiante.php">Ajustes</a></li>
   
             </ul>
-          </div>
-          <a class="navbar-brand" href="pagina_inicio_estudiantes.php">
-            <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
+            <a class="navbar-brand" href="logout.php">
+            <img src="img/logout.png" alt="" width="40" height="40">
           </a>
-          <a class="navbar-brand" href="logout.php">
-          <img src="img/logout.png" alt="" width="40" height="40">
-        </a>
+          </div>
       </div>
     </nav>
   
@@ -91,24 +127,28 @@
         </div>
     </div> 
 
-      <div class="container validacion">
-      
+    <div class="container validacion">
          <div class="row">
-         <div class="separation"></div>
-            <div class="col-3 col-p2-3 names">
-               Nombre del Proyecto: 
-            </div>
-            <div class="col-3 col-p2-3">
-               <input type="text" class="form-control" name="nombre" id="nombre_pro" value="<?php echo $data['nombre']; ?>">
-               <small></small>
-            </div>
-            <div class="separation2"></div>
-            <div class="col-3 col-p2-3 names" >
-               Unidad de Formación: 
-            </div>
-            <div class="col-3 col-p2-3">
-            <div class="input-group mb-3">
-                  <select class="form-select" aria-label="Default select example" name ="uf" required>
+            <div class="col-6 col-p2-3">
+               <div class="container">
+                  <div class="row">
+                     <div class="separation"></div>
+                     <div class="col-6 col-p2-3 names">Nombre del Proyecto:</div>
+                     <div class="col-6 col-p2-3">
+                        <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="nombre" id="nombre_pro" value="<?php echo $data['nombre']; ?>">
+                           <small></small>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="separation2"></div>
+                        <div class="col-6 col-p2-3 names" >
+                           Unidad de Formación: 
+                        </div>
+                        <div class="col-6 col-p2-3">
+                           <div class="input-group mb-3">
+                           <select class="form-select" aria-label="Default select example" name ="uf" id="nombreUf" required>
                      <option value='<?php echo $data['UF'] ?>' selected><?php echo $data3['nombre'] ?></option>
                                  <?php
                                  $pdo = Database::connect();
@@ -120,54 +160,36 @@
                                  Database::disconnect();
                            ?>
                   </select>
-            </div>
-         </div>
-         <div class="row">
-         <div class="separation questionMark" id="area">&quest;</div>
-         <div class="col-3 col-p2-3 names">
-               Área Estratégica:
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="mb-3">
-                  <select class="form-select" aria-label="Default select example" name="area" id="areaInput">
+                           </div>
+                           <small></small>
+                        </div>
+                  </div>
+                  <div class="row">
+                     <div class="separation questionMark" id="area">&quest;</div>
+                     <div class="col-6 col-p2-3 names">
+                        Área Estratégica:
+                     </div>
+                     <div class="col-6 col-p2-3">
+                        <div class="mb-3">
+                        <select class="form-select" aria-label="Default select example" name="area" id="areaInput">
                      <option selected value="<?php echo $data['areaEstrategica'] ?>"><?php echo $data['areaEstrategica'] ?></option>
                      <option value="Nano">Nano</option>
                      <option value="Bio">Bio</option>
                      <option value="Nexus">Nexus</option>
                      <option value="Cyber">Cyber</option>
                    </select>
-                </div>
-                <small></small>
-            </div>
-            <div class="separation2"></div>
-            <div class="col-3 col-p2-3 names">
-               Profesor:
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="input-group mb-3">
-               <select class="form-select" aria-label="Default select example" name ="profesor" required>
-               <option value='<?php echo $data['correoProfesor']; ?>' selected><?php echo $data2['nombre'] ?></option>
-		                        <?php
-							   		$pdo = Database::connect();
-							   		$query = 'SELECT * FROM md1_docente';
-			 				   		foreach ($pdo->query($query) as $row) {
-		                        			echo "<option value='" . $row['nomina'] . "'>" . $row['nombre'] . "</option>";
-
-			   						}
-			   						Database::disconnect();
-			  					?>
-               </select>
-                </div>
-                <small></small>
-            </div>
-         </div>
-         <div class="row">
-         <div class="separation"></div>
-            <div class="col-3 col-p2-3 names">
-               Edicion:
-            </div>
-            <div class="col-3 col-p2-3">
-            <select class="form-select" aria-label="Default select example" name ="edicion" required>
+                        </div>
+                        <small></small>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="separation"></div>
+                        <div class="col-6 col-p2-3 names">
+                           Edición:
+                        </div>
+                        <div class="col-6 col-p2-3">
+                           <div class="input-group mb-3">
+                           <select class="form-select" aria-label="Default select example" name ="edicion" id="edicion" required>
                <option value='<?php echo $data['idEdicion']; ?>' selected><?php echo $data4['fechaInicio']; ?></option>
 		                        <?php
 							   		$pdo = Database::connect();
@@ -179,199 +201,220 @@
 			   						Database::disconnect();
 			  					?>
                </select>
-            </div>
-            <div class="separation2 questionMark" id="descrip">&quest;</div>
-            <div class="col-3 col-p2-3 names">
-               Descripción del Proyecto:
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="input-group">
-                  <span class="input-group-text"></span>
-                  <textarea class="form-control" aria-label="With textarea" name="descripcion" id="descripInput"><?php echo $data['descripcion']; ?></textarea>
-                </div>
-                <small></small>
-            </div>
-         </div>
-  
-         <div class="row">
-         <div class="separation questionMark" id='compañero'>&quest;</div>
-         <div class="col-3 col-p2-3 names">
-               Correo de Compañero:
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero1" value="<?php if ($data['correoCompañero1']==NULL){
+                           </div>
+                           <small></small>
+                        </div>
+                  </div>
+                  <div class="row">
+                     <div class="separation questionMark" id='compañero'>&quest;</div>
+                        <div class="col-6 col-p2-3 names">
+                           Matrícula de Compañer@:
+                        </div>
+                        <div class="col-6 col-p2-3">
+                           <div class="input-group mb-3">
+                           <input type="text" class="form-control" placeholder="Username" id="Comp1" aria-label="Username" name="compañero1" value="<?php if (($data['correoCompañero1'] == NULL) || ($data6['borrado'] == 1)){
                      echo NULL;
                   }else{
                      echo $data['correoCompañero1'];
+                     } ?>">                           </div>
+                           <small></small>
+                        </div>
+                  </div>
+                  <div class="row">
+                     <div class="separation"></div>
+                     <div class="col-6 col-p2-3 names">
+                        Matrícula de Compañero:
+                     </div>
+                     <div class="col-6 col-p2-3">
+                        <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Username" id="Comp2" aria-label="Username" name="compañero2" value="<?php if (($data['correoCompañero2']==NULL) || ($data7['borrado'] == 1)){
+                     echo NULL;
+                  }else{
+                     echo $data['correoCompañero2'];
                      } ?>">
-                  <span class="input-group-text">@</span>
-                  <input type="text" class="form-control" placeholder="Server" aria-label="Server" value="tec.mx">
-                </div>
-                <small></small>
+                        </div>
+                           <small></small>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="separation"></div>
+                     <div class="col-6 col-p2-3 names">
+                     Matrícula de Compañero:
+                     </div>
+                     <div class="col-6 col-p2-3">
+                        <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" id="Comp3" name="compañero3" value="<?php if (($data['correoCompañero3']==NULL) || ($data8['borrado'] == 1)){
+                     echo NULL;
+                  }else{
+                     echo $data['correoCompañero3'];
+                     } ?>">
+                        </div>
+                        <small></small>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="separation"></div>
+                     <div class="col-6 col-p2-3 names">
+                       Matrícula de Compañero:
+                     </div>
+                     <div class="col-6 col-p2-3">
+                        <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" id="Comp4" name="compañero4" value="<?php if (($data['correoCompañero4']==NULL) || ($data9['borrado'] == 1)){
+                     echo NULL;
+                        }else{
+                           echo $data['correoCompañero4'];
+                           } ?>">
+                        </div>
+                        <small></small>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="separation"></div>
+                     <div class="col-6 col-p2-3 names">
+                       Matrícula de Lider:
+                     </div>
+                     <div class="col-6 col-p2-3">
+                        <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" id="Lid" name="correoLider" value="<?php if (($data['correoLider']==NULL) || ($data5['borrado'] == 1)){
+                     echo NULL;
+                  }else{
+                     echo $data['correoLider'];
+                     } ?>">
+                        </div>
+                        <small></small>
+                     </div>
+                  </div>
+               </div>
             </div>
-            <div class="separation2 questionMark" id="nivel">&quest;</div>
-            <div class="col-3 col-p2-3 names">
-               Nivel de Desarrollo:
-            </div>
-            <div class="col-3 col-p2-3">
-            <div class="mb-3">
-               <select class="form-select" aria-label="Default select example" name="nivel" id="nivelInput">
+            <div class="col-6 col-p2-3">
+               <div class="container">
+                  <div class="row">
+                     <div class="separation2"></div>
+                     <div class="col-6 col-p2-3 names">Profesor:</div>
+                     <div class="col-6 col-p2-3">
+                        <div class="input-group mb-3">
+                        <select class="form-select" aria-label="Default select example" name ="profesor" id="nombreProfesor" required>
+               <option value='<?php 
+               if($data2['borrado'] == 1){
+                  echo NULL; ?>' selected><?php echo NULL ?></option>
+               <?php }else{
+                  echo $data['correoProfesor']; ?>' selected><?php echo $data2['nombre'] ?></option>
+               <?php } ?>
+		                        <?php
+							   		$pdo = Database::connect();
+							   		$query = 'SELECT * FROM md1_docente WHERE borrado IS NULL';
+			 				   		foreach ($pdo->query($query) as $row) {
+		                        			echo "<option value='" . $row['nomina'] . "'>" . $row['nombre'] . "</option>";
+
+			   						}
+			   						Database::disconnect();
+			  					?>
+               </select>
+                        </div>
+                        <small></small>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="separation2 questionMark" id="descrip">&quest;</div>
+                     <div class="col-6 col-p2-3 names">
+                        Descripción del Proyecto:
+                     </div>
+                     <div class="col-6 col-p2-3">
+                        <div class="input-group">
+                        <span class="input-group-text"></span>
+                  <textarea class="form-control" aria-label="With textarea" name="descripcion" id="descripInput"><?php echo $data['descripcion']; ?></textarea>
+                        </div>
+                        <small></small>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="separation2 questionMark" id="nivel">&quest;</div>
+                        <div class="col-6 col-p2-3 names">
+                           Nivel de Desarrollo:
+                        </div>
+                        <div class="col-6 col-p2-3">
+                           <div class="mb-3">
+                           <select class="form-select" aria-label="Default select example" name="nivel" id="nivelInput">
                   <option selected value="<?php echo $data['nivel'] ?>"><?php echo $data['nivel'] ?></option>
                   <option value="Concepto">Concepto</option>
                   <option value="Prototipo">Prototipo</option>
                   <option value="Terminado">Producto Terminado</option>
                 </select>
-                
-            </div>
-            <small></small>
-            </div>
-         </div>
-
-         <div class="row">
-         <div class="separation"></div>
-         <div class="col-3 col-p2-3 names">
-               Correo de Compañero:
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero2" value="<?php if ($data['correoCompañero2']==NULL){
-                     echo NULL;
-                  }else{
-                     echo $data['correoCompañero2'];
-                     } ?>">
-                  <span class="input-group-text">@</span>
-                  <input type="text" class="form-control" placeholder="Server" aria-label="Server" value="tec.mx">
-                </div>
-            </div>
-            <div class="separation2 questionMark" id="video">&quest;</div>
-            <div class="col-3 col-p2-3 names">
-               Subir Video (.mp4): 
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="mb-3">
-                  <input type="text" class="form-control" name="video" id="" value="<?php echo $data['video'] ?>">
-                  
-                  <small></small>
+                           </div>
+                           <small></small>
+                        </div>
+                  </div>
+                  <div class="row">
+                     <div class="separation2 questionMark" id="video">&quest;</div>
+                     <div class="col-6 col-p2-3 names">
+                        Subir Video (URL): 
+                     </div>
+                     <div class="col-6 col-p2-3">
+                        <div class="mb-3">
+                           <input type="text" class="form-control" name="video" id="videoInput" value="<?php echo $data['video'] ?>">
+                           <small></small>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="separation2"></div>
+                     <div class="col-6 col-p2-3 names">
+                        Subir Póster (URL): 
+                     </div>
+                     <div class="col-6 col-p2-3">
+                        <div class="mb-3">
+                           <input class="form-control" type="text" name="pdf" id="posterInput" value="<?php echo $data['pdf'] ?>" >
+                           <small></small>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-6 col-p1-14 names1">
+                        Tiene Componente de Emprendimiento:
+                     </div>
+                     <?php if($data['componenteDeEmprendimiento']==1){?>
+                     <div class="col-6 radioOpts">
+                        <div class="form-check form-check-inline" id="radios">
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" checked>
+                              <label class="form-check-label" for="inlineRadio1">Sí</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                           <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="0">
+                           <label class="form-check-label" for="inlineRadio2">No</label>
+                        </div>
+                     </div>
+                     <small></small>
+                     <?php }else{?>
+                     <div class="col-6 radioOpts">
+                        <div class="form-check form-check-inline" id="radios">
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
+                              <label class="form-check-label" for="inlineRadio1">Sí</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                           <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="0" checked>
+                           <label class="form-check-label" for="inlineRadio2">No</label>
+                        </div>
+                     </div>
+                     <small></small>
+                     <?php  
+               } ?>
+               </div>
+                  <div class="row">
+                     <div class="col">
+                        <br>
+                        <button type="submit" name="guardarCambios" id="guardarCambios" class="btn btn-primary btn-custom btn-p1" >Guardar cambios</button>
+                        <br></br>
+                     </div>
+                  </div>
                </div>
             </div>
          </div>
-         <div class="row">
-         <div class="separation"></div>
-         <div class="col-3 col-p2-3 names">
-               Correo de Compañero:
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero3" value="<?php if ($data['correoCompañero3']==NULL){
-                     echo NULL;
-                  }else{
-                     echo $data['correoCompañero3'];
-                     } ?>">
-                  <span class="input-group-text">@</span>
-                  <input type="text" class="form-control" placeholder="Server" aria-label="Server" value="tec.mx">
-                </div>
-                <small></small>
-            </div>
-            <div class="separation2"></div>
-            <div class="col-3 col-p2-3 names">
-               Subir Poster (.pdf): 
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="mb-3">
-                  <input class="form-control" type="text" name="pdf" id="posterInput" value="<?php echo $data['pdf'] ?>">
-                  <small></small>
-               </div>
-            </div>
-         </div>
-         <div class="row">
-            <div class="separation"></div>
-         <div class="col-3 col-p2-3 names">
-               Correo de Compañero:
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="compañero4" value="<?php if ($data['correoCompañero4']==NULL){
-                     echo NULL;
-                  }else{
-                     echo $data['correoCompañero4'];
-                     } ?>">
-                  <span class="input-group-text">@</span>
-                  <input type="text" class="form-control" placeholder="Server" aria-label="Server" value="tec.mx">
-                </div>
-                <small></small>
-            </div>
-            <div class="separation2 questionMark" id="imagen">&quest;</div>
-            <div class="col-3 col-p2-3 names">
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="mb-3">
-                  <small></small>
-               </div>
-            </div>
-         </div>
-         <div class="row">
-         <div class="separation"></div>
-         <div class="col-3 col-p2-3 names">
-               Correo de Lider:
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="input-group mb-3">
-                  <?php echo $data['correoLider'] ?>
-                  @
-                  tec.mx
-                </div>
-            </div>
-            <div class="col-3 col-p2-3 names">
-            </div>
-            <div class="col-3 col-p2-3">
-               <div class="mb-3">
-                  <small></small>
-               </div>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-12 col-p1-12 names1">
-               Tiene Componente de Emprendimiento:
-            </div>
-         </div>
-         <?php if($data['componenteDeEmprendimiento']==1){?>
-
-         <div class="row">
-            <div class="col-3 radioOpts">
-               <div class="form-check form-check-inline" id="radios">
-                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" checked>
-                     <label class="form-check-label" for="inlineRadio1">Sí</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="0">
-                  <label class="form-check-label" for="inlineRadio2">No</label>
-                </div>
-            </div>
-            <small></small>
-         </div>
-         <?php }else{?>
-         <div class="row">
-            <div class="col-3 radioOpts">
-               <div class="form-check form-check-inline" id="radios">
-                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
-                     <label class="form-check-label" for="inlineRadio1">Sí</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="0" checked>
-                  <label class="form-check-label" for="inlineRadio2">No</label>
-                </div>
-            </div>
-            <small></small>
-         </div>
-       <?php  
-      } ?>
-
       </div>
-      <br>
-      <button type="submit" class="btn btn-success btn-custom btn-p1" name="guardarCambios">Guardar Cambios</button>
-      <br></br>
+      
       </form>
+
+      <script src="js/registro_proyectos.js"></script>
+   <script src="js/validacion_edicion.js"></script>
    
 </body>
 </html>

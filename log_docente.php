@@ -34,7 +34,7 @@ if($server == "tec.mx" && (!is_numeric($username[1]) || $username[0] == "l")){
     $q = $pdo->prepare($sql);
     $q->execute(array($username));
     $data = $q->fetch(PDO::FETCH_ASSOC);
-    if ($q->rowCount() > 0){
+    if ($q->rowCount() > 0 && $data['correoConfirmado'] == 1){
         if (password_verify($password, $data['contraseña'])){            
             session_start();
             $_SESSION['docente'] = $data['nomina'];
@@ -44,7 +44,6 @@ if($server == "tec.mx" && (!is_numeric($username[1]) || $username[0] == "l")){
         }
     } else{?>
         <div class="alert alert-danger d-flex align-items-center" role="alert">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
             <div>
             No tienes una cuenta registrada con este correo, intenta de nuevo o registrate
             </div>
@@ -52,7 +51,7 @@ if($server == "tec.mx" && (!is_numeric($username[1]) || $username[0] == "l")){
         <div class="container">
             <br>
             <br>
-            <a href='registro.html'><button type='button' class='btn btn-primary btn-custom btn-p3'>Registrarme</button></a> 
+            <a href='registro.php'><button type='button' class='btn btn-primary btn-custom btn-p3'>Registrarme</button></a> 
             <br>
             <br>
             <a href="inicio_sesion_docentejuez.html"><button type="button" class="btn btn-primary btn-custom btn-p3">Intentar de nuevo</button></a>

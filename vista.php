@@ -16,6 +16,7 @@ if(!empty($_GET['id'])){
     
     //Extraer imagen de la BD mediante GET
     $result = $db->query("SELECT imagenes FROM images_tabla WHERE id = {$_GET['id']}");
+    $result2 = $db->query("SELECT imagen FROM anuncios WHERE id = {$_GET['id']}");
     
     if($result->num_rows > 0){
         $imgDatos = $result->fetch_assoc();
@@ -23,6 +24,12 @@ if(!empty($_GET['id'])){
         //Mostrar Imagen
         header("Content-type: image/jpg"); 
         echo $imgDatos['imagenes']; 
+    }elseif($result2->num_rows > 0){
+        $imgDatos = $result2->fetch_assoc();
+        
+        //Mostrar Imagen
+        header("Content-type: image/jpg"); 
+        echo $imgDatos['imagen']; 
     }else{
         echo 'Imagen no existe...';
     }

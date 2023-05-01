@@ -23,25 +23,27 @@
             <span class="navbar-toggler-icon"></span>
           </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            
-            <li class="nav-item-admin"><a class="nav-link" href="ver_usuarios_admin.php">Ver Usuarios</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="asignar_jueces.php">Asignar Jueces</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="ver_proyectos_Admin.php">Ver Proyectos</a></li>
-            <li class="nav-item-admin"><a class="nav-link active" aria-current="page" href="historicodatos.php">Historico de Datos</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="ver_layout_admin.php">Mapa</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="sobre_nosotros_admin.php">Sobre Nosotros</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="preguntas_frecuentes_admin.php">Preguntas Frecuentes</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="ajustes_admin.php">Ajustes</a></li>
-            
-          </ul>
-        </div>
-        <a class="navbar-brand" href="pagina_inicio_admin.php">
+      <a class="navbar-brand" href="pagina_inicio_admin.php">
           <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
         </a>
-        <a class="navbar-brand" href="logout.php">
-          <img src="img/logout.png" alt="" width="40" height="40">
-        </a>
+        <ul class="navbar-nav">
+            
+            <li class="nav-item"><a class="nav-link" href="ver_usuarios_admin.php">Ver Usuarios</a></li>
+            <li class="nav-item"><a class="nav-link" href="asignar_jueces.php">Asignar Jueces</a></li>
+            <li class="nav-item"><a class="nav-link" href="ver_proyectos_Admin.php">Ver Proyectos</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="historicodatos.php">Historico de Datos</a></li>
+            <li class="nav-item"><a class="nav-link" href="ver_layout_admin.php">Mapa</a></li>
+            <li class="nav-item"><a class="nav-link" href="anuncios_admin.php">Anuncios</a></li>
+            <li class="nav-item"><a class="nav-link" href="sobre_nosotros_admin.php">Sobre Nosotros</a></li>
+            <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_admin.php">Preguntas Frecuentes</a></li>
+            <li class="nav-item"><a class="nav-link" href="ajustes_admin.php">Ajustes</a></li>
+            
+          </ul>
+          <a class="navbar-brand" href="logout.php">
+            <img src="img/logout.png" alt="" width="40" height="40">
+          </a>
+        </div>
+
     </div>
   </nav>
       <br>
@@ -54,12 +56,6 @@
             <form method="POST" action="reportesExel.php">
             <button class="btn btn-primary btn-custom btn-p3" name="export">Reporte a Excel</button>
             </form>  
-            </div>
-          </div>
-          <br>
-          <div class="row">
-            <div class="col - 6">
-              <a class="btn btn-primary btn-custom btn-p3" href="reportesPDF.php" target="_blank" rel="noopener noreferrer" role="button">Reporte en pdf</a>
             </div>
           </div>
           <br>

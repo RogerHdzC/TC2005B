@@ -3,22 +3,24 @@
       Botón de Área Estratégica
   ################################# */ 
 
-// Variables
+// Variables Utilizadas para manipular las etiquetas del archivo html
 
 let btnApertura = document.querySelector('#area');
 let container = document.querySelector('#popUp-container');
 let text = document.querySelector('#texto');
 let btnCerrado = document.querySelector('#btn-salida');
 
-// Event Listeners 
+// Event Listeners con función integrada para mostrar un Pop-Up con un mensaje a elección
 
 btnApertura.addEventListener('click', function(){
+   // Se modifica el texto
    text.innerHTML = `<b>Nano</b>: Hace referencia a proyectos que resuelvan necesidades enfocadas a temáticas de sensores, materiales avanzados, biomedicina e ingeniería de tejidos.<br></br><b>Bio</b>: Incluye proyectos que resuelvan necesidades de las áreas de bioprocesos, biología sintética, ingeniería metabólica y las omics que son genómica, proteómica, transcriptómica, metabolómica, biosistemas agroalimentarios, alimentos.<br></br><b>Nexus</b>: Aquellos proyectos que resuelvan necesidades relacionadas con el agua, la energía y los alimentos.<br></br><b>Cyber.</b>: Incluye proyectos cuyo enfoque sea la solución de necesidades en temas de desarrollo de software, ciberseguridad, ciencia de datos, inteligencia artificial, fábricas digitales e internet de las cosas.`;
+   // Se muestra el Pop-Up
    container.style.display = 'block';
 });
 
 btnCerrado.addEventListener('click', function() {
-
+// Se quita el Pop-Up en caso de que de click en la X incluída en el Pop-Up
    container.style.display = 'none';
 });
 
@@ -40,7 +42,9 @@ btnApertura = document.querySelector('#descrip');
 // Event Listeners
 
 btnApertura.addEventListener('click', function(){
+   // Se modifica el texto
    text.innerHTML = `Escribe una descripción de tu Proyecto de máximo <b>200 palabras</b>.`;
+   // Se muestra el Pop-Up
    container.style.display = 'block';
 });
 
@@ -85,7 +89,9 @@ btnApertura = document.querySelector('#video');
 // Event Listeners
 
 btnApertura.addEventListener('click', function(){
+   // Se modifica el texto
    text.innerHTML = `El formato del <b>Video</b> y <b>Póster</b> se encuentran en el apartado de <a href="preguntas_frecuentes_estudiante.php"><b>Preguntas Frecuentes</b></a>`;
+   // Se muestra el Pop-Up
    container.style.display = 'block';
 });
 

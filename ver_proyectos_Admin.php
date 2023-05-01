@@ -2,7 +2,7 @@
   require_once 'restrictedAdmin.php';
   include 'database.php';
   $pdo = Database::connect();
-  $consulta = "SELECT * FROM md1_proyecto";
+  $consulta = "SELECT * FROM md1_proyecto WHERE borrado IS NULL";
   include_once "base_de_datos.php";
   if (!isset($_POST['buscadepartamento'])){$_POST['buscadepartamento'] = '';}
   if (!isset($_POST['buscaarea'])){$_POST['buscaarea'] = '';}
@@ -31,32 +31,35 @@
             <span class="navbar-toggler-icon"></span>
           </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            
-            <li class="nav-item-admin"><a class="nav-link" href="ver_usuarios_admin.php">Ver Usuarios</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="asignar_jueces.php">Asignar Jueces</a></li>
-            <li class="nav-item-admin"><a class="nav-link active" aria-current="page" href="ver_proyectos_Admin.php">Ver Proyectos</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="historicodatos.php">Historico de Datos</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="ver_layout_admin.php">Mapa</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="sobre_nosotros_admin.php">Sobre Nosotros</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="preguntas_frecuentes_admin.php">Preguntas Frecuentes</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="ajustes_admin.php">Ajustes</a></li>
-            
-          </ul>
-        </div>
-        <a class="navbar-brand" href="pagina_inicio_admin.php">
+      <a class="navbar-brand" href="pagina_inicio_admin.php">
           <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
         </a>
-        <a class="navbar-brand" href="logout.php">
+        <ul class="navbar-nav">
+            
+            <li class="nav-item"><a class="nav-link" href="ver_usuarios_admin.php">Ver Usuarios</a></li>
+            <li class="nav-item"><a class="nav-link" href="asignar_jueces.php">Asignar Jueces</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="ver_proyectos_Admin.php">Ver Proyectos</a></li>
+            <li class="nav-item"><a class="nav-link" href="historicodatos.php">Historico de Datos</a></li>
+            <li class="nav-item"><a class="nav-link" href="ver_layout_admin.php">Mapa</a></li>
+            <li class="nav-item"><a class="nav-link" href="anuncios_admin.php">Anuncios</a></li>
+            <li class="nav-item"><a class="nav-link" href="sobre_nosotros_admin.php">Sobre Nosotros</a></li>
+            <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_admin.php">Preguntas Frecuentes</a></li>
+            <li class="nav-item"><a class="nav-link" href="ajustes_admin.php">Ajustes</a></li>
+            
+          </ul>
+          <a class="navbar-brand" href="logout.php">
           <img src="img/logout.png" alt="" width="40" height="40">
         </a>
+        </div>
+
+
     </div>
   </nav>
+ <br> 
   <h1>Proyectos</h1> 
-  <button type="button" class="btn btn-de-estado btn-primary btn-custom btn-p1" onclick="document.location='asignar_jueces.php'">Asignar Jueces</button>
     <div class="container">
     <div class="row">
-      <div class="col-3">
+      <div class="col-3  col-3-p">
         <form id="form2" name="form2" method="POST" action="ver_proyectos_Admin.php">
           <h2>Estado del Proyecto</h2>
           <div class="mb-3">
@@ -135,14 +138,14 @@
       <?php 
         /*FILTRO de busqueda////////////////////////////////////////////*/
         if ($_POST['buscadepartamento'] == '' AND $_POST['buscaarea'] == '' AND $_POST['buscanivel'] == ''){ 
-          $query ="SELECT * FROM md1_proyecto";
-          $query2 = "SELECT count(*) as conteo FROM md1_proyecto";
+          $query ="SELECT * FROM md1_proyecto WHERE borrado is NULL";
+          $query2 = "SELECT count(*) as conteo FROM md1_proyecto WHERE borrado IS NULL";
         }else{
-              $query ="SELECT * FROM md1_proyecto";
-              $query2 = "SELECT count(*) as conteo FROM md1_proyecto";
+              $query ="SELECT * FROM md1_proyecto WHERE borrado IS NULL";
+              $query2 = "SELECT count(*) as conteo FROM md1_proyecto WHERE borrado IS NULL";
               if ($_POST["buscadepartamento"] != '' ){
-                  $query .= " WHERE ((autorizado = '".$_POST['buscadepartamento']."') OR (promedio > '".$_POST['buscadepartamento']."'))";
-                  $query2 .= " WHERE ((autorizado = '".$_POST['buscadepartamento']."') OR (promedio > '".$_POST['buscadepartamento']."'))";
+                  $query .= " AND ((autorizado = '".$_POST['buscadepartamento']."') OR (promedio > '".$_POST['buscadepartamento']."'))";
+                  $query2 .= " AND ((autorizado = '".$_POST['buscadepartamento']."') OR (promedio > '".$_POST['buscadepartamento']."'))";
                   if ($_POST["buscaarea"] != '' ){
                       $query .= " AND (areaEstrategica = '".$_POST['buscaarea']."')";
                       $query2 .= " AND (areaEstrategica = '".$_POST['buscaarea']."')";
@@ -153,12 +156,12 @@
                   }
               }else{
                   if ($_POST["buscaarea"] != '' ){
-                      $query .= " WHERE (areaEstrategica = '".$_POST['buscaarea']."')";
-                      $query2 .= " WHERE (areaEstrategica = '".$_POST['buscaarea']."')";
+                      $query .= " AND (areaEstrategica = '".$_POST['buscaarea']."')";
+                      $query2 .= " AND (areaEstrategica = '".$_POST['buscaarea']."')";
                   }else{
                       if ($_POST["buscanivel"] != '' ){
-                          $query .= " WHERE nivel = '".$_POST["buscanivel"]."' ";
-                          $query2 .= " WHERE nivel = '".$_POST["buscanivel"]."' ";
+                          $query .= " AND nivel = '".$_POST["buscanivel"]."' ";
+                          $query2 .= " AND nivel = '".$_POST["buscanivel"]."' ";
                       }
                   }              
               }
@@ -197,11 +200,12 @@
             $sentencia->execute([$limit, $offset]);
             $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
       ?>
-      <div class="col-9">
-        <div class="card-group">
+      <div class="col-9 col-9-p">
+        <div class="container">
           <div class="row row-cols-1 row-cols-md-3 g-4">
             <?php foreach ($productos as $producto){?>
-              <div class="card">
+              <div class="col">
+              <div class="card h-100">
                 <div class="card-header">                  
                   <h5 class="card-title p1-color"><?php  echo $producto->nombre; ?></h5>
                 </div>
@@ -221,6 +225,7 @@
                           ?>
                 </div>
               </div>
+                          </div>
             <?php } ?>
           </div>
         </div>

@@ -43,26 +43,47 @@ if ( !empty($_GET['id'])) {
 }
 
 if (isset($_POST['guardarCambios'])){
+  echo "aqui entre";
   $pdo = Database::connect();
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   $sql ="UPDATE `md1_proyecto` SET `nombre` = ? , `UF` = ?, `areaEstrategica` = ? , descripcion = ? , correoLider = ?, correoCompañero1 = ? , correoCompañero2 = ? , correoCompañero3 = ? , correoCompañero4 = ?, correoProfesor = ?, nivel = ?, promedio=?,componeteDeEmprendimiento=?,idEdicion=?,autorizado=?, pdf = ?, video = ? WHERE `md1_proyecto`.`id` = ? ";
   $q = $pdo->prepare($sql);
   $q->execute(array($nombre, $uf,$area, $descripcion, $correoLider, $compañero1,$compañero2, $compañero3, $compañero4,$correoProfesor,$nivel,$promedio,$emprendimiento,$edicion,$autorizado,$pdf,$video, $id));
   
+
   Database::disconnect();
   header('Location: pagina_inicio_estudiantes.php');  
 }else{
   $pdo = Database::connect();
-  echo "1";
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  echo "2";
-          $sql ="INSERT INTO md1_proyecto (nombre,UF,areaEstrategica,descripcion,correoLider,correoCompañero1,correoCompañero2,correoCompañero3,correoCompañero4,correoProfesor,nivel,promedio,componeteDeEmprendimiento,idEdicion,autorizado,pdf,video)
-          VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
-  echo "3";
-         $q = $pdo->prepare($sql);
-  echo "4";       
-          $q->execute(array($nombre,$uf,$area,$descripcion,$correoLider,$compañero1,$compañero2,$compañero3,$compañero4,$correoProfesor,$nivel,$promedio,$emprendimiento,$edicion,$autorizado,$pdf,$video));
-  echo "5";
+  $sql ="INSERT INTO md1_proyecto (nombre,UF,areaEstrategica,descripcion,correoLider,correoCompañero1,correoCompañero2,correoCompañero3,correoCompañero4,correoProfesor,nivel,promedio,componeteDeEmprendimiento,idEdicion,autorizado,pdf,video)
+  VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
+  echo "hola";
+  $q = $pdo->prepare($sql);
+  $q->execute(array($nombre,$uf,$area,$descripcion,$correoLider,$compañero1,$compañero2,$compañero3,$compañero4,$correoProfesor,$nivel,$promedio,$emprendimiento,$edicion,$autorizado,$pdf,$video));
+  
+  echo "hola2";
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  echo "hola3";
+  $sql ="SELECT * FROM `md1_ensena` WHERE `idProfesor` = ? AND `idUf`= ?";
+  echo "hola4";
+  $q = $pdo->prepare($sql);
+  echo "hola5";
+  $q->execute(array($correoProfesor,$uf));
+  echo "aqui falla";
+  if ($q->rowCount()>0){
+
+  }else{
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "hola3";
+    $sql ="INSERT INTO `md1_ensena` (`idProfesor`, `idUf`) VALUES (?, ?) ";
+    echo "hola4";
+    $q = $pdo->prepare($sql);
+    echo "hola5";
+    $q->execute(array($correoProfesor,$uf));
+    echo "aqui falla";
+  }
+
   header('Location: pagina_inicio_estudiantes.php');  
   Database::disconnect();
 }

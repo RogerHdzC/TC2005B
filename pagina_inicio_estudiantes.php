@@ -1,5 +1,6 @@
 <?php
   require_once 'restrictedEstudiante.php';
+  include 'database.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -13,7 +14,7 @@
 
     <!-- CSS -->
     <link href="css/general.css" rel="stylesheet">
-    <link href="css/inicioEstudiante.css" rel="stylesheet">
+    
     <title>Inicio</title>
 </head>
 <body>
@@ -22,66 +23,85 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse" id="navbarNav">
+      <a class="navbar-brand" href="pagina_inicio_estudiantes.php">
+      <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
+    </a>
       <ul class="navbar-nav">
-      <li class="nav-item"><a class="nav-link" href="registrar_proyecto_estudiante.php">Registrar Proyectos</a></li>
-            <li class="nav-item"><a class="nav-link" href="mis_proyectos_Estudiante.php">Mis proyectos</a></li>
-            <li class="nav-item"><a class="nav-link" href="explorar_proyectos_estudiante.php">Explorar Proyectos</a></li>
-            <li class="nav-item"><a class="nav-link" href="resultados_estudiante.php">Resultados</a></li>
-            <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver mapa</a></li>
-            <li class="nav-item"><a class="nav-link" href="sobre_nosotros_estudiante.php">Sobre Nosotros</a></li>
-            <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_estudiante.php">Preguntas Frecuentes</a></li>
-            <li class="nav-item"><a class="nav-link" href="ajustes_estudiante.php">Ajustes</a></li>
+          <li class="nav-item"><a class="nav-link" href="registrar_proyecto_estudiante.php">Registrar Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="mis_proyectos_Estudiante.php">Mis proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="explorar_proyectos_estudiante.php">Explorar Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="resultados_estudiante.php">Resultados</a></li>
+          <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver mapa</a></li>
+          <li class="nav-item"><a class="nav-link" href="anuncios_estudiantes.php">Anuncios</a></li>
+          <li class="nav-item"><a class="nav-link" href="sobre_nosotros_estudiante.php">Sobre Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_estudiante.php">Preguntas Frecuentes</a></li>
+          <li class="nav-item"><a class="nav-link" href="ajustes_estudiante.php">Ajustes</a></li>
 
         </ul>
+        <a class="navbar-brand" href="logout.php">
+            <img src="img/logout.png" alt="" width="40" height="40">
+          </a>
       </div>
-      <a class="navbar-brand" href="pagina_inicio_estudiantes.php">
-        <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
-      </a>
-      <a class="navbar-brand" href="logout.php">
-          <img src="img/logout.png" alt="" width="40" height="40">
-        </a>
   </div>
 </nav>
-
-
+<div class="container" style="background-color:gray">
+<?php 
+    $pdo = Database::connect();
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "SELECT * FROM md1_estudiante WHERE  matricula = ?";
+    $q = $pdo->prepare($sql);
+    $q->execute(array($_SESSION['username']));
+    $data = $q->fetch(PDO::FETCH_ASSOC);
+    Database::disconnect();
+  if(($data['modelo'] !== NULL && $data['carrera'] !== NULL && $data['semestre'] !== NULL )){
+    
+  }else{ ?>
+    <p class="text-warning">Completa los datos de tu perfil en la pestaña de ajustes</p>
+  <?php } ?> 
+</div>  
 <div class="container-fluid">
   <br>
   <h1>Inicio</h1>
   <br></br>
   <div class="container">
     <div class="row">
-      <div class="col - 6">
+      <div class="col-6 col-p1-6">
         <a class="btn btn-primary btn-custom btn-p3" href="registrar_proyecto_estudiante.php" role="button">Registrar Proyecto</a>
       </div>
-      <div class="col - 6">
+      <div class="col-6 col-p1-6">
         <a class="btn btn-primary btn-custom btn-p3" href="mis_proyectos_Estudiante.php" role="button">Mis Proyectos</a>
       </div>
     </div>
     <br>
     <div class="row">
-      <div class="col - 6">
+      <div class="col-6 col-p1-6">
         <a class="btn btn-primary btn-custom btn-p3" href="explorar_proyectos_estudiante.php" role="button">Explorar Proyectos</a>
       </div>
-      <div class="col - 6">
+      <div class="col-6 col-p1-6">
         <a class="btn btn-primary btn-custom btn-p3" href="ver_layout_estudiante.php" role="button">Ver mapa</a>
       </div>
     </div>
     <br>
     <div class="row">
-      <div class="col - 6">
+      <div class="col-6 col-p1-6">
         <a class="btn btn-primary btn-custom btn-p3" href="resultados_estudiante.php" role="button">Resultados</a>
       </div>
-      <div class="col - 6">
+      <div class="col-6 col-p1-6">
+      <a class="btn btn-primary btn-custom btn-p3" href="anuncios_estudiantes.php" role="button">Anuncios</a>      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-6 col-p1-6">
+        <a class="btn btn-primary btn-custom btn-p3" href="preguntas_frecuentes_estudiante.php" role="button">Preguntas Frecuentes</a>
+      </div>
+      <div class="col-6 col-p1-6">
         <a class="btn btn-primary btn-custom btn-p3" href="sobre_nosotros_estudiante.php" role="button">Sobre Nosotros</a>
       </div>
     </div>
     <br>
     <div class="row">
-      <div class="col - 6">
-        <a class="btn btn-primary btn-custom btn-p3" href="preguntas_frecuentes_estudiante.php" role="button">Preguntas Frecuentes</a>
-      </div>
-      <div class="col - 6">
+      <div class="col">
         <a class="btn btn-primary btn-custom btn-p3" href="ajustes_estudiante.php" role="button">Ajustes</a>
       </div>
     </div>

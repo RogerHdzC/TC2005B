@@ -5,18 +5,19 @@
 	if ( !empty($_GET['id'])) {
 		$id = base64_decode($_REQUEST['id']);
 	}
-    $juez=1;
+
 	if ( !empty($_POST)) {
 		// keep track post values
 		$id = $_POST['id'];
 		// delete data
+		echo $id;
 		$pdo = Database::connect();
-		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql = "UPDATE `md1_jurado` SET `confirmado` = ? WHERE `md1_jurado`.`correo` = ? ";
+		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);		
+		$sql = "DELETE FROM anuncios WHERE id = ?";
 		$q = $pdo->prepare($sql);
-		$q->execute(array($juez, $id));
+		$q->execute(array($id));
 		Database::disconnect();
-		header("Location: ver_usuarios_admin.php");
+		header("Location: anuncios_admin.php");
 	}
 ?>
 
@@ -33,16 +34,16 @@
   </head>
 
 	<body>
-		<h3 class="aprobar-title">Asignar Juez</h3>
+		<h3 class="aprobar-title">Eliminar un proyecto</h3>
 	    <div class="container">
-	    		<div class="row">					
-					<form class="form-horizontal" action="aceptarJuez.php" method="post">
+	    		<div class="row">
+					
+					<form class="form-horizontal" action="deleteAnuncio.php" method="post">
 						<input type="hidden" name="id" value="<?php echo $id?>"/>
-						<p class="aprobar-title">¿Estas seguro que quieres aceptar a este juez ?</p>
+						<p class="aprobar-title">Estas seguro que quieres eliminar este layout ?</p>
 						<div class="form-actions">
-							<button type="submit" class="aprobar-title btn btn-light btn-custom">Si</button>
-							<a class="btn btn-danger aprobar-title" href="ver_usuarios_admin.php">No</a>
-							
+							<button type="submit" class="btn btn-light btn-custom aprobar-title">Si</button>
+							<a class="btn btn-danger aprobar-title" href="anuncios_admin.php">No</a>
 						</div>
 					</form>
 				</div>

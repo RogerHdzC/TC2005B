@@ -17,7 +17,7 @@
     <!-- CSS -->
     <link href="css/general.css" rel="stylesheet">
 
-    <title>Layout</title>
+    <title>Mapa</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -26,38 +26,54 @@
             <span class="navbar-toggler-icon"></span>
           </button>
       <div class="collapse navbar-collapse" id="navbarNav">
+      <a class="navbar-brand" href="pagina_inicio_admin.php">
+          <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
+        </a>
         <ul class="navbar-nav">
 
-            <li class="nav-item-admin"><a class="nav-link" href="ver_usuarios_admin.php">Ver Usuarios</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="asignar_jueces.php">Asignar Jueces</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="ver_proyectos_Admin.php">Ver Proyectos</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="historicodatos.php">Historico de Datos</a></li>
-            <li class="nav-item-admin"><a class="nav-link active" aria-current="page" href="ver_layout_admin.php">Mapa</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="sobre_nosotros_admin.php">Sobre Nosotros</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="preguntas_frecuentes_admin.php">Preguntas Frecuentes</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="ajustes_admin.php">Ajustes</a></li>
+            <li class="nav-item"><a class="nav-link" href="ver_usuarios_admin.php">Ver Usuarios</a></li>
+            <li class="nav-item"><a class="nav-link" href="asignar_jueces.php">Asignar Jueces</a></li>
+            <li class="nav-item"><a class="nav-link" href="ver_proyectos_Admin.php">Ver Proyectos</a></li>
+            <li class="nav-item"><a class="nav-link" href="historicodatos.php">Historico de Datos</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="ver_layout_admin.php">Mapa</a></li>
+            <li class="nav-item"><a class="nav-link" href="anuncios_admin.php">Anuncios</a></li>
+            <li class="nav-item"><a class="nav-link" href="sobre_nosotros_admin.php">Sobre Nosotros</a></li>
+            <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_admin.php">Preguntas Frecuentes</a></li>
+            <li class="nav-item"><a class="nav-link" href="ajustes_admin.php">Ajustes</a></li>
             
 
           </ul>
+          <a class="navbar-brand" href="logout.php">
+            <img src="img/logout.png" alt="" width="40" height="40">
+          </a>
         </div>
-        <a class="navbar-brand" href="pagina_inicio_admin.php">
-          <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
-        </a>
-        <a class="navbar-brand" href="logout.php">
-          <img src="img/logout.png" alt="" width="40" height="40">
-        </a>
     </div>
   </nav>
   <br>
       <h1>Mapa </h1>
    <br>
-    <?php
-      foreach ($pdo->query($consulta) as $colum){
-    ?>
-      <img src='vista.php?id=<?php echo $colum['id'] ?>' alt='Img blob desde MySQL' width="600" />      
-
+   <div class="container">
+    <div clas="row">
+      <div class="col-12">
+    <form name="MiForm" id="MiForm" method="post" action="cargar.php" enctype="multipart/form-data">
+          <h4 class="text-center">Seleccione imagen a cargar</h4>
+          <div class="form-group">
+            <div class="col-sm-8">
+              <input type="file" class="form-control" id="image" name="image" multiple>
+            </div>
+            <button name="submit" class="btn btn-primary">Cargar Imagen</button>
+          </div>
+      </form>
+      </div>
+    <?php foreach ($pdo->query($consulta) as $colum){?>
+      <div class="col-12">
+      <img class="img-fluid" src='vista.php?id=<?php echo $colum['id'] ?>' alt='Img blob desde MySQL' width="600" />  
+      <a class="btn btn-danger" href="deleteLayout.php?id=<?php echo base64_encode($colum['id']);?>">Eliminar</a>
+    </div>
     <?php 
     }
     ?>
+    </div>
+  </div>
     </body>
 </html>

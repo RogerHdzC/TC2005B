@@ -37,26 +37,28 @@
             <span class="navbar-toggler-icon"></span>
           </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <?php if($data2['correo']!= $_SESSION['docente']){?>
-            <li class="nav-item-docenJuez"><a class="nav-link"  href="mis_proyectos_docenteJuez.php">Mis proyectos</a></li>
-            <?php }?>
-            <?php if(($data['es_jurado']==1) || ($data2['correo']== $_SESSION['docente'])){?>
-              <li class="nav-item-docenJuez"><a class="nav-link"  href="proyectosa_calificar.php">Proyectos a Calificar</a></li>
-            <?php }?>
-            <li class="nav-item-docenJuez"><a class="nav-link"  href="explorar_proyectos_docentejuez.php">Explorar Proyectos</a></li>
-            <li class="nav-item-docenJuez"><a class="nav-link"  href="ver_layout_docenteJuez.php">Ver mapa</a></li>
-            <li class="nav-item-docenJuez"><a class="nav-link"  href="sobre_nosotros_docenteJuez.php">Sobre Nosotros</a></li>
-            <li class="nav-item-docenJuez"><a class="nav-link"  href="preguntas_frecuentes_docenteJuez.php">Preguntas Frecuentes</a></li>
-            <li class="nav-item-docenJuez"><a class="nav-link"  href="ajustes_docenteJuez.php">Ajustes</a></li>
-          </ul>
-        </div>
-        <a class="navbar-brand" href="pagina_inicio_docenteJuez.php">
+      <a class="navbar-brand" href="pagina_inicio_docenteJuez.php">
           <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
         </a>
-        <a class="navbar-brand" href="logout.php">
-          <img src="img/logout.png" alt="" width="40" height="40">
-        </a>
+        <ul class="navbar-nav">
+            <?php if($data2['correo']!= $_SESSION['docente']){?>
+            <li class="nav-item"><a class="nav-link"  href="mis_proyectos_docenteJuez.php">Mis proyectos</a></li>
+            <?php }?>
+            <?php if(($data['es_jurado']==1) || ($data2['correo']== $_SESSION['docente'])){?>
+              <li class="nav-item"><a class="nav-link"  href="proyectosa_calificar.php">Proyectos a Calificar</a></li>
+            <?php }?>
+            <li class="nav-item"><a class="nav-link"  href="explorar_proyectos_docentejuez.php">Explorar Proyectos</a></li>
+            <li class="nav-item"><a class="nav-link"  href="ver_layout_docenteJuez.php">Ver mapa</a></li>
+            <li class="nav-item"><a class="nav-link" href="anuncios_docenteJuez.php">Anuncios</a></li>
+            <li class="nav-item"><a class="nav-link"  href="sobre_nosotros_docenteJuez.php">Sobre Nosotros</a></li>
+            <li class="nav-item"><a class="nav-link"  href="preguntas_frecuentes_docenteJuez.php">Preguntas Frecuentes</a></li>
+            <li class="nav-item"><a class="nav-link"  href="ajustes_docenteJuez.php">Ajustes</a></li>
+          </ul>
+          <a class="navbar-brand" href="logout.php">
+            <img src="img/logout.png" alt="" width="40" height="40">
+          </a>
+        </div>
+
     </div>
   </nav>
 
@@ -66,34 +68,37 @@
   <br></br>
   <div class="container">
     <div class="row">
-      <div class="col - 6">
+      <div class="col-6 col-p1-6">
         <a class="btn btn-primary btn-custom btn-p3" href="mis_proyectos_docenteJuez.php" role="button">Mis Proyectos</a>
       </div>
-      <div class="col - 6">
+      <div class="col-6 col-p1-6">
         <a class="btn btn-primary btn-custom btn-p3" href="explorar_proyectos_docentejuez.php" role="button">Explorar Proyectos</a>
       </div>
     </div>
     <br>
     <div class="row">
-      <div class="col - 6">
+      <div class="col-6 col-p1-6">
         <a class="btn btn-primary btn-custom btn-p3" href="proyectosa_calificar.php" role="button">Proyectos a Calificar</a>
       </div>
-      <div class="col - 6">
+      <div class="col-6 col-p1-6">
         <a class="btn btn-primary btn-custom btn-p3" href="ver_layout_docenteJuez.php" role="button">Ver Mapa</a>
       </div>
     </div>
     <br>
     <div class="row">
-      <div class="col - 6">
-        <a class="btn btn-primary btn-custom btn-p3" href="sobre_nosotros_docenteJuez.php" role="button">Sobre Nosotros</a>
+      <div class="col-6 col-p1-6">
+        <a class="btn btn-primary btn-custom btn-p3" href="anuncios_docenteJuez.php" role="button">Anuncios</a>
       </div>
-      <div class="col - 6">
+      <div class="col-6 col-p1-6">
         <a class="btn btn-primary btn-custom btn-p3" href="preguntas_frecuentes_docenteJuez.php" role="button">Preguntas Frecuentes</a>
       </div>
     </div>
     <br>
     <div class="row">
-      <div class="col - 6">
+      <div class="col-6 col-p1-6">
+      <a class="btn btn-primary btn-custom btn-p3" href="sobre_nosotros_docenteJuez.php" role="button">Sobre Nosotros</a>
+      </div>
+      <div class="col-6 col-p1-6">
         <a class="btn btn-primary btn-custom btn-p3" href="ajustes_docenteJuez.php" role="button">Ajustes</a>
       </div>
     </div>

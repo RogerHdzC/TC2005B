@@ -77,10 +77,6 @@ const checkCorreo = () => {
    const min = 1,
        max = 30,
        tam = 9;
-
-      //  console.clear();
-      //  console.log(!isNaN(u[1]));
-      //  console.log(u[0].toUpperCase() =="A");
        
    if (!isRequired(u) || !isRequired(s)) {
          showError(server, 'El correo no puede estar vacío.');
@@ -175,32 +171,6 @@ const checkCorreo = () => {
       }
 
  
-};
-
-
-
-const checkEsJuez = () => {
-
-   let valid = false;
-
-   const u = user.value.trim();
-   const s = server.value.trim();
-   const e1 = op1;
-   const e2 = op2;
-
-   if(s.toLowerCase() == "tec.mx" && (isNaN(u[1]) || u[0].toLowerCase() == "l")){
-      if (e1.checked == false && e2.checked == false) {
-         showErrorRadio(op2, 'Debe Seleccionar Una Opción');
-      } else {
-         showSuccessRadio(op2);
-            valid = true;
-      }
-   }
-   else {
-      removeErrorRadio(op2)
-      valid = true;
-   }
-   return valid;
 };
 
 const checkPassword = () => {
@@ -341,13 +311,6 @@ form.addEventListener('submit', function (e) {
    validIfCorreoExists &&
    isPasswordValid;
 
-   // console.clear()
-   // console.log(`var isNombreValid: ${isNombreValid}`)
-   // console.log(`var isApellidosValid: ${isApellidosValid}`)
-   // console.log(`var isJuezValid: ${isJuezValid}`)
-   // console.log(`var validIfCorreoExists: ${validIfCorreoExists}`)
-   // console.log(`var isPasswordValid: ${isPasswordValid}`)
-   // Se hace submit en caso de que todas las entradas sean válidas
    if (isFormValid) {
       e.target.submit();
    }

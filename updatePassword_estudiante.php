@@ -1,4 +1,5 @@
 <?php
+  session_start();
   include 'database.php';
     
   use PHPMailer\PHPMailer\PHPMailer;
@@ -72,22 +73,29 @@ if(isset($_POST['forgotSubmit'])){
 				//send email
                 echo "hola 8";
                 echo  $to;				
+				//send email
                 $mail = new PHPMailer(true);
                 $mail->CharSet = "UTF-8";
                 $mail->Encoding = 'base64';
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
-                $mail->Username = 'hdc.rogelio@gmail.com';
-                $mail->Password = 'enstrylmtgchvbxb';
-                $mail->Port = 465;
-                $mail->SMTPSecure = 'ssl';
+                $mail->Username = 'expoing12@gmail.com';
+                $mail->Password = 'kyxzcjlvzvhvvuou';
+                $mail->Port = 25;
+                //$mail->SMTPSecure = 'ssl';
                 $mail->isHTML(true);
-                $mail->setFrom('hdc.rogelio@gmail.com', 'Rogelio');
+                $mail->setFrom('expoing12@gmail.com', 'Expo Ingenierias');
                 $mail->addAddress($to);
                 $mail->Subject = ("$to ($subject)");
                 $mail->Body = $mailContent;
                 $mail->send();
+                if(!$mail->send()){
+                    echo '<p class="text-warning">Message could not be sent.</p>';
+                    echo '<p class="text-warning">Mailer Error: ' . $mail->ErrorInfo . '</p>';
+                }else{
+                    echo '<p class="text-info">Message has been sent</p>';
+                }
 				$sessData['estado']['type'] = 'success';
 				$sessData['estado']['msg'] = 'Por favor revise su correo electrónico, hemos enviado un enlace de restablecimiento de contraseña a su correo electrónico registrado.';
                 
@@ -131,22 +139,29 @@ if(isset($_POST['forgotSubmit'])){
 				//send email
                 echo "hola 8";
                 echo  $to;				
+				//send email
                 $mail = new PHPMailer(true);
                 $mail->CharSet = "UTF-8";
                 $mail->Encoding = 'base64';
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
-                $mail->Username = 'hdc.rogelio@gmail.com';
-                $mail->Password = 'enstrylmtgchvbxb';
-                $mail->Port = 465;
-                $mail->SMTPSecure = 'ssl';
+                $mail->Username = 'expoing12@gmail.com';
+                $mail->Password = 'kyxzcjlvzvhvvuou';
+                $mail->Port = 25;
+                //$mail->SMTPSecure = 'ssl';
                 $mail->isHTML(true);
-                $mail->setFrom('hdc.rogelio@gmail.com', 'Rogelio');
+                $mail->setFrom('expoing12@gmail.com', 'Expo Ingenierias');
                 $mail->addAddress($to);
                 $mail->Subject = ("$to ($subject)");
                 $mail->Body = $mailContent;
                 $mail->send();
+                if(!$mail->send()){
+                    echo '<p class="text-warning">Message could not be sent.</p>';
+                    echo '<p class="text-warning">Mailer Error: ' . $mail->ErrorInfo . '</p>';
+                }else{
+                    echo '<p class="text-info">Message has been sent</p>';
+                }
 				$sessData['estado']['type'] = 'success';
 				$sessData['estado']['msg'] = 'Por favor revise su correo electrónico, hemos enviado un enlace de restablecimiento de contraseña a su correo electrónico registrado.';
                 
@@ -190,22 +205,29 @@ if(isset($_POST['forgotSubmit'])){
 				//send email
                 echo "hola 8";
                 echo  $to;				
+				//send email
                 $mail = new PHPMailer(true);
                 $mail->CharSet = "UTF-8";
                 $mail->Encoding = 'base64';
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
-                $mail->Username = 'hdc.rogelio@gmail.com';
-                $mail->Password = 'enstrylmtgchvbxb';
-                $mail->Port = 465;
-                $mail->SMTPSecure = 'ssl';
+                $mail->Username = 'expoing12@gmail.com';
+                $mail->Password = 'kyxzcjlvzvhvvuou';
+                $mail->Port = 25;
+                //$mail->SMTPSecure = 'ssl';
                 $mail->isHTML(true);
-                $mail->setFrom('hdc.rogelio@gmail.com', 'Rogelio');
+                $mail->setFrom('expoing12@gmail.com', 'Expo Ingenierias');
                 $mail->addAddress($to);
                 $mail->Subject = ("$to ($subject)");
                 $mail->Body = $mailContent;
                 $mail->send();
+                if(!$mail->send()){
+                    echo '<p class="text-warning">Message could not be sent.</p>';
+                    echo '<p class="text-warning">Mailer Error: ' . $mail->ErrorInfo . '</p>';
+                }else{
+                    echo '<p class="text-info">Message has been sent</p>';
+                }
 				$sessData['estado']['type'] = 'success';
 				$sessData['estado']['msg'] = 'Por favor revise su correo electrónico, hemos enviado un enlace de restablecimiento de contraseña a su correo electrónico registrado.';
                 

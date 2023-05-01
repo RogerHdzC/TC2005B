@@ -2,16 +2,7 @@
   require_once 'restrictedDocenteJuez.php';
   include 'database.php';
   $pdo = Database::connect();
-  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $sql = "SELECT * FROM md1_docente WHERE  nomina = ?";
-  $q = $pdo->prepare($sql);
-  $q->execute(array($_SESSION['docente']));
-  $data = $q->fetch(PDO::FETCH_ASSOC);
-  $sql2 = "SELECT * FROM md1_jurado WHERE  correo = ?";
-  $q2 = $pdo->prepare($sql2);
-  $q2->execute(array($_SESSION['docente']));
-  $data2 = $q2->fetch(PDO::FETCH_ASSOC);
-  Database::disconnect();
+  $consulta = "SELECT * FROM anuncios";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -25,11 +16,10 @@
 
     <!-- CSS -->
     <link href="css/general.css" rel="stylesheet">
-    
-    <title>Ajustes</title>
+
+    <title>Anuncios</title>
 </head>
 <body>
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,10 +38,10 @@
             <?php }?>
             <li class="nav-item"><a class="nav-link"  href="explorar_proyectos_docentejuez.php">Explorar Proyectos</a></li>
             <li class="nav-item"><a class="nav-link"  href="ver_layout_docenteJuez.php">Ver mapa</a></li>
-            <li class="nav-item"><a class="nav-link" href="anuncios_docenteJuez.php">Anuncios</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="anuncios_docenteJuez.php">Anuncios</a></li>
             <li class="nav-item"><a class="nav-link"  href="sobre_nosotros_docenteJuez.php">Sobre Nosotros</a></li>
             <li class="nav-item"><a class="nav-link"  href="preguntas_frecuentes_docenteJuez.php">Preguntas Frecuentes</a></li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page"  href="ajustes_docenteJuez.php">Ajustes</a></li>
+            <li class="nav-item"><a class="nav-link"  href="ajustes_docenteJuez.php">Ajustes</a></li>
           </ul>
           <a class="navbar-brand" href="logout.php">
             <img src="img/logout.png" alt="" width="40" height="40">
@@ -60,40 +50,39 @@
 
     </div>
   </nav>
-   <div class="container">
-    <br>
-    <h1>Ajustes</h1>
-    <br>
-      <div class="row">
-        <div class="col-5 align-self-center">Nombre(s): </div>       
-        <div class="col-5 align-self-center">
-          <div class="input-group mb-3">
-          <?php echo $data['nombre']; echo $data2['nombre']; ?>
-          </div>     
-        </div>
-        <div class="col-5 align-self-center">Correo: </div>
-        <div class="col-5 align-self-center">
-          <div class="input-group mb-3">
-          <?php 
-            echo $data['nomina']; 
-            if ($_SESSION['docente'] == $data2['correo'] ){
-              echo $data2['correo'];
-            }else{
 
-              echo $data2['correo']."@tec.mx";
-            }
-          ?>
+  <br>
+      <h1>Anuncios </h1>
+   <br>
+
+
+   <div class="container">
+      <div class="row">
+        <div class="col-4 col-4-a"><h2>Anuncio</h2></div>
+        <div class="col-4 col-4-a" ><h2>Imagen</h2></div>
+        <div class="col-4 col-4-a"><h2>Fecha</h2></div>
+      </div>
+      <div class="row">
+        <?php foreach ($pdo->query($consulta) as $colum){ ?>
+          <div class="col-4">
+            <h2 class="p-a"><b>Anuncio</b></h2>
+            <p><?php echo $colum['anuncio'] ?></p>
           </div>
-        </div>
+          <?php if($colum['imagen'] != NULL) { ?>
+          <div class="col-4">
+            <h2 class="p-a"><b>Imagen</b></h2>
+            <br>
+            <img class="img-fluid" src='vista.php?id=<?php echo $colum['id'] ?>' alt='Img blob desde MySQL' width="100" />  
+          </div>
+          <?php }else{ ?>
+            <div class="col-4"></div>
+            <?php } ?>
+          <div class="col-4">
+          <h2 class="p-a"><b>Fecha</b></h2>
+            <p><?php echo $colum['hora'] ?></p>
+          </div>
+        <?php } ?>
       </div>
-      <div class="col-12">
-        <button type="button" class="btn btn-primary btn-custom btn-de-estado" onclick="document.location='enviar_password_estudiante.php'">Recuperar contraseña</button>
-      </div>
-      <div class="col-12">
-        <button type="button" class="btn btn-primary btn-custom btn-de-estado" onclick="document.location='logout.php'">Cerrar Sesión</button>  
-      </div>
-   </div>  
-      <!-- SCRIPTS -->
-  <script src="js/visibilidad_password.js"></script>  
-</body>
+    </div>
+    </body>
 </html>

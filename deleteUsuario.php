@@ -39,7 +39,7 @@
     if ($q > 0) {
 
         $pdo = Database::connect();
-        $sql = "DELETE FROM md1_docente WHERE nomina = ?";
+        $sql = "UPDATE `md1_docente` SET `borrado` = '1' WHERE `md1_docente`.`nomina` = ? ";
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
         Database::disconnect();
@@ -47,14 +47,14 @@
     }elseif($q2 > 0){
 
         $pdo = Database::connect();
-        $sql = "DELETE FROM md1_jurado WHERE correo = ?";
+        $sql = "UPDATE md1_jurado SET borrado = '1' WHERE correo = ?";
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
         Database::disconnect();
         header("Location: ver_usuarios_admin.php");
     }elseif($q3 > 0){
         $pdo = Database::connect();
-        $sql = "DELETE FROM md1_estudiante WHERE matricula = ?";
+        $sql = "UPDATE md1_estudiante SET borrado = '1' WHERE matricula = ?";
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
         Database::disconnect();
@@ -67,36 +67,32 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <meta 	charset="utf-8">
-      <link href="css/general.css" rel="stylesheet" type="text/css">
+    <meta charset="utf-8">
+           <!-- BOOTSTRAP-->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-      <link   href=	"css/bootstrap.min.css" rel="stylesheet">
-      <script src=	"js/bootstrap.min.js"></script>
+		<!-- CSS -->
+		<link href="css/general.css" rel="stylesheet">
   </head>
 
   <body>
+    <h3 class="aprobar-title">Eliminar un proyecto</h3>
       <div class="container">
-          <div class="span10 offset1">
-              <div class="row">
-                  <h3>Eliminar un proyecto</h3>
+        <div class="row">
+          <form class="form-horizontal" action="deleteUsuario.php" method="post">
+            <input type="hidden" name="id" value="<?php echo $id;?>"/>
+            <input type="hidden" name="q" value="<?php echo $q->rowCount();?>"/>
+              <input type="hidden" name="q2" value="<?php echo $q2->rowCount();?>"/>
+              <input type="hidden" name="q3" value="<?php echo $q3->rowCount();?>"/>
+              <p class="aprobar-title">Estas seguro que quieres eliminar este usuario ?</p>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-light btn-custom aprobar-title">Si</button>
+                <a class="btn btn-danger aprobar-title" href="ver_usuarios_admin.php">No</a>                      
               </div>
-              
-              <form class="form-horizontal" action="deleteUsuario.php" method="post">
-                <?php  
-                ?>
-                  <input type="hidden" name="id" value="<?php echo $id;?>"/>
-                  <input type="hidden" name="q" value="<?php echo $q->rowCount();?>"/>
-                  <input type="hidden" name="q2" value="<?php echo $q2->rowCount();?>"/>
-                  <input type="hidden" name="q3" value="<?php echo $q3->rowCount();?>"/>
-                  <p class="alert alert-error">Estas seguro que quieres eliminar este usuario ?</p>
-                  <div class="form-actions">
-                      <button type="submit" class="btn btn-light btn-custom">Si</button>
-                      <a class="btn btn-danger" href="ver_usuarios_admin.php">No</button>
-                      
-                  </div>
-              </form>
+            </form>
           </div>
-    </div> <!-- /container -->
+      </div>
   </body>
 </html>
 

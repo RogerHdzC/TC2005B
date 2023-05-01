@@ -16,7 +16,6 @@ echo $fp_code;
             $q = $pdo->prepare($sql);
             $q->execute(array($fp_code));
             Database::disconnect();
-            echo "hola";
 
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -24,7 +23,6 @@ echo $fp_code;
             $q2 = $pdo->prepare($sql2);
             $q2->execute(array($fp_code));
             Database::disconnect();
-            echo "hola";
 
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -32,10 +30,8 @@ echo $fp_code;
             $q3 = $pdo->prepare($sql3);
             $q3->execute(array($fp_code));
             Database::disconnect();
-            echo "hola";
 
             if($q->rowCount()>0){
-                echo "hola2";
 
 				//update data with new password
                 $pdo = Database::connect();

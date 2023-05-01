@@ -1,480 +1,817 @@
-
 html {
-   padding-top: 100px;
-}
-
-body {
-    background-color: #040227;
-    color:white;
-    text-align: center;
-    font-size: 25px;
-}
-
-/* .form-control {
-   border: solid 2.5px #28a745;
-} */
-
-/* div {
-   border: solid 2px white;
-} */
-a.logout{float: right;}
-p.success{color:#34A853;}
-p.error{color:#EA4335;}
-
-/* Clases para efectos visuales en los forms */
-.radioOpts{
-   font-size: 20px;
-   margin:auto;
-   margin-top:10px;
-   height: 50px;
-   width: 200px;
-}
-
-.errores input, .erroresExtra{
-   border: solid 3px #b94a48;
-}
-
-.exito input, .exitoExtra{
-   border: solid 3px #28a745;
-}
-
-.validacion small{
-   font-size: 1.5rem;
-   color: #b94a48;
-}
-
-/*Clase de Preguntas Frecuentes*/
-.pfTitulo{
-   font-size: 18pt;
-}
-
-/* Clase de Visibilidad de botón*/
-.bi-eye-slash, .bi-eye{
-   cursor: pointer;
-   margin-left: -160px;
-   color: black;
-   position: relative;
-   z-index: 10;
-}
-
-/* FONT SIZE */
-
-
-.font-20{
-    font-size: 20px;
-}
-    /**
-        * Preguntas frecuentes Admin
-        * Proyectos a calificar
-        * Preguntas frecuentes Estudiante
-        * Preguntas frecuentes Docente Juez
-    */
-.p1-color{
-    color:black;
-}
-
-.carousel{
-    width: 98%;
-    height: 98%;
-}
-
-li{
-   margin-top: 15px;
-}
-
-/* HEADER */
-    /**
-        * Mis proyectos Docente Juez
-        * Preguntas Frecuentes Admin
-        * Proyectos a Calificar
-    */
-
-.inicio{
-   margin-top: -60px;
-}
-
-.h1-p1{
-    color:white;
-}
-
-/* NAV ITEMS*/
-.navbar-collapse{
-   align-items: center;
-   justify-content: center;
-}
-
-.navbar{
-   position: fixed;
-   top: 0;
-   right: 0;
-   left: 0;
-   z-index: 100;
-}
-
-.nav-item{
-   margin: auto 8px;
-   width: 140px;
-}
-
-.nav-item-docenJuez{
-   margin: auto 15px;
-   width: 150px;
-}
-
-.nav-item-admin{
-   margin: auto 10px;
-   padding-left: 30px;
-   width: 150px;
-}
-
-
-/* BUTTONS */
-
-    /**
-        * Ajustes 
-        * Editar proyectos estudiantes
-        * Registrar proyecto estudiantes
-        * Respuesta registro proyecto
-        * Respuesta calificacion admin
-        * Respuesta calificacion Docente
-        * Ver proyectos admin
-        * Ver usuarios admin
-    */
-
-.btn {
-   transition: all .5s ease;
-   border-radius: 10px;
+    padding-top: 100px;
+ }
+ 
+ .sub_arc {
+     width: 400px;
+     margin-left: 3.1cm;
  }
 
- .btn:hover {
-   color: #1bb3eb;
-   background-color: white;
-   border-color: #1bb3eb;
-}
-
-.btn-dark:hover {
-   color: #292b2c;
-   background-color: white;
-   border-color: #292b2c;
-}
-
-.btn-success:hover{
-   color: #5cb85c;
-   background-color: white;
-   border-color: #5cb85c;
-}
-
-.btn-danger:hover{
-   color: #d9534f;
-   background-color: white;
-   border-color: #d9534f;
-}
-
-
-.btn-p1 {
-    width: 200px;
-    padding: 15px;
+ a.logout{float: right;}
+ p.success{color:#34A853;}
+ p.error{color:#EA4335;}
+ 
+ /* Clases para efectos visuales en los forms */
+ .radioOpts{
     font-size: 20px;
+    margin:auto;
+    margin-top:10px;
+    height: 50px;
+    width: 200px;
+ }
+ 
+ .errores input, .erroresExtra{
+    border: solid 3px #b94a48;
+ }
+ 
+ .exito input, .exitoExtra{
+    border: solid 3px #28a745;
+ }
+ 
+ .validacion small{
+    font-size: 1.5rem;
+    color: #b94a48;
+ }
+ 
+ /*Clase de Preguntas Frecuentes*/
+ .pfTitulo{
+    font-size: 18pt;
+ }
+ 
+ /* Clase de Visibilidad de botón*/
+ .bi-eye-slash, .bi-eye{
+    cursor: pointer;
+    margin-left: -170px;
+    color: black;
+    position: relative;
+    z-index: 10;
+ }
+ 
+ .ncr {
+     margin-left: 520px;
+     font-size: 28px;
+     width: 500px;
+ }
+ 
+ /* FONT SIZE */
+ 
+ 
+ .font-20{
+     font-size: 20px;
+ }
+     /**
+         * Preguntas frecuentes Admin
+         * Proyectos a calificar
+         * Preguntas frecuentes Estudiante
+         * Preguntas frecuentes Docente Juez
+     */
+ .p1-color{
+     color:black;
  }
 
-.btn-de-estado{
-    width: 200px;
-    margin-top: 3%;
-    padding: 15px;
+ .carousel{
+     width: 98%;
+     height: 98%;
+ }
+ 
+ li{
+    margin-top: 15px;
+ }
+ 
+ /* HEADER */
+     /**
+         * Mis proyectos Docente Juez
+         * Preguntas Frecuentes Admin
+         * Proyectos a Calificar
+     */
+ 
+ .inicio{
+    margin-top: -60px;
+ }
+ 
+ .h1-p1{
+     color:white;
+ }
+ 
+ /* NAV ITEMS*/
+ .navbar-collapse{
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+ }
+ 
+ .navbar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+ }
+ 
+ 
+ 
+ .nav-item-docenJuez{
+    margin: auto 15px;
+    width: 150px;
+ }
+ 
+ .nav-item-admin{
+    margin: auto 10px;
+    padding-left: 30px;
+    width: 150px;
+ }
+ 
+ 
+ /* BUTTONS */
+ 
+     /**
+         * Ajustes 
+         * Editar proyectos estudiantes
+         * Registrar proyecto estudiantes
+         * Respuesta registro proyecto
+         * Respuesta calificacion admin
+         * Respuesta calificacion Docente
+         * Ver proyectos admin
+         * Ver usuarios admin
+     */
+ 
+ .btn {
+    transition: all .5s ease;
+    border-radius: 10px;
+  }
+ 
+  .btn:hover {
+    color: #1bb3eb;
+    background-color: white;
+    border-color: #1bb3eb;
+ }
+ 
+ .btn-dark:hover {
+    color: #292b2c;
+    background-color: white;
+    border-color: #292b2c;
+ }
+ 
+ .btn-success:hover{
+    color: #5cb85c;
+    background-color: white;
+    border-color: #5cb85c;
+ }
+ 
+ .btn-danger:hover{
+    color: #d9534f;
+    background-color: white;
+    border-color: #d9534f;
+ }
+ 
+ 
+ .btn-p1 {
+     width: 200px;
+     padding: 15px;
+     font-size: 20px;
+  }
+ 
+ .btn-de-estado{
+     width: 200px;
+     margin-top: 3%;
+     padding: 15px;
+     font-size: 20px;
+ } 
+ 
+     /**
+         * Asignar jueces
+         * Calificar Admin
+         * Calificar Docente Juez
+     */
+ .btn-p2 {
+     width: 250px;
+     padding: 15px;
+     font-size: 20px;
+ }
+ 
+     /**
+         * Historico Datos
+         * Inicio admin
+         * Inicio estudiante
+         * Inicio Profesor
+         * Inicio sesion
+     */
+ 
+ 
+     /**
+         * Pagina bienvenida 
+     */
+ 
+     /**
+         * Preguntas frecuentes
+         * Preguntas frecuentes admin
+     */
+ .btn-p5 {
+     width: 100%;
+     height: auto;
+     font-size: 20px;
+     margin-bottom: -15px;
+     border-radius: 5px;
+ }
+ 
+     /**
+         * Preguntas frecuentes admin ulimo btn
+         * Registro
+     */
+ .btn-p6 {
+     width: 400px;
+     padding: 15px;
+     font-size: 25px;
+     margin: 50px;
+ }
+ 
+     /**
+         * Asignar docente como juez
+     */
+ .btn-p7 {
+     width: 200px;
+     padding: 10px;
+     font-size: 25px;
+ }
+ 
+     /**
+         * Asignar docente como juez
+     */
+ .btn-p8 {
+     width: 80px;
+     padding: 10px;
+     font-size: 15px;
+ }
+ 
+ /* CARDS */
+     /**
+         * Ver Proyectos Admin
+     */
+ .card-p1 {
+     color:black;
+     text-align: center;
+ }
+ 
+     /**
+         * Proyectos a calificar
+         * Resultados Estudiante
+     */
+ .card-p1-header{
+     font-size: 18px;
+ }
+ 
+     /**
+         * Preguntas Frecuentes Admin
+     */
+ .card-p2-header{
+     font-size: 20px;
+ }
+ 
+     /**
+         * Preguntas Frecuentes Admin
+     */
+ .card-p1-title{
+     font-size: 30px;
+     padding: 10px;
+ }
+ 
+ .preguntas{
+     background-color: blue;
+ }
+ /**
+ *Sobre nosotros admin
+ */
+ 
+ .card-info{
+     width: 100%;
+     height: 70%;
+ }
+ 
+ .card-body{
     font-size: 20px;
-    font-weight: bold;
-} 
+    text-align: justify;
+    padding-right: 35px;
+ }
+ 
+ .card-info2{
+     width: 100%;
+     height: 100%;
+ }
+ 
+ /* FORMS */
+     /**
+         * Ver Proyectos Admin
+     */
+ .check-p1 {
+     font-size: 20px;
+ }
+ 
+ /* COLS */
+     /**
+         * Ver Usuarios Admin
+     */
+ .col-p1-3{
+     font-size: 16px;
+ }
+ 
+     /**
+         * ver mas proyectos
+     */
 
-    /**
-        * Asignar jueces
-        * Calificar Admin
-        * Calificar Docente Juez
-    */
-.btn-p2 {
-    width: 250px;
-    padding: 15px;
-    font-size: 20px;
-}
+ 
+ .col-p2-3-1{
+     font-size: 20px;
+     background-color: #fff;
+     color: black;
+ }
+ 
+     /**
+         * Ver mas proyectos
+     */
+ .col-p1-9{
+     font-size: 20px;
+ }
+ 
+     /**
+         * Asignar Jueces
+     */
+ /* .col-p1-6{
+     font-size: 25px;
+ } */
+     /**
+         * Calificar Admin
+         * Calificar Docente Juez
+     */
 
-    /**
-        * Historico Datos
-        * Inicio admin
-        * Inicio estudiante
-        * Inicio Profesor
-        * Inicio sesion
-    */
-.btn-p3 {
-    width: 400px;
-    height: 80px;
-    font-size: 25px;
-}
+ 
+     /**
+         * Calificar Docente Juez
+     */
+ /* .col-p1-13{
+     font-size: 20px;
+     font-style: oblique;
+     font-weight: bold;
+ } */
+ 
+   /* Sección del apartado de Registro de Proyectos */
+ 
+   .names {
+    width:235px;
+   font-style: oblique;
+   font-weight: bold;
+   margin-bottom: 50px;
+   }
+ 
+   .names1 {
+   font-style: oblique;
+   font-weight: bold;
+   }
+ 
+   .separation {
+    width:35px;
+    height:35px;
+   }
+ 
+   .separation2 {
+    width:35px;
+    height:35px;
+    margin-left: 15px;
+    margin-right: -12px;
+   }
+ 
+   .questionMark {
+    transition: all .5s ease;
+    background-color: #1bb3eb;
+    border-color: #1bb3eb;
+    color: white;
+    border-radius: 50%;
+    padding-right: 20px;
+    padding-bottom: 40px;
+    cursor: pointer;
+   }
+ 
+   .questionMark:hover {
+    background-color: white;
+    border-color: white;
+    color: #1bb3eb;
+ 
+   }
+ 
+   
 
-    /**
-        * Pagina bienvenida 
-    */
-.btn-p4 {
-    width: 500px;
-    padding: 20px;
-    font-size: 30px;
-}
-
-    /**
-        * Preguntas frecuentes
-        * Preguntas frecuentes admin
-    */
-.btn-p5 {
-    width: 100%;
-    height: 60px;
-    font-size: 20px;
-    margin-bottom: -15px;
-    border-radius: 5px;
-}
-
-    /**
-        * Preguntas frecuentes admin ulimo btn
-        * Registro
-    */
-.btn-p6 {
-    width: 400px;
-    padding: 15px;
-    font-size: 25px;
-    margin: 50px;
-}
-
-/* CARDS */
-    /**
-        * Ver Proyectos Admin
-    */
-.card-p1 {
-    color:black;
-    text-align: center;
-}
-
-    /**
-        * Proyectos a calificar
-        * Resultados Estudiante
-    */
-.card-p1-header{
-    font-size: 18px;
-}
-
-    /**
-        * Preguntas Frecuentes Admin
-    */
-.card-p2-header{
-    font-size: 20px;
-}
-
-    /**
-        * Preguntas Frecuentes Admin
-    */
-.card-p1-title{
-    font-size: 30px;
-    padding: 10px;
-}
-
-.preguntas{
-    background-color: blue;
-}
-/**
-*Sobre nosotros admin
-*/
-
-.card-info{
-    width: 100%;
-    height: 70%;
-}
-
-.card-body{
-   font-size: 20px;
-   text-align: justify;
-   padding-right: 35px;
-}
-
-.card-info2{
-    width: 100%;
-    height: 100%;
-}
-
-/* FORMS */
-    /**
-        * Ver Proyectos Admin
-    */
-.check-p1 {
-    font-size: 20px;
-}
-
-/* COLS */
-    /**
-        * Ver Usuarios Admin
-    */
-.col-p1-3{
-    font-size: 16px;
-}
-
-    /**
-        * ver mas proyectos
-    */
-.col-p2-3{
-    font-size: 20px;
-}
-
-    /**
-        * Ver mas proyectos
-    */
-.col-p1-9{
-    font-size: 20px;
-}
-
-    /**
-        * Asignar Jueces
-    */
-.col-p1-6{
-    font-size: 25px;
-}
-    /**
-        * Calificar Admin
-        * Calificar Docente Juez
-    */
-.col-p1-12{
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-
-    /**
-        * Calificar Docente Juez
-    */
-.col-p1-13{
-    font-size: 20px;
-    font-style: oblique;
-    font-weight: bold;
-}
+     /* Animación del cuadro de registro de Proyectos */
+ 
+     @keyframes animatemodal {
+       from {
+          top: -300px;
+          opacity: 0;
+       }
+ 
+       to {
+          top: 50%;
+          opacity: 1;
+       }
+   } 
 
 
-/* OBJETOS ARRASTRABLES */
-.example-parent {
-    display: flex;
-    font-family: sans-serif;
-    font-weight: bold;
+   @media screen and (max-width: 1920px) {
+        body {
+            background-color: #040227;
+            color:white;
+            text-align: center;
+            font-size: 25px;
+        }
+        
+        .nav-item{
+            margin: auto 8px;
+            width: 140px;
+        }
+
+        .aprobar-title{
+            font-size: 50px;
+        }
+
+        .btn-p4 {
+            width: 500px;
+            padding: 20px;
+            font-size: 30px;
+        }
+        .btn-p3 {
+            width: 400px;
+            height: 80px;
+            font-size: 25px;
+            padding: 10px;
+        }
+        .col-8 {
+            width: 60%;
+        }
+
+        .col-4-p{
+            background-color: white;
+            color:black;
+        }
+
+        .col-4{
+            width: 30%;
+        }
+
+        .col-p2-3{
+            font-size: 20px;
+        }
+        .col-p1-13{
+            font-size: 30px;
+            font-style: oblique;
+            font-weight: bold;
+        }
+        .col-p1-12{
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+        
+        .col-p1-14{
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .col-p1-6{
+            font-size: 25px;
+        }
+
+        .p-a{
+            display: none;
+        }
+        
+        #explicacion {
+            background-color: #fff;
+            color: black;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation-name: animatemodal;
+            animation-duration: .4s;
+        }
+        #btn-salida {
+            font-size: 3rem;
+            margin-left: 25px;
+        }
+        #btn-salida:hover {
+            cursor: pointer;
+            font-size: 3rem;
+            color: #ff0000;
+        }
+        #popUp-container {
+            margin-top: 40px;
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-color: rgba(0,0,0, .6);
+            text-align: justify;
+        } 
+ 
+    }
+
+  @media screen and (max-width: 1280px) {
+        body {
+            background-color: #040227;
+            color:white;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .nav-item{
+            margin: auto 8px;
+            width: 90px;
+        }
+
+        .btn-p4 {
+            width: 500px;
+            padding: 20px;
+            font-size: 30px;
+        }
+
+        .btn-p3 {
+            width: 400px;
+            height: 80px;
+            font-size: 25px;
+            padding: 10px;
+        }
+        .col-p1-13{
+            font-size: 20px;
+            font-style: oblique;
+            font-weight: bold;
+        }
+        .col-8 {
+            width: 60%;
+        }
+
+        .col-4{
+            width: 30%;
+        }
+        
+        .col-p2-3{
+            font-size: 20px;
+            width: 100%;
+        }
+        .col-p1-12{
+            font-size: 20px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        .col-p1-6{
+            font-size: 25px;
+        }
+        #explicacion {
+            background-color: #fff;
+            color: black;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation-name: animatemodal;
+            animation-duration: .4s;
+        }
+        #btn-salida {
+            font-size: 3rem;
+            margin-left: 25px;
+        }
+        #btn-salida:hover {
+            cursor: pointer;
+            font-size: 3rem;
+            color: #ff0000;
+        }
+        #popUp-container {
+            margin-top: 40px;
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-color: rgba(0,0,0, .6);
+            text-align: justify;
+        } 
   }
-  
-  .example-origin {
-    flex-basis: 100%;
-    flex-grow: 1;
-    padding: 10px;
-  }
-  
-  .example-draggable {
-    background-color: #4AAE9B;
-    font-weight: normal;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    padding: 10px;
-  }
-  
-  .example-dropzone {
-    flex-basis: 100%;
-    flex-grow: 1;
-    padding: 10px;
-  }
+   
+   @media screen and (max-width: 800px) { 
+        body {
+            background-color: #040227;
+            color:white;
+            text-align: center;
+            font-size: 25px;
+        }
 
+        .nav-item{
+            margin: auto 8px;
+            width: 140px;
+        }
 
+        .btn-p4 {
+            width: 250px;
+            padding: 20px;
+            font-size: 15px;
+        }
+        .btn-p3 {
+            width: 400px;
+            height: 80px;
+            font-size: 25px;
+            padding: 5px;
+        }
 
-  /* Sección del apartado de Registro de Proyectos */
+        .col-9-p{
+            width: 100%;
+        }
 
-  .names {
-   width:235px;
-  font-style: oblique;
-  font-weight: bold;
-  margin-bottom: 50px;
-  }
+        .col-3-a{
+            width: 50%;
+        }
+        .col-8 {
+            width: 90%;
+        }
 
-  .names1 {
-  font-style: oblique;
-  font-weight: bold;
-  }
+        .col-3-p{
+            width: 100%;
+        }
 
-  .separation {
-   width:35px;
-   height:35px;
-  }
+        .col-4{
+            position: relative;
+            width: 100%;
+            height: auto;
+        }
 
-  .separation2 {
-   width:35px;
-   height:35px;
-   margin-left: 15px;
-   margin-right: -12px;
-  }
-  
-  #explicacion {
-   background-color: #fff;
-   color: black;
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   /* width: 200px;
-   height: 100px; */
-   padding: 10px 20px;
-   border-radius: 5px;
-   font-size: 1.1rem;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   animation-name: animatemodal;
-   animation-duration: .4s;
-  }
-  #btn-salida {
-   font-size: 3rem;
-   margin-left: 25px;
-  }
-  #btn-salida:hover {
-   cursor: pointer;
-   font-size: 3rem;
-   color: #ff0000;
-  }
-  #popUp-container {
-   margin-top: 40px;
-   display: none;
-   position: fixed;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   z-index: 1;
-   background-color: rgba(0,0,0, .6);
-   text-align: justify;
-  } 
+        .col-p2-3{
+            font-size: 20px;
+            width: 100%;
+        }
+        .col-p1-12{
+            font-size: 20px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        .col-p1-6{
+            font-size: 25px;
+            width: 100%;
+            padding-bottom: 20px;
+        }
 
-  .questionMark {
-   transition: all .5s ease;
-   background-color: #1bb3eb;
-   border-color: #1bb3eb;
-   color: white;
-   border-radius: 50%;
-   padding-right: 20px;
-   padding-bottom: 40px;
-   cursor: pointer;
-  }
+        .col-4-a{
+            display: none;
+        }
 
-  .questionMark:hover {
-   background-color: white;
-   border-color: white;
-   color: #1bb3eb;
+        .p-a{
+            display:contents;
+        }
 
-  }
+        #explicacion {
+            background-color: #fff;
+            color: black;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation-name: animatemodal;
+            animation-duration: .4s;
+        }
+        #btn-salida {
+            font-size: 3rem;
+            margin-left: 25px;
+        }
+        #btn-salida:hover {
+            cursor: pointer;
+            font-size: 3rem;
+            color: #ff0000;
+        }
+        #popUp-container {
+            margin-top: 40px;
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-color: rgba(0,0,0, .6);
+            text-align: justify;
+        } 
+    }
+   
+   @media screen and (max-width: 480px) { 
+        body {
+            background-color: #040227;
+            color:white;
+            text-align: center;
+            font-size: 25px;
+        }    
 
+        .nav-item{
+            margin: auto 8px;
+            width: 140px;
+        }
 
-    /* Animación del cuadro de registro de Proyectos */
+        .btn-p4 {
+            width: 100px;
+            height: 50px;
+            padding: 5px;
+            font-size: 15px;
+        }
+        .btn-p3 {
+            width: 300px;
+            height: 80px;
+            font-size: 25px;
+            padding: 5px;
+        }
+        
+        .col-9-p{
+            width: 100%;
+        }
+        
+        .col-8 {
+            width: 90%;
+        }
 
-    @keyframes animatemodal {
-      from {
-         top: -300px;
-         opacity: 0;
-      }
+        .col-3-p{
+            width: 100%;
+        }
 
-      to {
-         top: 50%;
-         opacity: 1;
-      }
-  } 
+        .col-12{
+            width: 100%;
+        }
+        
+        .col-4{
+            width: 100%;
+        }
+
+        .col-p2-3{
+            font-size: 20px;
+            width: 100%;
+        }
+        .col-p1-12{
+            font-size: 20px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        .col-p1-6{
+            font-size: 25px;
+            width: 100%;
+            padding-bottom: 20px
+        }
+        #explicacion {
+            background-color: #fff;
+            color: black;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation-name: animatemodal;
+            animation-duration: .4s;
+        }
+        #btn-salida {
+            font-size: 3rem;
+            margin-left: 25px;
+        }
+        #btn-salida:hover {
+            cursor: pointer;
+            font-size: 3rem;
+            color: #ff0000;
+        }
+        #popUp-container {
+            margin-top: 40px;
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-color: rgba(0,0,0, .6);
+            text-align: justify;
+        } 
+    }

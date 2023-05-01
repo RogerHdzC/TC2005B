@@ -23,30 +23,41 @@
    <link href="css/general.css" rel="stylesheet">
    
    
-   <title>Iniciar Sesión</title>
+   <title>Recuperar Contraseña</title>
 </head>
 <body>   
-	<div class="col-sm-3 r-form-1-box wow fadeInLeft animated" style="visibility: visible; animation-name: fadeInLeft;"></div>
-	<div class="col-sm-6 r-form-1-box wow fadeInLeft animated" style="visibility: visible; animation-name: fadeInLeft;">
 
-		<h2>USUARIO REGISTRO Y LOGIN </h2>
-			<h4>Ingrese Email de su cuenta a reniciar nuevo Password</h4>
-			<?php echo !empty($statusMsg)?'<p class="'.$statusMsgType.'">'.$statusMsg.'</p>':''; ?>
-			<div class="regisFrm">
-				<form action="updatePassword_estudiante.php" method="post">
-				<div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="" aria-label="Username" name="username" id="correoProfesor">
-                <span class="input-group-text">@</span>
-                <input type="text" class="form-control" placeholder="" aria-label="Server" name="server" id="serverProfesor">
-			</div>
-					<div class="send-button">
-						<input type="submit" name="forgotSubmit" value="CONTINUAR">
-						<button type="button" class="btn btn-primary btn-custom btn-de-estado" onclick="document.location='index.html'">Ir al inicio</button>  
+	<h1 class = "inicio">Recuperar Contraseña</h1>
+	<br>
+	<h2>Ingrese su correo:</h2>
+	<br>
+
+	<?php echo !empty($statusMsg)?'<p class="text-success">'.$statusMsg.'</p>':''; ?>
+	<div class="regisFrm">
+		<form action="updatePassword_estudiante.php" method="post">
+			<div class="container validacion">
+				<div class="row">
+					<div class="col-3 align-self-center">Correo: </div>
+					<div class="col-9 align-self-center">
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" placeholder="" aria-label="Username" name="username" id="correoProfesor">
+							<span class="input-group-text">@</span>
+							<input type="text" class="form-control" placeholder="" aria-label="Server" name="server" id="serverProfesor">
+						</div>
+							<small></small>  
 					</div>
-				</form>
+						<br></br>
+						<br></br>
+					<div class="col-12">
+						<br>
+						<button type="button" class="btn btn-primary btn-custom btn-p3">Continuar</button> 
+					</div>
+					<div class="col-12">
+						<br>
+						<button type="button" class="btn btn-primary btn-custom btn-p3" onclick="document.location='logout.php'">Ir al Inicio</button>  
+					</div>
+				</div>
 			</div>
+		</form>
 	</div>
-	<div class="col-sm-3 r-form-1-box wow fadeInLeft animated" style="visibility: visible; animation-name: fadeInLeft;"></div>
 </body>
-
-

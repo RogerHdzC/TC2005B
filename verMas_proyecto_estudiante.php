@@ -43,312 +43,305 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav">
+           <a class="navbar-brand" href="pagina_inicio_estudiantes.php">
+           <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
+         </a>
           <ul class="navbar-nav">
-
              <li class="nav-item"><a class="nav-link" href="registrar_proyecto_estudiante.php">Registrar Proyectos</a></li>
               <li class="nav-item"><a class="nav-link" href="mis_proyectos_Estudiante.php">Mis proyectos</a></li>
               <li class="nav-item"><a class="nav-link" href="explorar_proyectos_estudiante.php">Explorar Proyectos</a></li>
               <li class="nav-item"><a class="nav-link" href="resultados_estudiante.php">Resultados</a></li>
-              <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver Layout</a></li>
+              <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver mapa</a></li>
+              <li class="nav-item"><a class="nav-link" href="anuncios_estudiantes.php">Anuncios</a></li>
               <li class="nav-item"><a class="nav-link" href="sobre_nosotros_estudiante.php">Sobre Nosotros</a></li>
               <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_estudiante.php">Preguntas Frecuentes</a></li>
               <li class="nav-item"><a class="nav-link" href="ajustes_estudiante.php">Ajustes</a></li>
-  
             </ul>
-          </div>
-          <a class="navbar-brand" href="pagina_inicio_estudiantes.php">
-            <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
+            <a class="navbar-brand" href="logout.php">
+            <img src="img/logout.png" alt="" width="40" height="40">
           </a>
-          <a class="navbar-brand" href="logout.php">
-          <img src="img/logout.png" alt="" width="40" height="40">
-        </a>
+          </div>
+
       </div>
     </nav>
    <br>
-   <h1>Ver más - Proyecto</h1>
-   <br></br>
-      <div class="container">
-         <div class="row">
-                 <div class='col-3 col-p2-3'>
-                 Nombre del Proyecto:
-                 </div>
-                 <div class='col-3 col-p2-3'>
-                 <?php echo $data['nombre']; ?>
-                 </div>
-                 <div class='col-3 col-p2-3'>
-                 Profesor: 
-                 </div>
-                 <div class='col-3 col-p2-3'>
-                 <div class='mb-3'>
-                  <?php echo $data2['nombre']; ?>
-                   </div>
+   <h1>Ver más - Proyecto <?php echo $data['nombre']; ?></h1>
+   <div class="container">
+      <div class="row">
+         <div class="col-4">
+            <div class="container">
+               <div class="row">
+                  <div class="col-12">
+                     <h2>Descripción</h2>
                   </div>
-                  </div>
-                  <div class='row'>
-                  <div class='col-3 col-p2-3'>
-                  Categoría
-                  </div>
-                  <div class='col-3 col-p2-3'>
-                  <div class='mb-3'>
-                  <?php echo $data['categoria']; ?>
-                   </div>
-                  </div>
-                     </div>
-                     <div class='row'>
-                        <div class='col-3 col-p2-3'>
-                           Área Estratégica
+                  <div class="col-12">
+                     <div class="card h-100">
+                        <div class="card-body p1-color">
+                           <p class="card-text"><?php echo $data['descripcion'];?></p>
                         </div>
-                        <div class='col-3 col-p2-3'>
-                           <div class='mb-3'>
-                  <?php echo $data['areaEstrategica']; ?>
-                  </div>
-              </div>
-              <div class='col-3 col-p2-3'>
-                 Descripción del Proyecto
-              </div>
-              <div class='col-3 col-p2-3'>
-                 <div class='input-group'>
-                  <?php  echo $data['descripcion'];  ?>
-                    
+                     </div>   
                   </div>
                </div>
             </div>
-            <br>
-            <div class='row'>
-               <div class='col-3 col-p2-3'>
-                  Nombre de la UF:
-               </div>
-               <div class='col-3 col-p2-3'>
-               <?php echo $data['UF']; ?>
-
-              </div>
-              <div class="col-3 col-p2-3">
-                 Nivel de Desarrollo:
-              </div>
-              <div class="col-3 col-p2-3">
-                  <?php echo $data['nivel']; ?>
-              </div>
-           </div>
-           <br>
-           <div class="row">
-              <div class="col-3 col-p2-3">
-                 Correo del lider
-              </div>
-              <div class="col-3 col-p2-3">
-                 <div class="input-group mb-3">
-                 <?php 
-                 
-                 $pdo = Database::connect();
-                  $sql3 = 'SELECT * FROM md1_estudiante WHERE matricula = ? ';
-                  $q3 = $pdo->prepare($sql3);
-                  $q3->execute(array($data['correoLider']));
-                  $data3 = $q3->fetch(PDO::FETCH_ASSOC);
-                  Database::disconnect();
-
-                 echo $data3['nombre']; 
-                 ?>                  </div>
-              </div>
-              <div class="col-3 col-p2-3"></div>
-               <div class="col-3 col-p2-3"></div>
          </div>
-           <div class="row">
-            <?php if ($data['correoCompañero1'] != NULL){?>
-               <div class="col-3 col-p2-3">
-                  Correo de Compañero
-               </div>
-               <div class="col-3 col-p2-3">
-                  <div class="input-group mb-3">
-                  <?php 
-                  $pdo = Database::connect();
-                   $sql3 = 'SELECT * FROM md1_estudiante WHERE matricula = ? ';
-                   $q3 = $pdo->prepare($sql3);
-                   $q3->execute(array($data['correoCompañero1']));
-                   $data3 = $q3->fetch(PDO::FETCH_ASSOC);
-                   Database::disconnect();
-                  echo $data3['nombre']; 
-                  ?>
-                   </div>
-               </div>
-            <?php }else{ ?>
-               <div class="col-3 col-p2-3">
-                  Componente de Emprendimiento: 
-               </div>
-               <div class="col-3 col-p2-3">
-                  <div class="input-group mb-3">
-                  <?php 
-                  if ($data['componeteDeEmprendimiento'] == 1){
-                        echo "Si";
-                  }else{
-                     echo "No";
-                  } ?>
-                   </div>
-               </div>
-            <?php } ?>
-              <div class="col-3 col-p2-3 names">
-                  Subir Video (URL): 
-               </div>
-               <div class="col-3 col-p2-3">
-                  <div class="mb-3">
-                     <a href="<?php echo $data['video'] ?>" target="_blank" rel="noopener noreferrer">VIDEO</a>
-                     <small></small>
+
+         <div class="col-4">
+            <div class="container">
+               <div class="row">
+                  <div class="col-12">
+                     <h2>Area estratégica</h2>
                   </div>
-               </div>
-              
-               <div class="col-3 col-p2-3"></div>
-         </div>
-           <div class="row">
-           <?php if ($data['correoCompañero2'] != NULL){?>
-               <div class="col-3 col-p2-3">
-                  Correo de Compañero
-               </div>
-               <div class="col-3 col-p2-3">
-                  <div class="input-group mb-3">
-                  <?php 
-                  $pdo = Database::connect();
-                   $sql3 = 'SELECT * FROM md1_estudiante WHERE matricula = ? ';
-                   $q3 = $pdo->prepare($sql3);
-                   $q3->execute(array($data['correoCompañero2']));
-                   $data3 = $q3->fetch(PDO::FETCH_ASSOC);
-                   Database::disconnect();
-                  echo $data3['nombre']; 
-                  ?>
-                   </div>
-               </div>
-            <?php }elseif ($data['correoCompañero1'] != NULL) { ?>
-               <div class="col-3 col-p2-3">
-                  Componente de Emprendimiento: 
-               </div>
-               <div class="col-3 col-p2-3">
-                  <div class="input-group mb-3">
-                  <?php 
-                  if ($data['componeteDeEmprendimiento'] == 1){
-                        echo "Si";
-                  }else{
-                     echo "No";
-                  } ?>
-                   </div>
-               </div>
-            <?php }else{ ?>
-               <div class="col-3 col-p2-3">
-               </div>
-               <div class="col-3 col-p2-3">
-                  <div class="input-group mb-3">
-                   </div>
-               </div>
-            <?php } ?>
-              <div class="col-3 col-p2-3 names">
-                  Subir Poster (URL): 
-               </div>
-               <div class="col-3 col-p2-3">
-                  <div class="mb-3">
+                  <div class="col-12">
+                     <div class="card">
+                           <p class="card-text p1-color"><?php echo $data['areaEstrategica'] ?></p>
+                     </div>     
+                  </div>
+                  <div class="col-12">
+                     <h2>¿Tiene componente de Emprendimiento?</h2>
+                  </div>
+                  <div class="col-12">
+                     <div class="card">
+                        <p class="card-text p1-color"> 
+                           <?php 
+                           if ($data['componeteDeEmprendimiento'] == 1){
+                              echo "Si";
+                           }else{
+                              echo "No";
+                           } ?>
+                        </p>
+                     </div>
+                  </div>
+                  <div class="col-12">
+                     <h2>URL del Poster</h2>
+                  </div>
+                  <div class="col-12">
+                     <div class="card">
                      <a href="<?php echo $data['pdf'] ?>" target="_blank" rel="noopener noreferrer">POSTER</a>
-                  <small></small>
-                  </div>
+                     </div>
+                  </div>  
                </div>
+            </div>
          </div>
-              <div class="row">
-              <?php if ($data['correoCompañero3'] != NULL){?>
-               <div class="col-3 col-p2-3">
-                  Correo de Compañero
+         
+         <div class="col-4">
+            <div class="container">
+               <div class="row">
+                  <div class="col-12">
+                     <h2>Nivel de desarrollo</h2>
+                  </div>
+                  <div class="col-12">
+                     <div class="card">
+                           <p class="card-text p1-color"><?php echo $data['nivel'] ?></p>
+                     </div>     
+                  </div> 
+                  <div class="col-12">
+                     <h2>UF del Proyecto</h2>
+                  </div>
+                  <div class="col-12">
+                     <div class="card">
+                        <p clasS="card-text p1-color"><?php echo $data['UF']?></p>
+                     </div>
+                  </div>
+                  <div class="col-12">
+                     <h2>URL del Video</h2>
+                  </div> 
+                  <div class="col-12">
+                     <div class="card">
+                        <a href="<?php echo $data['video'] ?>" target="_blank" rel="noopener noreferrer">VIDEO</a>
+                     </div>
+                  </div> 
                </div>
-               <div class="col-3 col-p2-3">
-                  <div class="input-group mb-3">
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-4">
+            <h2>Docente a cargo</h2>
+         </div>  
+         <div class="col-4">
+            <h2>Correo del Docente</h2>
+         </div>  
+      </div>
+      <div class="row">
+         <div class="col-4">
+            <div class="card">
+               <p class="card-text p1-color"><?php echo $data2['nombre'] ?></p>
+            </div>
+         </div>
+         <div class="col-4">
+            <div class="card">
+               <p class="card-text p1-color"><?php echo $data['correoProfesor'].'@tec.mx' ?></p>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-4">
+            <h2>Nombre del líder</h2>
+         </div>
+         <div class="col-4">
+            <h2>Correo del líder</h2>
+         </div> 
+      </div>
+      <div class="row">
+         <div class="col-4">
+            <div class="card">
+               <p class="card-text p1-color">
                   <?php 
-                  $pdo = Database::connect();
-                   $sql3 = 'SELECT * FROM md1_estudiante WHERE matricula = ? ';
-                   $q3 = $pdo->prepare($sql3);
-                   $q3->execute(array($data['correoCompañero3']));
-                   $data3 = $q3->fetch(PDO::FETCH_ASSOC);
-                   Database::disconnect();
-                  echo $data3['nombre']; 
+                     $pdo = Database::connect();
+                     $sql3 = 'SELECT * FROM md1_estudiante WHERE matricula = ? ';
+                     $q3 = $pdo->prepare($sql3);
+                     $q3->execute(array($data['correoLider']));
+                     $data3 = $q3->fetch(PDO::FETCH_ASSOC);
+                     Database::disconnect();
+                     echo $data3['nombre']; 
                   ?>
-                   </div>
-               </div>
-            <?php }elseif (($data['correoCompañero2'] != NULL) && ($data['correoCompañero2'] != NULL) ) { ?>
-               <div class="col-3 col-p2-3">
-                  Componente de Emprendimiento: 
-               </div>
-               <div class="col-3 col-p2-3">
-                  <div class="input-group mb-3">
+               </p>
+            </div>
+         </div>
+         <div class="col-4">
+            <div class="card">
+               <p clasS="card-text p1-color"><?php echo $data['correoLider'].'@tex.mx'?></p>
+            </div>
+         </div>
+      </div>
+      <?php if ($data['correoCompañero1'] != NULL){?> 
+      <div class="row">
+         <div class="col-4">
+            <h2>Nombre de compañer@</h2>
+         </div>
+         <div class="col-4">
+            <h2>Correo de compañer@</h2>            
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-4">
+            <div class="card">
+               <p class="card-text p1-color">
                   <?php 
-                  if ($data['componeteDeEmprendimiento'] == 1){
-                        echo "Si";
-                  }else{
-                     echo "No";
-                  } ?>
-                   </div>
-               </div>
-            <?php }else{ ?>
-               <div class="col-3 col-p2-3">
-               </div>
-               <div class="col-3 col-p2-3">
-                  <div class="input-group mb-3">
-                   </div>
-               </div>
-            <?php } ?>
-           <div class="row">
-           <?php if ($data['correoCompañero4'] != NULL){?>
-               <div class="col-3 col-p2-3">
-                  Correo de Compañero
-               </div>
-               <div class="col-3 col-p2-3">
-                  <div class="input-group mb-3">
-                  <?php 
-                  $pdo = Database::connect();
-                   $sql3 = 'SELECT * FROM md1_estudiante WHERE matricula = ? ';
-                   $q3 = $pdo->prepare($sql3);
-                   $q3->execute(array($data['correoCompañero4']));
-                   $data3 = $q3->fetch(PDO::FETCH_ASSOC);
-                   Database::disconnect();
-                  echo $data3['nombre']; 
+                     $pdo = Database::connect();
+                        $sql3 = 'SELECT * FROM md1_estudiante WHERE matricula = ? ';
+                        $q3 = $pdo->prepare($sql3);
+                        $q3->execute(array($data['correoCompañero1']));
+                        $data3 = $q3->fetch(PDO::FETCH_ASSOC);
+                        Database::disconnect();
+                     echo $data3['nombre'];
                   ?>
-                   </div>
-               </div>
-            <?php }elseif (($data['correoCompañero2'] != NULL) && ($data['correoCompañero2'] != NULL) && ($data['correoCompañero3'] != NULL) ) { ?>
-               <div class="col-3 col-p2-3">
-                  Componente de Emprendimiento: 
-               </div>
-               <div class="col-3 col-p2-3">
-                  <div class="input-group mb-3">
+               </p>
+            </div>
+         </div>
+         <div class="col-4">
+            <div class="card">
+               <p class="card-text p1-color">
+                  <?php echo $data['correoCompañero1']."@tec.mx" ?>
+               </p>
+            </div>
+         </div>
+      </div>
+      <?php }?>
+      <?php if ($data['correoCompañero2'] != NULL){?> 
+      <div class="row">
+         <div class="col-4">
+            <h2>Nombre de compañer@</h2>
+         </div>
+         <div class="col-4">
+            <h2>Correo de compañer@</h2>            
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-4">
+            <div class="card">
+               <p class="card-text p1-color">
                   <?php 
-                  if ($data['componeteDeEmprendimiento'] == 1){
-                        echo "Si";
-                  }else{
-                     echo "No";
-                  } ?>
-                   </div>
-               </div>
-            <?php }else{ ?>
-               <div class="col-3 col-p2-3">
-               </div>
-               <div class="col-3 col-p2-3">
-                  <div class="input-group mb-3">
-                   </div>
-               </div>
-            <?php } ?>
-           <div class="row">
-            <?php if(($data['correoCompañero2'] != NULL) && ($data['correoCompañero2'] != NULL) && ($data['correoCompañero3'] != NULL) && ($data['correoCompañero4'] != NULL)){ ?>
-               <div class="col-9 col-p1-9">
-                 Tiene Componente de Emprendimiento
-              </div>
-           </div>
-           <div class="row">
-              <div class="col-9 col-p1-9">
-                 <?php 
-                  if ($data['componeteDeEmprendimiento'] == 1){
-                        echo "Si";
-                  }else{
-                     echo "No";
-                  } ?>
-              </div>
-              </div>
+                     $pdo = Database::connect();
+                        $sql3 = 'SELECT * FROM md1_estudiante WHERE matricula = ? ';
+                        $q3 = $pdo->prepare($sql3);
+                        $q3->execute(array($data['correoCompañero2']));
+                        $data3 = $q3->fetch(PDO::FETCH_ASSOC);
+                        Database::disconnect();
+                     echo $data3['nombre'];
+                  ?>
+               </p>
             </div>
-
-            <?php }else{ ?>
+         </div>
+         <div class="col-4">
+            <div class="card">
+               <p class="card-text p1-color">
+                  <?php echo $data['correoCompañero2']."@tec.mx" ?>
+               </p>
             </div>
+         </div>
+      </div>
+      <?php }?>
+      <?php if ($data['correoCompañero3'] != NULL){?> 
+      <div class="row">
+         <div class="col-4">
+            <h2>Nombre de compañer@</h2>
+         </div>
+         <div class="col-4">
+            <h2>Correo de compañer@</h2>            
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-4">
+            <div class="card">
+               <p class="card-text p1-color">
+                  <?php 
+                     $pdo = Database::connect();
+                        $sql3 = 'SELECT * FROM md1_estudiante WHERE matricula = ? ';
+                        $q3 = $pdo->prepare($sql3);
+                        $q3->execute(array($data['correoCompañero3']));
+                        $data3 = $q3->fetch(PDO::FETCH_ASSOC);
+                        Database::disconnect();
+                     echo $data3['nombre'];
+                  ?>
+               </p>
             </div>
-         <?php } ?>
+         </div>
+         <div class="col-4">
+            <div class="card">
+               <p class="card-text p1-color">
+                  <?php echo $data['correoCompañero3']."@tec.mx" ?>
+               </p>
+            </div>
+         </div>
+      </div>
+      <?php }?>
+      <?php if ($data['correoCompañero4'] != NULL){?> 
+      <div class="row">
+         <div class="col-4">
+            <h2>Nombre de compañer@</h2>
+         </div>
+         <div class="col-4">
+            <h2>Correo de compañer@</h2>            
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-4">
+            <div class="card">
+               <p class="card-text p1-color">
+                  <?php 
+                     $pdo = Database::connect();
+                        $sql3 = 'SELECT * FROM md1_estudiante WHERE matricula = ? ';
+                        $q3 = $pdo->prepare($sql3);
+                        $q3->execute(array($data['correoCompañero4']));
+                        $data3 = $q3->fetch(PDO::FETCH_ASSOC);
+                        Database::disconnect();
+                     echo $data3['nombre'];
+                  ?>
+               </p>
+            </div>
+         </div>
+         <div class="col-4">
+            <div class="card">
+               <p class="card-text p1-color">
+                  <?php echo $data['correoCompañero4']."@tec.mx" ?>
+               </p>
+            </div>
+         </div>
+      </div>
+      <?php }?>
+   </div>
                   
 </body>
 </html>

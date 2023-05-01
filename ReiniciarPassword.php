@@ -23,28 +23,46 @@
    <link href="css/general.css" rel="stylesheet">
    
    
-   <title>Iniciar Sesión</title>
+   <title>Recuperar contraseña</title>
 </head>
 <body>
-  <div class="col-sm-3 r-form-1-box wow fadeInLeft animated" style="visibility: visible; animation-name: fadeInLeft;"></div>
 
-  <div class="col-sm-6 r-form-1-box wow fadeInLeft animated" style="visibility: visible; animation-name: fadeInLeft;">
-      <h2>USUARIO REGISTRO Y LOGIN </h2>
-      <h4>Reiniciar contraseña de su cuenta</h4>
+      <h2 class="inicio">Reiniciar contraseña de su cuenta</h2>
+      <br>
+      <h2>Ingrese los datos que se piden</h2>
+      <br>
           <?php echo !empty($statusMsg)?'<p class="'.$statusMsgType.'">'.$statusMsg.'</p>':''; ?>
-      <div class="regisFrm">
-        <form action="updatePassword_estudiante.php" method="post">
-          <input type="password" name="password" placeholder="PASSWORD" required="">
-          <input type="password" name="confirm_password" placeholder="CONFIRMAR PASSWORD" required="">
-          <div class="send-button">
-            <input type="hidden" name="fp_code" value="<?php echo $_REQUEST['fp_code']; ?>"/>
-            <input type="submit" name="resetSubmit" value="REINICIAR PASSWORD">
-          </div>
-        </form>
-      </div>
+        <div class="regisFrm">
+          <form action="updatePassword_estudiante.php" method="post">
+            <div class="container validacion">
+              <div class="row">
+                <div class="col-3 align-self-center">
+                    Contraseña:
+                </div>
+                <div class="col-8 align-self-center">
+                  <div class="input-group mb-3">
+                    <input type="password" name="password" class="form-control" placeholder="PASSWORD" required="">
+                  </div>
+                </div>
+                <div class="col-3 align-self-center">
+                  Confirmar Contraseña:
+                </div>
+                <div class="col-8 align-self-center">
+                  <div class="input-group mb-3">
+                    <input type="password" name="confirm_password" class="form-control" placeholder="CONFIRMAR PASSWORD" required="">
+                  </div>
+                </div> 
+                <div class="col-12">
+                  <input type="hidden" name="fp_code" value="<?php echo $_REQUEST['fp_code']; ?>"/>
+                  <input type="submit" name="resetSubmit" class="btn btn-primary btn-custom btn-p3" value="REINICIAR PASSWORD">
+                </div>
+              </div>
+            </div>  
+          </form>
+        </div>
 
-  </div>   
-  <!--Inicia columna 7-->
-  <div class="col-sm-3 text wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+      </div>   
+    <!--Inicia columna 7-->
+    <div class="col-sm-3 text wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
   </div>
 </body>

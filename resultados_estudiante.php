@@ -4,7 +4,7 @@
   $matricula = $_SESSION["username"];
   $pdo = Database::connect();
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $sql = "SELECT * FROM md1_proyecto WHERE autorizado=1 AND promedio != 0 AND (correoLider = '$matricula' OR correoCompañero1 = '$matricula' OR correoCompañero2 = '$matricula' OR correoCompañero3 = '$matricula' OR correoCompañero4 = '$matricula')";
+  $sql = "SELECT * FROM md1_proyecto WHERE autorizado=1 AND promedio != 0 AND (correoLider = '$matricula' OR correoCompañero1 = '$matricula' OR correoCompañero2 = '$matricula' OR correoCompañero3 = '$matricula' OR correoCompañero4 = '$matricula' AND borrado IS NULL)";
   Database::disconnect();
 
 ?>
@@ -29,26 +29,28 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="collapse navbar-collapse" id="navbarNav">
+        <a class="navbar-brand" href="pagina_inicio_estudiantes.php">
+        <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
+      </a>
         <ul class="navbar-nav">
             
             <li class="nav-item"><a class="nav-link" href="registrar_proyecto_estudiante.php">Registrar Proyectos</a></li>
             <li class="nav-item"><a class="nav-link" href="mis_proyectos_Estudiante.php">Mis proyectos</a></li>
             <li class="nav-item"><a class="nav-link" href="explorar_proyectos_estudiante.php">Explorar Proyectos</a></li>
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="resultados_estudiante.php">Resultados</a></li>
-            <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver Layout</a></li>
+            <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver mapa</a></li>
+            <li class="nav-item"><a class="nav-link" href="anuncios_estudiantes.php">Anuncios</a></li>
             <li class="nav-item"><a class="nav-link" href="sobre_nosotros_estudiante.php">Sobre Nosotros</a></li>
             <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_estudiante.php">Preguntas Frecuentes</a></li>
             <li class="nav-item"><a class="nav-link" href="ajustes_estudiante.php">Ajustes</a></li>
 
           </ul>
+          <a class="navbar-brand" href="logout.php">
+            <img src="img/logout.png" alt="" width="40" height="40">
+          </a>
         </div>
-        <a class="navbar-brand" href="pagina_inicio_estudiantes.php">
-          <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
-        </a>
-        <a class="navbar-brand" href="logout.php">
-          <img src="img/logout.png" alt="" width="40" height="40">
-        </a>
+
     </div>
   </nav>
 
@@ -62,26 +64,17 @@
             <?php foreach ($pdo->query($sql) as $colum){ ?>
               <div class="col">
                 <div class="card h-100">
-                  <?php
-                      echo "<div class='card-header card-p1-header bg-info'>";
-                      echo "calificado";          ?>
-                </div>
+                      <div class='card-header card-p1-header bg-info'><p>Calificado</p></div>
                 <div class="card-body p1-color">
-                  <h5 class="card-title">
-                    <?php echo $colum['nombre'];
-                    ?>
-                  </h5>
-                  <p class="card-text">
-                    <?php 
-                      echo $colum ['descripcion'];
-                    ?>
-                  </p>
+                  <h5 class="card-title"><?php echo $colum['nombre'];?></h5>
+                  <p class="card-text"><?php echo $colum ['descripcion'];?></p>
                   <?php
                     echo '<p>'. $colum['promedio'] . '</p>';
                     echo '<a href="reconocimiento.php?id='.$colum['id'].'" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Descargar Reconocimiento</a>';
                   ?>
                 </div>
               </div>
+            </div>
                 <br>
             <?php } ?>
           </div>

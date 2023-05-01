@@ -10,50 +10,39 @@
 		// keep track post values
 		$id = $_POST['id'];
 		// delete data
-		echo $id;
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql = "INSERT INTO md1_proyectoBorrado (nombre,UF,areaEstrategica,descripcion,correoLider,correoCompañero1,correoCompañero2,correoCompañero3,correoCompañero4,correoProfesor,nivel,promedio,componeteDeEmprendimiento,idEdicion,autorizado,pdf,video)
-		SELECT nombre,UF,areaEstrategica,descripcion,correoLider,correoCompañero1,correoCompañero2,correoCompañero3,correoCompañero4,correoProfesor,nivel,promedio,componeteDeEmprendimiento,idEdicion,autorizado,pdf,video 
-		FROM md1_proyecto 
-		WHERE id = ?";
-		$q = $pdo->prepare($sql);
-		$q->execute(array($id));		
-		$sql = "DELETE FROM md1_proyecto WHERE id = ?";
+		$sql = "UPDATE `md1_proyecto` SET `borrado` = '1' WHERE `md1_proyecto`.`id` = ?";
 		$q = $pdo->prepare($sql);
 		$q->execute(array($id));
-		Database::disconnect();
-		header("Location: ver_proyectos_Admin.php");
 	}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-	    <meta 	charset="utf-8">
-        <link href="css/general.css" rel="stylesheet" type="text/css">
+<head>
+    <meta charset="utf-8">
+           <!-- BOOTSTRAP-->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-	    <link   href=	"css/bootstrap.min.css" rel="stylesheet">
-	    <script src=	"js/bootstrap.min.js"></script>
-	</head>
+		<!-- CSS -->
+		<link href="css/general.css" rel="stylesheet">
+  </head>
 
-	<body>
+  <body>
+		<h3 class="aprobar-title">Eliminar un proyecto</h3>
 	    <div class="container">
-	    	<div class="span10 offset1">
-	    		<div class="row">
-			    	<h3>Eliminar un proyecto</h3>
-			    </div>
-
-			    <form class="form-horizontal" action="deleteProyectos.php" method="post">
-		    		<input type="hidden" name="id" value="<?php echo $id?>"/>
-					<p class="alert alert-error">Estas seguro que quieres eliminar este proyecto ?</p>
+			<div class="row">	
+				<form class="form-horizontal" action="deleteProyectos.php" method="post">
+					<input type="hidden" name="id" value="<?php echo $id?>"/>
+					<p class="aprobar-title">Estas seguro que quieres eliminar este proyecto ?</p>
 					<div class="form-actions">
-                        <button type="submit" class="btn btn-light btn-custom">Si</button>
-						<a class="btn btn-danger" href="ver_proyectos_Admin.php">No</button>
-						
+						<button type="submit" class="btn btn-light btn-custom aprobar-title">Si</button>
+						<a class="btn btn-danger aprobar-title" href="ver_proyectos_Admin.php">No</a>		
 					</div>
 				</form>
 			</div>
-	  </div> <!-- /container -->
+	  	</div> <!-- /container -->
 	</body>
 </html>

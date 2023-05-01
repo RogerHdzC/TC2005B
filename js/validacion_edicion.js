@@ -27,11 +27,12 @@ const Comp1El = document.querySelector('#Comp1');
 const Comp2El = document.querySelector('#Comp2');
 const Comp3El = document.querySelector('#Comp3');
 const Comp4El = document.querySelector('#Comp4');
+const CompLid = document.querySelector('#Lid');
 
 const emprende1 = document.querySelector('#inlineRadio1');
 const emprende2 = document.querySelector('#inlineRadio2');
 
-const form = document.querySelector('#signup');
+const form = document.querySelector('#guardarCambios');
 
 
 
@@ -41,6 +42,51 @@ const form = document.querySelector('#signup');
 const checkComp1 = () => {
    validComp1 = false;
    const etiqueta = Comp1El;
+   const matricula = etiqueta.value.trim();
+   const tam = 9;
+       
+   if (isRequired(matricula)) {
+      if (matricula.length != tam) {
+         showError(etiqueta, `La Matrícula debe de ser de ${tam} caracteres`)
+
+      } else if (areEqualsComp1(matricula)){
+         showError(etiqueta, `No puedes tener compañeros repetidos`)
+         
+      } else {
+         // Se manda consulta tipo Ajax al server para verificar
+         var xhr = new XMLHttpRequest();
+         xhr.open('POST', 'revisar_registro_proyecto.php', true);
+         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+         xhr.onreadystatechange = function() {
+             if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                 // Handle server response
+                 var response = JSON.parse(xhr.responseText); // Parse the response as JSON
+                 if (response.exists) {
+                     // El valor existe
+                     showSuccess(etiqueta);
+                     validComp1 = true;
+
+                 } else {
+                     // El valor NO existe
+                     showError(etiqueta, `Tu compañero debe de estar registrado`)
+
+                 }
+             }
+         };
+         xhr.send('matricula=' + encodeURIComponent(matricula));
+         
+      }
+   }
+   else {
+      removeError(etiqueta);
+      validComp1 = true;
+   }
+
+};
+
+const checkLid = () => {
+   validComp1 = false;
+   const etiqueta = Lid;
    const matricula = etiqueta.value.trim();
    const tam = 9;
        

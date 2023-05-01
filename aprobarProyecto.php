@@ -24,30 +24,25 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-	    <meta 	charset="utf-8">
-        <link href="css/general.css" rel="stylesheet" type="text/css">
+	    <meta charset="utf-8">
+           <!-- BOOTSTRAP-->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-	    <link   href=	"css/bootstrap.min.css" rel="stylesheet">
-	    <script src=	"js/bootstrap.min.js"></script>
+		<!-- CSS -->
+		<link href="css/general.css" rel="stylesheet">
 	</head>
-
 	<body>
+		<h3 class="aprobar-title">Aprobar un proyecto</h3>
 	    <div class="container">
-	    	<div class="span10 offset1">
-	    		<div class="row">
-			    	<h3>Aprobar un proyecto</h3>
-			    </div>
-
-			    <form class="form-horizontal" action="aprobarProyecto.php" method="post">
-		    		<input type="hidden" name="id" value="<?php echo $id;?>"/>
-					<p class="alert alert-error">Estas seguro que quieres aprobar este proyecto ?</p>
-					<div class="form-actions">
-                        <button type="submit" class="btn btn-light btn-custom">Si</button>
-						<a class="btn btn-danger" href="mis_proyectos_docenteJuez.php">No</button>
-						
-					</div>
+			<div class="row">
+				<form class="form-horizontal" action="aprobarProyecto.php" method="post">
+					<input type="hidden" name="id" value="<?php echo $id;?>"/>
+					<p class="aprobar-title">¿Estás seguro que quieres aprobar este proyecto ?</p>
+						<button type="submit" class="btn btn-success btn-custom aprobar-title">Si</button>
+						<a class="btn btn-danger aprobar-title" href="mis_proyectos_docenteJuez.php">No</a>
 				</form>
 			</div>
-	  </div> <!-- /container -->
+	  </div>
 	</body>
 </html>

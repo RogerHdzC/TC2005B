@@ -29,26 +29,28 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="collapse navbar-collapse" id="navbarNav">
+        <a class="navbar-brand" href="pagina_inicio_estudiantes.php">
+        <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
+      </a>
         <ul class="navbar-nav">
 
             <li class="nav-item"><a class="nav-link" href="registrar_proyecto_estudiante.php">Registrar Proyectos</a></li>
             <li class="nav-item"><a class="nav-link" href="mis_proyectos_Estudiante.php">Mis proyectos</a></li>
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="explorar_proyectos_estudiante.php">Explorar Proyectos</a></li>
             <li class="nav-item"><a class="nav-link" href="resultados_estudiante.php">Resultados</a></li>
-            <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver Layout</a></li>
+            <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver mapa</a></li>
+            <li class="nav-item"><a class="nav-link" href="anuncios_estudiantes.php">Anuncios</a></li>
             <li class="nav-item"><a class="nav-link" href="sobre_nosotros_estudiante.php">Sobre Nosotros</a></li>
             <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_estudiante.php">Preguntas Frecuentes</a></li>
             <li class="nav-item"><a class="nav-link" href="ajustes_estudiante.php">Ajustes</a></li>
 
           </ul>
+          <a class="navbar-brand" href="logout.php">
+            <img src="img/logout.png" alt="" width="40" height="40">
+          </a>
         </div>
-        <a class="navbar-brand" href="pagina_inicio_estudiantes.php">
-          <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
-        </a>
-        <a class="navbar-brand" href="logout.php">
-          <img src="img/logout.png" alt="" width="40" height="40">
-        </a>
+
     </div>
   </nav>
 
@@ -56,7 +58,7 @@
   <h1>Explorar Proyectos</h1> 
   <div class="container">
     <div class="row">
-      <div class="col-3">
+      <div class="col-3 col-3-p">
         <form id="form2" name="form2" method="POST" action="explorar_proyectos_estudiante.php">
           <h2>Estado del Proyecto</h2>
           <div class="mb-3">
@@ -135,14 +137,14 @@
       <?php 
         /*FILTRO de busqueda////////////////////////////////////////////*/
         if ($_POST['buscadepartamento'] == '' AND $_POST['buscaarea'] == '' AND $_POST['buscanivel'] == ''){ 
-          $query ="SELECT * FROM md1_proyecto";
-          $query2 = "SELECT count(*) as conteo FROM md1_proyecto";
+          $query ="SELECT * FROM md1_proyecto WHERE borrado IS NULL";
+          $query2 = "SELECT count(*) as conteo FROM md1_proyecto WHERE borrado IS NULL";
         }else{
-              $query ="SELECT * FROM md1_proyecto";
-              $query2 = "SELECT count(*) as conteo FROM md1_proyecto";
+              $query ="SELECT * FROM md1_proyecto WHERE borrado IS NULL";
+              $query2 = "SELECT count(*) as conteo FROM md1_proyecto WHERE borrado IS NULL";
               if ($_POST["buscadepartamento"] != '' ){
-                  $query .= " WHERE ((autorizado = '".$_POST['buscadepartamento']."') OR (promedio > '".$_POST['buscadepartamento']."'))";
-                  $query2 .= " WHERE ((autorizado = '".$_POST['buscadepartamento']."') OR (promedio > '".$_POST['buscadepartamento']."'))";
+                  $query .= " AND ((autorizado = '".$_POST['buscadepartamento']."') OR (promedio > '".$_POST['buscadepartamento']."'))";
+                  $query2 .= " AND ((autorizado = '".$_POST['buscadepartamento']."') OR (promedio > '".$_POST['buscadepartamento']."'))";
                   if ($_POST["buscaarea"] != '' ){
                       $query .= " AND (areaEstrategica = '".$_POST['buscaarea']."')";
                       $query2 .= " AND (areaEstrategica = '".$_POST['buscaarea']."')";
@@ -153,12 +155,12 @@
                   }
               }else{
                   if ($_POST["buscaarea"] != '' ){
-                      $query .= " WHERE (areaEstrategica = '".$_POST['buscaarea']."')";
-                      $query2 .= " WHERE (areaEstrategica = '".$_POST['buscaarea']."')";
+                      $query .= " AND (areaEstrategica = '".$_POST['buscaarea']."')";
+                      $query2 .= " AND (areaEstrategica = '".$_POST['buscaarea']."')";
                   }else{
                       if ($_POST["buscanivel"] != '' ){
-                          $query .= " WHERE nivel = '".$_POST["buscanivel"]."' ";
-                          $query2 .= " WHERE nivel = '".$_POST["buscanivel"]."' ";
+                          $query .= " AND nivel = '".$_POST["buscanivel"]."' ";
+                          $query2 .= " AND nivel = '".$_POST["buscanivel"]."' ";
                       }
                   }              
               }
@@ -197,19 +199,20 @@
             $sentencia->execute([$limit, $offset]);
             $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
       ?>
-      <div class="col-9">
-        <div class="card-group">
+      <div class="col-9 col-9-p">
+        <div class="container">
           <div class="row row-cols-1 row-cols-md-3 g-4">
             <?php foreach ($productos as $producto){?>
-              <div class="card">
-                <div class="card-header">                  
-                  <h5 class="card-title p1-color"><?php  echo $producto->nombre; ?></h5>
-                </div>
-                <div class="card-body text-center">
+              <div class="col">
+                <div class="card h-100">
+                  <div class="card-header">                  
+                    <h5 class="card-title p1-color"><?php  echo $producto->nombre; ?></h5>
+                  </div>
+                  <div class="card-body text-center">
                     <p class="card-text p1-color"><?php  echo $producto->descripcion; ?></p>
-                    
+                  </div>
+                  <div class="card-footer"><a class="btn btn-primary" href="verMas_proyecto_estudiante.php?id=<?php echo base64_encode($producto->id);?>">Ver más</a></div>
                 </div>
-                <div class="card-footer"><a class="btn btn-primary" href="verMas_proyecto_estudiante.php?id=<?php echo base64_encode($producto->id);?>">Ver más</a></div>
               </div>
             <?php } ?>
           </div>

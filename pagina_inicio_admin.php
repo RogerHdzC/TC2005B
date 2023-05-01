@@ -26,89 +26,78 @@
             <span class="navbar-toggler-icon"></span>
           </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-
-            <li class="nav-item-admin"><a class="nav-link" href="ver_usuarios_admin.php">Ver Usuarios</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="asignar_jueces.php">Asignar Jueces</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="ver_proyectos_Admin.php">Ver Proyectos</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="historicodatos.php">Historico de Datos</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="ver_layout_admin.php">Mapa</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="sobre_nosotros_admin.php">Sobre Nosotros</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="preguntas_frecuentes_admin.php">Preguntas Frecuentes</a></li>
-            <li class="nav-item-admin"><a class="nav-link" href="ajustes_admin.php">Ajustes</a></li>
-            
-
-          </ul>
-        </div>
         <a class="navbar-brand" href="pagina_inicio_admin.php">
           <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
         </a>
-        <a class="navbar-brand" href="logout.php">
-          <img src="img/logout.png" alt="" width="40" height="40">
-        </a>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="ver_usuarios_admin.php">Ver Usuarios</a></li>
+            <li class="nav-item"><a class="nav-link" href="asignar_jueces.php">Asignar Jueces</a></li>
+            <li class="nav-item"><a class="nav-link" href="ver_proyectos_Admin.php">Ver Proyectos</a></li>
+            <li class="nav-item"><a class="nav-link" href="historicodatos.php">Historico de Datos</a></li>
+            <li class="nav-item"><a class="nav-link" href="ver_layout_admin.php">Mapa</a></li>
+            <li class="nav-item"><a class="nav-link" href="anuncios_admin.php">Anuncios</a></li>
+            <li class="nav-item"><a class="nav-link" href="sobre_nosotros_admin.php">Sobre Nosotros</a></li>
+            <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_admin.php">Preguntas Frecuentes</a></li>
+            <li class="nav-item"><a class="nav-link" href="ajustes_admin.php">Ajustes</a></li>
+          </ul>
+          <a class="navbar-brand" href="logout.php">
+            <img src="img/logout.png" alt="" width="40" height="40">
+          </a>
+        </div>
+
     </div>
   </nav>
   <div class="container-fluid">
   <br>
   <h1>Inicio</h1>
-  <br></br>
   <div class="container">
     <div class="row">
-      <div class="col-6">
+      <div class="col-6 col-p1-6">
         <a class="btn btn-primary btn-custom btn-p3" href="ver_usuarios_admin.php" role="button">Ver Usuarios</a>
       </div>
-      <div class="col-6">
+      <div class="col-6 col-p1-6">
         <a class="btn btn-primary btn-custom btn-p3" href="ver_proyectos_Admin.php" role="button">Ver Proyectos</a>
       </div>
     </div>
     <br>
     <div class="row">
-      <div class="col-6">
-        <a class="btn btn-primary btn-custom btn-p3" href="sobre_nosotros_admin.php" role="button">Sobre Nosotros</a>
+      <div class="col-6 col-p1-6">
+        <a class="btn btn-primary btn-custom btn-p3" href="asignar_jueces.php" role="button">Asignar Jueces</a>  
+      
       </div>
-      <div class="col-6">
-        <a class="btn btn-primary btn-custom btn-p3" href="preguntas_frecuentes_admin.php" role="button">Preguntas Frecuentes</a>
+      <div class="col-6 col-p1-6">
+        <a class="btn btn-primary btn-custom btn-p3" href="ver_layout_admin.php" role="button">Ver mapa</a>
+        
       </div>
     </div>
     <br>
     <div class="row">
-      <div class="col-6">
+      <div class="col-6 col-p1-6">
         <a class="btn btn-primary btn-custom btn-p3" href="historicodatos.php" role="button">Descargar Histórico de Datos</a>
       </div>
-      <div class="col-6">
-         <a class="btn btn-primary btn-custom btn-p3" href="ajustes_admin.php" role="button">Ajustes</a>
+      <div class="col-6 col-p1-6">
+        <a class="btn btn-primary btn-custom btn-p3" href="anuncios_admin.php" role="button">Anuncios</a>
+        
       </div>
     </div>
     <br>
 
     <div class="row">
-    <div class="col-6">
-         <a class="btn btn-primary btn-custom btn-p3" href="ver_layout_admin.php" role="button">Ver mapa</a>
+    <div class="col-6 col-p1-6">
+    <a class="btn btn-primary btn-custom btn-p3" href="preguntas_frecuentes_admin.php" role="button">Preguntas Frecuentes</a>
       </div>
-      <div class="col-6">
-
-      </div>
-</div>
-<br>
-    <div class="row">
-      <div class="col-6">
-
-      <form name="MiForm" id="MiForm" method="post" action="cargar.php" enctype="multipart/form-data">
-        <h4 class="text-center">Seleccione imagen a cargar</h4>
-        <div class="form-group">
-          <div class="col-sm-8">
-            <input type="file" class="form-control" id="image" name="image" multiple>
-          </div>
-          <button name="submit" class="btn btn-primary">Cargar Imagen</button>
-        </div>
-        
-      </form>
-      
-      </div>  
-      <div class="col-6">
-        
+      <div class="col-6 col-p1-6">
+        <a class="btn btn-primary btn-custom btn-p3" href="sobre_nosotros_admin.php" role="button">Sobre Nosotros</a>
       </div>
     </div>
+    <br>
+    <div class="row">
+      <div class="col">
+      <a class="btn btn-primary btn-custom btn-p3" href="ajustes_admin.php" role="button">Ajustes</a>
+      </div>
+    </div>
+    <br>
+
     </div>
     </div>
   </div>
