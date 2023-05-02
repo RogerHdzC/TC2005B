@@ -106,6 +106,21 @@
             <div class="input-group mb-3">
               <select class="form-select" aria-label="Default select example" name="carrera" id="areaInput" >
                 <option selected disabled="disabled" value="">Seleccione una Opción</option>
+                <option value="IRS">IAG</option>
+                <option value="IRS">IAL</option>
+                <option value="IRS">IBT</option>
+                <option value="IRS">IC</option>
+                <option value="IRS">IDM</option>
+                <option value="IRS">IDS</option>
+                <option value="IRS">IE</option>
+                <option value="IRS">IID</option>
+                <option value="IRS">IIS</option>
+                <option value="IRS">IFI</option>
+                <option value="IRS">IM</option>
+                <option value="IRS">IMD</option>
+                <option value="IRS">IMT</option>
+                <option value="IRS">INA</option>
+                <option value="IRS">IQ</option>
                 <option value="IRS">IRS</option>
                 <option value="ITC">ITC</option>
                 <option value="ITD">ITD</option>

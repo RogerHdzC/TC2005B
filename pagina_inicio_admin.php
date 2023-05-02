@@ -50,33 +50,34 @@
   <div class="container-fluid">
   <br>
   <h1>Inicio</h1>
+  <Br>
   <div class="container">
     <div class="row">
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p3" href="ver_usuarios_admin.php" role="button">Ver Usuarios</a>
+        <a class="btn btn-primary btn-custom btn-p9" href="ver_usuarios_admin.php" role="button">Ver Usuarios</a>
       </div>
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p3" href="ver_proyectos_Admin.php" role="button">Ver Proyectos</a>
+        <a class="btn btn-primary btn-custom btn-p9" href="ver_proyectos_Admin.php" role="button">Ver Proyectos</a>
       </div>
     </div>
     <br>
     <div class="row">
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p3" href="asignar_jueces.php" role="button">Asignar Jueces</a>  
+        <a class="btn btn-primary btn-custom btn-p9" href="asignar_jueces.php" role="button">Asignar Jueces</a>  
       
       </div>
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p3" href="ver_layout_admin.php" role="button">Ver mapa</a>
+        <a class="btn btn-primary btn-custom btn-p9" href="ver_layout_admin.php" role="button">Ver mapa</a>
         
       </div>
     </div>
     <br>
     <div class="row">
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p3" href="historicodatos.php" role="button">Descargar Histórico de Datos</a>
+        <a class="btn btn-primary btn-custom btn-p9" href="historicodatos.php" role="button">Descargar Histórico de Datos</a>
       </div>
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p3" href="anuncios_admin.php" role="button">Anuncios</a>
+        <a class="btn btn-primary btn-custom btn-p9" href="anuncios_admin.php" role="button">Anuncios</a>
         
       </div>
     </div>
@@ -84,16 +85,16 @@
 
     <div class="row">
     <div class="col-6 col-p1-6">
-    <a class="btn btn-primary btn-custom btn-p3" href="preguntas_frecuentes_admin.php" role="button">Preguntas Frecuentes</a>
+    <a class="btn btn-primary btn-custom btn-p9" href="preguntas_frecuentes_admin.php" role="button">Preguntas Frecuentes</a>
       </div>
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p3" href="sobre_nosotros_admin.php" role="button">Sobre Nosotros</a>
+        <a class="btn btn-primary btn-custom btn-p9" href="sobre_nosotros_admin.php" role="button">Sobre Nosotros</a>
       </div>
     </div>
     <br>
     <div class="row">
       <div class="col">
-      <a class="btn btn-primary btn-custom btn-p3" href="ajustes_admin.php" role="button">Ajustes</a>
+      <a class="btn btn-primary btn-custom btn-p9" href="ajustes_admin.php" role="button">Ajustes</a>
       </div>
     </div>
     <br>

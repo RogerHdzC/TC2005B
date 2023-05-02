@@ -68,9 +68,14 @@
   <br></br>
   <div class="container">
     <div class="row">
+    <?php if($data2['correo']!= $_SESSION['docente']){?>
       <div class="col-6 col-p1-6">
         <a class="btn btn-primary btn-custom btn-p3" href="mis_proyectos_docenteJuez.php" role="button">Mis Proyectos</a>
       </div>
+      <?php }else{?>
+        <div class="col-12 col-p1-6">
+      </div>
+        <?php } ?>
       <div class="col-6 col-p1-6">
         <a class="btn btn-primary btn-custom btn-p3" href="explorar_proyectos_docentejuez.php" role="button">Explorar Proyectos</a>
       </div>

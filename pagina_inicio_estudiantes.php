@@ -63,46 +63,47 @@
 <div class="container-fluid">
   <br>
   <h1>Inicio</h1>
-  <br></br>
+  <br>
   <div class="container">
     <div class="row">
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p3" href="registrar_proyecto_estudiante.php" role="button">Registrar Proyecto</a>
+        <a class="btn btn-primary btn-custom btn-p9" href="registrar_proyecto_estudiante.php" role="button">Registrar Proyecto</a>
       </div>
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p3" href="mis_proyectos_Estudiante.php" role="button">Mis Proyectos</a>
-      </div>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p3" href="explorar_proyectos_estudiante.php" role="button">Explorar Proyectos</a>
-      </div>
-      <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p3" href="ver_layout_estudiante.php" role="button">Ver mapa</a>
+        <a class="btn btn-primary btn-custom btn-p9" href="mis_proyectos_Estudiante.php" role="button">Mis Proyectos</a>
       </div>
     </div>
     <br>
     <div class="row">
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p3" href="resultados_estudiante.php" role="button">Resultados</a>
+        <a class="btn btn-primary btn-custom btn-p9" href="explorar_proyectos_estudiante.php" role="button">Explorar Proyectos</a>
       </div>
       <div class="col-6 col-p1-6">
-      <a class="btn btn-primary btn-custom btn-p3" href="anuncios_estudiantes.php" role="button">Anuncios</a>      </div>
+        <a class="btn btn-primary btn-custom btn-p9" href="ver_layout_estudiante.php" role="button">Ver mapa</a>
+      </div>
     </div>
     <br>
     <div class="row">
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p3" href="preguntas_frecuentes_estudiante.php" role="button">Preguntas Frecuentes</a>
+        <a class="btn btn-primary btn-custom btn-p9" href="resultados_estudiante.php" role="button">Resultados</a>
       </div>
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p3" href="sobre_nosotros_estudiante.php" role="button">Sobre Nosotros</a>
+      <a class="btn btn-primary btn-custom btn-p9" href="anuncios_estudiantes.php" role="button">Anuncios</a>      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-6 col-p1-6">
+        <a class="btn btn-primary btn-custom btn-p9" href="preguntas_frecuentes_estudiante.php" role="button">Preguntas Frecuentes</a>
+      </div>
+      <div class="col-6 col-p1-6">
+        <a class="btn btn-primary btn-custom btn-p9" href="sobre_nosotros_estudiante.php" role="button">Sobre Nosotros</a>
       </div>
     </div>
     <br>
     <div class="row">
       <div class="col">
-        <a class="btn btn-primary btn-custom btn-p3" href="ajustes_estudiante.php" role="button">Ajustes</a>
+        <a class="btn btn-primary btn-custom btn-p9" href="ajustes_estudiante.php" role="button">Ajustes</a>
+        <br></br>      
       </div>
     </div>
     </div>

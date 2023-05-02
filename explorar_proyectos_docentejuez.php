@@ -72,6 +72,7 @@
 
   <br>
   <h1>Explorar Proyectos</h1> 
+  <br>
   <div class="container">
     <div class="row">
       <div class="col-3 col-3-p">
@@ -125,7 +126,7 @@
             </select>
           </div>
           <small></small>
-          <h2>Ordenad por: </h2>
+          <h2>Ordenar por: </h2>
           <div class="mb-3">
             <select id="assigned-tutor-filter" id="orden" name="orden" class="form-select form-control mt-2" style="border: #bababa 1px solid; color:#000000;" >
               <?php if ($_POST["orden"] != ''){ ?>
@@ -139,7 +140,7 @@
               ?>
               </option>
               <?php } ?>
-              <option value="0">SIn orden específico</option>
+              <option value="0">Sin orden específico</option>
               <option value="1">Ordenar por nombre</option>
               <option value="2">Ordenar por estado del proyecto</option>
               <option value="3">Ordenar por area estrategica</option>
@@ -147,7 +148,7 @@
               <option value="5">Ordenar por promedio</option>
             </select>
           </div>
-          <input type="submit" class="btn btn-primary" value="Filtrar">
+          <input type="submit" class="btn btn-primary btn-filtrar" value="Filtrar">
         </form>
       </div>
       <?php 
@@ -237,13 +238,14 @@
       </div>
     </div>
   </div> 
+  <br></br>
   <div class="row">
     <div class="col-xs-12 col-sm-6">
       <p>Mostrando <?php 
       if($conteo < $productosPorPagina){
-        echo $conteo ?> de <?php echo $conteo ?> productos disponibles</p>
+        echo $conteo ?> de <?php echo $conteo ?> proyectos disponibles</p>
       <?php }else{
-        echo $productosPorPagina ?> de <?php echo $conteo ?> productos disponibles</p>
+        echo $productosPorPagina ?> de <?php echo $conteo ?> proyectos disponibles</p>
       <?php } ?>
     </div>
     <div class="col-xs-12 col-sm-6">
