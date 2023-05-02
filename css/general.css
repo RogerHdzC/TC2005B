@@ -152,6 +152,12 @@ html {
     width: 100px;
     font-size: 20px;
   }
+
+  .btn-jueces {
+    width: 300px;
+    height: 60px;
+    font-size: 20px;
+  }
  
   .btn:hover {
     color: #1bb3eb;
@@ -325,6 +331,16 @@ html {
      */
  .col-p1-3{
      font-size: 16px;
+ }
+
+ .cargar{
+    margin-left: 430px;
+ }
+
+ .cargar_i{
+    width: 300px;
+    height: 60px;
+    font-size: 20px;
  }
  
      /**
