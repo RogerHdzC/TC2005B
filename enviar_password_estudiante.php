@@ -37,8 +37,8 @@
 		<form action="updatePassword_estudiante.php" method="post">
 			<div class="container validacion">
 				<div class="row">
-					<div class="col-3 align-self-center">Correo: </div>
-					<div class="col-9 align-self-center">
+					<div class="col-4 align-self-center">Correo: </div>
+					<div class="col-6 align-self-center">
 						<div class="input-group mb-3">
 							<input type="text" class="form-control" placeholder="" aria-label="Username" name="username" id="correoProfesor">
 							<span class="input-group-text">@</span>

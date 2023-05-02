@@ -37,8 +37,8 @@ if(!empty($sessData['estado']['msg'])){
     <div class="container validacion">
       <br>
       <div class="row">
-        <div class="col-3 align-self-center">Nombre(s): </div>       
-        <div class="col-8 align-self-center">
+        <div class="col-4 align-self-center">Nombre(s): </div>       
+        <div class="col-6 align-self-center">
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="" <?php echo !empty($statusName)?'value='.$statusName.'':''; ?>  aria-label="Recipient's username" aria-describedby="button-addon2" name="nombreProfesor" id="nombreProfesor">
             
@@ -46,8 +46,8 @@ if(!empty($sessData['estado']['msg'])){
          <small></small>  
         </div>
         <br></br>
-        <div class="col-3 align-self-center">Apellidos: </div>
-        <div class="col-8 align-self-center">
+        <div class="col-4 align-self-center">Apellidos: </div>
+        <div class="col-6 align-self-center">
           <div class="input-group mb-3">
             <input type="text" aria-label="First name"  class="form-control" name="apellidoPaterno" id="apellidoPaterno" <?php echo !empty($statusAP)?'value='.$statusAP.'':''; ?> >
             <input type="text" aria-label="Last name" class="form-control" name="apellidoMaterno" id="apellidoMaterno" <?php echo !empty($statusAM)?'value='.$statusAM.'':''; ?> >
@@ -56,8 +56,8 @@ if(!empty($sessData['estado']['msg'])){
           <small></small>
         </div>
         <br></br>
-        <div class="col-3 align-self-center">Correo: </div>
-        <div class="col-8 align-self-center">
+        <div class="col-4 align-self-center">Correo: </div>
+        <div class="col-6 align-self-center">
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="" aria-label="Username" name="correoProfesor" id="correoProfesor" <?php echo !empty($statusU)?'value='.$statusU.'':''; ?> >
             <span class="input-group-text">@</span>
@@ -67,8 +67,8 @@ if(!empty($sessData['estado']['msg'])){
           <small></small>
         </div>
         <br></br>
-        <div class="col-3 align-self-center">Contraseña: </div>
-        <div class="col-8 ">
+        <div class="col-4 align-self-center">Contraseña: </div>
+        <div class="col-6 ">
           <div class="input-group mb-3">
             <input type="password" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" name="password" id="password" />
          </div> 
@@ -76,6 +76,7 @@ if(!empty($sessData['estado']['msg'])){
         </div>
         <div class="col-1">
          <i class="bi bi-eye-slash" id="togglePassword"></i>
+         <br></br>
         </div>
  <div class="g-recaptcha" data-sitekey="6LdG5rklAAAAAKyIcrX9BPS7URpUz42APin-SGOe"></div>
               <div class="col-12 align-self-center">
