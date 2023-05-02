@@ -2,32 +2,24 @@
   require_once 'restrictedDocenteJuez.php';
   include 'database.php';
 
-  $id = 0;
-  if ( !empty($_GET['id'])) {
-   $id = base64_decode($_REQUEST['id']);
-  }
+            $id = 0;
+            if ( !empty($_GET['id'])) {
+               $id = base64_decode($_REQUEST['id']);
+            }
+            $pdo = Database::connect();
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql = "SELECT * FROM md1_proyecto WHERE id = ?";
+            $q = $pdo->prepare($sql);
+            $q->execute(array($id));
+            $data = $q->fetch(PDO::FETCH_ASSOC);
+            Database::disconnect();
 
-  $pdo = Database::connect();
-  $sql = 'SELECT * FROM md1_docente WHERE nomina = ? ';
-  $q = $pdo->prepare($sql);
-  $q->execute(array($_SESSION['docente']));
-  $data = $q->fetch(PDO::FETCH_ASSOC);
-  Database::disconnect();
-
-  $pdo = Database::connect();
-  $sql2 = 'SELECT * FROM md1_jurado WHERE correo = ? ';
-  $q2 = $pdo->prepare($sql2);
-  $q2->execute(array($_SESSION['docente']));
-  $data2 = $q2->fetch(PDO::FETCH_ASSOC);
-  Database::disconnect();
-
-  $pdo = Database::connect();
-  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $sql3 = "SELECT * FROM md1_proyecto WHERE id = ?";
-  $q3 = $pdo->prepare($sql3);
-  $q3->execute(array($id));
-  $data3 = $q3->fetch(PDO::FETCH_ASSOC);
-  Database::disconnect();
+            $pdo = Database::connect();
+            $sql2 = 'SELECT * FROM md1_docente WHERE nomina = ? ';
+            $q2 = $pdo->prepare($sql2);
+            $q2->execute(array($data['correoProfesor']));
+            $data2 = $q2->fetch(PDO::FETCH_ASSOC);
+            Database::disconnect();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -76,47 +68,184 @@
 
     </div>
   </nav>
-<form>
-   <br>
-   <h1>Ver más - Proyecto <?php echo $data3['nombre']; ?></h1>
-   <div class="container">
-      <div class="row">
-         <div class="col-4">
-            <div class="container">
-               <div class="row">
-                  <div class="col-12">
-                     <h2>Descripción</h2>
+  <br>
+   <h1>Ver más - Proyecto <?php echo $data['nombre']; ?></h1>
+   <br></br>
+   <div id="popUp-container">
+        <div id="explicacion">
+            <p id = 'texto'></p>
+            <div id="btn-salida">&times;</div>
+        </div>
+    </div> 
+
+      <div class="container validacion">
+         <div class="row">
+            <div class="col-6 col-p2-3">
+               <div class="container">
+                  <div class="row">
+                     <div class="separation"></div>
+                     <div class="col-6 col-p2-3 names">Nombre del Proyecto:</div>
+                     <div class="col-6 col-p2-3">
+                     <div class="card">
+                           <p class="card-text p1-color"><?php echo $data['nombre'] ?></p>
+                     </div>
+                     <small></small>
+                     </div>
                   </div>
-                  <div class="col-12">
-                     <div class="card h-100">
-                        <div class="card-body p1-color">
-                           <p class="card-text"><?php echo $data3['descripcion'];?></p>
+                  <div class="row">
+                     <div class="separation2"></div>
+                        <div class="col-6 col-p2-3 names" >
+                           Unidad de Formación: 
                         </div>
-                     </div>   
+                        <div class="col-6 col-p2-3">
+                           <div class="card">
+                              <p clasS="card-text p1-color"><?php echo $data['UF']?></p>
+                           </div>
+                           <small></small>
+                        </div>
+                  </div>
+                  <div class="row">
+                     <div class="separation questionMark" id="area">&quest;</div>
+                     <div class="col-6 col-p2-3 names">
+                        Área Estratégica:
+                     </div>
+                     <div class="col-6 col-p2-3">
+                     <div class="card">
+                           <p class="card-text p1-color"><?php echo $data['areaEstrategica'] ?></p>
+                     </div> 
+                        <small></small>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="separation"></div>
+                        <div class="col-6 col-p2-3 names">
+                           Edición:
+                        </div>
+                        <div class="col-6 col-p2-3">
+                        <div class="card">
+                           <p class="card-text p1-color"><?php echo $data['idEdicion'] ?></p>
+                        </div>
+                           <small></small>
+                        </div>
+                  </div>
+                  <div class="row">
+                     <div class="separation questionMark" id='compañero'>&quest;</div>
+                        <div class="col-6 col-p2-3 names">
+                           Matrícula Compañero 1:
+                        </div>
+                        <div class="col-6 col-p2-3">
+                        <div class="card">
+                           <p class="card-text p1-color"><?php echo $data['correoCompañero1'] ?></p>
+                        </div>
+                           <small></small>
+                        </div>
+                  </div>
+                  <div class="row">
+                     <div class="separation"></div>
+                     <div class="col-6 col-p2-3 names">
+                           Matrícula Compañero 2:
+                     </div>
+                     <div class="col-6 col-p2-3">
+                        <div class="card">
+                           <p class="card-text p1-color"><?php echo $data['correoCompañero2'] ?></p>
+                        </div>
+                           <small></small>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="separation"></div>
+                     <div class="col-6 col-p2-3 names">
+                           Matrícula Compañero 3:
+                     </div>
+                     <div class="col-6 col-p2-3">
+                        <div class="card">
+                           <p class="card-text p1-color"><?php echo $data['correoCompañero3'] ?></p>
+                        </div>
+                        <small></small>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="separation"></div>
+                     <div class="col-6 col-p2-3 names">
+                           Matrícula Compañero 4:
+                     </div>
+                     <div class="col-6 col-p2-3">
+                        <div class="card">
+                           <p class="card-text p1-color"><?php echo $data['correoCompañero4'] ?></p>
+                        </div>
+                        <small></small>
+                     </div>
                   </div>
                </div>
             </div>
-         </div>
-
-         <div class="col-4">
-            <div class="container">
-               <div class="row">
-                  <div class="col-12">
-                     <h2>Area estratégica</h2>
-                  </div>
-                  <div class="col-12">
+            <div class="col-6 col-p2-3">
+               <div class="container">
+                  <div class="row">
+                     <div class="separation2"></div>
+                     <div class="col-6 col-p2-3 names">Profesor:</div>
+                     <div class="col-6 col-p2-3">
                      <div class="card">
-                           <p class="card-text p1-color"><?php echo $data3['areaEstrategica'] ?></p>
-                     </div>     
+                           <p class="card-text p1-color"><?php echo $data2['nombre'] ?></p>
+                        </div>
+                        <small></small>
+                     </div>
                   </div>
-                  <div class="col-12">
-                     <h2>¿Tiene componente de Emprendimiento?</h2>
+                  <div class="row">
+                     <div class="separation2 questionMark" id="descrip">&quest;</div>
+                     <div class="col-6 col-p2-3 names">
+                        Descripción del Proyecto:
+                     </div>
+                     <div class="col-6 col-p2-3">
+                        <div class="card h-100">
+                           <p class="card-text p1-color"><?php echo $data['descripcion'];?></p>
+                        </div>
+                     </div>
                   </div>
-                  <div class="col-12">
+                  <br>
+                  <div class="row">
+                     <div class="separation2 questionMark" id="nivel">&quest;</div>
+                        <div class="col-6 col-p2-3 names">
+                           Nivel de Desarrollo:
+                        </div>
+                        <div class="col-6 col-p2-3">
+                           <div class="card">
+                              <p class="card-text p1-color"><?php echo $data['nivel'] ?></p>
+                           </div>
+                           <small></small>
+                        </div>
+                  </div>
+                  <div class="row">
+                     <div class="separation2 questionMark" id="video">&quest;</div>
+                     <div class="col-6 col-p2-3 names">
+                        Video (URL): 
+                     </div>
+                     <div class="col-6 col-p2-3">
+                        <div class="card">
+                           <a href="<?php echo $data['video'] ?>" target="_blank" rel="noopener noreferrer">VIDEO</a>
+                           <small></small>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="separation2"></div>
+                     <div class="col-6 col-p2-3 names">
+                        Póster (URL): 
+                     </div>
+                     <div class="col-6 col-p2-3">
+                        <div class="card">
+                           <a href="<?php echo $data['pdf'] ?>" target="_blank" rel="noopener noreferrer">POSTER</a>
+                           <small></small>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="separation2"></div>
+                     <div class="col-6 col-p2-3 names">Tiene Componente de Emprendimiento:</div>
+                     <div class="col-6 col-p2-3">
                      <div class="card">
                         <p class="card-text p1-color"> 
                            <?php 
-                           if ($data3['componeteDeEmprendimiento'] == 1){
+                           if ($data['componeteDeEmprendimiento'] == 1){
                               echo "Si";
                            }else{
                               echo "No";
@@ -124,235 +253,11 @@
                         </p>
                      </div>
                   </div>
-                  <div class="col-12">
-                     <h2>URL del Poster</h2>
-                  </div>
-                  <div class="col-12">
-                     <div class="card">
-                     <a href="<?php echo $data3['pdf'] ?>" target="_blank" rel="noopener noreferrer">POSTER</a>
-                     </div>
-                  </div>  
-               </div>
-            </div>
-         </div>
-         
-         <div class="col-4">
-            <div class="container">
-               <div class="row">
-                  <div class="col-12">
-                     <h2>Nivel de desarrollo</h2>
-                  </div>
-                  <div class="col-12">
-                     <div class="card">
-                           <p class="card-text p1-color"><?php echo $data3['nivel'] ?></p>
-                     </div>     
-                  </div> 
-                  <div class="col-12">
-                     <h2>UF del Proyecto</h2>
-                  </div>
-                  <div class="col-12">
-                     <div class="card">
-                        <p clasS="card-text p1-color"><?php echo $data3['UF']?></p>
-                     </div>
-                  </div>
-                  <div class="col-12">
-                     <h2>URL del Video</h2>
-                  </div> 
-                  <div class="col-12">
-                     <div class="card">
-                        <a href="<?php echo $data3['video'] ?>" target="_blank" rel="noopener noreferrer">VIDEO</a>
-                     </div>
-                  </div> 
                </div>
             </div>
          </div>
       </div>
-      <div class="row">
-         <div class="col-4">
-            <h2>Docente a cargo</h2>
-         </div>  
-         <div class="col-4">
-            <h2>Correo del Docente</h2>
-         </div>  
-      </div>
-      <div class="row">
-         <div class="col-4">
-            <div class="card">
-               <p class="card-text p1-color"><?php echo $data['nombre'] ?></p>
-            </div>
-         </div>
-         <div class="col-4">
-            <div class="card">
-               <p class="card-text p1-color"><?php echo $data3['correoProfesor'].'@tec.mx' ?></p>
-            </div>
-         </div>
-      </div>
-      <div class="row">
-         <div class="col-4">
-            <h2>Nombre del líder</h2>
-         </div>
-         <div class="col-4">
-            <h2>Correo del líder</h2>
-         </div> 
-      </div>
-      <div class="row">
-         <div class="col-4">
-            <div class="card">
-               <p class="card-text p1-color">
-                  <?php 
-                     $pdo = Database::connect();
-                     $sql4 = 'SELECT * FROM md1_estudiante WHERE matricula = ? ';
-                     $q4 = $pdo->prepare($sql4);
-                     $q4->execute(array($data3['correoLider']));
-                     $data4 = $q4->fetch(PDO::FETCH_ASSOC);
-                     Database::disconnect();
-                     echo $data3['nombre']; 
-                  ?>
-               </p>
-            </div>
-         </div>
-         <div class="col-4">
-            <div class="card">
-               <p clasS="card-text p1-color"><?php echo $data3['correoLider'].'@tex.mx'?></p>
-            </div>
-         </div>
-      </div>
-      <?php if ($data3['correoCompañero1'] != NULL){?> 
-      <div class="row">
-         <div class="col-4">
-            <h2>Nombre de compañer@</h2>
-         </div>
-         <div class="col-4">
-            <h2>Correo de compañer@</h2>            
-         </div>
-      </div>
-      <div class="row">
-         <div class="col-4">
-            <div class="card">
-               <p class="card-text p1-color">
-                  <?php 
-                     $pdo = Database::connect();
-                        $sql4 = 'SELECT * FROM md1_estudiante WHERE matricula = ? ';
-                        $q4 = $pdo->prepare($sql4);
-                        $q4->execute(array($data3['correoCompañero1']));
-                        $data4 = $q4->fetch(PDO::FETCH_ASSOC);
-                        Database::disconnect();
-                     echo $data4['nombre'];
-                  ?>
-               </p>
-            </div>
-         </div>
-         <div class="col-4">
-            <div class="card">
-               <p class="card-text p1-color">
-                  <?php echo $data3['correoCompañero1']."@tec.mx" ?>
-               </p>
-            </div>
-         </div>
-      </div>
-      <?php }?>
-      <?php if ($data3['correoCompañero2'] != NULL){?> 
-      <div class="row">
-         <div class="col-4">
-            <h2>Nombre de compañer@</h2>
-         </div>
-         <div class="col-4">
-            <h2>Correo de compañer@</h2>            
-         </div>
-      </div>
-      <div class="row">
-         <div class="col-4">
-            <div class="card">
-               <p class="card-text p1-color">
-                  <?php 
-                     $pdo = Database::connect();
-                        $sql4 = 'SELECT * FROM md1_estudiante WHERE matricula = ? ';
-                        $q4 = $pdo->prepare($sql4);
-                        $q4->execute(array($data3['correoCompañero2']));
-                        $data4 = $q4->fetch(PDO::FETCH_ASSOC);
-                        Database::disconnect();
-                     echo $data4['nombre'];
-                  ?>
-               </p>
-            </div>
-         </div>
-         <div class="col-4">
-            <div class="card">
-               <p class="card-text p1-color">
-                  <?php echo $data3['correoCompañero2']."@tec.mx" ?>
-               </p>
-            </div>
-         </div>
-      </div>
-      <?php }?>
-      <?php if ($data3['correoCompañero3'] != NULL){?> 
-      <div class="row">
-         <div class="col-4">
-            <h2>Nombre de compañer@</h2>
-         </div>
-         <div class="col-4">
-            <h2>Correo de compañer@</h2>            
-         </div>
-      </div>
-      <div class="row">
-         <div class="col-4">
-            <div class="card">
-               <p class="card-text p1-color">
-                  <?php 
-                     $pdo = Database::connect();
-                        $sql4 = 'SELECT * FROM md1_estudiante WHERE matricula = ? ';
-                        $q4 = $pdo->prepare($sql4);
-                        $q4->execute(array($data3['correoCompañero3']));
-                        $data4 = $q4->fetch(PDO::FETCH_ASSOC);
-                        Database::disconnect();
-                     echo $data4['nombre'];
-                  ?>
-               </p>
-            </div>
-         </div>
-         <div class="col-4">
-            <div class="card">
-               <p class="card-text p1-color">
-                  <?php echo $data3['correoCompañero3']."@tec.mx" ?>
-               </p>
-            </div>
-         </div>
-      </div>
-      <?php }?>
-      <?php if ($data3['correoCompañero4'] != NULL){?> 
-      <div class="row">
-         <div class="col-4">
-            <h2>Nombre de compañer@</h2>
-         </div>
-         <div class="col-4">
-            <h2>Correo de compañer@</h2>            
-         </div>
-      </div>
-      <div class="row">
-         <div class="col-4">
-            <div class="card">
-               <p class="card-text p1-color">
-                  <?php 
-                     $pdo = Database::connect();
-                        $sql4 = 'SELECT * FROM md1_estudiante WHERE matricula = ? ';
-                        $q4 = $pdo->prepare($sql4);
-                        $q4->execute(array($data3['correoCompañero4']));
-                        $data4 = $q4->fetch(PDO::FETCH_ASSOC);
-                        Database::disconnect();
-                     echo $data4['nombre'];
-                  ?>
-               </p>
-            </div>
-         </div>
-         <div class="col-4">
-            <div class="card">
-               <p class="card-text p1-color">
-                  <?php echo $data3['correoCompañero4']."@tec.mx" ?>
-               </p>
-            </div>
-         </div>
-      </div>
-      <?php }?>
-   </div>
+      <!-- SCRIPTS -->
+      <script src="js/registro_proyectos.js"></script>      
 </body>
 </html>
