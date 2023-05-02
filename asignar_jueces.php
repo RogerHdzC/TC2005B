@@ -51,21 +51,24 @@
       </nav>
       <br>
       <h1>Asignación de Jurado</h1>
+      <br>
       <form action="asignar_jueces.php" method="POST" id="signup">
-        <input type="submit" class="btn btn-primary" value="Ver jurados actuales" name="actuales">
-        <input type="submit" class="btn btn-primary" value="Asignar de manera manual" name="manual">
+        <input type="submit" class="btn btn-primary btn-jueces" value="Ver jurados actuales" name="actuales">
+        <input type="submit" class="btn btn-primary btn-jueces" value="Asignar de manera manual" name="manual">
         </form>
+      <br>
       <?php
         if(!isset($_POST['aleatoria']) && !isset($_POST['manual'])){?>
           <div class="container">
             <div class="row">
               <div class="col-6">
-                <h1>PROYECTOS</h1>
+                <h1>Proyectos</h1>
               </div>
               <div class="col-6">
-                <h1>JURADOS</h1>
+                <h1>Jueces</h1>
               </div>
             </div>
+            <br>
           <?php foreach ($pdo->query($consulta3) as $colum){?>
             <div class="row">
               <div class="col-6">

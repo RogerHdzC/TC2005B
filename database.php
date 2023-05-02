@@ -3,7 +3,7 @@
 		private static $dbName = 'test_proyecto' ;
 		private static $dbHost = 'localhost' ;
 		private static $dbUsername = 'root';
-		private static $dbUserPassword = '122469';
+		private static $dbUserPassword = '';
 
 		private static $cont  = null;
 

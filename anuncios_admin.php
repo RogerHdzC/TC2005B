@@ -56,10 +56,10 @@
               <div class="col-4 col-4-a">
                 <h4 class="text-center">Escriba el anuncio</h4>
               </div>
-              <div class="col-4 col-4-a">
+              <div class="col-5 col-5-a">
                 <h4 class="text-center">Seleccione imagen a cargar</h4>
               </div>
-              <div class="col-4 col-4-a">
+              <div class="col-3 col-3-a">
                 <h4 class="text-center">Acciones</h4>
               </div>
             </div>
@@ -68,19 +68,19 @@
                     <h2 class="p-a"><b>Escriba el anuncio</b></h2>
                     <textarea class="form-control" aria-label="With textarea" name="anuncio" id="descripInput"></textarea>
                 </div>
-                <div class="col-4">
+                <div class="col-5">
                     <h2 class="p-a"><b>Seleccione imagen a cargar</b></h2>
                     <input type="file" class="form-control" id="image" name="image" multiple>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <h2 class="p-a"><b>Acciones</b></h2>
-                    <button name="subir_imagen" class="btn btn-primary">Cargar anuncio</button>
+                    <button name="subir_imagen" class="btn btn-primary cargar_i">Cargar anuncio</button>
                 </div>
             </div>
         </div>
           
     </form>
-
+    <br>
     <div class="container">
       <div class="row">
         <div class="col-3 col-4-a"><h2><b>Anuncio</b></h2></div>

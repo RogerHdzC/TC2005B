@@ -57,14 +57,17 @@
       <div class="col-12">
     <form name="MiForm" id="MiForm" method="post" action="cargar.php" enctype="multipart/form-data">
           <h4 class="text-center">Seleccione imagen a cargar</h4>
+          <br>
           <div class="form-group">
-            <div class="col-sm-8">
+            <div class="col-sm-4 cargar">
               <input type="file" class="form-control" id="image" name="image" multiple>
             </div>
-            <button name="submit" class="btn btn-primary">Cargar Imagen</button>
+            <br>
+            <button name="submit" class="btn btn-primary cargar_i">Cargar Imagen</button>
           </div>
       </form>
       </div>
+      <br>
     <?php foreach ($pdo->query($consulta) as $colum){?>
       <div class="col-12">
       <img class="img-fluid" src='vista.php?id=<?php echo $colum['id'] ?>' alt='Img blob desde MySQL' width="600" />  
