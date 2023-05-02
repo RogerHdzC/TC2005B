@@ -311,6 +311,19 @@ html {
     text-align: justify;
     padding-right: 35px;
  }
+
+ .card-text{
+    font-size: 20px;
+    padding: 5px;
+
+ }
+
+ .card{
+    font-size: 25px;
+    width: 100%;
+    height: 50%;
+    text-align: center;
+ }
  
  .card-info2{
      width: 100%;
