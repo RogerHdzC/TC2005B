@@ -13,40 +13,48 @@
   $q2->execute(array($_SESSION['docente']));
   $data2 = $q2->fetch(PDO::FETCH_ASSOC);
   Database::disconnect();
-
+echo "\nPARTE 1";
   $id = 0;
+  echo "  ID BEFORE: ".$id;
   if ( !empty($_GET['id'])) {
      $id = base64_decode($_REQUEST['id']);
   }
-
+  echo "  ID AFTER: ".$id;
+  echo "\nPARTE 2\n";
   $user = $_SESSION['docente'];
+  echo $user;
   $rubrica1 = $_POST['pregunta1'];
   $rubrica2 = $_POST['pregunta2'];
   $rubrica3 = $_POST['pregunta3'];
+  $rubrica4 = $_POST['pregunta4'];
+  $rubrica5 = $_POST['pregunta5'];
 
-
+  echo "\n\nPARTE 3";
   
   $pdo = Database::connect();
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
   if ($data2['correo']== $_SESSION['docente']){
-    $sql ="UPDATE `md1_evaluaJurado` SET `rubrica1`= ?, `rubrica2`= ?, `rubrica3`= ? WHERE (idProyecto=? AND idJurado = ?)";
-
+   echo "\nPARTE 4\n\n";
+    $sql ="UPDATE `md1_evaluaJurado` SET `rubrica1`= ?, `rubrica2`= ?, `rubrica3`= ?, `rubrica4`= ?, `rubrica5`= ? WHERE (idProyecto=? AND idJurado = ?)";
+    echo "\n\nR1: ".$rubrica1." | R2: ".$rubrica2." | R3: ".$rubrica3." | R4: ".$rubrica4." | R5: ".$rubrica5." | ID: ".$id." | USER: ".$user."\n\n";
+    echo "\n\nPARTE 4 y MEDIO";
     $q = $pdo->prepare($sql);
-
-    $q->execute(array($rubrica1,$rubrica2,$rubrica3,$id,$user));
-
+    echo "\nPARTE 4 y TRES CUARTOS";
+    $q->execute(array($rubrica1,$rubrica2,$rubrica3,$rubrica4,$rubrica5,$id,$user));
+    echo "\nPARTE 5";
     Database::disconnect();
   }else{
-    $sql ="UPDATE `md1_evaluaDocente` SET `rubrica1`= ?, `rubrica2`= ?, `rubrica3`= ? WHERE (idProyecto=? AND idJurado = ?)";
+   echo "\nPARTE 6";
+    $sql ="UPDATE `md1_evaluaDocente` SET `rubrica1`= ?, `rubrica2`= ?, `rubrica3`= ?, `rubrica4`= ?, `rubrica5`= ? WHERE (idProyecto=? AND idJurado = ?)";
 
     $q = $pdo->prepare($sql);
 
-    $q->execute(array($rubrica1,$rubrica2,$rubrica3,$id,$user));
-
+    $q->execute(array($rubrica1,$rubrica2,$rubrica3,$rubrica4,$rubrica5,$id,$user));
+    echo "\nPARTE 7";
     Database::disconnect();
   }
-  
+  echo "\nPARTE FINAL";
   
 ?>
 <!DOCTYPE html>

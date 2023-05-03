@@ -11,6 +11,8 @@
   $rubrica1 = $_POST['pregunta1'];
   $rubrica2 = $_POST['pregunta2'];
   $rubrica3 = $_POST['pregunta3'];
+  $rubrica4 = $_POST['pregunta4'];
+  $rubrica5 = $_POST['pregunta5'];
   
   $pdo = Database::connect();
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -24,11 +26,11 @@
   if ($q -> rowCount()>0){
     header('Location: ver_proyectos_Admin.php');
   }else{
-    $sql ="INSERT INTO `md1_evaluaAdministrador` (`idJurado`, `idProyecto`, `rubrica1`, `rubrica2`, `rubrica3`) VALUES (?, ?, ? , ?, ?) ";
+    $sql ="INSERT INTO `md1_evaluaAdministrador` (`idJurado`, `idProyecto`, `rubrica1`, `rubrica2`, `rubrica3`, `rubrica4`, `rubrica5`) VALUES (?, ?, ? , ?, ?) ";
   
     $q = $pdo->prepare($sql);
   
-    $q->execute(array($_SESSION['admin'],$id,$rubrica1,$rubrica2,$rubrica3));
+    $q->execute(array($_SESSION['admin'],$id,$rubrica1,$rubrica2,$rubrica3,$rubrica4,$rubrica5));
   
     Database::disconnect();
   }

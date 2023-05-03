@@ -3,9 +3,9 @@ session_start();
 
     //Credenciales Mysql
         $Host = 'localhost';
-        $Username = 'root';
-        $Password = '122469';
-        $dbName = 'test_proyecto';
+        $Username = 'TC2005B_401_1';
+        $Password = 'h9S0#t-B&0PH9rI#';
+        $dbName = 'TC2005B_401_1';
     
         //Crear conexion con la abse de datos
         $db = new mysqli($Host, $Username, $Password, $dbName);

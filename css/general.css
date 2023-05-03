@@ -1,10 +1,16 @@
 html {
     padding-top: 100px;
+    scroll-behavior: smooth;
+    scroll-padding-top: 150px;
  }
  
  .sub_arc {
      width: 400px;
      margin-left: 3.1cm;
+ }
+
+ .calificar h2{
+   font-weight: bold;
  }
 
  a.logout{float: right;}
