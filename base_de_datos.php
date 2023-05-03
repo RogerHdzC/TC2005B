@@ -1,8 +1,8 @@
 <?php
 
-	$contrasena = "122469";
-	$usuario = "root";
-	$nombre_base_de_datos = "test_proyecto";
+	$contrasena = "h9S0#t-B&0PH9rI#";
+	$usuario = "TC2005B_401_1";
+	$nombre_base_de_datos = "TC2005B_401_1";
 
 	try{
 	  $base_de_datos = new PDO('mysql:host=localhost;dbname=' . $nombre_base_de_datos, $usuario, $contrasena);

@@ -1,11 +1,3 @@
-<?php
-  require_once 'restrictedAdmin.php';
-  include 'database.php';
-  $id = 0;
-  if ( !empty($_GET['id'])) {
-    $id = $_REQUEST['id'];
- }
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -28,30 +20,25 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
           <div class="collapse navbar-collapse" id="navbarNav">
-          <a class="navbar-brand" href="pagina_inicio_admin.php">
-          <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
-        </a>
             <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="pagina_inicio_admin.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="ver_usuarios_admin.php">Ver Usuarios</a></li>
+                <li class="nav-item"><a class="nav-link" href="ver_proyectos_Admin.html">Ver Proyectos</a></li>
+                <li class="nav-item"><a class="nav-link" href="sobre_nosotros_admin.html">Sobre Nosotros</a></li>
+                <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_admin.html">Preguntas Frecuentes</a></li>
+                <li class="nav-item"><a class="nav-link" href="historicodatos.html">Historico de Datos</a></li>
+                <li class="nav-item"><a class="nav-link" href="ajustes_admin.html">Ajustes</a></li>
                 
-                <li class="nav-item-admin"><a class="nav-link" href="ver_usuarios_admin.php">Ver Usuarios</a></li>
-                <li class="nav-item-admin"><a class="nav-link" href="ver_proyectos_Admin.php">Ver Proyectos</a></li>
-                <li class="nav-item-admin"><a class="nav-link" href="sobre_nosotros_admin.php">Sobre Nosotros</a></li>
-                <li class="nav-item-admin"><a class="nav-link" href="preguntas_frecuentes_admin.php">Preguntas Frecuentes</a></li>
-                <li class="nav-item-admin"><a class="nav-link" href="historicodatos.php">Historico de Datos</a></li>
-                <li class="nav-item-admin"><a class="nav-link" href="ver_layout_admin.php">Layout</a></li>
-                <li class="nav-item-admin"><a class="nav-link" href="ajustes_admin.php">Ajustes</a></li>
-                
-            </ul>
-            <a class="navbar-brand" href="pagina_inicio_admin.php">
+              </ul>
+            </div>
+            <a class="navbar-brand" href="pagina_inicio_admin.html">
               <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
             </a>
-            </div>
         </div>
       </nav>
       <br>
       <h1>Calificar Proyecto</h1>
       <br></br>
-      <form action="respuestacalificacionAdmin.php?id=<?php echo $id;?>"  method="POST" id="signup" enctype="multipart/form-data">
     <div class="container">
        <div class="row">
             <div class="col-p1-12">
@@ -60,23 +47,23 @@
             <div class="col-p1-12">
                 El proyecto resuelve un problema actual en el área de interés y/o el proyecto da alta prioridad al cliente quien queda ampliamente satisfecho.
             </div>
-            <div class="col-p1-13">
-                Deficiente&emsp; 
+            <div class="col-p1-12">
+                Deficiente 
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="pregunta1" id="inlineRadio1" value="1" required>
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                     <label class="form-check-label" for="inlineRadio1">1</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="pregunta1" id="inlineRadio1" value="2" required>
-                    <label class="form-check-label" for="inlineRadio1">2</label>
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">2</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="pregunta1" id="inlineRadio1" value="3" required>
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                     <label class="form-check-label" for="inlineRadio1">3</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="pregunta1" id="inlineRadio1" value="4" required>
-                    <label class="form-check-label" for="inlineRadio1">4</label>
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">4</label>
                 </div>
                 Excelente
             </div>
@@ -89,22 +76,22 @@
             <div class="col-p1-12">
                 El proyecto presenta una idea nueva e impacta positivamente en el área de interés y/o el producto presenta una idea nueva e incrementa la productividad.
             </div>
-            <div class="col-p1-13">
-                Deficiente&emsp; 
+            <div class="col-p1-12">
+                Deficiente 
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="pregunta2" id="inlineRadio2" value="1">
-                    <label class="form-check-label" for="inlineRadio2">1</label>
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">1</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="pregunta2" id="inlineRadio2" value="2">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
                     <label class="form-check-label" for="inlineRadio2">2</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="pregunta2" id="inlineRadio2" value="3">
-                    <label class="form-check-label" for="inlineRadio2">3</label>
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">3</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="pregunta2" id="inlineRadio2" value="4">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
                     <label class="form-check-label" for="inlineRadio2">4</label>
                 </div>
                 Excelente
@@ -118,31 +105,30 @@
             <div class="col-p1-12">
                 Ausencia de errores técnicos los resultados y/o producto resuelven el problema propuesto.
             </div>
-            <div class="col-p1-13">
-                Deficiente&emsp;  
+            <div class="col-p1-12">
+                Deficiente  
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="pregunta3" id="inlineRadio3" value="1">
-                    <label class="form-check-label" for="inlineRadio3">1</label>
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">1</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="pregunta3" id="inlineRadio3" value="2">
-                    <label class="form-check-label" for="inlineRadio3">2</label>
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">2</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="pregunta3" id="inlineRadio3" value="3">
-                    <label class="form-check-label" for="inlineRadio3">3</label>
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">3</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="pregunta3" id="inlineRadio3" value="4">
-                    <label class="form-check-label" for="inlineRadio3">4</label>
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">4</label>
                 </div>
                 Excelente
             </div>
         </div>
     </div>
     <br></br>
-    <button type="submit" class="btn btn-primary btn-custom btn-p2">Enviar Calificación</button>
+    <button type="button" class="btn btn-primary btn-custom btn-p2" onclick="document.location='respuestacalificacionAdmin.html'">Enviar Calificación</button>
     <br></br>
-    </form>
 </body>
 </html>

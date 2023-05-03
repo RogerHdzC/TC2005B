@@ -30,7 +30,7 @@ $correo = $username . "@" . $server;
 if($server == "tec.mx" && (!is_numeric($username[1]) || $username[0] == "l")){
     $pdo = Database::connect();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql ="SELECT * FROM md1_docente WHERE nomina = ?"; 
+    $sql ="SELECT * FROM md1_docente WHERE nomina = ? AND borrado IS NULL"; 
     $q = $pdo->prepare($sql);
     $q->execute(array($username));
     $data = $q->fetch(PDO::FETCH_ASSOC);
@@ -60,7 +60,7 @@ if($server == "tec.mx" && (!is_numeric($username[1]) || $username[0] == "l")){
 }elseif ($server != "tec.mx"){
     $pdo = Database::connect();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql ="SELECT * FROM md1_jurado WHERE correo = ?"; 
+    $sql ="SELECT * FROM md1_jurado WHERE correo = ? AND borrado IS NULL"; 
     $q = $pdo->prepare($sql);
     $q->execute(array($username . '@' . $server));
     $data = $q->fetch(PDO::FETCH_ASSOC);

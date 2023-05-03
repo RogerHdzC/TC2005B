@@ -27,10 +27,11 @@ $server = strtolower($_POST["server"]) ;
 $password = $_POST["password"];
 $correo = $username . "@" . $server;
 
+
 if($server == "tec.mx" && $username[0] =="a" && is_numeric($username[1])){
     $pdo = Database::connect();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql ="SELECT * FROM md1_estudiante WHERE matricula = ?"; 
+    $sql ="SELECT * FROM md1_estudiante WHERE matricula = ? AND borrado IS NULL "; 
     $q = $pdo->prepare($sql);
     $q->execute(array($username));
     $data = $q->fetch(PDO::FETCH_ASSOC);

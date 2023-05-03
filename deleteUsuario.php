@@ -77,7 +77,7 @@
   </head>
 
   <body>
-    <h3 class="aprobar-title">Eliminar un proyecto</h3>
+    <h3 class="aprobar-title">Eliminar un usuario</h3>
       <div class="container">
         <div class="row">
           <form class="form-horizontal" action="deleteUsuario.php" method="post">

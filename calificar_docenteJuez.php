@@ -80,19 +80,19 @@ if ( !empty($_GET['id'])) {
             <div class="col-p1-13">
                 Deficiente&emsp; 
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="pregunta1" id="inlineRadio1" value="1">
+                    <input class="form-check-input" type="radio" name="pregunta1" id="inlineRadio1" value="1" required>
                     <label class="form-check-label" for="inlineRadio1">1</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="pregunta1" id="inlineRadio1" value="2">
+                    <input class="form-check-input" type="radio" name="pregunta1" id="inlineRadio1" value="2" required>
                     <label class="form-check-label" for="inlineRadio1">2</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="pregunta1" id="inlineRadio1" value="3">
+                    <input class="form-check-input" type="radio" name="pregunta1" id="inlineRadio1" value="3" required>
                     <label class="form-check-label" for="inlineRadio1">3</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="pregunta1" id="inlineRadio1" value="4">
+                    <input class="form-check-input" type="radio" name="pregunta1" id="inlineRadio1" value="4" required>
                     <label class="form-check-label" for="inlineRadio1">4</label>
                 </div>
                 Excelente
