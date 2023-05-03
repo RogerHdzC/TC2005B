@@ -9,6 +9,7 @@ let validComp1 = true;
 let validComp2 = true;
 let validComp3 = true;
 let validComp4 = true;
+let validLider = true;
 
 // Variables por id para modificar etiquetas inluídas en el form de registro
 const nombreProyectoEl = document.querySelector('#nombre_pro');
@@ -32,7 +33,7 @@ const CompLid = document.querySelector('#Lid');
 const emprende1 = document.querySelector('#inlineRadio1');
 const emprende2 = document.querySelector('#inlineRadio2');
 
-const form = document.querySelector('#guardarCambios');
+const form = document.querySelector('#signup');
 
 
 
@@ -58,7 +59,7 @@ const checkComp1 = () => {
       } else {
          // Se manda consulta tipo Ajax al servidor para verificar si el correo ya está registrado
          var xhr = new XMLHttpRequest();
-         xhr.open('POST', 'revisar_registro_proyecto.php', true);
+         xhr.open('POST', 'revisar_registro_proyecto.php', false);
          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
          xhr.onreadystatechange = function() {
             // Se revisa si hubo una respuesta de la consulta Ajax
@@ -92,8 +93,8 @@ const checkComp1 = () => {
 // Función para revisar si la matrícula del primer compañero introducida es válida
 const checkLid = () => {
    // Variables utilizadas para verificar las condiciones
-   validComp1 = false;
-   const etiqueta = Lid;
+   validLider = false;
+   const etiqueta = CompLid;
    const matricula = etiqueta.value.trim();
    const tam = 9;
 
@@ -108,7 +109,7 @@ const checkLid = () => {
       } else {
          // Se manda consulta tipo Ajax al servidor para verificar si el correo ya está registrado
          var xhr = new XMLHttpRequest();
-         xhr.open('POST', 'revisar_registro_proyecto.php', true);
+         xhr.open('POST', 'revisar_registro_proyecto.php', false);
          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
          xhr.onreadystatechange = function() {
             // Se revisa si hubo una respuesta de la consulta Ajax
@@ -118,7 +119,7 @@ const checkLid = () => {
                  if (response.exists) {
                      // El valor existe
                      showSuccess(etiqueta);
-                     validComp1 = true;
+                     validLider = true;
 
                  } else {
                      // El valor NO existe
@@ -132,9 +133,12 @@ const checkLid = () => {
          
       }
    }
+   else if(!isRequired(matricula)){
+      showError(etiqueta, 'La matrícula del líder no puede estar vacía');
+   }
    else {
       removeError(etiqueta);
-      validComp1 = true;
+      validLider = true;
    }
 
 };
@@ -158,7 +162,7 @@ const checkComp2 = () => {
       } else {
          // Se manda consulta tipo Ajax al servidor para verificar si el correo ya está registrado
          var xhr = new XMLHttpRequest();
-         xhr.open('POST', 'revisar_registro_proyecto.php', true);
+         xhr.open('POST', 'revisar_registro_proyecto.php', false);
          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
          xhr.onreadystatechange = function() {
             // Se revisa si hubo una respuesta de la consulta Ajax
@@ -208,7 +212,7 @@ const checkComp3 = () => {
       } else {
          // Se manda consulta tipo Ajax al servidor para verificar si el correo ya está registrado
          var xhr = new XMLHttpRequest();
-         xhr.open('POST', 'revisar_registro_proyecto.php', true);
+         xhr.open('POST', 'revisar_registro_proyecto.php', false);
          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
          xhr.onreadystatechange = function() {
             // Se revisa si hubo una respuesta de la consulta Ajax
@@ -258,7 +262,7 @@ const checkComp4 = () => {
       } else {
           // Se manda consulta tipo Ajax al servidor para verificar si el correo ya está registrado
          var xhr = new XMLHttpRequest();
-         xhr.open('POST', 'revisar_registro_proyecto.php', true);
+         xhr.open('POST', 'revisar_registro_proyecto.php', false);
          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
          xhr.onreadystatechange = function() {
             // Se revisa si hubo una respuesta de la consulta Ajax
@@ -563,6 +567,11 @@ form.addEventListener('submit', function (e) {
    e.preventDefault();
 
    // Campos a validar
+   checkComp1();
+   checkComp2();
+   checkComp3();
+   checkComp4();
+   checkLid();
    let isNombreValid = checkNombreProyecto(),
        isNombreProfValid = checkNombreProf(),
        isAreaValid = checkArea(),
@@ -588,7 +597,8 @@ form.addEventListener('submit', function (e) {
    validComp1 &&
    validComp2 &&
    validComp3 &&
-   validComp4;
+   validComp4 &&
+   validLider;
 
 
    // Se hace submit en caso de que todas las entradas sean válidas
@@ -675,6 +685,9 @@ form.addEventListener('input', debounce(function (e) {
          break;
       case 'Comp4':
          checkComp4();
+         break;
+      case 'Lid':
+         checkLid();
          break;
    }
 }));

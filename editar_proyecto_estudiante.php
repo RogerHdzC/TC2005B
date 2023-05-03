@@ -82,6 +82,9 @@
    <!-- CSS -->
    <link href="css/general.css" rel="stylesheet">
 
+   <!-- Sweet Alert -->
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
    <!-- JS-->
    <title>Editar Proyecto</title>
 </head>
@@ -148,7 +151,7 @@
                         </div>
                         <div class="col-6 col-p2-3">
                            <div class="input-group mb-3">
-                           <select class="form-select" aria-label="Default select example" name ="uf" id="nombreUf" required>
+                           <select class="form-select" aria-label="Default select example" name ="uf" id="nombreUf" >
                      <option value='<?php echo $data['UF'] ?>' selected><?php echo $data3['nombre'] ?></option>
                                  <?php
                                  $pdo = Database::connect();
@@ -189,7 +192,7 @@
                         </div>
                         <div class="col-6 col-p2-3">
                            <div class="input-group mb-3">
-                           <select class="form-select" aria-label="Default select example" name ="edicion" id="edicion" required>
+                           <select class="form-select" aria-label="Default select example" name ="edicion" id="edicion" >
                <option value='<?php echo $data['idEdicion']; ?>' selected><?php echo $data4['fechaInicio']; ?></option>
 		                        <?php
 							   		$pdo = Database::connect();
@@ -293,7 +296,7 @@
                      <div class="col-6 col-p2-3 names">Profesor:</div>
                      <div class="col-6 col-p2-3">
                         <div class="input-group mb-3">
-                        <select class="form-select" aria-label="Default select example" name ="profesor" id="nombreProfesor" required>
+                        <select class="form-select" aria-label="Default select example" name ="profesor" id="nombreProfesor" >
                <option value='<?php 
                if($data2['borrado'] == 1){
                   echo NULL; ?>' selected><?php echo NULL ?></option>
@@ -372,7 +375,7 @@
                      <div class="col-6 col-p1-14 names1">
                         Tiene Componente de Emprendimiento:
                      </div>
-                     <?php if($data['componenteDeEmprendimiento']==1){?>
+                     <?php if($data['componeteDeEmprendimiento']==1){?>
                      <div class="col-6 radioOpts">
                         <div class="form-check form-check-inline" id="radios">
                               <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" checked>
@@ -413,7 +416,7 @@
       
       </form>
 
-      <script src="js/registro_proyectos.js"></script>
+   <script src="js/registro_proyectos.js"></script>
    <script src="js/validacion_edicion.js"></script>
    
 </body>

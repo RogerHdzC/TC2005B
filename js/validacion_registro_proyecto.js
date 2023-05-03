@@ -56,7 +56,7 @@ const checkComp1 = () => {
       } else {
          // Se manda consulta tipo Ajax al servidor para verificar si el correo ya está registrado
          var xhr = new XMLHttpRequest();
-         xhr.open('POST', 'revisar_registro_proyecto.php', true);
+         xhr.open('POST', 'revisar_registro_proyecto.php', false);
          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
          xhr.onreadystatechange = function() {
              // Se revisa si hubo una respuesta de la consulta Ajax
@@ -106,7 +106,7 @@ const checkComp2 = () => {
       } else {
          // Se manda consulta tipo Ajax al servidor para verificar si el correo ya está registrado
          var xhr = new XMLHttpRequest();
-         xhr.open('POST', 'revisar_registro_proyecto.php', true);
+         xhr.open('POST', 'revisar_registro_proyecto.php', false);
          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
          xhr.onreadystatechange = function() {
             // Se revisa si hubo una respuesta de la consulta Ajax
@@ -156,7 +156,7 @@ const checkComp3 = () => {
       } else {
          // Se manda consulta tipo Ajax al servidor para verificar si el correo ya está registrado
          var xhr = new XMLHttpRequest();
-         xhr.open('POST', 'revisar_registro_proyecto.php', true);
+         xhr.open('POST', 'revisar_registro_proyecto.php', false);
          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
          xhr.onreadystatechange = function() {
             // Se revisa si hubo una respuesta de la consulta Ajax
@@ -207,7 +207,7 @@ const checkComp4 = () => {
       } else {
          // Se manda consulta tipo Ajax al servidor para verificar si el correo ya está registrado
          var xhr = new XMLHttpRequest();
-         xhr.open('POST', 'revisar_registro_proyecto.php', true);
+         xhr.open('POST', 'revisar_registro_proyecto.php', false);
          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
          xhr.onreadystatechange = function() {
             // Se revisa si hubo una respuesta de la consulta Ajax
@@ -520,6 +520,10 @@ form.addEventListener('submit', function (e) {
    e.preventDefault();
 
    // Campos a validar
+   checkComp1();
+   checkComp2();
+   checkComp3();
+   checkComp4();
    let isNombreValid = checkNombreProyecto(),
        isNombreProfValid = checkNombreProf(),
        isAreaValid = checkArea(),
