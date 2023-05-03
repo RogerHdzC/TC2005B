@@ -276,6 +276,10 @@ html {
      color:black;
      text-align: center;
  }
+
+ .card-pf {
+    height: 100px;
+ }
  
      /**
          * Proyectos a calificar
@@ -320,14 +324,13 @@ html {
 
  .card-text{
     font-size: 20px;
-    padding: 5px;
+    padding: 1px;
 
  }
 
  .card{
     font-size: 25px;
     width: 100%;
-    height: 50%;
     text-align: center;
  }
  
@@ -476,7 +479,7 @@ html {
         
         .nav-item{
             margin: auto 8px;
-            width: 140px;
+            width: 120px;
         }
 
         .aprobar-title{
