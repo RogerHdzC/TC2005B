@@ -27,19 +27,18 @@
               <a class="navbar-brand" href="pagina_inicio_estudiantes.php">
               <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
             </a>
-            <ul class="navbar-nav">
-                
-                <li class="nav-item"><a class="nav-link" href="registrar_proyecto_estudiante.php">Registrar Proyectos</a></li>
-                <li class="nav-item"><a class="nav-link" href="mis_proyectos_Estudiante.php">Mis proyectos</a></li>
-                <li class="nav-item"><a class="nav-link" href="explorar_proyectos_estudiante.php">Explorar Proyectos</a></li>
-                <li class="nav-item"><a class="nav-link" href="resultados_estudiante.php">Resultados</a></li>
-                <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver mapa</a></li>
-                <li class="nav-item"><a class="nav-link" href="anuncios_estudiantes.php">Anuncios</a></li>
-                <li class="nav-item"><a class="nav-link" href="sobre_nosotros_estudiante.php">Sobre Nosotros</a></li>
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="preguntas_frecuentes_estudiante.php">Preguntas Frecuentes</a></li>
-                <li class="nav-item"><a class="nav-link" href="ajustes_estudiante.php">Ajustes</a></li>
-    
-              </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="registrar_proyecto_estudiante.php">Registrar Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="mis_proyectos_Estudiante.php">Mis Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="explorar_proyectos_estudiante.php">Explorar Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver Mapa</a></li>
+          <li class="nav-item"><a class="nav-link" href="resultados_estudiante.php">Resultados</a></li>
+          <li class="nav-item"><a class="nav-link" href="ver_ganadores_estudiante.php">Ver Ganadores</a></li>
+          <li class="nav-item"><a class="nav-link" href="anuncios_estudiantes.php">Anuncios</a></li>
+          <li class="nav-item"><a class="nav-link" href="sobre_nosotros_estudiante.php">Sobre Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="preguntas_frecuentes_estudiante.php">Preguntas Frecuentes</a></li>
+          <li class="nav-item"><a class="nav-link" href="ajustes_estudiante.php">Ajustes</a></li>
+        </ul>
               <a class="navbar-brand" href="logout.php">
             <img src="img/logout.png" alt="" width="40" height="40">
           </a>
@@ -98,7 +97,7 @@
                 </p>
                 <div class="collapse" id="collapseExample">
                     <div class="card card-body">
-                        Evento realizado cada semestre donde los alumnos de la Escuela de Ingeniería del Tec presentan los mejores proyectos realizados a lo largo del semestre
+                        Evento realizado cada semestre donde los alumnos de la Escuela de Ingeniería del Tec presentan los mejores proyectos realizados a lo largo del semestre.
                     </div>
                 </div>
             <br>
@@ -109,7 +108,7 @@
                 </p>
                 <div class="collapse" id="collapseExample1">
                     <div class="card card-body">
-                        Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                        En el apartado "Registrar Proyecto", ahí encontrarás un formulario de registro el cual llenarás con la información de tu proyecto que se solicite.
                     </div>
                 </div>
             <br>
@@ -119,8 +118,8 @@
                     </a>
                 </p>
                 <div class="collapse" id="collapseExample2">
-                    <div class="card card-body">
-                        Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                    <div class="card card-body card-body">
+                        En el apartado Resultados, podrás ver las calificaciones otorgadas a tu proyecto una vez que haya sido calificado por el jurado correspondiente.
                     </div>
                 </div>
             <br>

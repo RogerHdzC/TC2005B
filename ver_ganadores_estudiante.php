@@ -46,7 +46,6 @@ $consulta4 = "SELECT *,MAX(promedio) FROM md1_proyecto WHERE areaEstrategica = '
           <li class="nav-item"><a class="nav-link" href="sobre_nosotros_estudiante.php">Sobre Nosotros</a></li>
           <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_estudiante.php">Preguntas Frecuentes</a></li>
           <li class="nav-item"><a class="nav-link" href="ajustes_estudiante.php">Ajustes</a></li>
-
         </ul>
         <a class="navbar-brand" href="logout.php">
             <img src="img/logout.png" alt="" width="40" height="40">

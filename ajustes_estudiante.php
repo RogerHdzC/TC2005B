@@ -35,17 +35,18 @@
         <a class="navbar-brand" href="pagina_inicio_estudiantes.php">
         <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
       </a>
-        <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="registrar_proyecto_estudiante.php">Registrar Proyectos</a></li>
-            <li class="nav-item"><a class="nav-link" href="mis_proyectos_Estudiante.php">Mis proyectos</a></li>
-            <li class="nav-item"><a class="nav-link" href="explorar_proyectos_estudiante.php">Explorar Proyectos</a></li>
-            <li class="nav-item"><a class="nav-link" href="resultados_estudiante.php">Resultados</a></li>
-            <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver mapa</a></li>
-            <li class="nav-item"><a class="nav-link" href="anuncios_estudiantes.php">Anuncios</a></li>
-            <li class="nav-item"><a class="nav-link" href="sobre_nosotros_estudiante.php">Sobre Nosotros</a></li>
-            <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_estudiante.php">Preguntas Frecuentes</a></li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="ajustes_estudiante.php">Ajustes</a></li>
-          </ul>
+      <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="registrar_proyecto_estudiante.php">Registrar Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="mis_proyectos_Estudiante.php">Mis Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="explorar_proyectos_estudiante.php">Explorar Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver Mapa</a></li>
+          <li class="nav-item"><a class="nav-link" href="resultados_estudiante.php">Resultados</a></li>
+          <li class="nav-item"><a class="nav-link" href="ver_ganadores_estudiante.php">Ver Ganadores</a></li>
+          <li class="nav-item"><a class="nav-link" href="anuncios_estudiantes.php">Anuncios</a></li>
+          <li class="nav-item"><a class="nav-link" href="sobre_nosotros_estudiante.php">Sobre Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_estudiante.php">Preguntas Frecuentes</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="ajustes_estudiante.php">Ajustes</a></li>
+        </ul>
           <a class="navbar-brand" href="logout.php">
             <img src="img/logout.png" alt="" width="40" height="40">
           </a>

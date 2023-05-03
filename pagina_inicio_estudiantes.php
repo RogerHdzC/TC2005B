@@ -27,17 +27,17 @@
       <a class="navbar-brand" href="pagina_inicio_estudiantes.php">
       <img src="img/375-3752606_homepage-icon-house-logo-png-white.png" alt="" width="40" height="40">
     </a>
-      <ul class="navbar-nav">
+    <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" href="registrar_proyecto_estudiante.php">Registrar Proyectos</a></li>
-          <li class="nav-item"><a class="nav-link" href="mis_proyectos_Estudiante.php">Mis proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="mis_proyectos_Estudiante.php">Mis Proyectos</a></li>
           <li class="nav-item"><a class="nav-link" href="explorar_proyectos_estudiante.php">Explorar Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver Mapa</a></li>
           <li class="nav-item"><a class="nav-link" href="resultados_estudiante.php">Resultados</a></li>
-          <li class="nav-item"><a class="nav-link" href="ver_layout_estudiante.php">Ver mapa</a></li>
+          <li class="nav-item"><a class="nav-link" href="ver_ganadores_estudiante.php">Ver Ganadores</a></li>
           <li class="nav-item"><a class="nav-link" href="anuncios_estudiantes.php">Anuncios</a></li>
           <li class="nav-item"><a class="nav-link" href="sobre_nosotros_estudiante.php">Sobre Nosotros</a></li>
           <li class="nav-item"><a class="nav-link" href="preguntas_frecuentes_estudiante.php">Preguntas Frecuentes</a></li>
           <li class="nav-item"><a class="nav-link" href="ajustes_estudiante.php">Ajustes</a></li>
-
         </ul>
         <a class="navbar-brand" href="logout.php">
             <img src="img/logout.png" alt="" width="40" height="40">
@@ -79,7 +79,7 @@
         <a class="btn btn-primary btn-custom btn-p9" href="explorar_proyectos_estudiante.php" role="button">Explorar Proyectos</a>
       </div>
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p9" href="ver_layout_estudiante.php" role="button">Ver mapa</a>
+        <a class="btn btn-primary btn-custom btn-p9" href="ver_layout_estudiante.php" role="button">Ver Mapa</a>
       </div>
     </div>
     <br>
@@ -88,12 +88,13 @@
         <a class="btn btn-primary btn-custom btn-p9" href="resultados_estudiante.php" role="button">Resultados</a>
       </div>
       <div class="col-6 col-p1-6">
-      <a class="btn btn-primary btn-custom btn-p9" href="anuncios_estudiantes.php" role="button">Anuncios</a>      </div>
+      <a class="btn btn-primary btn-custom btn-p9" href="ver_ganadores_estudiante.php" role="button">Ver Ganadores</a>
+    </div>
     </div>
     <br>
     <div class="row">
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p9" href="preguntas_frecuentes_estudiante.php" role="button">Preguntas Frecuentes</a>
+      <a class="btn btn-primary btn-custom btn-p9" href="anuncios_estudiantes.php" role="button">Anuncios</a>
       </div>
       <div class="col-6 col-p1-6">
         <a class="btn btn-primary btn-custom btn-p9" href="sobre_nosotros_estudiante.php" role="button">Sobre Nosotros</a>
@@ -101,9 +102,12 @@
     </div>
     <br>
     <div class="row">
-      <div class="col">
-        <a class="btn btn-primary btn-custom btn-p9" href="ajustes_estudiante.php" role="button">Ajustes</a>
-        <br></br>      
+      <div class="col-6 col-p1-6">
+        <a class="btn btn-primary btn-custom btn-p9" href="preguntas_frecuentes_estudiante.php" role="button">Preguntas Frecuentes</a>
+      </div>
+      <div class="col-6 col-p1-6">
+      <a class="btn btn-primary btn-custom btn-p9" href="ajustes_estudiante.php" role="button">Ajustes</a>
+        <br></br>  
       </div>
     </div>
     </div>

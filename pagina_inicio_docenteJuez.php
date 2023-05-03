@@ -48,12 +48,13 @@
               <li class="nav-item"><a class="nav-link"  href="proyectosa_calificar.php">Proyectos a Calificar</a></li>
             <?php }?>
             <li class="nav-item"><a class="nav-link"  href="explorar_proyectos_docentejuez.php">Explorar Proyectos</a></li>
-            <li class="nav-item"><a class="nav-link"  href="ver_layout_docenteJuez.php">Ver mapa</a></li>
+            <li class="nav-item"><a class="nav-link"  href="ver_layout_docenteJuez.php">Ver Mapa</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="ver_ganadores_docenteJuez.php">Ver Ganadores</a></li>
             <li class="nav-item"><a class="nav-link" href="anuncios_docenteJuez.php">Anuncios</a></li>
             <li class="nav-item"><a class="nav-link"  href="sobre_nosotros_docenteJuez.php">Sobre Nosotros</a></li>
             <li class="nav-item"><a class="nav-link"  href="preguntas_frecuentes_docenteJuez.php">Preguntas Frecuentes</a></li>
             <li class="nav-item"><a class="nav-link"  href="ajustes_docenteJuez.php">Ajustes</a></li>
-          </ul>
+      </ul>
           <a class="navbar-brand" href="logout.php">
             <img src="img/logout.png" alt="" width="40" height="40">
           </a>
@@ -70,41 +71,41 @@
     <div class="row">
     <?php if($data2['correo']!= $_SESSION['docente']){?>
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p3" href="mis_proyectos_docenteJuez.php" role="button">Mis Proyectos</a>
+        <a class="btn btn-primary btn-custom btn-p9" href="mis_proyectos_docenteJuez.php" role="button">Mis Proyectos</a>
       </div>
       <?php }else{?>
         <div class="col-12 col-p1-6">
       </div>
         <?php } ?>
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p3" href="explorar_proyectos_docentejuez.php" role="button">Explorar Proyectos</a>
+        <a class="btn btn-primary btn-custom btn-p9" href="explorar_proyectos_docentejuez.php" role="button">Explorar Proyectos</a>
       </div>
     </div>
     <br>
     <div class="row">
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p3" href="proyectosa_calificar.php" role="button">Proyectos a Calificar</a>
+        <a class="btn btn-primary btn-custom btn-p9" href="proyectosa_calificar.php" role="button">Proyectos a Calificar</a>
       </div>
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p3" href="ver_layout_docenteJuez.php" role="button">Ver Mapa</a>
-      </div>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p3" href="anuncios_docenteJuez.php" role="button">Anuncios</a>
-      </div>
-      <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p3" href="preguntas_frecuentes_docenteJuez.php" role="button">Preguntas Frecuentes</a>
+        <a class="btn btn-primary btn-custom btn-p9" href="ver_layout_docenteJuez.php" role="button">Ver Mapa</a>
       </div>
     </div>
     <br>
     <div class="row">
       <div class="col-6 col-p1-6">
-      <a class="btn btn-primary btn-custom btn-p3" href="sobre_nosotros_docenteJuez.php" role="button">Sobre Nosotros</a>
+        <a class="btn btn-primary btn-custom btn-p9" href="anuncios_docenteJuez.php" role="button">Anuncios</a>
       </div>
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p3" href="ajustes_docenteJuez.php" role="button">Ajustes</a>
+        <a class="btn btn-primary btn-custom btn-p9" href="preguntas_frecuentes_docenteJuez.php" role="button">Preguntas Frecuentes</a>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-6 col-p1-6">
+      <a class="btn btn-primary btn-custom btn-p9" href="sobre_nosotros_docenteJuez.php" role="button">Sobre Nosotros</a>
+      </div>
+      <div class="col-6 col-p1-6">
+        <a class="btn btn-primary btn-custom btn-p9" href="ajustes_docenteJuez.php" role="button">Ajustes</a>
       </div>
     </div>
     <br>
