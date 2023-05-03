@@ -113,8 +113,8 @@
                   <?php if ($colum['rubrica1'] == NULL) {?>
                   </div>
                   <div class="card-footer">
-                    <a class="btn btn-primary" href="verMas_proyecto_docenteJuez.php?id=<?php echo $colum['id'];?>">Ver más</a>
-                    <a class="btn btn-primary" href="calificar_docenteJuez.php?id=<?php echo $colum['id'];?>">Calificar</a>
+                    <a class="btn btn-primary" href="verMas_proyecto_docenteJuez.php?id=<?php echo base64_encode($colum['id']);?>">Ver más</a>
+                    <a class="btn btn-primary" href="calificar_docenteJuez.php?id=<?php echo base64_encode($colum['id']);?>">Calificar</a>
                   </div>
                     <?php }else{?>
                       <p><b>  YA HAS CALIFICADO ESTE PROYECTO </b></p>
@@ -125,7 +125,7 @@
                       <P>RUBRICA 5: <?php echo $colum['rubrica5'] ?>/4</p>
                     </div>
                     <div class="card-footer">
-                    <a class="btn btn-primary" href="verMas_proyecto_docenteJuez.php?id=<?php echo $colum['id'];?>">Ver más</a>
+                    <a class="btn btn-primary" href="verMas_proyecto_docenteJuez.php?id=<?php echo base64_encode($colum['id']);?>">Ver más</a>
                     </div>       
                     <?php } ?>
               </div>

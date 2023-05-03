@@ -62,24 +62,24 @@
               <div class="card h-100">
                 <?php
                 $rubrica1_1=0;
-                $rubrica2_1=0;
-                $rubrica3_1=0;
-                $rubrica4_1=0;
-                $rubrica5_1=0;
-
-
                 $rubrica1_2=0;
-                $rubrica2_2=0;
-                $rubrica3_2=0;
-                $rubrica4_2=0;
-                $rubrica5_2=0;
-
-
                 $rubrica1_3=0;
+                $rubrica1_4=0;
+                $rubrica1_5=0;
+
+
+                $rubrica2_1=0;
+                $rubrica2_2=0;
                 $rubrica2_3=0;
+                $rubrica2_4=0;
+                $rubrica2_5=0;
+
+
+                $rubrica3_1=0;
+                $rubrica3_2=0;
                 $rubrica3_3=0;
-                $rubrica4_3=0;
-                $rubrica5_3=0;
+                $rubrica3_4=0;
+                $rubrica3_5=0;
                   $pdo = Database::connect();
                   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                   

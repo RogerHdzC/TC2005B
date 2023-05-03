@@ -4,10 +4,11 @@
   $pdo = Database::connect();
 
   $id = 0;
+//  echo "  ID BEFORE: ".$id;
   if ( !empty($_GET['id'])) {
-     $id = $_REQUEST['id'];
+     $id = base64_decode($_REQUEST['id']);
   }
-
+//  echo "  ID AFTER: ".$id;
   $rubrica1 = $_POST['pregunta1'];
   $rubrica2 = $_POST['pregunta2'];
   $rubrica3 = $_POST['pregunta3'];
@@ -20,18 +21,22 @@
   $sql = "SELECT * FROM md1_evaluaAdministrador WHERE idProyecto = ?";
   $q = $pdo->prepare($sql);
   $q->execute(array($id));
+// echo "      SQL:  ".$sql."   ID: ".$id;
 
 
-  if ($q -> rowCount()>0){
-    header('Location: ver_proyectos_Admin.php');
+  if ($q -> rowCount() > 0){
+   $sql ="UPDATE `md1_evaluaAdministrador` SET `rubrica1`= ?, `rubrica2`= ?, `rubrica3`= ?, `rubrica4`= ?, `rubrica5`= ? WHERE (idProyecto=? AND idJurado = ?)";
+    
+   // echo "R: ".$rubrica1."R: ".$rubrica2."R: ".$rubrica3."R: ".$rubrica4."R: ".$rubrica5;
+   // echo "    USUARIO: ".$_SESSION['admin']."     ID: ".$id;
+     $q = $pdo->prepare($sql);
+   
+     $q->execute(array($rubrica1,$rubrica2,$rubrica3,$rubrica4,$rubrica5,$id,$_SESSION['admin']));
+   // echo "PARTE FINAL CORRECTA";
+     Database::disconnect();
   }else{
-    $sql ="INSERT INTO `md1_evaluaAdministrador` (`idJurado`, `idProyecto`, `rubrica1`, `rubrica2`, `rubrica3`, `rubrica4`, `rubrica5`) VALUES (?, ?, ? , ?, ?) ";
-  
-    $q = $pdo->prepare($sql);
-  
-    $q->execute(array($_SESSION['admin'],$id,$rubrica1,$rubrica2,$rubrica3,$rubrica4,$rubrica5));
-  
-    Database::disconnect();
+   // echo "         ---------ERROR------    ";
+   header('Location: ver_proyectos_Admin.php');
   }
   
 ?>

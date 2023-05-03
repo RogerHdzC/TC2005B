@@ -17,7 +17,7 @@
   $id = 0;
 //  echo "  ID BEFORE: ".$id;
   if ( !empty($_GET['id'])) {
-     $id = $_REQUEST['id'];
+     $id = base64_decode($_REQUEST['id']);
   }
 //  echo "  ID AFTER: ".$id;
 //  echo "\nPARTE 2\n";
@@ -37,8 +37,7 @@
   if ($data2['correo']== $_SESSION['docente']){
 //   echo "\nPARTE 4\n\n";
     $sql ="UPDATE `md1_evaluaJurado` SET `rubrica1`= ?, `rubrica2`= ?, `rubrica3`= ?, `rubrica4`= ?, `rubrica5`= ? WHERE (idProyecto=? AND idJurado = ?)";
-//    echo "\n\nR1: ".$rubrica1." | R2: ".$rubrica2." | R3: ".$rubrica3." | R4: ".$rubrica4." | R5: ".$rubrica5." | ID: ".$id." | USER: ".$user."\n\n";
-//    echo "\n\nPARTE 4 y MEDIO";
+
     $q = $pdo->prepare($sql);
 //    echo "\nPARTE 4 y TRES CUARTOS";
     $q->execute(array($rubrica1,$rubrica2,$rubrica3,$rubrica4,$rubrica5,$id,$user));
