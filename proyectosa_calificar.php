@@ -15,9 +15,9 @@
   Database::disconnect();
   $pdo = Database::connect();
   $user = $_SESSION['docente'];
-  $consulta = "SELECT DISTINCT p.nombre,p.descripcion,p.id,e.rubrica1, e.rubrica2, e.rubrica3 FROM md1_evaluaDocente as e, md1_proyecto as p WHERE ('$user'=e.idJurado) AND e.idProyecto = p.id AND p.borrado IS NULL;";
+  $consulta = "SELECT DISTINCT p.nombre,p.descripcion,p.id,e.rubrica1, e.rubrica2, e.rubrica3, e.rubrica4, e.rubrica5 FROM md1_evaluaDocente as e, md1_proyecto as p WHERE ('$user'=e.idJurado) AND e.idProyecto = p.id AND p.borrado IS NULL;";
 
-  $consulta2 = "SELECT DISTINCT p.nombre,p.descripcion,p.id,e.rubrica1, e.rubrica2, e.rubrica3 FROM md1_evaluaJurado as e, md1_proyecto as p WHERE ('$user'=e.idJurado) AND e.idProyecto = p.id AND p.borrado IS NULL;";
+  $consulta2 = "SELECT DISTINCT p.nombre,p.descripcion,p.id,e.rubrica1, e.rubrica2, e.rubrica3, e.rubrica4, e.rubrica5 FROM md1_evaluaJurado as e, md1_proyecto as p WHERE ('$user'=e.idJurado) AND e.idProyecto = p.id AND p.borrado IS NULL;";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -88,6 +88,8 @@
                     <P>RUBRICA 1: <?php echo $colum['rubrica1'] ?>/4</p>
                     <P>RUBRICA 2: <?php echo $colum['rubrica2'] ?>/4</p>
                     <P>RUBRICA 3: <?php echo $colum['rubrica3'] ?>/4</p>
+                    <P>RUBRICA 4: <?php echo $colum['rubrica4'] ?>/4</p>
+                    <P>RUBRICA 5: <?php echo $colum['rubrica5'] ?>/4</p>
                   </div>
                   <div class="card-footer">
                   <a class="btn btn-primary" href="verMas_proyecto_docenteJuez.php?id=<?php echo base64_encode($colum['id']);?>">Ver más</a>
@@ -119,6 +121,8 @@
                       <P>RUBRICA 1: <?php echo $colum['rubrica1'] ?>/4</p>
                       <P>RUBRICA 2: <?php echo $colum['rubrica2'] ?>/4</p>
                       <P>RUBRICA 3: <?php echo $colum['rubrica3'] ?>/4</p>
+                      <P>RUBRICA 4: <?php echo $colum['rubrica4'] ?>/4</p>
+                      <P>RUBRICA 5: <?php echo $colum['rubrica5'] ?>/4</p>
                     </div>
                     <div class="card-footer">
                     <a class="btn btn-primary" href="verMas_proyecto_docenteJuez.php?id=<?php echo $colum['id'];?>">Ver más</a>

@@ -5,7 +5,7 @@
 
   $id = 0;
   if ( !empty($_GET['id'])) {
-     $id = base64_decode($_REQUEST['id']);
+     $id = $_REQUEST['id'];
   }
 
   $rubrica1 = $_POST['pregunta1'];
@@ -20,8 +20,7 @@
   $sql = "SELECT * FROM md1_evaluaAdministrador WHERE idProyecto = ?";
   $q = $pdo->prepare($sql);
   $q->execute(array($id));
-  echo $id;
-  echo $q -> rowCount();
+
 
   if ($q -> rowCount()>0){
     header('Location: ver_proyectos_Admin.php');

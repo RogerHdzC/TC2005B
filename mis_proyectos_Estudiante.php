@@ -64,12 +64,22 @@
                 $rubrica1_1=0;
                 $rubrica2_1=0;
                 $rubrica3_1=0;
+                $rubrica4_1=0;
+                $rubrica5_1=0;
+
+
                 $rubrica1_2=0;
                 $rubrica2_2=0;
                 $rubrica3_2=0;
+                $rubrica4_2=0;
+                $rubrica5_2=0;
+
+
                 $rubrica1_3=0;
                 $rubrica2_3=0;
                 $rubrica3_3=0;
+                $rubrica4_3=0;
+                $rubrica5_3=0;
                   $pdo = Database::connect();
                   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                   
@@ -89,51 +99,77 @@
                     $rubrica1_1=$rubrica1_1 + $colum2['rubrica1'];
                     $rubrica1_2=$rubrica1_2 + $colum2['rubrica2'];
                     $rubrica1_3=$rubrica1_3 + $colum2['rubrica3'];
+                    $rubrica1_4=$rubrica1_4 + $colum2['rubrica4'];
+                    $rubrica1_5=$rubrica1_5 + $colum2['rubrica5'];
                   }
 
                   foreach ($pdo->query($sql2) as $colum2){
                     $rubrica2_1=$rubrica2_1 + $colum2['rubrica1'];
                     $rubrica2_2=$rubrica2_2 + $colum2['rubrica2'];
                     $rubrica2_3=$rubrica2_3 + $colum2['rubrica3'];
+                    $rubrica2_4=$rubrica2_4 + $colum2['rubrica4'];
+                    $rubrica2_5=$rubrica2_5 + $colum2['rubrica5'];
                   }
                   foreach ($pdo->query($sql3) as $colum2){
                     $rubrica3_1=$rubrica3_1 + $colum2['rubrica1'];
                     $rubrica3_2=$rubrica3_2 + $colum2['rubrica2'];
                     $rubrica3_3=$rubrica3_3 + $colum2['rubrica3'];
+                    $rubrica3_4=$rubrica3_4 + $colum2['rubrica4'];
+                    $rubrica3_5=$rubrica3_5 + $colum2['rubrica5'];
                   }
                   
                   if(($q1->rowCount()==1 && $q2->rowCount()==1 && $q3->rowCount()==1)){
                     $rubrica1=round(($rubrica1_1+$rubrica2_1+$rubrica3_1)/3,2);
                     $rubrica2=round(($rubrica1_2+$rubrica2_2+$rubrica3_2)/3,2);
                     $rubrica3=round(($rubrica1_3+$rubrica2_3+$rubrica3_3)/3,2);
+                    $rubrica4=round(($rubrica1_4+$rubrica2_4+$rubrica3_4)/3,2);
+                    $rubrica5=round(($rubrica1_5+$rubrica2_5+$rubrica3_5)/3,2);
+
                   }elseif($q1->rowCount()==1 && $q2->rowCount()==2 && $q3->rowCount()==0){
                     $rubrica1=round(($rubrica1_1+$rubrica2_1)/3,2);
                     $rubrica2=round(($rubrica1_2+$rubrica2_2)/3,2);
                     $rubrica3=round(($rubrica1_3+$rubrica2_3)/3,2);
+                    $rubrica4=round(($rubrica1_4+$rubrica2_4)/3,2);
+                    $rubrica5=round(($rubrica1_5+$rubrica2_5)/3,2);
+
                   }elseif($q1->rowCount()==0 && $q2->rowCount()==3 && $q3->rowCount()==0){
                     $rubrica1=round(($rubrica2_1)/3,2);
                     $rubrica2=round(($rubrica2_2)/3,2);
                     $rubrica3=round(($rubrica2_3)/3,2);
+                    $rubrica4=round(($rubrica2_4)/3,2);
+                    $rubrica5=round(($rubrica2_5)/3,2);
+
                   }elseif($q1->rowCount()==0 && $q2->rowCount()==2 && $q3->rowCount()==1){
                     $rubrica1=round(($rubrica2_1+$rubrica3_1)/3,2);
                     $rubrica2=round(($rubrica2_2+$rubrica3_2)/3,2);
                     $rubrica3=round(($rubrica2_3+$rubrica3_3)/3,2);
+                    $rubrica4=round(($rubrica2_4+$rubrica3_4)/3,2);
+                    $rubrica5=round(($rubrica2_5+$rubrica3_5)/3,2);
+
                   }elseif($q1->rowCount()==0 && $q2->rowCount()==1 && $q3->rowCount()==2){
                     $rubrica1=round(($rubrica2_1+$rubrica3_1)/3,2);
                     $rubrica2=round(($rubrica2_2+$rubrica3_2)/3,2);
                     $rubrica3=round(($rubrica2_3+$rubrica3_3)/3,2);
+                    $rubrica4=round(($rubrica2_4+$rubrica3_4)/3,2);
+                    $rubrica5=round(($rubrica2_5+$rubrica3_5)/3,2);
+
                   }elseif($q1->rowCount()==0 && $q2->rowCount()==0 && $q3->rowCount()==3){
                     $rubrica1=round(($rubrica3_1)/3,2);
                     $rubrica2=round(($rubrica3_2)/3,2);
                     $rubrica3=round(($rubrica3_3)/3,2);
+                    $rubrica4=round(($rubrica3_4)/3,2);
+                    $rubrica5=round(($rubrica3_5)/3,2);
+
                   }elseif($q1->rowCount()==1 && $q2->rowCount()==0 && $q3->rowCount()==2){
                     $rubrica1=round(($rubrica1_1+$rubrica3_1)/3,2);
                     $rubrica2=round(($rubrica1_2+$rubrica3_2)/3,2);
                     $rubrica3=round(($rubrica1_3+$rubrica3_3)/3,2);
+                    $rubrica4=round(($rubrica1_4+$rubrica3_4)/3,2);
+                    $rubrica5=round(($rubrica1_5+$rubrica3_5)/3,2);
                   }
 
                   if (($q1->rowCount() + $q2->rowCount() + $q3->rowCount()) == 3){
-                    $promedio = round(($rubrica1 + $rubrica2 + $rubrica3)/3/4*100,2);
+                    $promedio = round(($rubrica1 + $rubrica2 + $rubrica3 + $rubrica4 + $rubrica5)/5/4*100,2);
                     $pdo = Database::connect();
                     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     $sql5 = "UPDATE `md1_proyecto` SET `promedio` = ? WHERE `md1_proyecto`.`id` = ? ";
@@ -163,10 +199,12 @@
                   <h5 class="card-title"><?php echo $colum['nombre'];?></h5>
                   <p class="card-text"><?php echo $colum ['descripcion'];?></p>
                   <p class="card-text"><?php if($colum['promedio'] != 0) { ?>
-                    <p><?php echo $colum['promedio'];?></p>
-                    <p><?php echo $rubrica1;?>/4</p>
-                    <p><?php echo $rubrica2;?>/4</p>
-                    <p><?php echo $rubrica3;?>/4</p>
+                    <p>PROMEDIO: <?php echo $colum['promedio'];?></p>
+                    <p>RUBRICA 1: <?php echo $rubrica1;?>/4</p>
+                    <p>RUBRICA 2: <?php echo $rubrica2;?>/4</p>
+                    <p>RUBRICA 3: <?php echo $rubrica3;?>/4</p>
+                    <p>RUBRICA 4: <?php echo $rubrica4;?>/4</p>
+                    <p>RUBRICA 5: <?php echo $rubrica5;?>/4</p>
                   <?php }?></p>
                 </div>
                 <div class="card-footer">
