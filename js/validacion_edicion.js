@@ -103,7 +103,7 @@ const checkLid = () => {
       if (matricula.length != tam) {
          showError(etiqueta, `La Matrícula debe de ser de ${tam} caracteres`)
 
-      } else if (areEqualsComp1(matricula)){
+      } else if (areEqualsCompLid(matricula)){
          showError(etiqueta, `No puedes tener compañeros repetidos`)
          
       } else {
@@ -472,10 +472,11 @@ const isBigger = (length, min) => length < min ? false : true;
 const isBetween = (length, min, max) => length < min || length > max ? false : true;
 
 // En las siguientes funciones se verifican diversos casos para revisar que no existan matrículas repetidas
-const areEqualsComp1 = matricula => matricula == Comp2El.value.trim() || matricula == Comp3El.value.trim() || matricula == Comp4El.value.trim() ? true : false;
-const areEqualsComp2 = matricula => matricula == Comp1El.value.trim() || matricula == Comp3El.value.trim() || matricula == Comp4El.value.trim() ? true : false;
-const areEqualsComp3 = matricula => matricula == Comp2El.value.trim() || matricula == Comp1El.value.trim() || matricula == Comp4El.value.trim() ? true : false;
-const areEqualsComp4 = matricula => matricula == Comp2El.value.trim() || matricula == Comp3El.value.trim() || matricula == Comp1El.value.trim() ? true : false;
+const areEqualsComp1 = matricula => matricula == Comp2El.value.trim() || matricula == Comp3El.value.trim() || matricula == Comp4El.value.trim() || CompLid.value.trim() ? true : false;
+const areEqualsComp2 = matricula => matricula == Comp1El.value.trim() || matricula == Comp3El.value.trim() || matricula == Comp4El.value.trim() || CompLid.value.trim() ? true : false;
+const areEqualsComp3 = matricula => matricula == Comp2El.value.trim() || matricula == Comp1El.value.trim() || matricula == Comp4El.value.trim() || CompLid.value.trim() ? true : false;
+const areEqualsComp4 = matricula => matricula == Comp2El.value.trim() || matricula == Comp3El.value.trim() || matricula == Comp1El.value.trim() || CompLid.value.trim() ? true : false;
+const areEqualsCompLid = matricula => matricula == Comp2El.value.trim() || matricula == Comp3El.value.trim() || matricula == Comp1El.value.trim() || Comp4El.value.trim() ? true : false;
 
 
 
