@@ -45,7 +45,24 @@ if($server == "tec.mx" && $username[0] =="a" && is_numeric($username[1])){
             
         }
         
-    } else{?>
+    } elseif($q->rowCount() > 0){
+      ?>
+      <div class="alert alert-danger d-flex align-items-center" role="alert">
+      <div>
+      Verifica tu cuenta a través del mensaje de confirmación que se envió a tu correo
+      </div>
+      </div>
+      <div class="container">
+      <br>
+      <br>
+      <a href='registro.html'><button type='button' class='btn btn-primary btn-custom btn-p3'>Registrarme</button></a> 
+      <br>
+      <br>
+      <a href="inicio_sesion_estudiante.html"><button type="button" class="btn btn-primary btn-custom btn-p3">Intentar de nuevo</button></a>
+      </div>
+  <?php 
+    }
+    else{?>
         <div class="alert alert-danger d-flex align-items-center" role="alert">
         <div>
         No tienes una cuenta registrada con este correo, intenta de nuevo o registrate

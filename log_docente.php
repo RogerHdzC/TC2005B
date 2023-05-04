@@ -42,7 +42,25 @@ if($server == "tec.mx" && (!is_numeric($username[1]) || $username[0] == "l")){
         }else{
             header('Location:inicio_sesion_docentezjuez.html');     
         }
-    } else{?>
+    } 
+    elseif($q->rowCount() > 0){
+      ?>
+      <div class="alert alert-danger d-flex align-items-center" role="alert">
+      <div>
+      Verifica tu cuenta a través del mensaje de confirmación que se envió a tu correo
+      </div>
+      </div>
+      <div class="container">
+      <br>
+      <br>
+      <a href='registro.html'><button type='button' class='btn btn-primary btn-custom btn-p3'>Registrarme</button></a> 
+      <br>
+      <br>
+      <a href="inicio_sesion_estudiante.html"><button type="button" class="btn btn-primary btn-custom btn-p3">Intentar de nuevo</button></a>
+      </div>
+  <?php
+    }
+    else{?>
         <div class="alert alert-danger d-flex align-items-center" role="alert">
             <div>
             No tienes una cuenta registrada con este correo, intenta de nuevo o registrate
@@ -64,7 +82,7 @@ if($server == "tec.mx" && (!is_numeric($username[1]) || $username[0] == "l")){
     $q = $pdo->prepare($sql);
     $q->execute(array($username . '@' . $server));
     $data = $q->fetch(PDO::FETCH_ASSOC);
-    if ($q->rowCount() > 0 && $data['confirmado'] == 1){
+    if ($q->rowCount() > 0 && $data['confirmado'] == 1 && $data['correoConfirmado'] == 1){
         if (password_verify($password, $data['contraseña'])){            
             session_start();
             $_SESSION['docente'] = $data['correo'];
@@ -72,11 +90,48 @@ if($server == "tec.mx" && (!is_numeric($username[1]) || $username[0] == "l")){
         }else{
             header('Location:inicio_sesion_docentezjuez.html');     
         }
-    } else{?>
+    } 
+    elseif($q->rowCount() > 0 && $data['confirmado'] == 1){
+      ?>
+      <div class="alert alert-danger d-flex align-items-center" role="alert">
+          <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+          <div>
+          Verifica tu cuenta a través del mensaje de confirmación que se envió a tu correo
+          </div>
+      </div>
+      <div class="container">
+          <br>
+          <br>
+          <a href='registro.html'><button type='button' class='btn btn-primary btn-custom btn-p3'>Registrarme</button></a> 
+          <br>
+          <br>
+          <a href="inicio_sesion_docentejuez.html"><button type="button" class="btn btn-primary btn-custom btn-p3">Intentar de nuevo</button></a>
+      </div>
+ <?php 
+    }
+    elseif($q->rowCount() > 0 && $data['correoConfirmado'] == 1){
+      ?>
+      <div class="alert alert-danger d-flex align-items-center" role="alert">
+          <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+          <div>
+          Contacta al Administrador del evento para corroborar que tu correo haya sido verificado por él
+          </div>
+      </div>
+      <div class="container">
+          <br>
+          <br>
+          <a href='registro.html'><button type='button' class='btn btn-primary btn-custom btn-p3'>Registrarme</button></a> 
+          <br>
+          <br>
+          <a href="inicio_sesion_docentejuez.html"><button type="button" class="btn btn-primary btn-custom btn-p3">Intentar de nuevo</button></a>
+      </div>
+ <?php 
+    }
+    else{?>
         <div class="alert alert-danger d-flex align-items-center" role="alert">
             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
             <div>
-                Corrobora si ya confirmaste tu correo y si ya has sido aceptado por el administrado, intenta de nuevo o registrate
+            No tienes una cuenta registrada con este correo, intenta de nuevo o registrate
             </div>
         </div>
         <div class="container">
