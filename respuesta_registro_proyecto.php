@@ -2,47 +2,48 @@
   require_once 'restrictedEstudiante.php';
   include 'database.php';
 $nombre = $_POST["nombre"] ;
-echo $nombre;
+// echo $nombre;
 $uf = $_POST["uf"];
-echo $uf;
+// echo $uf;
 $area = $_POST["area"];
-echo $area;
+// echo $area;
 $descripcion= $_POST["descripcion"];
-echo $descripcion;
+// echo $descripcion;
 $correoLider = $_SESSION['username'];
-echo $correoLider;
+// echo $correoLider;
 $compañero1 = !empty($_POST["compañero1"]) ? $_POST["compañero1"]:NULL;
-echo $compañero1 . "PENDEJO";
+// echo $compañero1;
 
 $compañero2 = !empty($_POST["compañero2"]) ? $_POST["compañero2"]:NULL;
-echo $compañero2;
+// echo $compañero2;
 
 $compañero3 = !empty($_POST["compañero3"]) ? $_POST["compañero3"]:NULL;
-echo $compañero3;
+// echo $compañero3;
 
 $compañero4 = !empty($_POST["compañero4"]) ? $_POST["compañero4"]:NULL;
-echo $compañero4;
+// echo $compañero4;
 
 $correoProfesor = $_POST["profesor"];
-echo $correoProfesor;
+// echo $correoProfesor;
 $nivel = $_POST["nivel"];
-echo $nivel;
+// echo $nivel;
 $emprendimiento = $_POST["inlineRadioOptions"];
-echo $emprendimiento;
+// echo $emprendimiento;
 $edicion = $_POST["edicion"];
-echo $edicion;
+// echo $edicion;
 $video = $_POST["video"];
-echo $video;
+// echo $video;
 $pdf =$_POST["pdf"];
-echo $pdf;
+// echo $pdf;
 $promedio = 0;
 $autorizado = 0;
-$id = 0;
+$id = -1;
 if ( !empty($_GET['id'])) {
    $id = $_REQUEST['id'];
 }
-
-if (isset($_POST['guardarCambios'])){
+echo $id;
+echo $_POST['guardarCambios'];
+if ($id != -1){
   echo "aqui entre";
   $pdo = Database::connect();
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -58,30 +59,30 @@ if (isset($_POST['guardarCambios'])){
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   $sql ="INSERT INTO md1_proyecto (nombre,UF,areaEstrategica,descripcion,correoLider,correoCompañero1,correoCompañero2,correoCompañero3,correoCompañero4,correoProfesor,nivel,promedio,componeteDeEmprendimiento,idEdicion,autorizado,pdf,video)
   VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
-  echo "hola";
+  // echo "hola";
   $q = $pdo->prepare($sql);
   $q->execute(array($nombre,$uf,$area,$descripcion,$correoLider,$compañero1,$compañero2,$compañero3,$compañero4,$correoProfesor,$nivel,$promedio,$emprendimiento,$edicion,$autorizado,$pdf,$video));
   
-  echo "hola2";
+  // echo "hola2";
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  echo "hola3";
+  // echo "hola3";
   $sql ="SELECT * FROM `md1_ensena` WHERE `idProfesor` = ? AND `idUf`= ?";
-  echo "hola4";
+  // echo "hola4";
   $q = $pdo->prepare($sql);
-  echo "hola5";
+  // echo "hola5";
   $q->execute(array($correoProfesor,$uf));
-  echo "aqui falla";
+  // echo "aqui falla";
   if ($q->rowCount()>0){
 
   }else{
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "hola3";
+    // echo "hola3";
     $sql ="INSERT INTO `md1_ensena` (`idProfesor`, `idUf`) VALUES (?, ?) ";
-    echo "hola4";
+    // echo "hola4";
     $q = $pdo->prepare($sql);
-    echo "hola5";
+    // echo "hola5";
     $q->execute(array($correoProfesor,$uf));
-    echo "aqui falla";
+    // echo "aqui falla";
   }
 
   header('Location: pagina_inicio_estudiantes.php');  
