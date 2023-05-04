@@ -3,7 +3,7 @@
   include 'database.php';
   $pdo = Database::connect();
   $consulta2 = "SELECT * FROM md1_administrador";
-  $consulta3 = "SELECT * FROM md1_proyecto";
+  $consulta3 = "SELECT * FROM md1_proyecto WHERE borrado IS NULL";
 ?>
 <!DOCTYPE html>
 <html lang="es">
