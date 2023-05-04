@@ -4,7 +4,7 @@
   $matricula = $_SESSION["username"];
   $pdo = Database::connect();
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $sql = "SELECT * FROM md1_proyecto (WHERE autorizado=1 AND promedio) != 0 AND (correoLider = '$matricula' OR correoCompañero1 = '$matricula' OR correoCompañero2 = '$matricula' OR correoCompañero3 = '$matricula' OR correoCompañero4 = '$matricula') AND borrado IS NULL";
+  $sql = "SELECT * FROM md1_proyecto WHERE autorizado=1 AND promedio != 0 AND (correoLider = '$matricula' OR correoCompañero1 = '$matricula' OR correoCompañero2 = '$matricula' OR correoCompañero3 = '$matricula' OR correoCompañero4 = '$matricula') AND borrado IS NULL";
   Database::disconnect();
 
 ?>
