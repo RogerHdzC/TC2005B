@@ -49,8 +49,8 @@
             <?php }?>
             <li class="nav-item"><a class="nav-link"  href="explorar_proyectos_docentejuez.php">Explorar Proyectos</a></li>
             <li class="nav-item"><a class="nav-link"  href="ver_layout_docenteJuez.php">Ver Mapa</a></li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="ver_ganadores_docenteJuez.php">Ver Ganadores</a></li>
-            <li class="nav-item"><a class="nav-link" href="anuncios_docenteJuez.php">Anuncios</a></li>
+            <li class="nav-item"><a class="nav-link"  href="ver_ganadores_docenteJuez.php">Ver Ganadores</a></li>
+            <li class="nav-item"><a class="nav-link"  href="anuncios_docenteJuez.php">Anuncios</a></li>
             <li class="nav-item"><a class="nav-link"  href="sobre_nosotros_docenteJuez.php">Sobre Nosotros</a></li>
             <li class="nav-item"><a class="nav-link"  href="preguntas_frecuentes_docenteJuez.php">Preguntas Frecuentes</a></li>
             <li class="nav-item"><a class="nav-link"  href="ajustes_docenteJuez.php">Ajustes</a></li>
