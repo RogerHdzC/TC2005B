@@ -85,7 +85,7 @@
                         </div>
                         <div class="card-footer">
                         <p class="card-text p1-color"><?php  echo $colum['descripcion']; ?></p>
-                        <a class="btn btn-primary" href="verMas_proyecto_admin.php?id=<?php echo base64_encode($colum['id']);?>">Ver más</a>
+                        <a class="btn btn-primary" href="verMas_proyecto_docenteJuez.php?id=<?php echo base64_encode($colum['id']);?>">Ver más</a>
                         </div>
                     </div>
                     <?php } ?>
@@ -103,7 +103,7 @@
                         </div>
                         <div class="card-footer">
                         <p class="card-text p1-color"><?php  echo $colum['descripcion']; ?></p>
-                        <a class="btn btn-primary" href="verMas_proyecto_admin.php?id=<?php echo base64_encode($colum['id']);?>">Ver más</a>
+                        <a class="btn btn-primary" href="verMas_proyecto_docenteJuez.php?id=<?php echo base64_encode($colum['id']);?>">Ver más</a>
                         </div>
                     </div>
                     </div>
@@ -122,7 +122,7 @@
                         </div>
                         <div class="card-footer">
                         <p class="card-text p1-color"><?php  echo $colum['descripcion']; ?></p>
-                        <a class="btn btn-primary" href="verMas_proyecto_admin.php?id=<?php echo base64_encode($colum['id']);?>">Ver más</a>
+                        <a class="btn btn-primary" href="verMas_proyecto_docenteJuez.php?id=<?php echo base64_encode($colum['id']);?>">Ver más</a>
                         </div>
                     </div>
                     <?php } ?>
@@ -141,7 +141,7 @@
                         </div>
                         <div class="card-footer">
                         <p class="card-text p1-color"><?php  echo $colum['descripcion']; ?></p>
-                        <a class="btn btn-primary" href="verMas_proyecto_admin.php?id=<?php echo base64_encode($colum['id']);?>">Ver más</a>
+                        <a class="btn btn-primary" href="verMas_proyecto_docenteJuez.php?id=<?php echo base64_encode($colum['id']);?>">Ver más</a>
                         </div>
                     </div>
                     <?php } ?>

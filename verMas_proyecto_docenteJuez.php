@@ -1,6 +1,18 @@
 <?php
   require_once 'restrictedDocenteJuez.php';
   include 'database.php';
+  $pdo = Database::connect();
+  $sql = 'SELECT * FROM md1_docente WHERE nomina = ? ';
+  $q = $pdo->prepare($sql);
+  $q->execute(array($_SESSION['docente']));
+  $data = $q->fetch(PDO::FETCH_ASSOC);
+  Database::disconnect();
+  $pdo = Database::connect();
+  $sql2 = 'SELECT * FROM md1_jurado WHERE correo = ? ';
+  $q2 = $pdo->prepare($sql2);
+  $q2->execute(array($_SESSION['docente']));
+  $data2 = $q2->fetch(PDO::FETCH_ASSOC);
+  Database::disconnect();
 
             $id = 0;
             if ( !empty($_GET['id'])) {

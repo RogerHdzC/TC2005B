@@ -70,7 +70,7 @@ $consulta4 = "SELECT *,MAX(promedio) FROM md1_proyecto WHERE areaEstrategica = '
                         </div>
                         <div class="card-footer">
                         <p class="card-text p1-color"><?php  echo $colum['descripcion']; ?></p>
-                        <a class="btn btn-primary" href="verMas_proyecto_admin.php?id=<?php echo base64_encode($colum['id']);?>">Ver más</a>
+                        <a class="btn btn-primary" href="verMas_proyecto_estudiante.php?id=<?php echo base64_encode($colum['id']);?>">Ver más</a>
                         </div>
                     </div>
                     <?php } ?>
@@ -88,7 +88,7 @@ $consulta4 = "SELECT *,MAX(promedio) FROM md1_proyecto WHERE areaEstrategica = '
                         </div>
                         <div class="card-footer">
                         <p class="card-text p1-color"><?php  echo $colum['descripcion']; ?></p>
-                        <a class="btn btn-primary" href="verMas_proyecto_admin.php?id=<?php echo base64_encode($colum['id']);?>">Ver más</a>
+                        <a class="btn btn-primary" href="verMas_proyecto_estudiante.php?id=<?php echo base64_encode($colum['id']);?>">Ver más</a>
                         </div>
                     </div>
                     </div>
@@ -107,7 +107,7 @@ $consulta4 = "SELECT *,MAX(promedio) FROM md1_proyecto WHERE areaEstrategica = '
                         </div>
                         <div class="card-footer">
                         <p class="card-text p1-color"><?php  echo $colum['descripcion']; ?></p>
-                        <a class="btn btn-primary" href="verMas_proyecto_admin.php?id=<?php echo base64_encode($colum['id']);?>">Ver más</a>
+                        <a class="btn btn-primary" href="verMas_proyecto_estudiante.php?id=<?php echo base64_encode($colum['id']);?>">Ver más</a>
                         </div>
                     </div>
                     <?php } ?>
@@ -126,7 +126,7 @@ $consulta4 = "SELECT *,MAX(promedio) FROM md1_proyecto WHERE areaEstrategica = '
                         </div>
                         <div class="card-footer">
                         <p class="card-text p1-color"><?php  echo $colum['descripcion']; ?></p>
-                        <a class="btn btn-primary" href="verMas_proyecto_admin.php?id=<?php echo base64_encode($colum['id']);?>">Ver más</a>
+                        <a class="btn btn-primary" href="verMas_proyecto_estudiante.php?id=<?php echo base64_encode($colum['id']);?>">Ver más</a>
                         </div>
                     </div>
                     <?php } ?>
