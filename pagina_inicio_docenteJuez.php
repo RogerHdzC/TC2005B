@@ -78,13 +78,13 @@
       </div>
         <?php } ?>
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p9" href="explorar_proyectos_docentejuez.php" role="button">Explorar Proyectos</a>
+      <a class="btn btn-primary btn-custom btn-p9" href="proyectosa_calificar.php" role="button">Proyectos a Calificar</a>
       </div>
     </div>
     <br>
     <div class="row">
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p9" href="proyectosa_calificar.php" role="button">Proyectos a Calificar</a>
+      <a class="btn btn-primary btn-custom btn-p9" href="explorar_proyectos_docentejuez.php" role="button">Explorar Proyectos</a>
       </div>
       <div class="col-6 col-p1-6">
         <a class="btn btn-primary btn-custom btn-p9" href="ver_layout_docenteJuez.php" role="button">Ver Mapa</a>
@@ -93,10 +93,10 @@
     <br>
     <div class="row">
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p9" href="anuncios_docenteJuez.php" role="button">Anuncios</a>
+      <a class="btn btn-primary btn-custom btn-p9" href="ver_ganadores_docenteJuez.php" role="button">Ver Ganadores</a>
       </div>
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p9" href="preguntas_frecuentes_docenteJuez.php" role="button">Preguntas Frecuentes</a>
+      <a class="btn btn-primary btn-custom btn-p9" href="anuncios_docenteJuez.php" role="button">Anuncios</a>
       </div>
     </div>
     <br>
@@ -105,10 +105,15 @@
       <a class="btn btn-primary btn-custom btn-p9" href="sobre_nosotros_docenteJuez.php" role="button">Sobre Nosotros</a>
       </div>
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p9" href="ajustes_docenteJuez.php" role="button">Ajustes</a>
+      <a class="btn btn-primary btn-custom btn-p9" href="preguntas_frecuentes_docenteJuez.php" role="button">Preguntas Frecuentes</a>
       </div>
     </div>
     <br>
+    <div class="row">
+      <div class="col">
+      <a class="btn btn-primary btn-custom btn-p9" href="ajustes_docenteJuez.php" role="button">Ajustes</a>
+      </div>
+    </div>
     </div>
   </div>
 </div>
