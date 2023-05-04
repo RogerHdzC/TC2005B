@@ -146,7 +146,7 @@
                   <div class="row">
                      <div class="separation questionMark" id='compañero'>&quest;</div>
                         <div class="col-6 col-p2-3 names">
-                           Matrícula de Compañero:
+                           Matrícula de Compañer@:
                         </div>
                         <div class="col-6 col-p2-3">
                            <div class="input-group mb-3">
@@ -158,7 +158,7 @@
                   <div class="row">
                      <div class="separation"></div>
                      <div class="col-6 col-p2-3 names">
-                        Matrícula de Compañero:
+                        Matrícula de Compañer@:
                      </div>
                      <div class="col-6 col-p2-3">
                         <div class="input-group mb-3">
@@ -170,7 +170,7 @@
                   <div class="row">
                      <div class="separation"></div>
                      <div class="col-6 col-p2-3 names">
-                     Matrícula de Compañero:
+                     Matrícula de Compañer@:
                      </div>
                      <div class="col-6 col-p2-3">
                         <div class="input-group mb-3">
@@ -182,7 +182,7 @@
                   <div class="row">
                      <div class="separation"></div>
                      <div class="col-6 col-p2-3 names">
-                       Matrícula de Compañero:
+                       Matrícula de Compañer@:
                      </div>
                      <div class="col-6 col-p2-3">
                         <div class="input-group mb-3">
