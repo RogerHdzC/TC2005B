@@ -31,8 +31,9 @@
         </a>
         <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="ver_usuarios_admin.php">Ver Usuarios</a></li>
-            <li class="nav-item"><a class="nav-link" href="asignar_jueces.php">Asignar Jueces</a></li>
             <li class="nav-item"><a class="nav-link" href="ver_proyectos_Admin.php">Ver Proyectos</a></li>
+            <li class="nav-item"><a class="nav-link" href="asignar_jueces.php">Asignar Jueces</a></li>
+            <li class="nav-item"><a class="nav-link" href="ver_ganadores_admin.php">Ver Ganadores</a></li>
             <li class="nav-item"><a class="nav-link" href="historicodatos.php">Historico de Datos</a></li>
             <li class="nav-item"><a class="nav-link" href="ver_layout_admin.php">Mapa</a></li>
             <li class="nav-item"><a class="nav-link" href="anuncios_admin.php">Anuncios</a></li>
@@ -67,25 +68,23 @@
       
       </div>
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p9" href="ver_layout_admin.php" role="button">Ver mapa</a>
-        
+        <a class="btn btn-primary btn-custom btn-p9" href="ver_ganadores_admin.php" role="button">Ver Ganadores</a>
       </div>
     </div>
     <br>
     <div class="row">
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p9" href="historicodatos.php" role="button">Descargar Histórico de Datos</a>
+        <a class="btn btn-primary btn-custom btn-p9" href="historicodatos.php" role="button">Histórico de Datos</a>  
       </div>
       <div class="col-6 col-p1-6">
-        <a class="btn btn-primary btn-custom btn-p9" href="anuncios_admin.php" role="button">Anuncios</a>
-        
+        <a class="btn btn-primary btn-custom btn-p9" href="ver_layout_admin.php" role="button">Mapa</a>    
       </div>
     </div>
     <br>
 
     <div class="row">
     <div class="col-6 col-p1-6">
-    <a class="btn btn-primary btn-custom btn-p9" href="preguntas_frecuentes_admin.php" role="button">Preguntas Frecuentes</a>
+    <a class="btn btn-primary btn-custom btn-p9" href="anuncios_admin.php" role="button">Anuncios</a>
       </div>
       <div class="col-6 col-p1-6">
         <a class="btn btn-primary btn-custom btn-p9" href="sobre_nosotros_admin.php" role="button">Sobre Nosotros</a>
@@ -93,7 +92,10 @@
     </div>
     <br>
     <div class="row">
-      <div class="col">
+      <div class="col-6 col-p1-6">
+      <a class="btn btn-primary btn-custom btn-p9" href="preguntas_frecuentes_admin.php" role="button">Preguntas Frecuentes</a>
+      </div>
+      <div class="col-6 col-p1-6">
       <a class="btn btn-primary btn-custom btn-p9" href="ajustes_admin.php" role="button">Ajustes</a>
       </div>
     </div>
